@@ -1,0 +1,77 @@
+%
+% Latex-Template for student projects conducted at the Laboratory of Composite Materials and Adaptive Structures - CMAS, ETH Zürich
+% 
+% FILE NAME:  BA,SA,MA_FirstName_Name.tex
+%
+% CONTENT:    Main file for student project
+%
+% SOFTWARE:   Mit pdfLaTeX kompilieren
+%
+% HISTORY:    written by Christian Loosli & Claudia Thurnherr, 03/02/2015
+
+\usepackage[german, english]{babel}
+
+\usepackage[left=2.5 cm,right=2.5 cm,top=2.5 cm,bottom=1.7cm,bindingoffset=0.6cm]{geometry} % customized edges + offset for binding 
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{lmodern}                            % Latin Modern font
+\usepackage[T1]{fontenc}
+\renewcommand{\familydefault}{\sfdefault}  
+
+% Packages  
+\usepackage{caption}
+\usepackage{subcaption}                         % Needed to use subfigures
+\usepackage{pdfpages}                           % Needed to include of pdf-files
+\usepackage{graphicx}                           % Needed to include graphics
+\usepackage{float}                              % Needed to define graphics 
+\usepackage{tikz}								% Flow charts
+\usetikzlibrary{shapes,arrows}                  % Arrows in Flow charts
+\usepackage{paralist, tabularx}                 % Listing in compact way 
+\usepackage{gensymb}                            % symbols like degree or ä and so on
+\usepackage[ngerman]{datetime}                  % Date in German design
+\usepackage{amsmath}                            % Math symbols
+\usepackage{xfrac}								% To allow line break in text 
+
+% \usepackage{nomencl}                            % Package for abbreviations. In order to use it the compilation need to be reconfigured in options to renew a .nls-file before compiling.
+% \makenomenclature
+
+\usepackage{longtable}	% Large tables that can continue over more than one page
+
+\usepackage{fancyhdr}
+\restylefloat{figure}
+\setcounter{topnumber}{4}	% Allow several pictures per side 
+\setcounter{bottomnumber}{4}
+\setcounter{totalnumber}{4}
+\renewcommand{\textfraction}{0} 
+\addtokomafont{caption}{\small}   % small caption
+
+\usepackage{settings/cmasthesis_1}    % Use CMAS-format 
+
+\newdateformat{digitsdate}{\twodigit{\THEDAY}.\twodigit{\THEMONTH}.\THEYEAR} % Format of the date for title page 
+
+\pagestyle{fancy}                      % defintion of the header 
+\setlength{\headwidth}{\textwidth}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\fancyhead{}
+\rhead[\nouppercase{\rightmark}]{\thepage}
+\lhead[\thepage]{\nouppercase{\rightmark}}
+\fancyfoot{}                                   % defintion of the footer 
+
+% Specification of the project:
+%
+% Type of the thesis
+% 
+%\renewcommand{\cmasthesistype}{Bachelor's}
+% \renewcommand{\cmasthesistype}{Semester}
+\renewcommand{\cmasthesistype}{Master's}
+
+% Reference number of the project 
+% 
+\renewcommand{\cmasthesisnumber}{15-000}
+
+% -----------------------------------------------------------------------------------------------------------------------------------------
+% Names of the author and the advisor(s)
+% 
+\renewcommand{\cmasauthor}{Alejandro Valverde L\'opez} %First name name
+\renewcommand{\cmasadvisor}{Falk Runkel} %Dr. first name, name

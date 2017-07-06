@@ -1,0 +1,59 @@
+% PhD thesis LaTeX file developed by Steve Hobbs based on that used by Cedric Seynat for a Cranfield University thesis.
+
+% The actual thesis text is mostly contained in several separate .tex files (one per
+% chapter typically) which are included when needed.  Most of the \include{...}
+% commands are commented out here and during writing.
+
+% The sample chapters introduction.tex and appendixB.tex are available and are used for illustration here.
+
+% The following files are also used:
+%       cover&title.tex
+%       abstract&acknowledgements.tex
+%       acronyms.tex
+%       biblio.bib
+
+% STATUS OF THIS FILE
+
+% 13.00, 10 Apr 2006    Added Cranfield University logo to the front title page and spaces after most occurrences of "LaTeX".
+%                       The comments have been updated to reflect the current example usage of include files.
+
+% 18:09, 10 July 2005   Minor changes to ensure page heading for Reference section is References and not Bibliography and
+%                       that the page numbers for the lists of tables and figures are for the start of these lists and
+%                       not the end.
+
+% 10:31, 11,19 Jan 2005 coverandtitle.tex, abstract&acknowledgements.tex, introduction.tex and biblio.bib now complete
+%                       (all text, no CU logo yet on cover page).
+
+% 10:06, 23 Aug 2004    The title pages have not yet been formatted, but the files all process without errors.
+
+% 12 Jul 2005
+
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{fancyheadings}  % make fancyheadings.sty available in the source directory or elsewhere
+\usepackage{longtable}
+\usepackage{amsmath}
+
+    \pagestyle{fancyplain}
+    \parskip=0cm
+    \voffset=-0.54cm
+    \hoffset=0.46cm
+    \oddsidemargin=0pt
+    \evensidemargin=0pt
+    \topmargin=0pt
+    \headheight=0.5cm
+    \headsep=0.5cm
+    \textheight=23.7cm
+    \textwidth=15cm
+    \setlength{\headwidth}{15cm}
+    \setlength{\parindent}{0pt}                         % copied from DCSSS04 style file to stop indenting paragraphs (the default)
+%    \setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}    % copied from DCSSS04 style file, spaces paragraphs and titles
+    \setlength{\parskip}{10pt}                          % makes a fixed space between paragraphs
+    \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+    \renewcommand{\bibname}{References}
+
+\lhead[\fancyplain{\thepage}{\thepage}]{\fancyplain{\slshape \leftmark}{\slshape \leftmark}}
+\rhead[\fancyplain{\slshape \leftmark}{\slshape \leftmark}]{\fancyplain{\thepage}{\thepage}}
+\cfoot[\fancyplain{}{}]{\fancyplain{}{}}
+% \setlength{\headrulewidth}{0.4pt}
+% \setlength{\plainheadrulewidth}{0.4pt}

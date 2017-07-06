@@ -1,0 +1,28 @@
+%Personal settings
+
+%Nomenclature settings
+\usepackage{nomencl}
+\makenomenclature
+\renewcommand{\nomname}{List of symbols}
+\newcommand{\nomunit}[1]{\renewcommand{\nomentryend}{\hspace*{\fill}[#1]}}
+\renewcommand{\nomgroup}[1]{%
+ \ifthenelse{\equal{#1}{A}}{\item[]}{% For roman letters
+ \ifthenelse{\equal{#1}{B}}{\item[]}{% For greek letters
+ \ifthenelse{\equal{#1}{C}}{\item \vspace{1em} \textbf{Abbreviations}}{% For abbreviations
+ \ifthenelse{\equal{#1}{D}}{\item \vspace{1em} \textbf{Configurations}}{}}}}}
+
+%Additional packages
+\usepackage{ifthen}
+
+\newcommand{\spaceBetweenEq}{6}
+\newcommand{\notcien}[2]{#1\times10^{#2}}
+
+\newcommand{\ClearDoublePageOrNot}[1]
+{
+  \ifthenelse{\equal{#1}{electronicCopy}}{\clearpage}{}
+  \ifthenelse{\equal{#1}{paperCopy}}{\cleardoublepage}{}
+}
+
+\allowdisplaybreaks % - to allow page breaks inside equations
+
+\graphicspath{ {figures/} } %Path where the figures are located

@@ -1,0 +1,136 @@
+%
+% Thesis document - Alejandro Valverde López
+
+\documentclass[11pt,twoside,a4paper,fleqn,DIV=11,numbers=noenddot]{report}
+
+% report:				Standard report file, for CRANFIELD thesis
+% scrbook:				Koma-Script ‘article’ book, for CMAS thesis
+% DIV-11:				Calculates the type-area and the margins. The bigger the DIV number is, the bigger this dimensions are.
+% numbers=noenddot:		??
+% fleqn:				Equations are left-aligned
+
+%% DOCUMENT TYPE
+\def\typeThesis{CRANFIELD} %{ETH, CRANFIELD}
+\def\controlClearPage{electronicCopy} %possible inputs: paperCopy, electronicCopy
+
+%% IMPORT DOCUMENT SETTINGS
+\usepackage{ifthen}
+\ifthenelse{\equal{\typeThesis}{ETH}}{
+	%ETH option
+	\input{settings/settingsProject_CMAS}
+	%ETH option
+	}{\ifthenelse{\equal{\typeThesis}{CRANFIELD}}{
+	%CRANFIELD option
+	\input{settings/settingsProject_Cranfield}
+	%CRANFILED option
+	}}
+
+\input{settings/settingsProject_Personal}
+
+
+%Define which chapters to include
+\includeonly{chapters/Model} %{file1,file2,...}
+
+\begin{document}
+
+% Generate title page
+\ifthenelse{\equal{\typeThesis}{ETH}}{
+	%ETH option
+	\cmastitlepage{Latex template for student project at the CMASLab - English Version}{\digitsdate\today} %title
+	\makeatletter
+	\setlength\@fpbot{0\p@ \@plus 1fil}
+	\makeatother
+	%ETH option
+	}{\ifthenelse{\equal{\typeThesis}{CRANFIELD}}{
+	%CRANFIELD option
+	\input{settings/cover&title}
+	%CRANFILED option
+	}}
+
+
+
+\pagenumbering{roman}
+
+%Abstract English and German
+\newpage
+\addcontentsline{toc}{section}{\protect\numberline{}{Abstract}}
+\markright{Abstract}
+\include{chapters/Abstract}
+
+\newpage
+\addcontentsline{toc}{section}{\protect\numberline{}{Zusammenfassung}}
+\markright{Zusammenfassung}
+\include{chapters/Zusammenfassung}
+
+% Preamble (optional) or Achknowledgments
+\newpage
+\addcontentsline{toc}{section}{\protect\numberline{}{Preamble}}
+\markright{Preamble}
+\include{chapters/Preamble}
+
+%Official Task Assignement
+\newpage
+\addcontentsline{toc}{section}{\protect\numberline{}{Task assignement}}
+\markright{Task assignement}
+\include{chapters/Official_Task_Assignement}
+
+%Declaration of originality
+\newpage
+\addcontentsline{toc}{section}{\protect\numberline{}{Declaration of Originality}}
+\markright{Declaration of Originality}
+\include{chapters/Declaration_of_Originality}
+
+% Lists
+% Contents
+\newpage
+\tableofcontents
+\addtocontents{toc}{\vspace{.5\baselineskip}}
+
+% List of Figures
+\newpage
+\addcontentsline{toc}{section}{\protect\numberline{}{List of Figures}}
+\listoffigures
+
+% List of Tables
+\newpage
+\addcontentsline{toc}{section}{\protect\numberline{}{List of Tables}}
+\listoftables
+
+
+% Abbreviations
+\newpage
+\addcontentsline{toc}{section}{\protect\numberline{}{Abbreviations}}
+\addtocontents{toc}{\vspace{.5\baselineskip}}
+\markright{Abbreviations}
+% \include{chapters/Abbreviation}
+%%Last but not least
+\input{chapters/0.Nomenclature} %Import nomenclature, no text is written
+\printnomenclature[0.75in]
+
+\clearpage
+\pagenumbering{arabic}
+
+% Main part
+\include{chapters/Introduction}
+\include{chapters/Background}
+\include{chapters/Model}
+\include{chapters/Results}
+\include{chapters/Summary}
+
+% Bibliography
+\newpage
+\addtocontents{toc}{\vspace{.5\baselineskip}}
+\addcontentsline{toc}{section}{\protect\numberline{}{Bibliography}}
+% \renewcommand\refname{Bibliography}
+\bibliographystyle{ieeetr}
+\bibliography{project}
+
+
+%Appendix if necessary
+\newpage
+\addtocontents{toc}{\vspace{.5\baselineskip}}
+\include{chapters/Appendix}
+
+
+\end{document}
+
