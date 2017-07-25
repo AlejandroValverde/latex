@@ -39,13 +39,17 @@
 \end{equation}
 
 %Equations for the static moment and the flexural stiffness along the $y$ axis $\Phi_y$ (3.17, 3.18, 3.19)
-Furthermore, the shear flow distribution in the beam will be calculated. This shear flow $q_\mathrm{C}(s)$ is dependent on the position parameter $s$ and is given by Equation \ref{eq:shearFlowEquation} for the case of beam with closed double symmetric transversal section.
+Furthermore, the shear flow distribution in the beam will be calculated. In other to consider this distribution, the profile can be considered to be cut at one point, resulting on a opened section. The shear flow $q_{\parallel}(s)$ for this case can be calculated using Equation \ref{eq:shearFlowEquation}. The corresponding shear flow for a closed section can be obtained using the Equation \ref{eq:shearFlowDescomposition}.
 %
 \begin{equation}\label{eq:shearFlowEquation}
-  q_\mathrm{C}(s) - q_0 = - \frac{Q_z}{\Phi_y} S_{E_y}(s)
+  q_{\parallel}(s) = - \frac{Q_z}{\Phi_y} S_{E_y}(s)
 \end{equation}
 %
-where $Q_z$ is the force applied in the z direction and $\Phi_y$ is the flexural stiffness given by Equation \ref{eq:flexuralStiffness}. Additionally, $S_{E_y}$ is the so called static moment or first moment of area, which is calculated through the integral shown in Equation \ref{eq:staticMoment}. In case of open section, the shear flow at the boundary $q_0$ that results from the torsion of the beam, is zero. For the remaining cases, the shear flow at the boundary $q_0$ can be calculated using the Equation \ref{eq:constantShearFlow}.
+\begin{equation}\label{eq:shearFlowDescomposition}
+  q_\mathrm{C}(s) = q_\parallel(s) + q_0 
+\end{equation}
+%
+where $Q_z$ is the force applied in the z direction and $\Phi_y$ is the flexural stiffness given by Equation \ref{eq:flexuralStiffness}. Additionally, $S_{E_y}$ is the so called static moment or first moment of area, which is calculated through the integral shown in Equation \ref{eq:staticMoment}. Also, the variable $q_0$ represents the shear flow at the boundary that results from the torsion of the beam and can be calculated using the Equation \ref{eq:constantShearFlow}.
 %
 \begin{equation}\label{eq:flexuralStiffness}
   \Phi_y = \int \int E(y,z) z^2 \mathrm{d}y \mathrm{d}z
@@ -67,7 +71,7 @@ Now, the shear centre position in the beam transversal section will be calculate
 %
 where $r$ represents the perpendicular distance to the coordinate origin.
 
-Now, it is necessary that equilibrium exists between the torsional moment due to the shift of the shear centre (caused during the opening of the profile) and the moment due to the torsional shear flow of the closed profile. This condition can be mathematically expressed through Equation \ref{eq:shearCentrePositionMoment}. 
+Now, it is necessary that equilibrium exists between the torsional moment due to the shift of the shear centre (caused during the opening of the profile) and the moment due to the torsional shear flow of the closed profile. This condition can be mathematically expressed through Equation \ref{eq:shearCentrePositionMoment}.
 %
 \begin{eqnarray}\label{eq:shearCentrePositionMoment}
 % \nonumber % Remove numbering (before each equation)
