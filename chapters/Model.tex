@@ -92,15 +92,96 @@ Finally, the total shear flow $q(s)$ results from the superposition of the shear
 %   Include all the parts of the model: C-box shape, inner box, chiral lattice
 %   Figure of the model
 % Parameters included
-% 
+%
+The computational model of the wing box was build using Abaqus CAE commercial software. It consisted on three main elements: the wing-box with C-profile, the lattice constituted of the chiral elements, a closed rib at the tip of the box and a closed rib at the root of the box. A general overview of the assembly of the different parts can be seen in Figure \ref{fig:all-assembly}.
 
-\section{Attachment points modeling} \label{subsec:connections_computationalModel}
+\begin{figure}[!htpb]
+  \centering
+  \includegraphics[width=0.8 \textwidth]{model/all-assembly}
+  \caption[General assembly configuration for the computational model]{General assembly configuration for the computational model. The different parts for the general configuration include the wing-box profile, the lattice and the pair of ribs located at the tip and the root of the wing-box.}\label{fig:all-assembly}
+\end{figure}
+
+\subsection{Sub-parts and parametrization of the model} \label{subsec:parametrization_Model}
+
+\subsubsection{Lattice of chiral elements} \label{subsubsec:lattice_Parametrization}
+
+The model of the lattice structure is constituted of a series of interconnected lattices and nodes. An overview of the corresponding part can be seen in Figure \ref{fig:lattice}. The parameters used to characterize the element are shown in Table \ref{tab:parameters_lattice}. 
+
+\begin{figure}[!htpb]
+  \centering
+  \includegraphics[width=0.8 \textwidth]{model/lattice}
+  \caption[Overview of the chiral lattice part]{Overview of the chiral lattice part. The parameters $M$ and $N$ represent the number of unit cells }\label{fig:lattice}
+\end{figure}
+
+\begin{figure}[!htpb]
+  \centering
+  \includegraphics[width=0.8 \textwidth]{model/lattice-NandM}
+  \caption[]{}\label{fig:lattice-NandM}
+\end{figure}
+
+\begin{figure}[!htpb]
+  \centering
+  \includegraphics[width=0.8 \textwidth]{model/lattice-internalParameters}
+  \caption[]{}\label{fig:lattice-internalParameters}
+\end{figure}
+
+\begin{table}[!htpb]
+\centering
+\begin{tabular}{|l|lll|}
+\hline
+\textbf{Parameter} & \multicolumn{1}{l|}{\textbf{Symbol}} & \multicolumn{1}{l|}{\textbf{Units}} & \textbf{Nominal value} \\ \hline \hline
+{\textbf{Dimensions}} &  &  &  \\ \hline
+Number of unit cells in spanwise direction & \multicolumn{1}{l|}{$N$} & \multicolumn{1}{l|}{} & 8 \\ \hline
+Number of unit cells in transversal direction & \multicolumn{1}{l|}{$M$} & \multicolumn{1}{l|}{} & 3 \\ \hline
+Dimensionless eccentricity (e/B) & \multicolumn{1}{l|}{$e_{\mathrm{chiral}}$} & \multicolumn{1}{l|}{} & 0.01 \\ \hline
+Node radius & \multicolumn{1}{l|}{$r_{\mathrm{chiral}}$} & \multicolumn{1}{l|}{mm} & 10 \\ \hline
+Node depth & \multicolumn{1}{l|}{$B_{\mathrm{chiral}}$} & \multicolumn{1}{l|}{mm} & 20 \\ \hline
+Ligament half length & \multicolumn{1}{l|}{$L_{\mathrm{chiral}}$} & \multicolumn{1}{l|}{mm} & 50 \\ \hline \hline
+{\textbf{Material (ABS)}} &  &  &  \\ \hline
+Young's modulus & \multicolumn{1}{l|}{$E_{\mathrm{chiral}}$} & \multicolumn{1}{l|}{N/mm$^2$} & 31000 \\ \hline
+Poisson's ratio & \multicolumn{1}{l|}{$\nu_{\mathrm{chiral}}$} & \multicolumn{1}{l|}{} & 0.3 \\ \hline
+\end{tabular}
+\caption[Parameters used for the lattice model]{Parameters used for the lattice model. The mechanical properties of the material used correspond to ABS, which is a common thermoplastic polymer.}
+\label{tab:parameters_lattice}
+\end{table}
+
+\begin{figure}[!htpb]
+  \centering
+  \includegraphics[width=0.8 \textwidth]{model/wing-box}
+  \caption[Overview of the wing-box in C-profile part]{Overview of the wing-box in C-profile part}\label{fig:wing-box}
+\end{figure}
+
+\subsection{Attachment points modeling} \label{subsec:connections_computationalModel}
 
 %General thoughts:
 % - Necessity of applying condition node to node
-
+%
 %Equation contrainsts issues:
 % - Slow down simulations
-
+%
 %Coupling constrainsts:
 % 
+%
+In the present subsection, the FEM modeling of the connection between the lattice nodes and the wing box is presented. The connection that will be modeled is the one that can be seen in Figure XX.
+
+%Figure provided by Rafael Vincenz
+
+Two different connections will be modeled. Firstly, all the degrees of freedom of the lattice will be restricted except from the rotation around its own axis. An sketch showing this connection can be viewed in Figure \ref{fig:connectionModeling1}. This was the design chosen for the manufactured demonstrator shown in Figure XX.
+
+Another option for the modeling was to leave the lattice node displacement parallel to the skin unconstrained. This allows another degree of freedom for this element and therefore the connection between the node lattice and the skin is schematically like the one shown in Figure \ref{fig:connectionModeling2}.
+
+\begin{figure}[!htpb]
+  \centering
+  \includegraphics[width=0.8 \textwidth]{model/connectionModeling1}
+  \caption[First type of connection lattice-skin considered]{First type of connection lattice-skin considered. }\label{fig:connectionModeling1}
+\end{figure}
+
+\begin{figure}[!htpb]
+  \centering
+  \includegraphics[width=0.8 \textwidth]{model/connectionModeling2}
+  \caption[Second type of connection lattice-skin considered]{Second type of connection lattice-skin considered. }\label{fig:connectionModeling2}
+\end{figure}
+
+In order to model the connections shown in Figures \ref{fig:connectionModeling1} and \ref{fig:connectionModeling2}, different different approaches were explored. 
+
+\subsubsection{}
