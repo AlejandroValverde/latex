@@ -93,6 +93,14 @@ Finally, the total shear flow $q(s)$ results from the superposition of the shear
 %   Figure of the model
 % Parameters included
 %
+% Subsections:
+% - Sub-parts and parametrization of the model, include main dimensions and parameters. Sketch and Abaqus model screenshot
+%     - Lattice
+%     - C-box
+%     - Ribs
+%     - Lattice nodes
+% - Attachment points modeling
+% - Parametric study method
 The computational model of the wing box was build using Abaqus CAE commercial software. It consisted on three main elements: the wing-box with C-profile, the lattice constituted of the chiral elements, a closed rib at the tip of the box and a closed rib at the root of the box. A general overview of the assembly of the different parts can be seen in Figure \ref{fig:all-assembly}.
 
 \begin{figure}[!htpb]
@@ -145,11 +153,29 @@ Poisson's ratio & \multicolumn{1}{l|}{$\nu_{\mathrm{chiral}}$} & \multicolumn{1}
 \label{tab:parameters_lattice}
 \end{table}
 
+\subsubsection{Wing-box in C-profile} \label{subsubsec:wingBox_Parametrization}
+
 \begin{figure}[!htpb]
   \centering
   \includegraphics[width=0.8 \textwidth]{model/wing-box}
   \caption[Overview of the wing-box in C-profile part]{Overview of the wing-box in C-profile part}\label{fig:wing-box}
 \end{figure}
+
+\subsubsection{Ribs} \label{subsubsec:Ribs_Parametrization}
+
+\begin{figure}[!htpb]
+  \centering
+  \includegraphics[width=0.8 \textwidth]{model/tyre-part}
+  \caption[Overview of the tyre part]{Overview of the tyre part.}\label{fig:tyre-part}
+\end{figure}
+
+\begin{figure}[!htpb]
+  \centering
+  \includegraphics[width=0.8 \textwidth]{model/tyre-connection}
+  \caption[Overview of the connection between tyre and lattice node]{Overview of the connection between tyre and lattice node.}\label{fig:tyre-connection}
+\end{figure}
+
+\subsubsection{Lattice nodes} \label{subsubsec:LatticeNodes_Parametrization}
 
 \subsection{Attachment points modeling} \label{subsec:connections_computationalModel}
 
