@@ -96,9 +96,9 @@ Finally, the total shear flow $q(s)$ results from the superposition of the shear
 % Subsections:
 % - Sub-parts and parametrization of the model, include main dimensions and parameters. Sketch and Abaqus model screenshot
 %     - Lattice
+%     - Lattice nodes with tyre part
 %     - C-box
 %     - Ribs
-%     - Lattice nodes
 % - Attachment points modeling
 % - Parametric study method
 The computational model of the wing box was build using Abaqus CAE commercial software. It consisted on three main elements: the wing-box with C-profile, the lattice constituted of the chiral elements, a closed rib at the tip of the box and a closed rib at the root of the box. A general overview of the assembly of the different parts can be seen in Figure \ref{fig:all-assembly}.
@@ -113,24 +113,34 @@ The computational model of the wing box was build using Abaqus CAE commercial so
 
 \subsubsection{Lattice of chiral elements} \label{subsubsec:lattice_Parametrization}
 
-The model of the lattice structure is constituted of a series of interconnected lattices and nodes. An overview of the corresponding part can be seen in Figure \ref{fig:lattice}. The parameters used to characterize the element are shown in Table \ref{tab:parameters_lattice}. 
+The model of the lattice structure is constituted of a series of interconnected lattices and nodes. An overview of the corresponding part can be seen in Figure \ref{fig:lattice}. The lattice structure is divided in an integer number of unit cells in the longitudinal (spanwise) and transversal directions. These parameters are identified with the variables $N$ and $M$ for the longitudinal and transversal directions, respectively. In Figure \ref{fig:lattice-NandM}, these internal division can be understood.
+
+Furthermore, the internal geometry in the chiral lattices is determined by a number of parameters: the thickness $t_{\mathrm{chiral}}$, the ligament eccentricity $e_{\mathrm{chiral}}$, the ligament half length $L_{\mathrm{chiral}}$, the lattice node depth $B_{\mathrm{chiral}}$ and the lattice node radius $r_{\mathrm{chiral}}$. The geometrical meaning of these variables can be seen in Figure \ref{fig:lattice-internalParameters}. The thickness $t_{\mathrm{chiral}}$ applies for both the ligaments and the lattice nodes geometries. The eccentricity $e_{\mathrm{chiral}}$ will be expressed as the dimensionless parameter $\hat{e}_{\mathrm{chiral}}$ which is obtained from $\hat{e}_{\mathrm{chiral}} = e_{\mathrm{chiral}} / B_{\mathrm{chiral}}$.
+
+In the sketch shown in Figure \ref{fig:lattice-internalParameters} an additional dimension variable appears, the ligament eccentricity radius $R_{\mathrm{chiral}}$ which is dependent on the ligament eccentricity $e_{\mathrm{chiral}}$ and the lattice node depth $B_{\mathrm{chiral}}$ as shown in Equation \ref{eq:RforLattice}. 
+
+A summary of all the parameters introduced to characterize the chiral lattice structure together with their units and nominal values is shown in Table \ref{tab:parameters_lattice}. 
+
+\begin{equation}\label{eq:RforLattice}
+  R = \frac{e_{\mathrm{chiral}}^2 + \frac{B_{\mathrm{chiral}}^2}{4}}{2e_{\mathrm{chiral}}}
+\end{equation}
 
 \begin{figure}[!htpb]
   \centering
   \includegraphics[width=0.8 \textwidth]{model/lattice}
-  \caption[Overview of the chiral lattice part]{Overview of the chiral lattice part. The parameters $M$ and $N$ represent the number of unit cells }\label{fig:lattice}
+  \caption[Overview of the chiral lattice part]{Overview of the chiral lattice part. The parameters $N$ and $M$ represent the number of unit cells in the longitudinal (spanwise) and transversal directions, respectively.}\label{fig:lattice}
 \end{figure}
 
 \begin{figure}[!htpb]
   \centering
   \includegraphics[width=0.8 \textwidth]{model/lattice-NandM}
-  \caption[]{}\label{fig:lattice-NandM}
+  \caption[Division of the lattice structure in cell units]{Division of the lattice structure in cell units. The sketch shows a lattice with $N = 8$ and $M = 3$. The set of horizontal rectangles represent each of the transversal $M$ divisions while the set of vertical rectangles correspond to each of the $N$ longitudinal divisions.}\label{fig:lattice-NandM}
 \end{figure}
 
 \begin{figure}[!htpb]
   \centering
   \includegraphics[width=0.8 \textwidth]{model/lattice-internalParameters}
-  \caption[]{}\label{fig:lattice-internalParameters}
+  \caption[Internal parameters of the chiral lattice structure]{Internal parameters of the chiral lattice structure. The geometry is characterized by the the ligament eccentricity $e_{\mathrm{chiral}}$, the ligament half length $L_{\mathrm{chiral}}$, the lattice node depth $B_{\mathrm{chiral}}$, the lattice node radius $r_{\mathrm{chiral}}$ and the thickness $t_{\mathrm{chiral}}$.}\label{fig:lattice-internalParameters}
 \end{figure}
 
 \begin{table}[!htpb]
@@ -141,35 +151,42 @@ The model of the lattice structure is constituted of a series of interconnected 
 {\textbf{Dimensions}} &  &  &  \\ \hline
 Number of unit cells in spanwise direction & \multicolumn{1}{l|}{$N$} & \multicolumn{1}{l|}{} & 8 \\ \hline
 Number of unit cells in transversal direction & \multicolumn{1}{l|}{$M$} & \multicolumn{1}{l|}{} & 3 \\ \hline
-Dimensionless eccentricity (e/B) & \multicolumn{1}{l|}{$e_{\mathrm{chiral}}$} & \multicolumn{1}{l|}{} & 0.01 \\ \hline
+Dimensionless ligament eccentricity (e/B) & \multicolumn{1}{l|}{$\hat{e}_{\mathrm{chiral}}$} & \multicolumn{1}{l|}{} & 0.01 \\ \hline
 Node radius & \multicolumn{1}{l|}{$r_{\mathrm{chiral}}$} & \multicolumn{1}{l|}{mm} & 10 \\ \hline
+Ligament eccentricity radius & \multicolumn{1}{l|}{$R_{\mathrm{chiral}}$} & \multicolumn{1}{l|}{mm} & 250.1 \\ \hline
 Node depth & \multicolumn{1}{l|}{$B_{\mathrm{chiral}}$} & \multicolumn{1}{l|}{mm} & 20 \\ \hline
 Ligament half length & \multicolumn{1}{l|}{$L_{\mathrm{chiral}}$} & \multicolumn{1}{l|}{mm} & 50 \\ \hline \hline
 {\textbf{Material (ABS)}} &  &  &  \\ \hline
-Young's modulus & \multicolumn{1}{l|}{$E_{\mathrm{chiral}}$} & \multicolumn{1}{l|}{N/mm$^2$} & 31000 \\ \hline
+Young's modulus & \multicolumn{1}{l|}{$E_{\mathrm{chiral}}$} & \multicolumn{1}{l|}{N/mm$^2$} & 3100 \\ \hline
 Poisson's ratio & \multicolumn{1}{l|}{$\nu_{\mathrm{chiral}}$} & \multicolumn{1}{l|}{} & 0.3 \\ \hline
 \end{tabular}
 \caption[Parameters used for the lattice model]{Parameters used for the lattice model. The mechanical properties of the material used correspond to ABS, which is a common thermoplastic polymer.}
 \label{tab:parameters_lattice}
 \end{table}
 
-\subsubsection{Wing-box in C-profile} \label{subsubsec:wingBox_Parametrization}
+%This is like if it was a new section inside of this section
+\clearpage
+\subsubsection{Lattice nodes rigid body modeling} \label{subsubsec:latticeNodesRigid_Parametrization}
+
+The lattice nodes is one of the essential parts of the lattice of chiral elements. These are allow to freely rotate around its own axis. For the modeling, they are assumed to behave like a rigid body. In Figure \ref{fig:closeLookToLatticeNodes}, a closer look to the chiral nodes can be seen, showing two different approaches to manufacture a node that would behave like a rigid body compared with the rest of the structure.
 
 \begin{figure}[!htpb]
   \centering
-  \includegraphics[width=0.8 \textwidth]{model/wing-box}
-  \caption[Overview of the wing-box in C-profile part]{Overview of the wing-box in C-profile part}\label{fig:wing-box}
+  \includegraphics[width=0.8 \textwidth]{model/closeLookToLatticeNodes-tobeimproved}
+  \caption[Pictured of the manufactured chiral lattice nodes]{Pictured of the manufactured chiral lattice nodes. The figures shows two different approaches followed to manufacture the nodes. The one on the right was the standard one showing a cylinder with a thickness bigger than the thickness of the chiral ligaments $t_{\mathrm{node}} \gg t_{\mathrm{ligaments}}$. On the left, an alternative approach is followed in order to allow the assembly of the chiral lattice that is not manufactured as a unique piece. \cite{Vincenz2017}}\label{fig:closeLookToLatticeNodes}
 \end{figure}
+
+In the Abaqus model, different approaches were followed to create this element of the chiral lattice. The chiral lattice node is build together with the lattice ligaments, as a single part having homogeneous mechanical properties and thickness. Therefore, it is necessary to ensure the rigid body properties by other means.
+
+The first approach was to create a coupling condition using Abaqus corresponding module. This interaction consisted in linking some particular degrees of freedom of the mesh nodes in the faces of the lattice node to a reference point located in the center of the lattice node. In order to achieve the kind of behavior expected, all the degrees of freedom were linked except from the translation displacements in the plane where the chiral lattice is contained, i.e. the translational displacement $U_1$ and $U_2$ of the plane $X-Y$. In Figure \ref{fig:couplingThroughRF} an overview of this coupling condition can be viewed.
 
 \begin{figure}[!htpb]
   \centering
-  \includegraphics[width=0.8 \textwidth]{model/wing-box-internalParameters}
-  \caption[Internal parameters of the wing-box C-profile part]{Internal parameters of the wing-box C-profile part}\label{fig:wing-box-internalParameters}
+  \includegraphics[width=0.8 \textwidth]{model/couplingThroughRF}
+  \caption[Overview of the elements that are involved in the coupling condition at the lattice nodes]{Overview of the elements that are involved in the coupling condition at the lattice nodes. The coupling condition was defined in between the mesh nodes located in the faces of the lattince node and a reference point located in the middle. All the degrees of fredom were linked except from the translation displacements in the plane where the chiral lattice is contained, i.e. the translational displacement $U_1$ and $U_2$ of the plane $X-Y$.}\label{fig:couplingThroughRF}
 \end{figure}
 
-\subsubsection{Ribs} \label{subsubsec:Ribs_Parametrization}
-
-\subsubsection{Lattice nodes} \label{subsubsec:LatticeNodes_Parametrization}
+Another approach consisted in inserting an addition part inside the lattice nodes to add rigidity to the element. The proposed design of such a part, which will be referred as tyre from now on, can be seen in Figure \ref{fig:tyre-part}. The internal dimensions of this element are shown in Figure \ref{fig:tyre-internalParameters}. This dimensions were dependent on parameters of the chiral lattice. In other words, the thickness of the tyre was equal to that of the chiral lattice $r_{\mathrm{tyre}} = r_{\mathrm{chiral}}$ and the same occurred for the height $B_{\mathrm{tyre}}$ and the radius $r_{\mathrm{tyre}}$ which were $r_{\mathrm{tyre}} = r_{\mathrm{chiral}}$ and $B_{\mathrm{tyre}} = B_{\mathrm{chiral}}$. The added rigidity was obtained as a result of considering a different material for the tyre such that the Young's modulus of the two parts verify the condition $E_{\mathrm{tyre}} \gg E_{\mathrm{chiral}}$. Once, the connection was completed, the resulting merged part looked as shown in Figure \ref{fig:tyre-connection}.
 
 \begin{figure}[!htpb]
   \centering
@@ -179,15 +196,90 @@ Poisson's ratio & \multicolumn{1}{l|}{$\nu_{\mathrm{chiral}}$} & \multicolumn{1}
 
 \begin{figure}[!htpb]
   \centering
-  \includegraphics[width=0.8 \textwidth]{model/tyre-connection}
-  \caption[Overview of the connection between tyre and lattice node]{Overview of the connection between tyre and lattice node.}\label{fig:tyre-connection}
+  \includegraphics[width=0.8 \textwidth]{model/tyre-internalParameters}
+  \caption[Internal parameters of the tyre part]{Internal parameters of the tyre part. The sketch shows a transversal cut to the part. The tyre is characterized by the radius $r_{\mathrm{tyre}}$, the height $B_{\mathrm{tyre}}$ and the thickness $t_{\mathrm{tyre}}$. All this parameters were equal to the corresponding ones in the lattice nodes, therefore: $r_{\mathrm{tyre}} = r_{\mathrm{chiral}}$, $B_{\mathrm{tyre}} = B_{\mathrm{chiral}}$ and $t_{\mathrm{tyre}} = t_{\mathrm{chiral}}$.}\label{fig:tyre-internalParameters}
 \end{figure}
 
 \begin{figure}[!htpb]
   \centering
-  \includegraphics[width=0.8 \textwidth]{model/tyre-internalParameters}
-  \caption[Internal parameters of the tyre part]{Internal parameters of the tyre part. The tyre is characterized by the radius $r_{\mathrm{tyre}}$, the height $B_{\mathrm{tyre}}$ and the thickness $t_{\mathrm{tyre}}$. All this parameters }\label{fig:tyre-internalParameters}
+  \includegraphics[width=0.8 \textwidth]{model/tyre-connection}
+  \caption[Overview of the connection between tyre and lattice node]{Overview of the connection between tyre and lattice node. The tyre will be embed inside the lattice node.}\label{fig:tyre-connection}
 \end{figure}
+
+\clearpage
+\subsubsection{Wing-box in C-profile} \label{subsubsec:wingBox_Parametrization}
+
+%Description of the wing box
+The model of the wing-box consisted on a beam with open C profile. The length $L_{\mathrm{box}}$ and height $H_{\mathrm{box}}$ of the part were determined from those of the lattice of chiral elements. Therefore, the tailorable parameters for this part are the width $W_{\mathrm{box}}$, the thickness $t_{\mathrm{box}}$ and the mechanical properties $E_{\mathrm{box}}$ and $\nu_{\mathrm{box}}$ of the material used. The value of the Wing-box height $H_{\mathrm{box}}$ and the wing-box length $L_{\mathrm{box}}$ are not independent but are calculated based on the transversal and longitudinal dimensions of the chiral lattice structure, respectively.
+
+\begin{figure}[!htpb]
+  \centering
+  \includegraphics[width=0.8 \textwidth]{model/wing-box}
+  \caption[Overview of the wing-box in C-profile part]{Overview of the wing-box in C-profile part}\label{fig:wing-box}
+\end{figure}
+
+In the sketch shown in Figure \ref{fig:wing-box-internalParameters} it is possible see the geometrical meaning of the parameters introduced in the previous paragraph. Additionally, the Table \ref{tab:parameters_wing-box} shows its units and nominal values.
+
+\begin{figure}[!htpb]
+  \centering
+  \includegraphics[width=0.8 \textwidth]{model/wing-box-internalParameters}
+  \caption[Internal parameters of the wing-box in C-profile part]{Internal parameters of the wing-box C-profile part. The geometry of the part is determined by the length $L_{\mathrm{box}}$, height $H_{\mathrm{box}}$ and the width $W_{\mathrm{box}}$. Additionally, the thickness $t_{\mathrm{box}}$ is measured in the $z$ direction.}\label{fig:wing-box-internalParameters}
+\end{figure}
+
+\begin{table}[!htpb]
+\centering
+\begin{tabular}{|l|lll|}
+\hline
+\textbf{Parameter} & \multicolumn{1}{l|}{\textbf{Symbol}} & \multicolumn{1}{l|}{\textbf{Units}} & \textbf{Nominal value} \\ \hline \hline
+{\textbf{Dimensions}} &  &  &  \\ \hline
+Wing-box height & \multicolumn{1}{l|}{$H_{\mathrm{box}}$} & \multicolumn{1}{l|}{mm} & 383.27 \\ \hline
+Wing-box length & \multicolumn{1}{l|}{$L_{\mathrm{box}}$} & \multicolumn{1}{l|}{mm} & 743.86 \\ \hline
+Wing-box width & \multicolumn{1}{l|}{$W_{\mathrm{box}}$} & \multicolumn{1}{l|}{mm} & 300 \\ \hline
+Wing-box thickness & \multicolumn{1}{l|}{$t_{\mathrm{box}}$} & \multicolumn{1}{l|}{mm} & 0.8 \\ \hline \hline
+{\textbf{Material (Aluminum)}} &  &  &  \\ \hline
+Young's modulus & \multicolumn{1}{l|}{$E_{\mathrm{box}}$} & \multicolumn{1}{l|}{N/mm$^2$} & 69000 \\ \hline
+Poisson's ratio & \multicolumn{1}{l|}{$\nu_{\mathrm{box}}$} & \multicolumn{1}{l|}{} & 0.3269 \\ \hline
+\end{tabular}
+\caption[Parameters used for the wing-box in C-profile model]{Parameters used for the wing-box in C-profile model. The mechanical properties of the material used correspond to standard aluminum. The value of the wing-box height $H_{\mathrm{box}}$ and the wing-box length $L_{\mathrm{box}}$ are not independent but are calculated based on the transversal and longitudinal dimensions of the chiral lattice structure, respectively.}
+\label{tab:parameters_wing-box}
+\end{table}
+
+\clearpage
+\subsubsection{Ribs} \label{subsubsec:Ribs_Parametrization}
+
+As it was shown in Figure \ref{fig:all-assembly}, there are two possible ribs that can be added to the model assembly. This will add rigidity to the wing-box. The ribs located at the tip and at the root will have a closed section, similar to a frame with width $A_{\mathrm{rib}}$. The width $W_{\mathrm{rib,close}}$ and the height $H_{\mathrm{rib}}$ will be equal to the wing-box width $W_{\mathrm{box}}$ and to the chiral lattice structure height, respectively. The thickness will be $t_{\mathrm{rib}}$.
+
+The inner ribs will present an open section with same height $H_{\mathrm{rib}}$ and thickness $t_{\mathrm{rib}}$ as the closed configuration but different width $W_{\mathrm{rib,open}}$. The value of $W_{\mathrm{rib,open}}$ is calculated as follows:
+$$
+W_{\mathrm{rib,open}} = B_{\mathrm{chiral}} + W_{\mathrm{rib,close}} + d_{\mathrm{chiral-rib}}
+$$
+where $d_{\mathrm{chiral-rib}}$ represents the gap between the right edges of the inner rib and the lattice chiral structure. This gap ensures that there are not any interferences in between the rib and the lattice chiral structure. The value of this parameter was set to $d_{\mathrm{chiral-rib}} = 20$mm.
+
+\begin{figure}[!htpb]
+  \centering
+  \includegraphics[width=0.8 \textwidth]{model/rib-internalParameters}
+  \caption[Internal parameters of the two different ribs parts]{Internal parameters of the two different ribs parts.}\label{fig:rib-internalParameters}
+\end{figure}
+
+Therefore, the only tailorable parameters for the ribs configurations are the thickness $t_{\mathrm{rib}}$ and the frame width $A_{\mathrm{rib}}$. The nominal value and units of these two parameters together with the nominal value and units of the remaining dependent parameters can be read in Table \ref{tab:parameters_rib}. The Young's modulus was increase one order of magnitude in comparison of that of the wing-box in order to ensure no out-of-plane deformation of the rib.
+
+\begin{table}[!htpb]
+\centering
+\begin{tabular}{|l|lll|}
+\hline
+\textbf{Parameter} & \multicolumn{1}{l|}{\textbf{Symbol}} & \multicolumn{1}{l|}{\textbf{Units}} & \textbf{Nominal value} \\ \hline \hline
+{\textbf{Dimensions}} &  &  &  \\ \hline
+Rib height & \multicolumn{1}{l|}{$H_{\mathrm{rib}}$} & \multicolumn{1}{l|}{mm} & 383.27 \\ \hline
+Closed rib width & \multicolumn{1}{l|}{$W_{\mathrm{rib,close}}$} & \multicolumn{1}{l|}{mm} & 300 \\ \hline
+Frame width & \multicolumn{1}{l|}{$A_{\mathrm{rib}}$} & \multicolumn{1}{l|}{mm} & 30 \\ \hline
+Rib thickness & \multicolumn{1}{l|}{$t_{\mathrm{rib}}$} & \multicolumn{1}{l|}{mm} & 2 \\ \hline \hline
+{\textbf{Material (Aluminum, 10xE)}} &  &  &  \\ \hline
+Young's modulus & \multicolumn{1}{l|}{$E_{\mathrm{box}}$} & \multicolumn{1}{l|}{N/mm$^2$} & 690000 \\ \hline
+Poisson's ratio & \multicolumn{1}{l|}{$\nu_{\mathrm{box}}$} & \multicolumn{1}{l|}{} & 0.3269 \\ \hline
+\end{tabular}
+\caption[Parameters used for the ribs model]{Parameters used for the ribs model. The Young's modulus was increase one order of magnitude in comparison of that of the wing-box in order to ensure no out-of-plane deformation of the rib. The value of the rib width $W_{\mathrm{rib,close}}$ and the height $H_{\mathrm{rib}}$ will be equal to the wing-box width $W_{\mathrm{box}}$ and to the chiral lattice structure height, respectively.}
+\label{tab:parameters_rib}
+\end{table}
 
 \subsection{Attachment points modeling} \label{subsec:connections_computationalModel}
 
@@ -222,4 +314,5 @@ Another option for the modeling was to leave the lattice node displacement paral
 
 In order to model the connections shown in Figures \ref{fig:connectionModeling1} and \ref{fig:connectionModeling2}, different different approaches were explored. 
 
-\subsubsection{}
+\clearpage
+\subsection{Parametric study method} \label{subsec:parametricStudy_computationalModel}
