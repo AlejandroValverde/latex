@@ -45,7 +45,7 @@ Furthermore, the shear flow distribution in the beam will be calculated. In othe
 \end{equation}
 %
 \begin{equation}\label{eq:shearFlowDescomposition}
-  q_\mathrm{C}(s) = q_\parallel(s) + q_0 
+  q_\mathrm{C}(s) = q_\parallel(s) + q_0
 \end{equation}
 %
 where $Q_z$ is the force applied in the z direction and $\Phi_y$ is the flexural stiffness given by Equation \ref{eq:flexuralStiffness}. Additionally, $S_{E_y}$ is the so called static moment or first moment of area, which is calculated through the integral shown in Equation \ref{eq:staticMoment}. Also, the variable $q_0$ represents the shear flow at the boundary that results from the torsion of the beam and can be calculated using the Equation \ref{eq:constantShearFlow}.
@@ -117,9 +117,9 @@ The model of the lattice structure is constituted of a series of interconnected 
 
 Furthermore, the internal geometry in the chiral lattices is determined by a number of parameters: the thickness $t_{\mathrm{chiral}}$, the ligament eccentricity $e_{\mathrm{chiral}}$, the ligament half length $L_{\mathrm{chiral}}$, the lattice node depth $B_{\mathrm{chiral}}$ and the lattice node radius $r_{\mathrm{chiral}}$. The geometrical meaning of these variables can be seen in Figure \ref{fig:lattice-internalParameters}. The thickness $t_{\mathrm{chiral}}$ applies for both the ligaments and the lattice nodes geometries. The eccentricity $e_{\mathrm{chiral}}$ will be expressed as the dimensionless parameter $\hat{e}_{\mathrm{chiral}}$ which is obtained from $\hat{e}_{\mathrm{chiral}} = e_{\mathrm{chiral}} / B_{\mathrm{chiral}}$.
 
-In the sketch shown in Figure \ref{fig:lattice-internalParameters} an additional dimension variable appears, the ligament eccentricity radius $R_{\mathrm{chiral}}$ which is dependent on the ligament eccentricity $e_{\mathrm{chiral}}$ and the lattice node depth $B_{\mathrm{chiral}}$ as shown in Equation \ref{eq:RforLattice}. 
+In the sketch shown in Figure \ref{fig:lattice-internalParameters} an additional dimension variable appears, the ligament eccentricity radius $R_{\mathrm{chiral}}$ which is dependent on the ligament eccentricity $e_{\mathrm{chiral}}$ and the lattice node depth $B_{\mathrm{chiral}}$ as shown in Equation \ref{eq:RforLattice}.
 
-A summary of all the parameters introduced to characterize the chiral lattice structure together with their units and nominal values is shown in Table \ref{tab:parameters_lattice}. 
+A summary of all the parameters introduced to characterize the chiral lattice structure together with their units and nominal values is shown in Table \ref{tab:parameters_lattice}.
 
 \begin{equation}\label{eq:RforLattice}
   R = \frac{e_{\mathrm{chiral}}^2 + \frac{B_{\mathrm{chiral}}^2}{4}}{2e_{\mathrm{chiral}}}
@@ -178,7 +178,15 @@ The lattice nodes is one of the essential parts of the lattice of chiral element
 
 In the Abaqus model, different approaches were followed to create this element of the chiral lattice. The chiral lattice node is build together with the lattice ligaments, as a single part having homogeneous mechanical properties and thickness. Therefore, it is necessary to ensure the rigid body properties by other means.
 
-The first approach was to create a coupling condition using Abaqus corresponding module. This interaction consisted in linking some particular degrees of freedom of the mesh nodes in the faces of the lattice node to a reference point located in the center of the lattice node. In order to achieve the kind of behavior expected, all the degrees of freedom were linked except from the translation displacements in the plane where the chiral lattice is contained, i.e. the translational displacement $U_1$ and $U_2$ of the plane $X-Y$. In Figure \ref{fig:couplingThroughRF} an overview of this coupling condition can be viewed.
+The first approach was to create a coupling condition using Abaqus corresponding module. In particular, a kinematic coupling was establish. Kinematic coupling constrains the motion of one or more coupling nodes, also called slave node or nodes, to the rigid body motion of a reference node, also called master node. They are imposed by eliminating degrees of freedom at the coupling nodes. In Figure \ref{fig:kinematicCoupling}, an example of a kinematic coupling can be seen.
+
+\begin{figure}[!htpb]
+  \centering
+  \includegraphics[width=0.8 \textwidth]{model/pcoupling-kinematic}
+  \caption[Kinematic coupling constraint]{Kinematic coupling constraint. The sketch illustrates the use of a kinematic coupling constraint to prescribe a twisting motion to a model without constraining the radial motion. In this case, a local cylindrical reference system is used and the constrained nodes have two degrees of freedom coupled to those of the reference node, the angular position $\theta$ and the position along the $z$ axis. The coupling nodes are therefore free to translate radially, varying $R$. \cite{Abaqus}}\label{fig:kinematicCoupling}
+\end{figure}
+
+For the considered case, the coupling nodes are those mesh nodes located faces of the lattice node and the master node is the reference point located in the center of the lattice node. In order to achieve the rigid solid behavior, all the degrees of freedom were coupled except from the translation displacements in the plane where the chiral lattice is contained, i.e. the translational displacement $U_1$ and $U_2$ of the plane $X-Y$. In Figure \ref{fig:couplingThroughRF} an overview of this coupling condition can be viewed.
 
 \begin{figure}[!htpb]
   \centering
@@ -281,6 +289,20 @@ Poisson's ratio & \multicolumn{1}{l|}{$\nu_{\mathrm{box}}$} & \multicolumn{1}{l|
 \label{tab:parameters_rib}
 \end{table}
 
+\clearpage
+\subsection{Model mesh} \label{subsec:mesh_computationalModel}
+
+In the present section, the mesh used in the model will be presented. The mesh was unstructured and it was auto-generated by Abaqus CAE for the whole assembly. The elements were a combination of quadratic and tetrahedral with 4 and 3 nodes, respectively. Different mesh elements size were assigned to different parts of the model depending of the stress complexity expected. 
+
+In Figure \ref{fig:mesh}, it is possible to distinguish two regions that were assigned with different mesh size: the lattice structure and near region of the wing-box skin was assigned with a fine mesh size while the remaining model was assigned with a course mesh, typically one order of magnitude greater.
+
+\begin{figure}[!htpb]
+  \centering
+  \includegraphics[width=0.8 \textwidth]{model/mesh}
+  \caption[Internal parameters of the two different ribs parts]{Internal parameters of the two different ribs parts. Different mesh elements size were assigned to different parts of the model. The lattice structure was assigned with a fine mesh element size while the wing-box was assigned with a course mesh element size.}\label{fig:mesh}
+\end{figure}
+
+\clearpage
 \subsection{Attachment points modeling} \label{subsec:connections_computationalModel}
 
 %General thoughts:
@@ -290,29 +312,69 @@ Poisson's ratio & \multicolumn{1}{l|}{$\nu_{\mathrm{box}}$} & \multicolumn{1}{l|
 % - Slow down simulations
 %
 %Coupling constrainsts:
-% 
 %
-In the present subsection, the FEM modeling of the connection between the lattice nodes and the wing box is presented. The connection that will be modeled is the one that can be seen in Figure XX.
+%
+In the present subsection, the FEM modeling of the connection between the lattice nodes and the wing box is presented. This is an unavoidable transition from the lattice structure of nodes and ligaments to the skin of the wing box. Loads are transmitted to the lattice through this attachment points that is why its design results crucial.
 
-%Figure provided by Rafael Vincenz
+There will be three different configurations that were studied:
 
-Two different connections will be modeled. Firstly, all the degrees of freedom of the lattice will be restricted except from the rotation around its own axis. An sketch showing this connection can be viewed in Figure \ref{fig:connectionModeling1}. This was the design chosen for the manufactured demonstrator shown in Figure XX.
+\begin{description}
+  \item[Blocked translation and rotation] The lattice nodes have all its degrees of freedom restrained
+  \item[Blocked translation and free rotation] The lattice nodes are free to rotate around its own axis but the translation the direction parallel to the skin is restrained. An sketch showing this connection can be viewed in Figure \ref{fig:connectionModeling1}. This configuration was the one chosen for the demonstrator built in the Figure \ref{fig:connectionLatticeNodesToSkin-tobeimproved}.
+  \item[Free translation and rotation] Now the lattice nodes is allowed to translate parallel to the skin. This configuration is schematically represented in Figure \ref{fig:connectionModeling2}.
+\end{description}
 
-Another option for the modeling was to leave the lattice node displacement parallel to the skin unconstrained. This allows another degree of freedom for this element and therefore the connection between the node lattice and the skin is schematically like the one shown in Figure \ref{fig:connectionModeling2}.
+\begin{figure}[!htpb]
+  \centering
+  \includegraphics[width=0.8 \textwidth]{model/connectionLatticeNodesToSkin-tobeimproved}
+  \caption[Detail of the connection between the lattice nodes and the skin]{Detail of the connection between the lattice nodes and the skin. The picture shows the type of connection chosen for the manufactured demonstrator of the lattice. The lattice nodes is allowed to rotate around its own axis but cannot translate parallel to the skin. \cite{Vincenz2017}}\label{fig:connectionLatticeNodesToSkin-tobeimproved}
+\end{figure}
 
 \begin{figure}[!htpb]
   \centering
   \includegraphics[width=0.8 \textwidth]{model/connectionModeling1}
-  \caption[First type of connection lattice-skin considered]{First type of connection lattice-skin considered. }\label{fig:connectionModeling1}
+  \caption[Blocked translation and free rotation connection between the lattice nodes and the skin]{Blocked translation and free rotation connection between the lattice nodes and the skin. In this case, the only degree of freedom of the lattice node that it is not restrained the rotation around its own axis, that is the rotation $UR_3$ around the direction $z$.}\label{fig:connectionModeling1}
 \end{figure}
 
 \begin{figure}[!htpb]
   \centering
   \includegraphics[width=0.8 \textwidth]{model/connectionModeling2}
-  \caption[Second type of connection lattice-skin considered]{Second type of connection lattice-skin considered. }\label{fig:connectionModeling2}
+  \caption[Free translation and rotation connection between the lattice nodes and the skin]{Free translation and rotation connection between the lattice nodes and the skin. For this case, the unrestrained degrees of freedom of the lattice nodes are the rotation the rotation $UR_3$ around its own axis, i.e.: the direction $z$; and the displacement $U_1$ parallel to the wing-box wall, i.e.: along the direction $x$.}\label{fig:connectionModeling2}
 \end{figure}
 
-In order to model the connections shown in Figures \ref{fig:connectionModeling1} and \ref{fig:connectionModeling2}, different different approaches were explored. 
+In the FEM model, the three connections where modeled using different approaches. Since the lattice of chiral elements and the skin of the wing box were not physical connected by any element, it was necessary to use of the interaction modules provided by Abaqus CAE. There a different options available to constrain the degrees of freedom of a particular set of mesh nodes to another set of mesh nodes. Some of these modules were already explored in Subsection \ref{subsec:parametrization_Model} when investigating how to model the lattice nodes rigid body behavior.
+
+\subsubsection{Coupling through tyre part}
+
+This approach consisted in using the tyre part that was described in Subsection \ref{subsec:parametrization_Model}. In each of the lattice nodes located at the border of the lattice structure, a tyre part was created and embed into the lattice node, as it was shown in Figure \ref{fig:tyre-connection}. Then, a coupling constraint is establish between a mesh node in the middle of the tyre and a mesh node located on the wing-box skin just above the tyre, as shown in Figure \ref{fig:connection-tyre}.
+
+\begin{figure}[!htpb]
+  \centering
+  \includegraphics[width=0.8 \textwidth]{model/connection-tyre}
+  \caption[Coupling condition between the lattice node and the wing-box skin through tyre]{Coupling condition between the lattice node and the wing-box skin through tyre. The coupling condition is establish between a mesh node located in the wing-box skin that acts as a master node and a mesh node in the middle of the tyre that becomes the coupling node.}\label{fig:connection-tyre}
+\end{figure}
+
+Depending on the type of connection considered, there will be different degrees of freedom the ones that are coupled. For the most restrictive case, in which the connection between the lattice structure and the wing-box is rigid, not allowing any displacement, the six degrees of freedom will be coupled between the mesh nodes mentioned on the previous paragraph.
+
+For the other connection types, rotation of the lattice node is allowed around its own axis. This allowance is implemented by not constraining the rotation $UR_3$ around the $z$ direction in the coupling constraint definition. Finally, the last connection type explained at the beginning of the present subsection allowed the displacement of the lattice node parallel to the wing-box skin. For this case, the translation $U_1$ along the $x$ direction is be left uncoupled.
+
+The rigid body motion imposed to the mesh node located at the center of the tyre is translated to the mesh nodes located in the faces of the lattice node because they are physically connected.
+
+\subsubsection{Coupling through local cylindrical reference system}
+
+In this case, the function provided by the tyre is substituted by an additional coupling condition. This links a reference point located at the centre of the lattice node to the mesh nodes located . As rotation is allowed in the nodes located in t POR AQUÍ ME QUEDÉ ESCRIBIENDO
+
+\begin{figure}[!htpb]
+  \centering
+  \includegraphics[width=0.8 \textwidth]{model/connection-SYS1}
+  \caption[Local reference system at the lattice nodes]{Local reference system at the lattice nodes. }\label{fig:connection-sys1}
+\end{figure}
+
+\begin{figure}[!htpb]
+  \centering
+  \includegraphics[width=0.8 \textwidth]{model/connection-SYS2}
+  \caption[Coupling condition between the lattice node and the wing-box skin through local reference system]{Coupling condition between the lattice node and the wing-box skin through local reference system. }\label{fig:connection-sys2}
+\end{figure}
 
 \clearpage
-\subsection{Parametric study method} \label{subsec:parametricStudy_computationalModel}
+\subsection{Parametric study method} \label{subsec:parametricStudy_computationalModel} 
