@@ -29,7 +29,7 @@
 
 
 %Define which chapters to include
-\includeonly{chapters/Model}%, chapters/Results, chapters/State-of-the-art} %{file1,file2,...}
+\includeonly{chapters/Abstract, chapters/Acknowledgments, chapters/Model, chapters/Results, chapters/State-of-the-art} %{file1,file2,...}
 
 \begin{document}
 
@@ -53,77 +53,105 @@
 
 %Abstract English and German
 \newpage
+\thispagestyle{plain}
 \addcontentsline{toc}{section}{\protect\numberline{}{Abstract}}
 \markright{Abstract}
 \include{chapters/Abstract}
 
-\newpage
-\addcontentsline{toc}{section}{\protect\numberline{}{Zusammenfassung}}
-\markright{Zusammenfassung}
-\include{chapters/Zusammenfassung}
+%German abstract
+\ifthenelse{\equal{\typeThesis}{ETH}}{
+	%ETH option
+	\newpage
+	\addcontentsline{toc}{section}{\protect\numberline{}{Zusammenfassung}}
+	\markright{Zusammenfassung}
+	\include{chapters/Zusammenfassung}
+	%ETH option
+	}{\ifthenelse{\equal{\typeThesis}{CRANFIELD}}{
+	%CRANFIELD option
+	%CRANFILED option
+	}}
 
 % Preamble (optional) or Achknowledgments
 \newpage
-\addcontentsline{toc}{section}{\protect\numberline{}{Preamble}}
-\markright{Preamble}
-\include{chapters/Preamble}
+\addcontentsline{toc}{section}{\protect\numberline{}{Acknowledgments}}
+\markright{Acknowledgments}
+\include{chapters/Acknowledgments}
 
 %Official Task Assignement
-\newpage
-\addcontentsline{toc}{section}{\protect\numberline{}{Task assignement}}
-\markright{Task assignement}
-\include{chapters/Official_Task_Assignement}
+\ifthenelse{\equal{\typeThesis}{ETH}}{
+	%ETH option
+	%Official task assignments
+	\newpage
+	\addcontentsline{toc}{section}{\protect\numberline{}{Task assignement}}
+	\markright{Task assignement}
+	\include{chapters/Official_Task_Assignement}
 
-%Declaration of originality
-\newpage
-\addcontentsline{toc}{section}{\protect\numberline{}{Declaration of Originality}}
-\markright{Declaration of Originality}
-\include{chapters/Declaration_of_Originality}
+	%Declaration of originality
+	\newpage
+	\addcontentsline{toc}{section}{\protect\numberline{}{Declaration of Originality}}
+	\markright{Declaration of Originality}
+	\include{chapters/Declaration_of_Originality}
+	%ETH option
+	}{\ifthenelse{\equal{\typeThesis}{CRANFIELD}}{
+	%CRANFIELD option
+	%CRANFILED option
+	}}
 
-% Lists
+%%%%%%%%% Lists %%%%%%%%%%%%%%%%%%
 % Contents
 \newpage
+\thispagestyle{plain}
 \tableofcontents
-\addtocontents{toc}{\vspace{.5\baselineskip}}
+\thispagestyle{plain} %Now the plain style will be applied to all the pages of this section
+
 
 % List of Figures
 \newpage
-\addcontentsline{toc}{section}{\protect\numberline{}{List of Figures}}
+\thispagestyle{plain}
 \listoffigures
+\thispagestyle{plain} %Now the plain style will be applied to all the pages of this section
+\addcontentsline{toc}{section}{\protect\numberline{}{List of figures}}
 
 % List of Tables
 \newpage
-\addcontentsline{toc}{section}{\protect\numberline{}{List of Tables}}
+\thispagestyle{plain}
 \listoftables
+\thispagestyle{plain} %Now the plain style will be applied to all the pages of this section
+\addcontentsline{toc}{section}{\protect\numberline{}{List of tables}}
 
 
 % Abbreviations
 \newpage
-\addcontentsline{toc}{section}{\protect\numberline{}{Abbreviations}}
-\addtocontents{toc}{\vspace{.5\baselineskip}}
-\markright{Abbreviations}
-% \include{chapters/Abbreviation}
-%%Last but not least
+\thispagestyle{plain}
 \input{chapters/0.Nomenclature} %Import nomenclature, no text is written
 \printnomenclature[0.75in]
+\addcontentsline{toc}{section}{\protect\numberline{}{List of symbols}}
+\addtocontents{toc}{\vspace{.5\baselineskip}} %Small gap in the table of contents to separate entries
+\thispagestyle{plain} %Now the plain style will be applied to all the pages of this section
+% \include{chapters/Abbreviation}
+%%Last but not least
 
 \clearpage
+\pagestyle{fancy}
 \pagenumbering{arabic}
 
 % Main part
 \include{chapters/Introduction}
+\ClearDoublePageOrNot{\controlClearPage}
 \include{chapters/State-of-the-art}
+\ClearDoublePageOrNot{\controlClearPage}
 \include{chapters/Model}
+\ClearDoublePageOrNot{\controlClearPage}
 \include{chapters/Results}
 \include{chapters/Summary}
 
 % Bibliography
 \newpage
-\addtocontents{toc}{\vspace{.5\baselineskip}}
-\addcontentsline{toc}{section}{\protect\numberline{}{Bibliography}}
-% \renewcommand\refname{Bibliography}
 \bibliographystyle{ieeetr}
 \bibliography{projectBib}
+\addtocontents{toc}{\vspace{.5\baselineskip}}
+\addcontentsline{toc}{chapter}{\protect\numberline{}{Bibliography}}
+% \renewcommand\refname{Bibliography}
 
 
 %Appendix if necessary

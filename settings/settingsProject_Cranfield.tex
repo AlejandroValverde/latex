@@ -30,30 +30,32 @@
 
 \usepackage{graphicx}
 \usepackage{subfigure}
-\usepackage{fancyheadings}  % make fancyheadings.sty available in the source directory or elsewhere
+% \usepackage{fancyheadings}  % make fancyheadings.sty available in the source directory or elsewhere
 \usepackage{longtable}
 \usepackage{amsmath}
 
-    \pagestyle{fancyplain}
+    % \pagestyle{fancyplain}
     \parskip=0cm
-    \voffset=-0.54cm
+    \voffset=-1cm%- 0.54cm - Modified by Alejandro Valverde
     \hoffset=0.46cm
     \oddsidemargin=0pt
     \evensidemargin=0pt
     \topmargin=0pt
-    \headheight=0.5cm
+    % \headheight=0.5cm
     \headsep=0.5cm
     \textheight=23.7cm
     \textwidth=15cm
-    \setlength{\headwidth}{15cm}
-    \setlength{\parindent}{0pt}                         % copied from DCSSS04 style file to stop indenting paragraphs (the default)
+    % \setlength{\headwidth}{15cm}
+    % \setlength{\parindent}{0pt}                         % copied from DCSSS04 style file to stop indenting paragraphs (the default)
 %    \setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}    % copied from DCSSS04 style file, spaces paragraphs and titles
     \setlength{\parskip}{10pt}                          % makes a fixed space between paragraphs
     \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
     \renewcommand{\bibname}{References}
 
-\lhead[\fancyplain{\thepage}{\thepage}]{\fancyplain{\slshape \leftmark}{\slshape \leftmark}}
-\rhead[\fancyplain{\slshape \leftmark}{\slshape \leftmark}]{\fancyplain{\thepage}{\thepage}}
-\cfoot[\fancyplain{}{}]{\fancyplain{}{}}
+% Commented out by Alejandro Valverde
+% \lhead[\fancyplain{\thepage}{\thepage}]{\fancyplain{\slshape \leftmark}{\slshape \leftmark}}
+% \rhead[\fancyplain{\slshape \leftmark}{\slshape \leftmark}]{\fancyplain{\thepage}{\thepage}}
+% \cfoot[\fancyplain{}{}]{\fancyplain{}{}}
+
 % \setlength{\headrulewidth}{0.4pt}
 % \setlength{\plainheadrulewidth}{0.4pt}

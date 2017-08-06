@@ -20,7 +20,7 @@
 \newcommand{\ClearDoublePageOrNot}[1]
 {
   \ifthenelse{\equal{#1}{electronicCopy}}{\clearpage}{}
-  \ifthenelse{\equal{#1}{paperCopy}}{\cleardoublepage}{}
+  \ifthenelse{\equal{#1}{paperCopy}}{\clearpage{\pagestyle{empty}\cleardoublepage}}{}
 }
 
 \allowdisplaybreaks % - to allow page breaks inside equations
@@ -33,3 +33,31 @@
 %Underline package
 % \usepackage[normalem]{ulem}
 % \useunder{\uline}{\ul}{}
+
+%%%%%%%%%%%%%% HEADER AND FOOTER SETTINGS %%%%%%%%%%%%%%%%%%%
+
+\usepackage{fancyhdr}
+
+% To overhang the outside margin where the marginalnotes are printed, add both\marginparsep and \marginparwidth to \headwidth
+% \addtolength{\headwidth}{\marginparsep} 
+% \addtolength{\headwidth}{\marginparwidth}
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter.\ #1}{}} %This gives: "Chapter 1: Results"
+\renewcommand{\sectionmark}[1]{\markright{#1}} %Only gets the section name
+\fancyhf{}% clear all header and footer fields
+% \fancyhead[LE,RO]{\textbf{\thepage}}
+\fancyhead[LE,RO]{\rightmark}
+\fancyhead[RE,LO]{\textbf{\leftmark}}
+\fancyfoot[LE,RO]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+% Redefine plain style - This will apply to all the "contents" pages before the first chapter and to the first pages of each chapter
+\fancypagestyle{plain}{%
+\fancyhead{} % get rid of headers
+\fancyfoot[LE,RO]{\thepage}
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0pt} % and the line
+\headheight=0.0cm
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
