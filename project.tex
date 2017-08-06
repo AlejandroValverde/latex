@@ -23,13 +23,13 @@
 	%CRANFIELD option
 	\input{settings/settingsProject_Cranfield}
 	%CRANFILED option
-	}}
+	}{}}
 
 \input{settings/settingsProject_Personal}
 
 
 %Define which chapters to include
-\includeonly{chapters/Abstract, chapters/Acknowledgments, chapters/Model, chapters/Results, chapters/State-of-the-art} %{file1,file2,...}
+\includeonly{chapters/Abstract, chapters/Acknowledgments, chapters/Model}%, chapters/Results, chapters/State-of-the-art} %{file1,file2,...}
 
 \begin{document}
 
@@ -45,7 +45,7 @@
 	%CRANFIELD option
 	\input{settings/cover&title}
 	%CRANFILED option
-	}}
+	}{}}
 
 
 
@@ -55,27 +55,34 @@
 \newpage
 \thispagestyle{plain}
 \addcontentsline{toc}{section}{\protect\numberline{}{Abstract}}
-\markright{Abstract}
+% \markright{Abstract}
 \include{chapters/Abstract}
+\ClearDoublePageOrNot{\controlClearPage}
 
 %German abstract
 \ifthenelse{\equal{\typeThesis}{ETH}}{
 	%ETH option
 	\newpage
-	\addcontentsline{toc}{section}{\protect\numberline{}{Zusammenfassung}}
-	\markright{Zusammenfassung}
+	\thispagestyle{plain}
+	% \markright{Zusammenfassung}
 	\include{chapters/Zusammenfassung}
+	\addcontentsline{toc}{section}{\protect\numberline{}{Zusammenfassung}}
+	\thispagestyle{plain}
+	\ClearDoublePageOrNot{\controlClearPage}
 	%ETH option
 	}{\ifthenelse{\equal{\typeThesis}{CRANFIELD}}{
 	%CRANFIELD option
 	%CRANFILED option
-	}}
+	}{}}
 
 % Preamble (optional) or Achknowledgments
 \newpage
-\addcontentsline{toc}{section}{\protect\numberline{}{Acknowledgments}}
-\markright{Acknowledgments}
+\thispagestyle{plain}
 \include{chapters/Acknowledgments}
+% \markright{Acknowledgments}
+\addcontentsline{toc}{section}{\protect\numberline{}{Acknowledgments}}
+\thispagestyle{plain}
+\ClearDoublePageOrNot{\controlClearPage}
 
 %Official Task Assignement
 \ifthenelse{\equal{\typeThesis}{ETH}}{
@@ -85,17 +92,19 @@
 	\addcontentsline{toc}{section}{\protect\numberline{}{Task assignement}}
 	\markright{Task assignement}
 	\include{chapters/Official_Task_Assignement}
+	\ClearDoublePageOrNot{\controlClearPage}
 
 	%Declaration of originality
 	\newpage
 	\addcontentsline{toc}{section}{\protect\numberline{}{Declaration of Originality}}
 	\markright{Declaration of Originality}
 	\include{chapters/Declaration_of_Originality}
+	\ClearDoublePageOrNot{\controlClearPage}
 	%ETH option
 	}{\ifthenelse{\equal{\typeThesis}{CRANFIELD}}{
 	%CRANFIELD option
 	%CRANFILED option
-	}}
+	}{}}
 
 %%%%%%%%% Lists %%%%%%%%%%%%%%%%%%
 % Contents
@@ -103,6 +112,7 @@
 \thispagestyle{plain}
 \tableofcontents
 \thispagestyle{plain} %Now the plain style will be applied to all the pages of this section
+\ClearDoublePageOrNot{\controlClearPage}
 
 
 % List of Figures
@@ -111,6 +121,7 @@
 \listoffigures
 \thispagestyle{plain} %Now the plain style will be applied to all the pages of this section
 \addcontentsline{toc}{section}{\protect\numberline{}{List of figures}}
+\ClearDoublePageOrNot{\controlClearPage}
 
 % List of Tables
 \newpage
@@ -118,6 +129,7 @@
 \listoftables
 \thispagestyle{plain} %Now the plain style will be applied to all the pages of this section
 \addcontentsline{toc}{section}{\protect\numberline{}{List of tables}}
+\ClearDoublePageOrNot{\controlClearPage}
 
 
 % Abbreviations
@@ -128,6 +140,7 @@
 \addcontentsline{toc}{section}{\protect\numberline{}{List of symbols}}
 \addtocontents{toc}{\vspace{.5\baselineskip}} %Small gap in the table of contents to separate entries
 \thispagestyle{plain} %Now the plain style will be applied to all the pages of this section
+\ClearDoublePageOrNot{\controlClearPage}
 % \include{chapters/Abbreviation}
 %%Last but not least
 

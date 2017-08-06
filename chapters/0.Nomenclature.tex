@@ -10,13 +10,13 @@
 \nomenclature[c]{CAE}{Complete Abaqus Environment}
 \nomenclature[c]{NASA}{National Aeronautics and Space Agency}
 \nomenclature[c]{ABS}{Acrylonitrile butadiene styrene}
-\nomenclature[a]{$A$}{Cross sectional area \nomunit{mm$^2$}}
-\nomenclature[a]{$B$}{Width of the cross section \nomunit{mm}}
-\nomenclature[a]{$H$}{Height of the cross section \nomunit{mm}}
-\nomenclature[a]{$L$}{Length of the beam \nomunit{mm}}
-\nomenclature[a]{$E, E_1, E_2$}{Young's modulus \nomunit{N/mm$^2$}}
-\nomenclature[a]{$G, G_1, G_2$}{Shear modulus \nomunit{N/mm$^2$}}
-\nomenclature[a]{$t, t_1, t_2$}{Wall thickness \nomunit{mm}}
+\nomenclature[a]{$A$}{Cross sectional area for the analytical model \nomunit{mm$^2$}}
+\nomenclature[a]{$B$}{Width of the cross section for the analytical model \nomunit{mm}}
+\nomenclature[a]{$H$}{Height of the cross section for the analytical model \nomunit{mm}}
+\nomenclature[a]{$L$}{Length of the beam for the analytical model \nomunit{mm}}
+\nomenclature[a]{$E,E_1,E_2,E_{\mathrm{chiral}},E_{\mathrm{box}},E_{\mathrm{rib}}$}{Young's modulus \nomunit{N/mm$^2$}}
+\nomenclature[a]{$G,G_1,G_2,G_{\mathrm{chiral}},G_{\mathrm{box}},G_{\mathrm{rib}}$}{Shear modulus \nomunit{N/mm$^2$}}
+\nomenclature[a]{$t,t_1,t_2,t_{\mathrm{chiral}},t_{\mathrm{box}},t_{\mathrm{rib}}$}{Wall thickness \nomunit{mm}}
 \nomenclature[a]{$S_{E_y}$}{First moment of area \nomunit{N mm}}
 \nomenclature[b]{$\Phi_y$}{Flexural stiffness \nomunit{N mm$^2$}}
 \nomenclature[a]{$q_0$}{Constant shear flow \nomunit{N/mm}}
@@ -28,11 +28,25 @@
 \nomenclature[a]{$x$}{Coordinate in the spanwise direction \nomunit{mm}}
 \nomenclature[a]{$y_{\mathrm{ana}}, z_{\mathrm{comp}}$}{Coordinate in the chordwise direction for the analytical and computations reference systems \nomunit{mm}}
 \nomenclature[a]{$z_{\mathrm{ana}}, y_{\mathrm{comp}}$}{Coordinate in the transversal direction for the analytical and computations reference systems \nomunit{mm}}
-\nomenclature[b]{$\phi, \phi_{\mathrm{tip}}$}{Twist angle \nomunit{deg}}
-\nomenclature[b]{$\nu$}{Poisson's ratio}
-\nomenclature[a]{$e_{\mathrm{chiral}}$}{Dimensionless eccentricity}
+\nomenclature[b]{$\phi,\phi_{\mathrm{tip}}$}{Twist angle \nomunit{deg}}
+\nomenclature[b]{$\nu,\nu_{\mathrm{chiral}},\nu_{\mathrm{box}},\nu_{\mathrm{rib}}$}{Poisson's ratio}
+
+%Model
+\nomenclature[a]{$e_{\mathrm{chiral}}$}{Ligament eccentricity \nomunit{mm}}
+\nomenclature[a]{$\hat{e}_{\mathrm{chiral}}$}{Dimensionless ligament eccentricity}
 \nomenclature[a]{$M$}{Number of unit cells in transversal direction}
 \nomenclature[a]{$N$}{Number of unit cells in spanwise direction}
 \nomenclature[a]{$r_{\mathrm{chiral}}$}{Node radius \nomunit{mm}}
+\nomenclature[a]{$R_{\mathrm{chiral}}$}{Ligament eccentricity radius \nomunit{mm}}
 \nomenclature[a]{$B_{\mathrm{chiral}}$}{Node depth \nomunit{mm}}
 \nomenclature[a]{$L_{\mathrm{chiral}}$}{Ligament half length \nomunit{mm}}
+\nomenclature[a]{$S_{\mathrm{f}}$}{Fine mesh size}
+\nomenclature[a]{$S_{\mathrm{c}}$}{Course mesh size}
+\nomenclature[b]{$\theta$}{Angular position in the local cylindrical reference system \nomunit{rad}}
+\nomenclature[a]{$r$}{Radial position in the local cylindrical reference system \nomunit{mm}}
+\nomenclature[a]{$z$}{Perpendicular position in the local cylindrical reference system \nomunit{mm}}
+\nomenclature[a]{$H_{\mathrm{box}},H_{\mathrm{rib}}$}{Height for the wing-box and the ribs \nomunit{mm}}
+\nomenclature[a]{$W_{\mathrm{box}},W_{\mathrm{rib,close}},W_{\mathrm{rib,open}}$}{Width for the wing-box and the ribs \nomunit{mm}}
+\nomenclature[a]{$A_{\mathrm{rib}}$}{Rib frame width \nomunit{mm}}
+\nomenclature[a]{$L_{\mathrm{box}}$}{Length of the wing-box in the spanwise direction \nomunit{mm}}
+\nomenclature[a]{$d_{\mathrm{chiral-rib}}$}{Gap between lattice and inner ribs \nomunit{mm}}

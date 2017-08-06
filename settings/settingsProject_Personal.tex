@@ -41,20 +41,42 @@
 % To overhang the outside margin where the marginalnotes are printed, add both\marginparsep and \marginparwidth to \headwidth
 % \addtolength{\headwidth}{\marginparsep} 
 % \addtolength{\headwidth}{\marginparwidth}
-\renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter.\ #1}{}} %This gives: "Chapter 1: Results"
-\renewcommand{\sectionmark}[1]{\markright{#1}} %Only gets the section name
+
 \fancyhf{}% clear all header and footer fields
 % \fancyhead[LE,RO]{\textbf{\thepage}}
-\fancyhead[LE,RO]{\rightmark}
-\fancyhead[RE,LO]{\textbf{\leftmark}}
-\fancyfoot[LE,RO]{\thepage}
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter.\ #1}{}} %This gives: "Chapter 1: Results"
+\renewcommand{\sectionmark}[1]{\markright{#1}} %Only gets the section name
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
+%Headers and footers possitions
+\ifthenelse{\equal{\controlClearPage}{paperCopy}}{%
+	%Two-sided document options
+	\fancyhead[LE,RO]{\rightmark}
+	\fancyhead[RE,LO]{\textbf{\leftmark}}
+	\fancyfoot[LE,RO]{\thepage}
+	%Two-sided document options
+	}{\ifthenelse{\equal{\controlClearPage}{electronicCopy}}{%
+	%One-sided document options
+	\fancyhead[RE,RO]{\rightmark}
+	\fancyhead[LE,LO]{\textbf{\leftmark}}
+	\fancyfoot[CE,CO]{- \thepage\ -}
+	%One-sided document options
+	}{}}
 
 % Redefine plain style - This will apply to all the "contents" pages before the first chapter and to the first pages of each chapter
 \fancypagestyle{plain}{%
 \fancyhead{} % get rid of headers
-\fancyfoot[LE,RO]{\thepage}
+\fancyfoot{} % clear all footer fields
+%Footer position
+\ifthenelse{\equal{\controlClearPage}{paperCopy}}{
+	%Two-sided document options
+	\fancyfoot[LE,RO]{\thepage}
+	%Two-sided document options
+	}{\ifthenelse{\equal{\controlClearPage}{electronicCopy}}{
+	%One-sided document options
+	\fancyfoot[CE,CO]{- \thepage\ -}
+	%One-sided document options
+	}{}}
 \renewcommand{\footrulewidth}{0.4pt}
 \renewcommand{\headrulewidth}{0pt} % and the line
 \headheight=0.0cm
