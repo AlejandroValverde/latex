@@ -109,6 +109,14 @@ The computational model of the wing box was build using Abaqus CAE commercial so
   \caption[General assembly configuration for the computational model]{General assembly configuration for the computational model. The different parts for the general configuration include the wing-box profile, the lattice and the pair of ribs located at the tip and the root of the wing-box.}\label{fig:all-assembly}
 \end{figure}
 
+All the elements were constituted using continuum shell elements as the basic constituting part. An sketch of a continuum shell element as defined in Abaqus can be seen in Figure \ref{fig:shellElement}.
+
+\begin{figure}[!htpb]
+  \centering
+  \includegraphics[width=0.8 \textwidth]{model/eshell-scon-normal-nls}
+  \caption[Default normals and thickness direction for continuum shell elements in Abaqus]{Default normals and thickness direction for continuum shell elements in Abaqus. \cite{Abaqus}}\label{fig:shellElement}
+\end{figure}
+
 \subsection{Sub-parts and parametrization of the model} \label{subsec:parametrization_Model}
 
 \subsubsection{Lattice of chiral elements} \label{subsubsec:lattice_Parametrization}
@@ -179,7 +187,7 @@ The lattice nodes is one of the essential parts of the lattice of chiral element
 
 In the Abaqus model, different approaches were followed to create this element of the chiral lattice. The chiral lattice node is build together with the lattice ligaments, as a single part having homogeneous mechanical properties and thickness. Therefore, it is necessary to ensure the rigid body properties by other means.
 
-The first approach was to create a coupling condition using Abaqus corresponding module. In particular, a kinematic coupling was establish. Kinematic coupling constrains the motion of one or more coupling nodes, also called slave node or nodes, to the rigid body motion of a reference node, also called master node. They are imposed by eliminating degrees of freedom at the coupling nodes. In Figure \ref{fig:kinematicCoupling}, an example of a kinematic coupling can be seen.
+The first approach was to create a coupling condition using Abaqus corresponding module. In particular, a kinematic coupling was establish. A kinematic coupling constrains the motion of one or more coupling nodes, also called slave node or nodes, to the rigid body motion of a reference node, also called master node. They are imposed by eliminating degrees of freedom at the coupling nodes. In Figure \ref{fig:kinematicCoupling}, an example of a kinematic coupling can be seen.
 
 \begin{figure}[!htpb]
   \centering
