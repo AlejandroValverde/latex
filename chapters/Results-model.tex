@@ -1,10 +1,15 @@
-\chapter{Results} \label{chap:Results}
+\chapter{Model analysis results} \label{chap:Results_model}
 
-\section{Introduction} \label{sec:intro_Results}
+% Overview:
+% - Analytical model: Parametric study
+% - Connection lattice - wing-box skin
+% - Mesh: mesh problems
+% - Artifical damping factor
+% - Inner ribs
 
-% Introduction to the chapter
+\section{Introduction} \label{sec:intro_Results_sim}
 
-\section{Parametric study on the analytical model} \label{sec:analyticalParametricStudy_Results} 
+\section{Parametric study on the analytical model} \label{sec:analyticalParametricStudy_Results_sim} 
 In the present subsection, the variation of the beam properties for different parameter values will be shown. The beam geometry will be characterized through the cross-sectional aspect ratio $B/H$, the thickness ratio $t_2/t_1$ and the slenderness ratio $L/B$. The effect of these parameters on the sectional properties, twist and bending stiffness, and flexural and twisting compliance will be shown. Additionally, the variance of the stiffness ratio $E_1/E_2$ will also be included in the analysis.
 
 \subsection{Results} \label{subsec:results_parametricStudy}
@@ -103,10 +108,34 @@ The influence of the cross-sectional aspect ratio $B/H$ and the tickness ratio $
 
 
 %Comparison of the torsional compliance at the tip against stiffness ratio
+\section{Connection between the chiral lattice and the wing-box skin} \label{sec:connection_results_model}
+%
 
-\section{Results from the Abaqus CAE simulations} 
+\section{Connection between the chiral lattice and the wing-box skin} \label{sec:connection_results_model}
 
-%The modeling of the lattice nodes through coupling through a reference point and through tyre provide with the same results. The two approaches were explained in Section \ref{subsec:parametrization_Model}.
+Two different approaches were followed to model the rigid body behavior of the lattice nodes, as shown in Section \ref{subsec:parametrization_Model}.
 
-\section{Parametric study on the computational model} \label{sec:computationalParametricStudy_Results}
+The modeling of the lattice nodes through either the coupling through a reference point and through tyre was shown to 
+
+\section{Mesh} \label{sec:mesh_results_model}
+
+The model was build using cell shell elements as the fundamental constituting part. The thickness is assigned in the perpendicular direction, as it was shown in Figure \ref{fig:shellElement}.
+
+This type of element is a 2D element that it was used to build 3D structures. This kind of procedure may incur some distortion in the mesh elements due to shell elements intersecting in the same line at different angles. 
+
+For the designed model, this situation occurred at the chiral lattice at certain points. As soon in Figure \ref{fig:meshDistorted} it can be seen that the distorted elements appear at mainly at two different positions. Firstly, at the plane where the two ligaments with different curvature join. At this point, the sharp angles that appear in between the part geometrical lines induce the appearance of tetrahedral distorted mesh elements. The second typical location for appearance of distorted elements is along the curve where the lattice nodes and the curved ligaments join.
+
+\begin{figure}[!htpb]
+  \centering
+  \includegraphics[width=0.8 \textwidth]{result-model/meshDistorted}
+  \caption[Distorted mesh elements in the model]{Distorted mesh elements in the model. The number of distorted elements was found to be crucial for the simulation convergence.}\label{fig:meshDistorted}
+\end{figure}
+
+It was seen that the number of distorted elements had a significant effect in the simulation convergence. For a high number of distorted elements, the simulation could not go further from the first step. No attempts to locally modify the mesh at the mentioned locations were made, instead, it was found that modifying the global mesh size gave enough control over the number of distorted elements to be able to overcome this limitation. The bigger the mesh size in the area, the less distorted elements appear after completing the meshing operations.
+
+\section{Automatic stabilization} \label{sec:damp_results_model}
+
+%Damping is used to blabla
+
+\section{Load definition} \label{sec:load_results_model}
 
