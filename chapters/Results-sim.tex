@@ -12,6 +12,29 @@ Through the definition of paths in Abaqus, it is possible to obtain the value of
 
 %Figure XX: Path on upper flange of wing-box
 
+%Solution characterization
+% -> For the normal case
+%     - \ref{fig:normalCaseNoDampNoInnerRibs_800N}
+%     - the initial buckling ocurrs far from the root
+%     - UR1 of ~0.3 deg at the beam tip
+%
+% -> Introduccing damping
+%     - \ref{fig:normalCaseNoDampNoInnerRibs_800N}
+%     - Really big local deformations appear on the wing-box upper surface
+%     - UR1 of one order of magnitude higher, 3deg at the tip
+%     - Introduccing inner ribs becomes necessary to achieve greater twist with reduced local deformation
+%     - There is a point at which the structure collapses
+%     - \ref{fig:normalCaseDampNoInnerRibs_800N}
+%     - See plot that compares the external work introduced in the system and the static energy dissipated through artificial stabilization. \ref{fig:normalCaseNoDampNoInnerRibs_800N_stabilizationPlot}
+%
+% -> Introducing damping and inner ribs 
+%     - Twist at the tip is now of about 0.68deg
+%     - The energy plot for this is \ref{fig:normalCaseDamp2InnerRibs_800N_stabilizationPLot}
+%     - The deformation plot shows now how buclking start at the lattice located close to the inner rib more close to the root, in a positive x from the position of the rib. The buckling then moves a group of lattices at the root, in the upper position of the lattice.
+%     - Some local deformation still ocurrs at the section of the wing-box skin located in between the root at the first inner rib.
+%     - However, the inner ribs help the upper skin of the wing-box to remain more flat that before.
+
+
 %Load definition
 
 \section{Parametric study on the computational model} \label{sec:computationalParametricStudy_Results_sim}
