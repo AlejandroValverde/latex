@@ -28,29 +28,62 @@
 
 % 12 Jul 2005
 
-\usepackage{graphicx}
-\usepackage{subfigure}
-% \usepackage{fancyheadings}  % make fancyheadings.sty available in the source directory or elsewhere
-\usepackage{longtable}
-\usepackage{amsmath}
+% \usepackage{graphicx}
+% \usepackage{subfigure}
+% % \usepackage{fancyheadings}  % make fancyheadings.sty available in the source directory or elsewhere
+% \usepackage{longtable}
+% \usepackage{amsmath}
+% \pagestyle{fancyplain}
 
-    % \pagestyle{fancyplain}
-    \parskip=0cm
-    \voffset=-1cm%- 0.54cm - Modified by Alejandro Valverde
-    \hoffset=0.46cm
-    \oddsidemargin=0pt
-    \evensidemargin=0pt
-    \topmargin=0pt
-    % \headheight=0.5cm
-    \headsep=0.5cm
-    \textheight=23.7cm
-    \textwidth=15cm
-    % \setlength{\headwidth}{15cm}
-    % \setlength{\parindent}{0pt}                         % copied from DCSSS04 style file to stop indenting paragraphs (the default)
+% Paper and text dimensions, by Ana
+\RequirePackage{geometry,calc,mathptmx,setspace,helvet}
+
+%Horizontal control
+\setlength{\paperwidth}{210mm}
+\setlength{\oddsidemargin}{3cm-1in}
+
+%Margin for double page
+\ifthenelse{\equal{\controlClearPage}{paperCopy}}{
+    %Double page option
+    \setlength{\evensidemargin}{0cm}
+    %Double page option
+    }{\ifthenelse{\equal{\typeThesis}{electronicCopy}}{
+    %Single page option
+    \setlength{\evensidemargin}{3cm-1in}
+    %Single page option
+    }{}}
+
+\setlength{\hoffset}{0in}
+\setlength{\marginparsep}{0in}
+
+%Vertical control
+\setlength{\paperheight}{297mm}
+\setlength{\voffset}{-1in} %Remove inicial offset of 1in
+\setlength{\topmargin}{0.5cm}%{3cm-1in}
+\setlength{\headheight}{2cm}
+\setlength{\headsep}{1cm}
+\setlength{\footskip}{4cm}
+
+%Text
+% \setlength{\textheight}{\paperheight-\headheight-\headsep-\footskip}
+\setlength{\textwidth}{\paperwidth-3cm-3cm}
+
+% \voffset=-1cm%- 0.54cm - Modified by Alejandro Valverde
+% \hoffset=0.46cm
+% \oddsidemargin=0pt
+% \evensidemargin=0pt
+% % \topmargin=0pt
+% % \headheight=0.5cm
+% % \headsep=0.5cm
+% \textheight=23.7cm
+% \textwidth=15cm
+% \setlength{\headwidth}{15cm}
+% \setlength{\parindent}{0pt}                         % copied from DCSSS04 style file to stop indenting paragraphs (the default)
 %    \setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}    % copied from DCSSS04 style file, spaces paragraphs and titles
-    \setlength{\parskip}{10pt}                          % makes a fixed space between paragraphs
-    \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
-    \renewcommand{\bibname}{References}
+\setlength{\parskip}{10pt}                          % makes a fixed space between paragraphs
+% \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+% \renewcommand{\bibname}{References}
+% \renewcommand{\baselinestretch}{1.5cm}
 
 % Commented out by Alejandro Valverde
 % \lhead[\fancyplain{\thepage}{\thepage}]{\fancyplain{\slshape \leftmark}{\slshape \leftmark}}

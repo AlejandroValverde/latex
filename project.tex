@@ -1,17 +1,17 @@
 %
 % Thesis document - Alejandro Valverde López
 
-\documentclass[11pt,twoside,a4paper,fleqn,DIV=11,numbers=noenddot]{report}
+\documentclass[11pt,a4paper,fleqn]{report}
 
 % report:				Standard report file, for CRANFIELD thesis
 % scrbook:				Koma-Script ‘article’ book, for CMAS thesis
-% DIV-11:				Calculates the type-area and the margins. The bigger the DIV number is, the bigger this dimensions are.
+% DIV-11:				Calculates the type-area and the margins. The bigger the DIV number is, the bigger this dimensions are. Only ETH
 % numbers=noenddot:		??
 % fleqn:				Equations are left-aligned
 
 %% DOCUMENT TYPE
 \def\typeThesis{CRANFIELD} %{ETH, CRANFIELD}
-\def\controlClearPage{paperCopy} %possible inputs: paperCopy, electronicCopy
+\def\controlClearPage{electronicCopy} %possible inputs: paperCopy, electronicCopy
 
 %% IMPORT DOCUMENT SETTINGS
 \usepackage{ifthen}
@@ -29,7 +29,7 @@
 
 
 %Define which chapters to include
-\includeonly{chapters/Abstract, chapters/Acknowledgments, chapters/Model}%, chapters/Results-sim, chapters/Results-model, chapters/State-of-the-art} %{file1,file2,...}
+\includeonly{chapters/Abstract, chapters/Acknowledgments, chapters/Results-sim}%, chapters/Results-sim, chapters/Results-model, chapters/State-of-the-art} %{file1,file2,...}
 
 \begin{document}
 
