@@ -15,6 +15,61 @@ For the wing-box, the nominal value of its characteristic parameters are those s
 % *Cbox-t: Minimum seems to be 0.8. For less values, the simulation crashes.
 The aim of this section is to show the effect of each parameter on the nonlinear of the structure.
 
-\subsection{Ligament eccentricity} \label{subsec:eccen_para}
+\subsection{Wing-box thickness and force applied} \label{subsec:Cbox_t_para}
+  %Summary of results
+  %   - Range: 0.8, 1, 1.2, 1.4
+  %   - This parameters has high influence in the appearance of buckling or not
+  %   - Force displacement plot
+  %       - For the one close. It is possible to see that for all the cases except one, the response is linear at the beggining, but non-linearities become relevant when the applied load is \%20 approximatelly. Therefore, this offset between the linear and nonlinear is constant for \ref{fig:../figures/result-sim/para/cbox/force_displacement-close}  
+  %   - For 1.4
+  %       - No buckling at the root
+  %       - Buckling appears first at the first ligaments after the inner rib located in higer x position
+  %       - \ref{fig:../figures/result-sim/para/cbox/1coma4-800N}
+  %       - A simular behaviour is shown for the linear simulation. There is for this case, small difference between computing the linear and the nonlinear simulations
+  %       - \ref{fig:../figures/result-sim/para/cbox/1coma4-800N-linear}
+  %   - For 1.2
+  %       - Similar result
+  %   - For 1.0
+  %       - Similar, result but now it can be seen how there are some lattices that are buckling as well close to the root
+  %   - For 0.8
+  %       - For this case, the Figure \ref{fig:../figures/result-sim/para/cbox/force_displacement-close} shows that there is an abrupt collapse of the structure when \%60 of the load has been applied. 
+  %       - At the beginning, buckling appears at the same place than in the other cases, just after the inner big with higher x coordinate
+  %       - Then, quickly buckling starts to appear in a more severe way close to the root. This is the point at which the local inestabilities are such that there is need of adding artificial damping factor in order to capture this dynamics. In \ref{fig:../figures/result-sim/para/cbox/0coma8-energy} it is possible also to see the abrupt change in the external work put into the system. After this point, the artifial damping allows the simulation to continue, however, the static dissipation through automatic estabilization is neglectable in comparison with the external work.
+  %       - Show \ref{fig:../figures/result-sim/para/cbox/0coma8-800N-1}
+  %       - The structure collapses a this point, inducing considerable local deformation at the point where the ligaments present a more severa buckling, at the root. 
+  %       - The figure \ref{fig:../figures/result-sim/para/cbox/force_displacement-far} shows the evolution of the twist for this case, in the post-buckling region until all the load has been applied. In this region, each of the lattice that buckled increase its deformation. There aren't any new lattices that buckle
+  %       - Another remark to make is that the linear simulation was unable to capture all the dynamics ocurring for this case. 
+  %
+  %    -Table summary: In Table \ref{tab:ur1_cbox_t} the value of the twist can be read for each of the cases considered. It shows the maximum twist achieved for each of the cases together with a reference to the maximum desviation from the mean twist for each of the twist values that are obtained from different sources.
+  %       - In Table \ref{tab:ur1_cbox_t}, the maximum mesh node vertical displacement $v$ on the upper skin of the wing box is shown. For the case $t_{\mathrm{box}} = 0.8$mm, the point where the maximum vertical displacement is shown close to the root, where $x_{v_{\mathrm{min}}}} = 0.334$.  
 
-%Ranges: 0.008
+\subsection{Number of chiral elements} \label{subsec:MandN_para}
+
+  Now the effect of the number of units cells in the transversal direction $M$ and in the spanwise direction $N$ on the structural response are investigated.
+
+  Firstly, the
+
+\subsection{Chiral lattice parameters} \label{subsec:chiral_para}
+
+  In the present subsection, different parameters of the chiral lattice structure are varied and its effect of the system response are shown. 
+
+  The parameters chosen 
+
+  \subsubsection{Dimensionless chiral ligament eccentricity $\hat{e}_{\mathrm{chiral}}$}
+
+    The first of this parameters is the ligament eccentricity, in its dimensionless form $\hat{e}_{\mathrm{chiral}}$.
+    % \ref{fig:../figures/result-sim/para/eccen/force_displacement-far}
+    % In Figure \ref{fig:../figures/result-sim/para/eccen/0coma1-700N} it can be seen than the excesive eccentricity of the ligaments keep them from causing the collapse of the structure
+
+  \subsubsection{Chiral node depth $B_{\mathrm{chiral}}$}
+
+    % \ref{fig:../figures/result-sim/para/B/force_displacement-far}
+    % The larger the chiral node depth, the bigger surface on the 
+    % The collapse point moves backwards as the $B_{\mathrm{chiral}}$ increases. However, the bigger $B_{\mathrm{chiral}}$, the more abrupt the collapse is.
+    % It Figure \ref{fig:../figures/result-sim/para/B/30_UR1} the rotation $UR_1$ of the mesh elements around the $x$ direction can be seen for the case of \B$= 30$mm at the moment when collapse of the structure ocurrs. The value of this magnitude in this area is approximatelly the double to the corresponding one when \B$= 10$mm which can be seen in Figure \ref{fig:../figures/result-sim/para/B/10_UR1}
+
+  \subsubsection{Chiral node radius $r_{\mathrm{chiral}}$}
+
+    % Ranges: 7.5, 10, 12.5, 15, 17.5, 20
+    % For r = 5, an error in the ligaments is found. There is interference between the mesh elemnents located at different ligaments that are joined at one node.
+
