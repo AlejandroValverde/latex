@@ -198,7 +198,7 @@
     For the simulations run, a damping factor of the order of $\approx$10$^{-8}$ was found to be sufficient for the simulations to achieve convergence.
 
 \section{General response characterization} \label{sec:generalResponseCharact}
-
+  %
   %Solution characterization
   % -> For the normal case
   %     - \ref{fig:normalCaseNoDampNoInnerRibs_800N}
@@ -224,6 +224,26 @@
   %     - The deformation plot shows now how buclking start at the lattice located close to the inner rib more close to the root, in a positive x from the position of the rib. The buckling then moves a group of lattices at the root, in the upper position of the lattice.
   %     - Some local deformation still ocurrs at the section of the wing-box skin located in between the root at the first inner rib.
   %     - However, the inner ribs help the upper skin of the wing-box to remain more flat than before.
-  %
 
+  In the present section, the response the general response of the model will be analysed. This will provide an insight view of what to expect when executing the simulations for different parameters.
+
+  Initially, the model did not incorporate inner ribs and the ribs located at the tip and the root had an open profile. In Figure XX, it can be seen an example of the response seen for this type of configuration.
+
+  %Figure XX: Showing how the ribs close
+
+  For this reason, it was decided to use ribs with a close profile. The simulations then provided a solution like the one shown in Figure \ref{fig:normalCaseNoDampNoInnerRibs_800N}. For this case, the initial buckling occurs in ligaments located far from the root. The twist of the beam, measured as the angular rotation $UR_1$ around the $x$ axis is of ~0.3 deg. The prescribed load was 800 N and the simulation did not converge to the last fraction of  dsd
+
+  \begin{figure}[!htpb]
+    \centering
+    \includegraphics[width=0.8 \textwidth]{../figures/result-model/normalCaseNoDampNoInnerRibs_800N}
+    \caption[Solution obtained from the model without the use of inner ribs nor automatic stabilization]{Solution obtained from the model without the use of inner ribs nor automatic stabilization.}\label{fig:normalCaseNoDampNoInnerRibs_800N}
+  \end{figure}
+
+  In order to investigate further deformations of the ligaments, it was decided to carry out simulations to incorporate automation stabilization through artificial damping artificial damping factor, as it was explained in Subsection \ref{subsec:nonlinear_results_model}. After this, the results showed a deformation like the one shown in Figure XX . 
+
+  \begin{figure}[!htpb]
+    \centering
+    \includegraphics[width=0.8 \textwidth]{../figures/result-model/normalCaseDampNoInnerRibs_800N}
+    \caption[Solution obtained from the model without the use of inner ribs]{Solution obtained from the model without the use of inner ribs.}\label{fig:normalCaseDampNoInnerRibs_800N}
+  \end{figure}
 
