@@ -231,7 +231,7 @@
 
   %Figure XX: Showing how the ribs close
 
-  For this reason, it was decided to use ribs with a close profile. The simulations then provided a solution like the one shown in Figure \ref{fig:normalCaseNoDampNoInnerRibs_800N}. For this case, the initial buckling occurs in ligaments located far from the root. The twist of the beam, measured as the angular rotation $UR_1$ around the $x$ axis is of ~0.3 deg. The prescribed load was 800 N and the simulation did not converge to the last fraction of  dsd
+  For this reason, it was decided to use ribs with a close profile. The simulations then provided a solution like the one shown in Figure \ref{fig:normalCaseNoDampNoInnerRibs_800N}. For this case, the initial buckling occurs in ligaments located far from the root. The twist of the beam, measured as the angular rotation $UR_1$ around the $x$ axis is of ~0.3 deg. The prescribed load was 800 N and the simulation converged to the 0.95\% of the prescribed load. 
 
   \begin{figure}[!htpb]
     \centering
@@ -239,11 +239,19 @@
     \caption[Solution obtained from the model without the use of inner ribs nor automatic stabilization]{Solution obtained from the model without the use of inner ribs nor automatic stabilization.}\label{fig:normalCaseNoDampNoInnerRibs_800N}
   \end{figure}
 
-  In order to investigate further deformations of the ligaments, it was decided to carry out simulations to incorporate automation stabilization through artificial damping artificial damping factor, as it was explained in Subsection \ref{subsec:nonlinear_results_model}. After this, the results showed a deformation like the one shown in Figure XX . 
+  In order to investigate further deformations of the ligaments, it was decided to carry out simulations that incorporate automation stabilization through artificial damping artificial damping factor, as it was explained in Subsection \ref{subsec:nonlinear_results_model}. After this, the results showed a deformation like the one shown in Figure \ref{fig:normalCaseDampNoInnerRibs_800N}. This figure shows how big local deformations appear on the wing-box upper skin for this case. Also, it can be seen that the buckling phenomena has moved backwards to the ligaments close to the root.
 
   \begin{figure}[!htpb]
     \centering
     \includegraphics[width=0.8 \textwidth]{../figures/result-model/normalCaseDampNoInnerRibs_800N}
-    \caption[Solution obtained from the model without the use of inner ribs]{Solution obtained from the model without the use of inner ribs.}\label{fig:normalCaseDampNoInnerRibs_800N}
+    \caption[Solution obtained from the model without the use of inner ribs with automatic stabilization]{Solution obtained from the model without the use of inner ribs with automatic stabilization.}\label{fig:normalCaseDampNoInnerRibs_800N}
   \end{figure}
 
+  In order to reduce the local deformations occurring on the wing-box, a pair of inner ribs as described in Subsection \ref{subsec:parametrization_Model} were added to the model. This element added stiffness to the structure in bending. In the final configuration automatic stabilization through constant damping factor was utilized as well. This results showed that the initial buckling
+
+  \begin{figure}[!htpb]
+    \centering
+    \includegraphics[width=0.8 \textwidth]{../figures/results-model/normalCaseDamp2InnerRibs_800N_stabilizationPlot}
+    \caption[]{}
+    \label{fig:}
+  \end{figure}
