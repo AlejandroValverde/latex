@@ -135,7 +135,7 @@
 
     It was seen that the number of distorted elements had a significant effect in the simulation convergence. For a high number of distorted elements, the simulation could not go further from the first step. No attempts to locally modify the mesh at the mentioned locations were made, instead, it was found that modifying the global mesh size gave enough control over the number of distorted elements to be able to overcome this limitation. The bigger the mesh size in the area, the less distorted elements appear after completing the meshing operations.
 
-    For this reason, it was decided not to use a model where the connection between the chiral lattice and the wing-box skin is modeled following the approach exposed in the Subsection \label{subsec:connections_computationalModel}. Instead, a more rough connection is used, as shown in Figure \ref{fig:connectionForParametric}.
+    For this reason, it was decided not to use a model where the connection between the chiral lattice and the wing-box skin is modeled following the approach exposed in the Subsection \ref{subsec:connections_computationalModel}. Instead, a more rough connection is used, as shown in Figure \ref{fig:connectionSimple}.
 
     \begin{figure}[!htpb]
       \centering
@@ -185,11 +185,11 @@
 
     Since the above situation represents what it is expected to be found in the model response, a constant artificial damping factor will be used throughout the whole step to account for the appearance of local instabilities.  
 
-    Automatic stabilization with a constant damping factor implies that viscous forces of the form
+    Automatic stabilization with a constant damping factor implies that viscous forces of the form:
     $$
     F_v = c \mat{M} v
     $$
-    are added to the global equilibrium equations
+    are added to the global equilibrium equations:
     $$
     P - I - F_v = 0,
     $$
@@ -197,61 +197,70 @@
 
     For the simulations run, a damping factor of the order of $\approx$10$^{-8}$ was found to be sufficient for the simulations to achieve convergence.
 
-\section{General response characterization} \label{sec:generalResponseCharact}
-  %
-  %Solution characterization
-  % -> For the normal case
-  %     - \ref{fig:normalCaseNoDampNoInnerRibs_800N}
-  %     - the initial buckling ocurrs far from the root
-  %     - UR1 of ~0.3 deg at the beam tip
-  %
-  % -> Introduccing damping
-  %     - \ref{fig:normalCaseNoDampNoInnerRibs_800N}
-  %     - Really big local deformations appear on the wing-box upper surface
-  %     - UR1 of one order of magnitude higher, 3deg at the tip
-  %     - Introduccing inner ribs becomes necessary to achieve greater twist with reduced local deformation
-  %     - There is a point at which the structure collapses
-  %     - \ref{fig:normalCaseDampNoInnerRibs_800N}
-  %     - See plot that compares the external work introduced in the system and the static energy dissipated through artificial stabilization. \ref{fig:normalCaseNoDampNoInnerRibs_800N_stabilizationPlot}
-  %
-  % -> Introducing inner ribs but not damping
-  %     - \ref{fig:normalCaseNoDamp2InnerRibs_800N}
-  %     - Buckling again appears at the front at it is very little
-  %     - The simulation stops really soon, only tau/T = 0.134 achieved for the current plot
-  % -> Introducing damping and inner ribs 
-  %     - Twist at the tip is now of about 0.68deg
-  %     - The energy plot for this is \ref{fig:normalCaseDamp2InnerRibs_800N_stabilizationPLot}
-  %     - The deformation plot shows now how buclking start at the lattice located close to the inner rib more close to the root, in a positive x from the position of the rib. The buckling then moves a group of lattices at the root, in the upper position of the lattice.
-  %     - Some local deformation still ocurrs at the section of the wing-box skin located in between the root at the first inner rib.
-  %     - However, the inner ribs help the upper skin of the wing-box to remain more flat than before.
+  \subsection{Inner ribs} \label{subsec:finalConfiguration_results_model}
+    %
+    %Solution characterization
+    % -> For the normal case
+    %     - \ref{fig:normalCaseNoDampNoInnerRibs_800N}
+    %     - the initial buckling ocurrs far from the root
+    %     - UR1 of ~0.3 deg at the beam tip
+    %
+    % -> Introduccing damping
+    %     - \ref{fig:normalCaseNoDampNoInnerRibs_800N}
+    %     - Really big local deformations appear on the wing-box upper surface
+    %     - UR1 of one order of magnitude higher, 3deg at the tip
+    %     - Introduccing inner ribs becomes necessary to achieve greater twist with reduced local deformation
+    %     - There is a point at which the structure collapses
+    %     - \ref{fig:normalCaseDampNoInnerRibs}
+    %     - See plot that compares the external work introduced in the system and the static energy dissipated through artificial stabilization. \ref{fig:normalCaseNoDampNoInnerRibs_800N_stabilizationPlot}
+    %
+    % -> Introducing inner ribs but not damping
+    %     - \ref{fig:normalCaseNoDamp2InnerRibs_800N}
+    %     - Buckling again appears at the front at it is very little
+    %     - The simulation stops really soon, only tau/T = 0.134 achieved for the current plot
+    % -> Introducing damping and inner ribs 
+    %     - Twist at the tip is now of about 0.68deg
+    %     - The energy plot for this is \ref{fig:normalCaseDamp2InnerRibs_800N_stabilizationPLot}
+    %     - The deformation plot shows now how buclking start at the lattice located close to the inner rib more close to the root, in a positive x from the position of the rib. The buckling then moves a group of lattices at the root, in the upper position of the lattice.
+    %     - Some local deformation still ocurrs at the section of the wing-box skin located in between the root at the first inner rib.
+    %     - However, the inner ribs help the upper skin of the wing-box to remain more flat than before.
 
-  In the present section, the response the general response of the model will be analysed. This will provide an insight view of what to expect when executing the simulations for different parameters.
+    In the present section, the response the general response of the model will be analyzed. This will provide an insight view of what to expect when executing the simulations for different parameters.
 
-  Initially, the model did not incorporate inner ribs and the ribs located at the tip and the root had an open profile. In Figure XX, it can be seen an example of the response seen for this type of configuration.
+    %First approach: no ribs, no damp
+    Initially, the model did not incorporate inner ribs and the ribs located at the tip and the root had an open profile. In Figure \ref{fig:closeOfRib-800N}, it can be seen an example of the response seen for this type of configuration.
 
-  %Figure XX: Showing how the ribs close
+    \begin{figure}[!htpb]
+      \centering
+      \includegraphics[width=0.8 \textwidth]{../figures/result-model/closeOfRib-800N}
+      \caption[Vertical displacement $v$ at the tip rib]{Vertical displacement $v$ at the tip rib. The color contour shows those mesh nodes located on the upper flange of the rib have a higher $v$, therefore showing how the rib is closing under the prescribed load (800 N)}\label{fig:closeOfRib-800N}
+    \end{figure}
 
-  For this reason, it was decided to use ribs with a close profile. The simulations then provided a solution like the one shown in Figure \ref{fig:normalCaseNoDampNoInnerRibs_800N}. For this case, the initial buckling occurs in ligaments located far from the root. The twist of the beam, measured as the angular rotation $UR_1$ around the $x$ axis is of ~0.3 deg. The prescribed load was 800 N and the simulation converged to the 0.95\% of the prescribed load. 
+    For this reason, it was decided to use ribs with a close profile. The simulations then provided a solution like the one shown in Figure \ref{fig:normalCaseNoDampNoInnerRibs_800N}. For this case, the initial buckling occurs in ligaments located far from the root. The twist of the beam, measured as the angular rotation $UR_1$ around the $x$ axis is of ~0.3 deg. The prescribed load was -800 N and the simulation converged to the 0.95\% of the prescribed load. 
 
-  \begin{figure}[!htpb]
-    \centering
-    \includegraphics[width=0.8 \textwidth]{../figures/result-model/normalCaseNoDampNoInnerRibs_800N}
-    \caption[Solution obtained from the model without the use of inner ribs nor automatic stabilization]{Solution obtained from the model without the use of inner ribs nor automatic stabilization.}\label{fig:normalCaseNoDampNoInnerRibs_800N}
-  \end{figure}
+    \begin{figure}[!htpb]
+      \centering
+      \includegraphics[width=0.8 \textwidth]{../figures/result-model/normalCaseNoDampNoInnerRibs_800N}
+      \caption[Model response without the use of inner ribs nor automatic stabilization]{Model response without the use of inner ribs nor automatic stabilization.}\label{fig:normalCaseNoDampNoInnerRibs_800N}
+    \end{figure}
 
-  In order to investigate further deformations of the ligaments, it was decided to carry out simulations that incorporate automation stabilization through artificial damping artificial damping factor, as it was explained in Subsection \ref{subsec:nonlinear_results_model}. After this, the results showed a deformation like the one shown in Figure \ref{fig:normalCaseDampNoInnerRibs_800N}. This figure shows how big local deformations appear on the wing-box upper skin for this case. Also, it can be seen that the buckling phenomena has moved backwards to the ligaments close to the root.
+    In order to investigate further deformations of the ligaments, it was decided to carry out simulations that incorporate automation stabilization through artificial damping artificial damping factor, as it was explained in Subsection \ref{subsec:nonlinear_results_model}. After this, the results showed a deformation like the one shown in Figure \ref{fig:normalCaseDampNoInnerRibs}. This figure shows how big local deformations appear on the wing-box upper skin for this case. Also, it can be seen that the buckling phenomena has moved backwards to the ligaments close to the root.
 
-  \begin{figure}[!htpb]
-    \centering
-    \includegraphics[width=0.8 \textwidth]{../figures/result-model/normalCaseDampNoInnerRibs_800N}
-    \caption[Solution obtained from the model without the use of inner ribs with automatic stabilization]{Solution obtained from the model without the use of inner ribs with automatic stabilization.}\label{fig:normalCaseDampNoInnerRibs_800N}
-  \end{figure}
+    \begin{figure}[!htpb]
+      \centering
+      \includegraphics[width=0.8 \textwidth]{../figures/result-model/normalCaseDampNoInnerRibs}
+      \caption[Model response without the use of inner ribs with automatic stabilization]{Model response without the use of inner ribs with automatic stabilization.}\label{fig:normalCaseDampNoInnerRibs}
+    \end{figure}
 
-  In order to reduce the local deformations occurring on the wing-box, a pair of inner ribs as described in Subsection \ref{subsec:parametrization_Model} were added to the model. This element added stiffness to the structure in bending. In the final configuration automatic stabilization through constant damping factor was utilized as well. This results showed that the initial buckling
+    %Inner ribs, no damp
+    In order to reduce the local deformations occurring on the wing-box, a pair of inner ribs as described in Subsection \ref{subsec:parametrization_Model} were added to the model. This element added stiffness to the structure in bending. Now, the response of the model was shown to be like the one represented in Figure \ref{fig:normalCaseNoDamp2InnerRibs}. Here it can be seen that the ligaments that start to buckle are located at the same position as they were in the response of the model that did not incorporate inner ribs seen in Figure \ref{fig:normalCaseNoDampNoInnerRibs_800N}. However, now the degree of deformation has decreased due to the stiffness added to the structure as a result of the inner ribs incorporation.
 
-  \begin{figure}[!htpb]
-    \centering
-    \includegraphics[width=0.8 \textwidth]{../figures/results-model/normalCaseDamp2InnerRibs_800N_stabilizationPlot}
-    \caption[]{}
-    \label{fig:}
-  \end{figure}
+    \begin{figure}[!htpb]
+      \centering
+      \includegraphics[width=0.8 \textwidth]{../figures/result-model/normalCaseNoDamp2InnerRibs_800N}
+      \caption[Model response incorporating inner ribs and without automatic stabilization]{Model response incorporating inner ribs and without automatic stabilization}
+      \label{fig:normalCaseNoDamp2InnerRibs}
+    \end{figure}
+
+    %Now damp and inner ribs
+    However, for this last case, the simulation was only able to converge up to 13\% of the prescribed load. In other to progress further in the analysis, the use of automatic stabilization becomes necessary again. For this reason, in the final configuration, automatic stabilization through constant damping factor will be used together with the inner ribs. A description of the response of the structure for this last case will be included at the beginning of next chapter.

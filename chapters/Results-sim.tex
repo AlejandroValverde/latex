@@ -4,21 +4,69 @@
 
 % Introduction to the chapter
 
-\section{Response for the baseline configuration} \label{sec:baselineResponse_results_sim}
+\section{General response characterization of the baseline configuration} \label{sec:generalResponseCharact_results_sim}
   % 
   % -> Describe buckling without or before collapsing
   % -> Describe the evolution of the buckling for the normal case, 2 inner ribs and damping included
   %       - At the beginning, buckling appears at the same place than in the other cases, just after the inner big with higher x coordinate
   %       - Then, quickly buckling starts to appear in a more severe way close to the root. This is the point at which the local inestabilities are such that there is need of adding artificial damping factor in order to capture this dynamics. In \ref{fig:../figures/result-sim/energy} it is possible also to see the abrupt change in the external work put into the system. After this point, the artifial damping allows the simulation to continue, however, the static dissipation through automatic estabilization is neglectable in comparison with the external work.
 
+  In this section, the general response of the model will be characterized. For the wing-box, the nominal value of its characteristic parameters are those shown in Table \ref{tab:parameters_wing-box}, while Tables \ref{tab:parameters_lattice} and \ref{tab:parameters_wing-box} contain the nominal values of the main parameters for the chiral lattice and the ribs, respectively. Also, the baseline configuration will incorporate a pair of inner ribs and the load will be applied on a single mesh node on the upper flange of the tip rib, as described in Subsection \ref{subsec:load_results_model}.
+
+  In th simulation, automatic stabilization will be performed through the inclusion of artificial constant damping factor. For this case, the response of the structure when 0.65\% of the prescribed load has been applied is the one shown in Figure \ref{fig:normalCaseDamp2InnerRibs_800N_1}. It can be seen that buckling starts and it is more severe in the ligament located just after the inner rib located closer to the root. In a further load increment, buckling phenomena moves backwards and those ligaments located close to the root and with a higher $y$ coordinate, start to deform even more severely. At this point, the structure collapses and the twist increases for smaller increments in the applied load. This can be seen in Figure \ref{fig:normalCaseDamp2InnerRibs_800N_2}.
+
+  \begin{figure}[!htpb] %First step in the deformation 
+    \centering
+    \includegraphics[width=0.8 \textwidth]{../figures/result-sim/normalCaseDamp2InnerRibs_800N_1}
+    \caption[Baseline model response for a load applied equal to 0.65\% of the prescribed load (800 N)]{Baseline model response for a load applied equal to 0.65\% of the prescribed load (800 N). Buckling has appeared and it is more severe on the chiral ligament located closer to the inner rib located closer to the root.}\label{fig:normalCaseDamp2InnerRibs_800N_1}
+  \end{figure}
+
+  \begin{figure}[!htpb] %First step in the deformation 
+    \centering
+    \includegraphics[width=0.8 \textwidth]{../figures/result-sim/normalCaseDamp2InnerRibs_800N_2}
+    \caption[Baseline model response for a load applied equal to 0.85\% of the prescribed load (800 N)]{Baseline model response for a load applied equal to 0.85\% of the prescribed load (800 N). Severe buckling appears in those chiral ligaments located at the root and with a higher $y$ coordinate. This is the point when the structure collapses and the twist increases for smaller increments in the applied load.}\label{fig:normalCaseDamp2InnerRibs_800N_2}
+  \end{figure}
+
+  This is the point at which the local instabilities are such that there is need of adding artificial damping factor in order to capture this dynamics. After this point, the artificial damping allows the simulation to continue. Special care needs to be taken in order not ensure that the inclusion of artificial damping factor is not leading to inaccurate results due to over-damping of the structure. This can be done why comparing the fraction of the static energy that it is dissipated compared to the external work that its put into the system. The Figure \ref{fig:energy} makes this comparison possible. It can be seen that effectively, the static dissipation through automatic stabilization is negligible in comparison with the external work. This figure also shows the abrupt increment in external work at the point where the structure collapses due to sudden buckling of the chiral ligaments.
+
+  \begin{figure}[!htpb] %Energy plot
+    \centering
+    \includegraphics[width=0.8 \textwidth]{../figures/result-sim/energy}
+    \caption[External work and static dissipation for a simulation of the baseline configuration]{External work and static dissipation for a simulation of the baseline configuration. It can be seen that the static dissipation through automatic stabilization is negligible in comparison with the external work showing that the inclusion of artificial damping factor is unluckily to be leading to inaccurate results. The abrupt change in the external work shows the point where structure collapses due to sudden buckling of the chiral ligaments.}\label{fig:energy}
+  \end{figure}
+
+  In order to see the overall system response as load increases, a load-displacement curve can be plotted. The Figure XX shows the typical twist variation as the load is increased. On this plot, the results from the nonlinear simulations are shown as the set of scatter points while the dotted line represents the forecast final twist from the linear simulation. In the case shown, the linear simulation arises a twist at the tip $\phi_{\mathrm{tip}}$ equal to $0.175$ degrees while the nonlinear simulation predicts a final twist of $10.94$ degrees. This shows how the problem under study is highly nonlinear.
+
+  The nonlinear response also shows the point where the 
+
+  \begin{figure}[!htpb] %Energy plot
+    \centering
+    \includegraphics[width=0.8 \textwidth]{../figures/result-sim/energy}
+    \caption[]{}\label{fig:energy}
+  \end{figure}
+
+  \begin{figure}[!htpb] %Energy plot
+    \centering
+    \includegraphics[width=0.8 \textwidth]{../figures/result-sim/twoStages_UR}
+    \caption[]{}\label{fig:energy}
+  \end{figure}
+  
+\clearpage
 \section{Parametric study on the computational model} \label{sec:computationalParametricStudy_results_sim}
   %
   % *Cbox-t: Minimum seems to be 0.8. For less values, the simulation crashes.
-  The aim of this section is to show the effect of each parameter on the nonlinear of the structure.
+  The aim of this section is to show the effect of each parameter on the nonlinear response of the structure. The parameters that will be included in the analysis are the following:
 
-  The baseline configuration described in XX was used to assign value to those parameters that were not object of the particular study.
-
-  For the wing-box, the nominal value of its characteristic parameters are those shown in Table \ref{tab:parameters_wing-box}, while Tables \ref{tab:parameters_lattice} and \ref{tab:parameters_wing-box} contain the nominal values of the main parameters for the chiral lattice and the ribs, respectively.
+  \begin{itemize}
+    \item Wing-box thickness \boxt
+    \item Number of unit cells in the transversal direction $M$
+    \item Number of unit cells in the spanwise direction $N$
+    \item Chiral node depth \chiB
+    \item Chiral node radius \chir
+    \item Chiral lattice thickness \chit
+    \item Chiral ligament half length \chiL
+    \item Dimensionless ligament eccentricity \chie
+  \end{itemize}
 
   \subsection{Wing-box thickness and force applied} \label{subsec:Cbox_t_para}
     %Summary of results
@@ -43,14 +91,14 @@
     %       - The figure \ref{fig:../figures/result-sim/cbox/force_displacement-far} shows the evolution of the twist for this case, in the post-buckling region until all the load has been applied. In this region, each of the lattice that buckled increase its deformation. There aren't any new lattices that buckle
     %       - Another remark to make is that the linear simulation was unable to capture all the dynamics ocurring for this case. 
     %
-    %    -Table summary: In Table \ref{tab:ur1_cbox_t} the value of the twist can be read for each of the cases considered. It shows the maximum twist achieved for each of the cases together with a reference to the maximum desviation from the mean twist for each of the twist values that are obtained from different sources.
+    %    -Table summary: In Table \ref{tab:ur1_cbox_t} the value of the twist from each of the cases considered. It shows the maximum twist achieved for each of the cases together with a reference to the maximum desviation from the mean twist for each of the twist values that are obtained from different sources.
     %       - In Table \ref{tab:ur1_cbox_t}, the maximum mesh node vertical displacement $v$ on the upper skin of the wing box is shown. For the case $t_{\mathrm{box}} = 0.8$mm, the point where the maximum vertical displacement is shown close to the root, where $x_{v_{\mathrm{min}}}} = 0.334$. OK
 
-    In the present subsection, the general response of the structure will be analyzed. Also, the effect of different values for the wing-box thickness \boxt is investigated. 
+    In the present subsection the effect of different values for the wing-box thickness \boxt on the structure response is investigated. 
 
-    The results from the simulations carried out can be seen in Table \ref{tab:para_cbox}. In the table, the twist at the tip of the wing-box can be read for the Abaqus nonlinear simulation $\phi_{\mathrm{tip}}$ and for the linear simulation $\tilde{\phi}_{\mathrm{tip}}$. This result is obtained by evaluating the value of the rotation $UR_1$ for a number of nodes located in different parts of the beam, as explained in the Subsection \ref{subsec:resultsAnalysis_results_model}. Therefore, the maximum deviation from the calculated mean twist has also been included. Finally, the Table \ref{tab:para_cbox} shows the maximum vertical displacement of a node located on the upper wing-box skin.
+    The results from the simulations carried out can be seen in Table \ref{tab:para_cbox}. In the table, the twist at the tip of the wing-box for the Abaqus nonlinear simulation $\phi_{\mathrm{tip}}$ and for the linear simulation $\tilde{\phi}_{\mathrm{tip}}$. This result is obtained by evaluating the value of the rotation $UR_1$ for a number of nodes located in different parts of the beam, as explained in the Subsection \ref{subsec:resultsAnalysis_results_model}. Therefore, the maximum deviation from the calculated mean twist has also been included. Finally, the Table \ref{tab:para_cbox} shows the maximum vertical displacement of a node located on the upper wing-box skin.
 
-    \begin{table}[!htpb]
+    \begin{table}[!htpb] %Table results cbox_t
       \centering
       \begin{tabular}{|l|l|l|l|l|l|l|l|l|}
       \hline
@@ -60,7 +108,7 @@
       1.2 & -0.174 & 10.288 & -0.143 & -12.16 & -1.081 & 1 & 0.971 \\ \hline
       1.4 & -0.158 & 12.909 & -0.13 & -14.06 & -0.95 & 1 & 0.971 \\ \hline
       \end{tabular}
-      \caption[Results from parametric study on the wing-box thickness]{Results from parametric study on the wing-box thickness \boxt. The results show the twist at the tip of the wing-box can be read for the Abaqus nonlinear simulation $\phi_{\mathrm{tip}}$ and for the linear simulation $\tilde{\phi}_{\mathrm{tip}}$. The respective relative error expressed in percentage for these two magnitudes is shown as $e(\phi_{\mathrm{tip}})$ and $e(\tilde{\phi}_{\mathrm{tip}})$, respectively. The table also shows the maximum vertical displacement $v_{\mathrm{max}}$ among all the mesh nodes located on the upper skin of the wing-box and the dimensionless position in the spanwise direction $\hat{x}_{v_{\mathrm{max}}}$ and in the chordwise direction $\hat{z}_{v_{\mathrm{max}}}$ of the node that shows $v_{\mathrm{max}}$.}
+      \caption[Results from parametric study on the wing-box thickness]{Results from parametric study on the wing-box thickness \boxt. The results show the twist at the tip of the wing-box for the Abaqus nonlinear simulation $\phi_{\mathrm{tip}}$ and for the linear simulation $\tilde{\phi}_{\mathrm{tip}}$. The maximum relative error of the mean calculation, expressed as percentage, for these two magnitudes is $e(\phi_{\mathrm{tip}})$ and $e(\tilde{\phi}_{\mathrm{tip}})$, respectively. The table also shows the maximum vertical displacement $v_{\mathrm{max}}$ among all the mesh nodes located on the upper skin of the wing-box and the dimensionless position in the spanwise direction $\hat{x}_{v_{\mathrm{max}}}$ and in the chordwise direction $\hat{z}_{v_{\mathrm{max}}}$ of the node that shows $v = v_{\mathrm{max}}$.}
       \label{tab:para_cbox}
     \end{table}
 
@@ -98,23 +146,74 @@
 
     A further study was performed in order to see the relationship between the wing-box thickness and the value of the force applied that induces the structure to collapse. As a result, the plot shown in Figure \ref{fig:force_cbox_t} was produced.
 
-    \begin{figure}[!htpb] %force_displacement-close
+    \begin{figure}[!htpb] %force_plot
       \centering
       \includegraphics[width=0.8 \textwidth]{../figures/result-sim/cbox/force_cbox_t}
       \caption[Force that induces the structure to collapse as a function of the wing-box thickness]{Force that induces the structure to collapse as a function of the wing-box thickness \boxt.}\label{fig:force_cbox_t}
     \end{figure}
 
   \clearpage
-  \subsection{Number of chiral elements} \label{subsec:MandN_para}
+  \subsection{Number of unit cells in the chiral lattice} \label{subsec:MandN_para}
     %
     %   -> For M:
     %       -It was neccessary to increase the load up to 1200N to see the wing-box with $M = 4$ to collapse
 
     Now the effect of the number of units cells in the transversal direction $M$ and in the spanwise direction $N$ on the structural response are investigated.
 
-    Firstly, the
+    Firstly, the number of unit cells in the transversal direction $M$ is varied. This parameter modifies the height of the model. Similarly as it was done for the study of the wing-box thickness \boxt influence in the structure response, the results from the different simulations are shown in Table \ref{tab:para_M}. Also, the force-displacement curve is shown in Figure \ref{fig:forceDisplacement-far-M}. It can be seen from results that increments a higher $M$ resulted on a decrement of the structure sensitivity to buckling. For the case of $M = 5$, the structure did not collapse under the prescribed load of 1000 N.
 
+    \begin{table}[!htpb] %Results of M
+      \centering
+      \begin{tabular}{|l|l|l|l|l|l|l|l|l|}
+      \hline
+      $M$ & $\phi_{\mathrm{tip}}$ (deg) & $e(\phi_{\mathrm{tip}}) (\%)$ & $\tilde{\phi}_{\mathrm{tip}}$ (deg) & $e(\tilde{\phi}_{\mathrm{tip}}) (\%)$ & $v_{\mathrm{max}}$ & $\hat{z}_{v_{\mathrm{max}}}$ & $\hat{x}_{v_{\mathrm{max}}}$ \\ \hline
+      3 & -5.179 & 13.559 & -0.245 & -10.074 & -29.166 & 1 & 0.971 \\ \hline
+      4 & -0.392 & 22.16 & -0.148 & -10.447 & -6.093 & 1 & 0.334 \\ \hline
+      5 & -0.214 & 14.893 & -0.164 & -17.526 & -1.018 & 0.6 & 0.971 \\ \hline
+      \end{tabular}
+      \caption[Results from parametric study on the number of unit cells in the transversal direction]{Results from parametric study on the number of unit cells in the transversal direction $M$. The results show the twist at the tip of the wing-box for the Abaqus nonlinear simulation $\phi_{\mathrm{tip}}$ and for the linear simulation $\tilde{\phi}_{\mathrm{tip}}$. The maximum relative error of the mean calculation, expressed as percentage, for these two magnitudes is $e(\phi_{\mathrm{tip}})$ and $e(\tilde{\phi}_{\mathrm{tip}})$, respectively. The table also shows the maximum vertical displacement $v_{\mathrm{max}}$ among all the mesh nodes located on the upper skin of the wing-box and the dimensionless position in the spanwise direction $\hat{x}_{v_{\mathrm{max}}}$ and in the chordwise direction $\hat{z}_{v_{\mathrm{max}}}$ of the node that shows $v = v_{\mathrm{max}}$.}
+      \label{tab:para_M}
+    \end{table}
 
+    From the results shown in Table \ref{tab:para_B} it can be seen how for the case of $M = 3$, the point that shows $v = v_{\mathrm{max}}$ is located at the wing-box tip where $\hat{x}_{v_{\mathrm{max}}} = 0.971$, due to the high twist of the structure. However, for $M = 4$, the structure has gained stiffness in shear and, even the prescribed load makes the structure to collapse when buckling phenomena appears, the achieved twist $\phi_{\mathrm{tip}}$ is $\approx 7\%$ inferior than what it was obtained for $M = 3$. For $M = 5$, the structure is so stiff that $v_{\mathrm{max}}$ appears approximately at the point where the load is applied. This shows that deformation is only achieved in the vicinity of the load introduction point due to the high stiffness in shear of the structure. 
+
+    \begin{figure}[!htpb] %force_displacement-far
+      \centering
+      \includegraphics[width=0.8 \textwidth]{../figures/result-sim/M/force_displacement-far-1200N}
+      \caption[Force-displacement curve for various values of the number of unit cells in the transversal direction]{Force-displacement curve for various values of the number of unit cells in the transversal direction $M$. For all the cases shown, the load introduction point was located in the middle of the upper flange of the tip rib and its magnitude was equal to -1200 N.}\label{fig:forceDisplacement-far-M}
+    \end{figure}
+
+    The effects of the variation of the number of unit cells in the spanwise direction $N$, parameter responsible of the wing-box length is investigated next. The results from the parametric study carried out are shown in Table \ref{tab:para_N}. The force-displacement curve for the simulations carried out is shown in Figure \ref{fig:forceDisplacement-far-N}. It can be seen that the bigger the wing-box length, the earlier that the buckling of the lattices cause the collapse of the structure. 
+
+    %Second stage of the buckling
+
+    \begin{table}[!htpb] %Results of N
+      \centering
+      \begin{tabular}{|l|l|l|l|l|l|l|l|l|}
+      \hline
+      $N$ & $\phi_{\mathrm{tip}}$ (deg) & $e(\phi_{\mathrm{tip}}) (\%)$ & $\tilde{\phi}_{\mathrm{tip}}$ (deg) & $e(\tilde{\phi}_{\mathrm{tip}}) (\%)$ & $v_{\mathrm{max}}$ & $\hat{z}_{v_{\mathrm{max}}}$ & $\hat{x}_{v_{\mathrm{max}}}$ \\ \hline
+      7 & -0.185 & 16.474 & -0.14 & -12.506 & -1.061 & 1 & 0.971 \\ \hline
+      8 & -0.878 & 9.517 & -0.17 & -10.196 & -9.844 & 1 & 0.334 \\ \hline
+      9 & -4.582 & 11.091 & -0.209 & -7.848 & -25.781 & 1 & 0.971 \\ \hline
+      10 & -8.116 & 6.192 & -0.248 & -6.398 & -46.636 & 1 & 0.971 \\ \hline
+      11 & -17.659 & 4.954 & -0.299 & -5.098 & -107.229 & 1 & 0.971 \\ \hline
+      12 & -22.007 & 6.527 & -0.337 & -3.08 & -137.131 & 1 & 0.971 \\ \hline
+      \end{tabular}
+      \caption[Results from parametric study on the number of unit cells in the spanwise direction]{Results from parametric study on the number of unit cells in the spanwise direction $M$. The results show the twist at the tip of the wing-box for the Abaqus nonlinear simulation $\phi_{\mathrm{tip}}$ and for the linear simulation $\tilde{\phi}_{\mathrm{tip}}$. The maximum relative error of the mean calculation, expressed as percentage, for these two magnitudes is $e(\phi_{\mathrm{tip}})$ and $e(\tilde{\phi}_{\mathrm{tip}})$, respectively. The table also shows the maximum vertical displacement $v_{\mathrm{max}}$ among all the mesh nodes located on the upper skin of the wing-box and the dimensionless position in the spanwise direction $\hat{x}_{v_{\mathrm{max}}}$ and in the chordwise direction $\hat{z}_{v_{\mathrm{max}}}$ of the node that shows $v = v_{\mathrm{max}}$.}
+      \label{tab:para_N}
+    \end{table}
+
+    \begin{figure}[!htpb] %force_displacement-far
+      \centering
+      \includegraphics[width=0.8 \textwidth]{../figures/result-sim/N/force_displacement-far}
+      \caption[Force-displacement curve for various values of the number of unit cells in the spanwise direction]{Force-displacement curve for various values of the number of unit cells in the spanwise direction $N$. For all the cases shown, the load introduction point was located in the middle of the upper flange of the tip rib and its magnitude was equal to -700 N.}\label{fig:forceDisplacement-far-N}
+    \end{figure}
+
+    \begin{figure}[!htpb] %force_displacement-far
+      \centering
+      \includegraphics[width=0.8 \textwidth]{../figures/result-sim/N/10}
+      \caption[Generalized buckling in the chiral ligaments for $N = 10$]{Generalized buckling in the chiral ligaments for $N = 10$ $N$. }\label{fig:forceDisplacement-far-N}
+    \end{figure}
 
   \clearpage
   \subsection{Chiral lattice parameters} \label{subsec:chiral_para}
@@ -129,6 +228,21 @@
       % \ref{fig:../figures/result-sim/eccen/force_displacement-far}
       % In Figure \ref{fig:../figures/result-sim/eccen/0coma1-700N} it can be seen than the excesive eccentricity of the ligaments keep them from causing the collapse of the structure
 
+      \begin{table}[!htpb] %Results of chiral thickness 
+        \centering
+        \begin{tabular}{|l|l|l|l|l|l|l|l|l|}
+        \hline
+        \chie & $\phi_{\mathrm{tip}}$ (deg) & $e(\phi_{\mathrm{tip}}) (\%)$ & $\tilde{\phi}_{\mathrm{tip}}$ (deg) & $e(\tilde{\phi}_{\mathrm{tip}}) (\%)$ & $v_{\mathrm{max}}$ & $\hat{z}_{v_{\mathrm{max}}}$ & $\hat{x}_{v_{\mathrm{max}}}$ \\ \hline
+        0.0 & -0.903 & 9.547 & -0.166 & -10.14 & -9.806 & 1 & 0.334 \\ \hline
+        0.001 & -1.314 & 13.715 & -0.168 & -9.931 & -12.441 & 1 & 0.334 \\ \hline
+        0.01 & -0.877 & 9.525 & -0.17 & -10.196 & -9.831 & 1 & 0.334 \\ \hline
+        0.05 & -0.724 & 9.511 & -0.188 & -10.598 & -8.483 & 1 & 0.334 \\ \hline
+        0.1 & -0.222 & 9.444 & -0.194 & -10.601 & -1.416 & 1 & 0.971 \\ \hline
+        \end{tabular}
+        \caption[Results from parametric study on chiral ligament eccentricity]{Results from parametric study on chiral ligament eccentricity \chie. The results show the twist at the tip of the wing-box for the Abaqus nonlinear simulation $\phi_{\mathrm{tip}}$ and for the linear simulation $\tilde{\phi}_{\mathrm{tip}}$. The maximum relative error of the mean calculation, expressed as percentage, for these two magnitudes is $e(\phi_{\mathrm{tip}})$ and $e(\tilde{\phi}_{\mathrm{tip}})$, respectively. The table also shows the maximum vertical displacement $v_{\mathrm{max}}$ among all the mesh nodes located on the upper skin of the wing-box and the dimensionless position in the spanwise direction $\hat{x}_{v_{\mathrm{max}}}$ and in the chordwise direction $\hat{z}_{v_{\mathrm{max}}}$ of the node that shows $v = v_{\mathrm{max}}$.}
+        \label{tab:para_e}
+      \end{table}
+
     \subsubsection{Chiral node depth $B_{\mathrm{chiral}}$}
 
       % \ref{fig:../figures/result-sim/B/force_displacement-far}
@@ -136,10 +250,72 @@
       % The collapse point moves backwards as the $B_{\mathrm{chiral}}$ increases. However, the bigger $B_{\mathrm{chiral}}$, the more abrupt the collapse is.
       % It Figure \ref{fig:../figures/result-sim/B/30_UR1} the rotation $UR_1$ of the mesh elements around the $x$ direction can be seen for the case of \B$= 30$mm at the moment when collapse of the structure ocurrs. The value of this magnitude in this area is approximatelly the double to the corresponding one when \B$= 10$mm which can be seen in Figure \ref{fig:../figures/result-sim/B/10_UR1}
 
+      \begin{table}[!htpb] %Results of B
+        \centering
+        \begin{tabular}{|l|l|l|l|l|l|l|l|l|}
+        \hline
+        \chit & $\phi_{\mathrm{tip}}$ (deg) & $e(\phi_{\mathrm{tip}}) (\%)$ & $\tilde{\phi}_{\mathrm{tip}}$ (deg) & $e(\tilde{\phi}_{\mathrm{tip}}) (\%)$ & $v_{\mathrm{max}}$ & $\hat{z}_{v_{\mathrm{max}}}$ & $\hat{x}_{v_{\mathrm{max}}}$ \\ \hline
+        10 & -1.082 & 9.61 & -0.187 & -10.614 & -10.941 & 1 & 0.334 \\ \hline
+        20 & -0.877 & 9.525 & -0.17 & -10.196 & -9.831 & 1 & 0.334 \\ \hline
+        30 & -0.71 & 9.528 & -0.16 & -9.838 & -8.75 & 1 & 0.334 \\ \hline
+        \end{tabular}
+        \caption[Results from parametric study on chiral node depth]{Results from parametric study on chiral node depth \chiB. The results show the twist at the tip of the wing-box for the Abaqus nonlinear simulation $\phi_{\mathrm{tip}}$ and for the linear simulation $\tilde{\phi}_{\mathrm{tip}}$. The maximum relative error of the mean calculation, expressed as percentage, for these two magnitudes is $e(\phi_{\mathrm{tip}})$ and $e(\tilde{\phi}_{\mathrm{tip}})$, respectively. The table also shows the maximum vertical displacement $v_{\mathrm{max}}$ among all the mesh nodes located on the upper skin of the wing-box and the dimensionless position in the spanwise direction $\hat{x}_{v_{\mathrm{max}}}$ and in the chordwise direction $\hat{z}_{v_{\mathrm{max}}}$ of the node that shows $v = v_{\mathrm{max}}$.}
+        \label{tab:para_B}
+      \end{table}
+
     \subsubsection{Chiral node radius $r_{\mathrm{chiral}}$}
 
       % Ranges: 7.5, 10, 12.5, 15, 17.5, 20
       % \ref{fig:../figures/result-sim/r/force_displacement-far}
       % For \r = 5, an error in the ligaments is found. There is interference between the mesh elemnents located at different ligaments that are joined at one node.
-      % For \r$= 12.5$mm, the buckling ligaments are located at the root, as it can be seen in Figure \ref{fig:../figures/result-sim/r/12coma5-UR}. However, for the case of \r$= 17.5$mm, buckling do not ocurr on the ligaments located at the root but in those located just after the inner rib located closer to the root, with smaller $x$. This explains the characteristic seen in Figure \ref{fig:../figures/result-sim/r/force_displacement-far} for the case of \r$= 17.5$mm which breaks the trend followed by values \r$< 17.5$mm. 
+      % For \r$= 12.5$mm, the buckling ligaments are located at the root, as it can be seen in Figure \ref{fig:../figures/result-sim/r/12coma5-UR}. However, for the case of \r$= 17.5$mm, buckling do not ocurr on the ligaments located at the root but in those located just after the inner rib located closer to the root, with smaller $x$. This explains the characteristic seen in Figure \ref{fig:../figures/result-sim/r/force_displacement-far} for the case of \r$= 17.5$mm which breaks the trend followed by values \r$< 17.5$mm.
 
+      \begin{table}[!htpb] %Results of r
+        \centering
+        \begin{tabular}{|l|l|l|l|l|l|l|l|l|}
+        \hline
+        \chit & $\phi_{\mathrm{tip}}$ (deg) & $e(\phi_{\mathrm{tip}}) (\%)$ & $\tilde{\phi}_{\mathrm{tip}}$ (deg) & $e(\tilde{\phi}_{\mathrm{tip}}) (\%)$ & $v_{\mathrm{max}}$ & $\hat{z}_{v_{\mathrm{max}}}$ & $\hat{x}_{v_{\mathrm{max}}}$ \\ \hline
+        7.5 & -1.184 & 13.64 & -0.171 & -10.046 & -11.586 & 1 & 0.331 \\ \hline
+        10 & -0.877 & 9.525 & -0.17 & -10.196 & -9.831 & 1 & 0.334 \\ \hline
+        12.5 & -0.886 & 9.596 & -0.17 & -10.247 & -10.051 & 1 & 0.337 \\ \hline
+        15 & -1.121 & 13.638 & -0.173 & -10.134 & -11.677 & 1 & 0.342 \\ \hline
+        17.5 & -0.273 & 9.481 & -0.171 & -10.215 & -4.169 & 1 & 0.568 \\ \hline
+        20 & -0.229 & 12.686 & -0.171 & -8.848 & -1.433 & 1 & 1.026 \\ \hline
+        \end{tabular}
+        \caption[Results from parametric study on chiral node radius]{Results from parametric study on chiral node radius \chir. The results show the twist at the tip of the wing-box for the Abaqus nonlinear simulation $\phi_{\mathrm{tip}}$ and for the linear simulation $\tilde{\phi}_{\mathrm{tip}}$. The maximum relative error of the mean calculation, expressed as percentage, for these two magnitudes is $e(\phi_{\mathrm{tip}})$ and $e(\tilde{\phi}_{\mathrm{tip}})$, respectively. The table also shows the maximum vertical displacement $v_{\mathrm{max}}$ among all the mesh nodes located on the upper skin of the wing-box and the dimensionless position in the spanwise direction $\hat{x}_{v_{\mathrm{max}}}$ and in the chordwise direction $\hat{z}_{v_{\mathrm{max}}}$ of the node that shows $v = v_{\mathrm{max}}$.}
+        \label{tab:para_B}
+      \end{table}
+
+    \subsubsection{Chiral ligament half length $L_{\mathrm{chiral}}$}
+      %
+      %
+
+      \begin{table}[!htpb] %Results of L
+        \centering
+        \begin{tabular}{|l|l|l|l|l|l|l|l|l|}
+        \hline
+        \chiL & $\phi_{\mathrm{tip}}$ (deg) & $e(\phi_{\mathrm{tip}}) (\%)$ & $\tilde{\phi}_{\mathrm{tip}}$ (deg) & $e(\tilde{\phi}_{\mathrm{tip}}) (\%)$ & $v_{\mathrm{max}}$ & $\hat{z}_{v_{\mathrm{max}}}$ & $\hat{x}_{v_{\mathrm{max}}}$ \\ \hline
+        30 & -0.159 & 14.947 & -0.126 & -15.25 & -0.999 & 1 & 0.602 \\ \hline
+        50 & -10.946 & 13.666 & -0.175 & -10.269 & -122.756 & 1 & 0.546 \\ \hline
+        70 & -14.752 & 8.695 & -0.208 & -10.126 & -99.479 & 1 & 0.463 \\ \hline
+        \end{tabular}
+        \caption[Results from parametric study on chiral ligament half length]{Results from parametric study on chiral ligament half length \chir. The results show the twist at the tip of the wing-box for the Abaqus nonlinear simulation $\phi_{\mathrm{tip}}$ and for the linear simulation $\tilde{\phi}_{\mathrm{tip}}$. The maximum relative error of the mean calculation, expressed as percentage, for these two magnitudes is $e(\phi_{\mathrm{tip}})$ and $e(\tilde{\phi}_{\mathrm{tip}})$, respectively. The table also shows the maximum vertical displacement $v_{\mathrm{max}}$ among all the mesh nodes located on the upper skin of the wing-box and the dimensionless position in the spanwise direction $\hat{x}_{v_{\mathrm{max}}}$ and in the chordwise direction $\hat{z}_{v_{\mathrm{max}}}$ of the node that shows $v = v_{\mathrm{max}}$.}
+        \label{tab:para_L}
+      \end{table}
+
+    \subsubsection{Chiral structure thickness $t_{\mathrm{chiral}}$}
+      %
+
+      \begin{table}[!htpb] %Results of chiral thickness 
+        \centering
+        \begin{tabular}{|l|l|l|l|l|l|l|l|l|}
+        \hline
+        \chit & $\phi_{\mathrm{tip}}$ (deg) & $e(\phi_{\mathrm{tip}}) (\%)$ & $\tilde{\phi}_{\mathrm{tip}}$ (deg) & $e(\tilde{\phi}_{\mathrm{tip}}) (\%)$ & $v_{\mathrm{max}}$ & $\hat{z}_{v_{\mathrm{max}}}$ & $\hat{x}_{v_{\mathrm{max}}}$ \\ \hline
+        0.2 & -1.201 & 9.464 & -0.199 & -10.637 & -11.878 & 1 & 0.334 \\ \hline
+        0.4 & -1.026 & 9.503 & -0.179 & -10.334 & -10.896 & 1 & 0.334 \\ \hline
+        0.6 & -0.922 & 13.874 & -0.164 & -9.816 & -10.036 & 1 & 0.334 \\ \hline
+        0.8 & -0.232 & 14.445 & -0.15 & -9.323 & -1.449 & 1 & 0.971 \\ \hline
+        \end{tabular}
+        \caption[Results from parametric study on chiral structure thickness]{Results from parametric study on chiral structure thickness \chit. The results show the twist at the tip of the wing-box for the Abaqus nonlinear simulation $\phi_{\mathrm{tip}}$ and for the linear simulation $\tilde{\phi}_{\mathrm{tip}}$. The maximum relative error of the mean calculation, expressed as percentage, for these two magnitudes is $e(\phi_{\mathrm{tip}})$ and $e(\tilde{\phi}_{\mathrm{tip}})$, respectively. The table also shows the maximum vertical displacement $v_{\mathrm{max}}$ among all the mesh nodes located on the upper skin of the wing-box and the dimensionless position in the spanwise direction $\hat{x}_{v_{\mathrm{max}}}$ and in the chordwise direction $\hat{z}_{v_{\mathrm{max}}}$ of the node that shows $v = v_{\mathrm{max}}$.}
+        \label{tab:para_chi_t}
+      \end{table}

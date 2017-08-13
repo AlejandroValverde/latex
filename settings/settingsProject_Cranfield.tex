@@ -40,7 +40,8 @@
 
 %Horizontal control
 \setlength{\paperwidth}{210mm}
-\setlength{\oddsidemargin}{3cm-1in}
+\setlength{\oddsidemargin}{3cm-1in-0.5cm}
+\setlength{\evensidemargin}{3cm-1in-0.5cm}
 
 %Margin for double page
 \ifthenelse{\equal{\controlClearPage}{paperCopy}}{
@@ -49,7 +50,7 @@
     %Double page option
     }{\ifthenelse{\equal{\typeThesis}{electronicCopy}}{
     %Single page option
-    \setlength{\evensidemargin}{3cm-1in}
+    \setlength{\evensidemargin}{3cm-1in-0.5cm}
     %Single page option
     }{}}
 
@@ -59,18 +60,18 @@
 %Vertical control
 \setlength{\paperheight}{297mm}
 \setlength{\voffset}{-1in} %Remove inicial offset of 1in
-\setlength{\topmargin}{0.5cm}%{3cm-1in}
+\setlength{\topmargin}{0.9cm}%{3cm-1in}
 \setlength{\headheight}{2cm}
 \setlength{\headsep}{1cm}
-\setlength{\footskip}{4cm}
+\setlength{\footskip}{2.7cm}
 
 %Text
 % \setlength{\textheight}{\paperheight-\headheight-\headsep-\footskip}
-\setlength{\textwidth}{\paperwidth-3cm-3cm}
+\setlength{\textwidth}{\paperwidth-3cm-3cm+1cm}
 
 %Interlineado
-\usepackage{setspace}
-\spacing{1.5}
+% \usepackage{setspace}
+% \spacing{1.0}
 
 % \voffset=-1cm%- 0.54cm - Modified by Alejandro Valverde
 % \hoffset=0.46cm
