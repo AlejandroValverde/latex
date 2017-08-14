@@ -27,7 +27,7 @@
     \caption[Baseline model response when the fraction of load applied equals to 80\% of the prescribed load (700 N)]{Baseline model response when the fraction of load applied equals to 80\% of the prescribed load (700 N). Severe buckling appears in those chiral ligaments located at the root and with a higher $y$ coordinate. This is the point when the structure collapses and the twist increases for smaller increments in the applied load.}\label{fig:2-UR}
   \end{figure}
 
-  This is the point at which the local instabilities are such that there is need of adding artificial damping factor in order to capture this dynamics. After this point, the artificial damping allows the simulation to continue. Special care needs to be taken in order not ensure that the inclusion of artificial damping factor is not leading to inaccurate results due to over-damping of the structure. This can be done why comparing the fraction of the static energy that it is dissipated compared to the external work that its put into the system. The Figure \ref{fig:energy} makes this comparison possible. It can be seen that effectively, the static dissipation through automatic stabilization is negligible in comparison with the external work. This figure also shows the abrupt increment in external work at the point where the structure collapses due to sudden buckling of the chiral ligaments.
+  This is the point at which the local instabilities are such that there is need of adding artificial damping factor in order to capture this dynamics. After this point, the artificial damping allows the simulation to continue. As it was explained in Subsection \ref{subsec:nonlinear_results_model}, special care needs to be taken in order not ensure that the inclusion of artificial damping factor is not leading to inaccurate results due to over-damping of the structure. This can be done why comparing the fraction of the static energy that it is dissipated compared to the external work that its put into the system. The Figure \ref{fig:energy} makes this comparison possible. It can be seen that effectively, the static dissipation through automatic stabilization is negligible in comparison with the external work. This figure also shows the abrupt increment in external work at the point where the structure collapses due to sudden buckling of the chiral ligaments.
 
   \begin{figure}[!htpb] %Energy plot
     \centering
@@ -392,7 +392,9 @@
       %
       %
 
-      The numeric results obtained for the parametric study on the chiral ligament half length \chiL are shown in Table \ref{tab:para_L}. The force-displacement curve for the set of values analysed is shown in Figure \ref{fig:forceDisplacement-far-L}. This plot shows that the bigger the ligament half length is, the earlier that the structure will collapse after severe buckling of the ligaments at the root. For the case of \chiL$= 30$, the structure does not collapse as the structure has become very stiff.    
+      The numeric results obtained for the parametric study on the chiral ligament half length \chiL are shown in Table \ref{tab:para_L}. The force-displacement curve for the set of values analyzed is shown in Figure \ref{fig:forceDisplacement-far-L}. This plot shows that the bigger the ligament half length is, the earlier that the structure will collapse after severe buckling of the ligaments at the root. For the case of \chiL$= 30$, the structure does not collapse as the structure has become very stiff.
+
+      Again, in a further step, the force that causes the structure to collapse for a given value of the half length \chiL parameter was investigated. The resulting plot is shown in Figure \ref{fig:force_L}.
 
       \begin{table}[!htpb] %Results of L
         \centering
@@ -413,11 +415,19 @@
         \caption[Force-displacement curve for various values of the chiral ligament half length]{Force-displacement curve for various values of the chiral ligament half length \chiL. The bigger the ligament half length is, the earlier that the structure will collapse after severe buckling of the ligaments at the root.}\label{fig:forceDisplacement-far-L}
       \end{figure}
 
+      \begin{figure}[!htpb] %force_plot
+        \centering
+        \includegraphics[width=0.8 \textwidth]{../figures/result-sim/L/force_L}
+        \caption[Force that induces the structure to collapse as a function of the chiral ligament half length]{Force that induces the structure to collapse as a function of the chiral ligament half length \chiL.}\label{fig:force_L}
+      \end{figure}
+
     \clearpage
     \subsubsection{Chiral structure thickness $t_{\mathrm{chiral}}$}
       %
 
       The results for the parametric study performed on the chiral structure thickness \chit are shown in Table \ref{tab:para_chi_t}. The force-displacement curve is shown in Figure \ref{fig:forceDisplacement-far-chiral-t}. Here it can be seen that a thicker chiral structure delays the structure collapse. Similarly as it occurred for the chiral node depth \chiB, the more bigger the thickness \chit is, the more abrupt is the decrement in tip twist is. 
+
+      Finally, the required force to induce the structure to collapse was plot against the corresponding value of the chiral structure thickness \chit, resulting on the curve shown in Figure \ref{fig:force_chiral_t}.
 
       \begin{table}[!htpb] %Results of chiral thickness 
         \centering
@@ -437,4 +447,10 @@
         \centering
         \includegraphics[width=0. \textwidth]{../figures/result-sim/chiral_t/force_displacement-far}
         \caption[Force-displacement curve for various values of the chiral structure thickness]{Force-displacement curve for various values of the chiral structure thickness \chit. The bigger the ligament half length is, the earlier that the structure will collapse after severe buckling of the ligaments at the root.}\label{fig:forceDisplacement-far-chiral-t}
+      \end{figure}
+
+      \begin{figure}[!htpb] %force_plot
+        \centering
+        \includegraphics[width=0.8 \textwidth]{../figures/result-sim/chiral_t/force_chiral_t}
+        \caption[Force that induces the structure to collapse as a function of the chiral structure thickness]{Force that induces the structure to collapse as a function of the chiral structure thickness \chit.}\label{fig:force_chiral_t}
       \end{figure}

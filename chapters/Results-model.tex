@@ -110,20 +110,20 @@
   %Comparison of the torsional compliance at the tip against stiffness ratiosub
 
 \section{Computational model analysis} \label{sec:computationalModelAnalysis_results_model}
-  
+
   \subsection{Connection between the chiral lattice and the wing-box skin} \label{subsec:connection_results_model}
 
-  \subsection{Rigid body modeling} \label{subsec:rigidBody_results_model}
+  % \subsection{Rigid body modeling} \label{subsec:rigidBody_results_model}
 
-    Two different approaches were followed to model the rigid body behavior of the lattice nodes, as shown in Section \ref{subsec:parametrization_Model}.
+  %   Two different approaches were followed to model the rigid body behavior of the lattice nodes, as shown in Section \ref{subsec:parametrization_Model}.
 
-    The modeling of the lattice nodes through either the coupling through a reference point and through tyre was shown to 
+  %   The modeling of the lattice nodes through either the coupling through a reference point and through tyre was shown to
 
   \subsection{Mesh} \label{subsec:mesh_results_model}
 
     The model was build using cell shell elements as the fundamental constituting part. The thickness is assigned in the perpendicular direction, as it was shown in Figure \ref{fig:shellElement}.
 
-    This type of element is a 2D element that it was used to build 3D structures. This kind of procedure may incur some distortion in the mesh elements due to shell elements intersecting in the same line at different angles. 
+    This type of element is a 2D element that it was used to build 3D structures. This kind of procedure may incur some distortion in the mesh elements due to shell elements intersecting in the same line at different angles.
 
     For the designed model, this situation occurred at the chiral lattice at certain points. As soon in Figure \ref{fig:meshDistorted} it can be seen that the distorted elements appear at mainly at two different positions. Firstly, at the plane where the two ligaments with different curvature join. At this point, the sharp angles that appear in between the part geometrical lines induce the appearance of tetrahedral distorted mesh elements. The second typical location for appearance of distorted elements is along the curve where the lattice nodes and the curved ligaments join.
 
@@ -145,6 +145,7 @@
 
   \subsection{Load definition} \label{subsec:load_results_model}
 
+  \clearpage
   \subsection{Boundary condition} \label{subsec:boundary_results_model}
 
     The boundary condition was the one shown in Figure \ref{fig:fixed}. It consisted in a kinematic coupling similar to the one introduced in Section \ref{subsec:parametrization_Model} to model the rigid body behavior of the lattice nodes. In this case, the kinematic coupling is establish between a reference point located approximately at the centre of the root rib and the faces of this mentioned rib. The reference point acts as a master node while the mesh nodes located at the faces of the rib are the slave nodes. The reference point is next fixed in all its degrees of freedom using the corresponding boundary condition Abaqus module.
@@ -155,6 +156,7 @@
       \caption[Boundary condition for the model]{Boundary condition for the model. The condition is establish through a coupling interaction between a reference point and the faces of the rib at the root. The reference point is fixed in all its degrees of freedom using the corresponding boundary condition Abaqus module.}\label{fig:fixed}
     \end{figure}
 
+  \clearpage
   \subsection{Results analysis} \label{subsec:resultsAnalysis_results_model} %To be extended, maybe
 
     The results obtained from the Abaqus simulations were analyzed in two different ways. Firstly, qualitatively by means of the deformation plots that shown by the Abaqus. And, secondly, extracting values of different magnitudes directly from the mesh nodes or elements located at certain positions of interest.
@@ -167,8 +169,9 @@
       \caption[Path of mesh elements on the solution model]{Path of mesh elements on the solution model.}\label{fig:pathUpper}
     \end{figure}
 
-  \subsection{Nonlinear problem and automatic stabilization} \label{subsec:nonlinear_results_model} %TO BE REVIEWED
-    
+  \clearpage
+  \subsection{Nonlinear problem and automatic stabilization} \label{subsec:nonlinear_results_model} %OK
+
     For the case under study, nonlinear simulations will be carried out as is expected to find a nonlinear load-displacement curve as a result of the analysis. In Abaqus, to execute nonlinear simulation involves the following, as shown in \cite{Abaqus}:
 
     \begin{itemize}
@@ -183,7 +186,7 @@
 
     Also, nonlinear static problems may become unstable. One of the possible sources of such instabilities is buckling. A model where buckling appears locally may not be resoluble using general solution methods. For this kind of cases, it becomes necessary to either solve the problem dynamically or with the aid of artificial damping.
 
-    Since the above situation represents what it is expected to be found in the model response, a constant artificial damping factor will be used throughout the whole step to account for the appearance of local instabilities.  
+    Since the above situation represents what it is expected to be found in the model response, a constant artificial damping factor will be used throughout the whole step to account for the appearance of local instabilities.
 
     Automatic stabilization with a constant damping factor implies that viscous forces of the form:
     $$
@@ -195,8 +198,37 @@
     $$
     where $I$ represents the internal forces, $P$ the external forces, $\mat{M}$ is the artificial mass matrix calculated with unity density, $c$ is the defined damping factor, $v = \Delta u / \Delta t$ is the vector of nodal velocities, and $\Delta t$ is the increment of simulation time.
 
-    For the simulations run, a damping factor of the order of $\approx$10$^{-8}$ was found to be sufficient for the simulations to achieve convergence.
+    The final value that is going to be used during the simulations was chosen after performing a small parametric study of the different possibilities. As a result, the plot shown in Figure \ref{fig:forceDisplacement-damp} was produced. This plot represents the evolution of the twist at the tip as the load is increased step by step during the nonlinear simulation. As it will be explained in Section \ref{sec:generalResponseCharact_results_sim}, the use of automatic stabilization becomes necessary to capture the dynamics that involve buckling on the chiral ligaments and the ultimate collapse of the structure.
 
+    \begin{figure}[!htpb]
+      \centering
+      \includegraphics[width=0.8 \textwidth]{../figures/result-model/forceDisplacement-damp}
+      \caption[Force-displacement curve for various values of constant artificial damping factor]{Force-displacement curve for various values of constant artificial damping factor.}\label{fig:forceDisplacement-damp}
+    \end{figure}
+
+    As it can be seen in the mentioned figure, all the different values of the damping factors success to capture the rapidly change in tip twist that occurs for fractions of load applied $>60\%$. However, special care needs to be taken in order not ensure that the inclusion of artificial damping factor is not leading to inaccurate results due to over-damping of the structure. This can be done why comparing the fraction of the static energy that it is dissipated compared to the external work that its put into the system. This is done for a values of $c =$\notcien{2}{-5}, $c =$\notcien{2}{-8} and $c =$\notcien{2}{-9} in Figures \ref{fig:energy_damp-5}, \ref{fig:energy_damp-8} and \ref{fig:energy_damp-9}, respectively. In this plots, the moment where the structure collapses due to the buckling phenomena occurring on the chiral ligaments can be seen as a sudden change in the slope of both curves. Here it can be seen that the case of $c =$\notcien{2}{-5}, the slope of the curve showing the energy dissipated through artificial stabilization is positive, which is a sign of over-damping in this region. On the other hand, for the case of $c =$\notcien{2}{-8}, the slope remains of the curve remains zero. Finally, for the case of $c =$\notcien{2}{-9}, the slope also remains zero and the final value for the energy dissipated is smaller than for $c =$\notcien{2}{-8}.
+
+    \begin{figure}[!htpb]
+      \centering
+      \includegraphics[width=0.8 \textwidth]{../figures/result-model/energy_damp-5}
+      \caption[External work and static dissipation for a damping factor equal to \notcien{2}{-5}]{External work and static dissipation for a damping factor equal to \notcien{2}{-5}. The positive slope of the curve showing the energy used in the static dissipation is a sign of over-damping.}\label{fig:energy_damp-5}
+    \end{figure}
+
+    \begin{figure}[!htpb]
+      \centering
+      \includegraphics[width=0.8 \textwidth]{../figures/result-model/energy_damp-8}
+      \caption[External work and static dissipation for a damping factor equal to \notcien{2}{-8}]{External work and static dissipation for a damping factor equal to \notcien{2}{-8}. After the structure collapse the static dissipation energy remains constant and small compared with the external work introduced into the system.}\label{fig:energy_damp-8}
+    \end{figure}
+
+    \begin{figure}[!htpb]
+      \centering
+      \includegraphics[width=0.8 \textwidth]{../figures/result-model/energy_damp-9}
+      \caption[External work and static dissipation for a damping factor equal to \notcien{2}{-9}]{External work and static dissipation for a damping factor equal to \notcien{2}{-9}. After the structure collapse the static dissipation energy remains constant and negligible compared with the external work introduced into the system.}\label{fig:energy_damp-9}
+    \end{figure}
+
+    Finally and based on what has been previously explained, it was decided to use damping factor $c =$\notcien{2}{-9} for the simulations perform ahead.
+
+  \clearpage
   \subsection{Inner ribs} \label{subsec:finalConfiguration_results_model}
     %
     %Solution characterization
@@ -218,7 +250,7 @@
     %     - \ref{fig:normalCaseNoDamp2InnerRibs_800N}
     %     - Buckling again appears at the front at it is very little
     %     - The simulation stops really soon, only tau/T = 0.134 achieved for the current plot
-    % -> Introducing damping and inner ribs 
+    % -> Introducing damping and inner ribs
     %     - Twist at the tip is now of about 0.68deg
     %     - The energy plot for this is \ref{fig:normalCaseDamp2InnerRibs_800N_stabilizationPLot}
     %     - The deformation plot shows now how buclking start at the lattice located close to the inner rib more close to the root, in a positive x from the position of the rib. The buckling then moves a group of lattices at the root, in the upper position of the lattice.
@@ -236,7 +268,7 @@
       \caption[Vertical displacement $v$ at the tip rib]{Vertical displacement $v$ at the tip rib. The color contour shows those mesh nodes located on the upper flange of the rib have a higher $v$, therefore showing how the rib is closing under the prescribed load (800 N)}\label{fig:closeOfRib-800N}
     \end{figure}
 
-    For this reason, it was decided to use ribs with a close profile. The simulations then provided a solution like the one shown in Figure \ref{fig:normalCaseNoDampNoInnerRibs_800N}. For this case, the initial buckling occurs in ligaments located far from the root. The twist of the beam, measured as the angular rotation $UR_1$ around the $x$ axis is of ~0.3 deg. The prescribed load was -800 N and the simulation converged to the 0.95\% of the prescribed load. 
+    For this reason, it was decided to use ribs with a close profile. The simulations then provided a solution like the one shown in Figure \ref{fig:normalCaseNoDampNoInnerRibs_800N}. For this case, the initial buckling occurs in ligaments located far from the root. The twist of the beam, measured as the angular rotation $UR_1$ around the $x$ axis is of ~0.3 deg. The prescribed load was -800 N and the simulation converged to the 0.95\% of the prescribed load.
 
     \begin{figure}[!htpb]
       \centering
@@ -263,4 +295,4 @@
     \end{figure}
 
     %Now damp and inner ribs
-    However, for this last case, the simulation was only able to converge up to 13\% of the prescribed load. In other to progress further in the analysis, the use of automatic stabilization becomes necessary again. For this reason, in the final configuration, automatic stabilization through constant damping factor will be used together with the inner ribs. A description of the response of the structure for this last case will be included at the beginning of next chapter.
+    However, for this last case, the simulation was only able to converge up to 13\% of the prescribed load. In other to progress further in the analysis, the use of automatic stabilization becomes necessary again. For this reason, in the final configuration, automatic stabilization through constant damping factor will be used together with the inner ribs. A description of the response of the structure for this last case will be included at the beginning of next chapter. 
