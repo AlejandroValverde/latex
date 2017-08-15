@@ -1,7 +1,7 @@
 %
 % Thesis document - Alejandro Valverde López
 
-\documentclass[12pt,a4paper,fleqn,twoside]{report}
+\documentclass[11pt,a4paper,fleqn,twoside]{report}
 
 % report:				Standard report file, for CRANFIELD thesis
 % scrbook:				Koma-Script ‘article’ book, for CMAS thesis
@@ -29,7 +29,7 @@
 
 
 %Define which chapters to include
-\includeonly{chapters/Abstract, chapters/Acknowledgments, chapters/Results-sim, chapters/Model, chapters/Results-model}%, chapters/State-of-the-art} %{file1,file2,...}
+\includeonly{chapters/Abstract, chapters/Acknowledgments, chapters/Appendix, chapters/State-of-the-art}%,chapters/Results-sim, chapters/Model, chapters/Results-model}%, chapters/State-of-the-art} %{file1,file2,...}
 
 \begin{document}
 
@@ -162,7 +162,7 @@
 \include{chapters/Summary}
 
 % Bibliography
-\newpage
+\ClearDoublePageOrNot{\controlClearPage}
 \bibliographystyle{ieeetr}
 \bibliography{projectBib}
 \addtocontents{toc}{\vspace{.5\baselineskip}}
@@ -171,8 +171,8 @@
 
 
 %Appendix if necessary
-\newpage
-\addtocontents{toc}{\vspace{.5\baselineskip}}
+\ClearDoublePageOrNot{\controlClearPage}
+% \addtocontents{toc}{\vspace{.5\baselineskip}}
 \include{chapters/Appendix}
 
 
