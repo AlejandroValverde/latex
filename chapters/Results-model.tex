@@ -118,6 +118,14 @@
   %   Two different approaches were followed to model the rigid body behavior of the lattice nodes, as shown in Section \ref{subsec:parametrization_Model}.
 
   %   The modeling of the lattice nodes through either the coupling through a reference point and through tyre was shown to
+  
+  %For the parametric study that was performed this reason, it was decided not to use a model where the connection between the chiral lattice and the wing-box skin is modeled following the approach exposed in the Subsection \ref{subsec:connections_computationalModel}. Instead, a more rough connection is used, as shown in Figure \ref{fig:connectionSimple}.
+%
+%    \begin{figure}[!htpb]
+%      \centering
+%      \includegraphics[width=0.8 \textwidth]{result-model/connectionSimple}
+%      \caption[Connection between the chiral lattice and the wing-box for the parametric study]{Connection between the chiral lattice and the wing-box for the parametric study.}\label{fig:connectionSimple}
+%    \end{figure}
 
   \subsection{Mesh} \label{subsec:mesh_results_model}
 
@@ -125,7 +133,7 @@
 
     This type of element is a 2D element that it was used to build 3D structures. This kind of procedure may incur some distortion in the mesh elements due to shell elements intersecting in the same line at different angles.
 
-    For the designed model, this situation occurred at the chiral lattice at certain points. As soon in Figure \ref{fig:meshDistorted} it can be seen that the distorted elements appear at mainly at two different positions. Firstly, at the plane where the two ligaments with different curvature join. At this point, the sharp angles that appear in between the part geometrical lines induce the appearance of tetrahedral distorted mesh elements. The second typical location for appearance of distorted elements is along the curve where the lattice nodes and the curved ligaments join.
+    For the designed model, this situation occurred at the chiral lattice at certain points. It can be seen in Figure \ref{fig:meshDistorted} that the distorted elements appear at mainly at two different positions. Firstly, at the plane where the two ligaments with different curvature join. At this point, the sharp angles that appear in between the part geometrical lines induce the appearance of tetrahedral distorted mesh elements. The second typical location for appearance of distorted elements is along the curve where the lattice nodes and the curved ligaments join.
 
     \begin{figure}[!htpb]
       \centering
@@ -133,16 +141,9 @@
       \caption[Distorted mesh elements in the model]{Distorted mesh elements in the model. The number of distorted elements was found to be crucial for the simulation convergence.}\label{fig:meshDistorted}
     \end{figure}
 
-    It was seen that the number of distorted elements had a significant effect in the simulation convergence. For a high number of distorted elements, the simulation could not go further from the first step. No attempts to locally modify the mesh at the mentioned locations were made, instead, it was found that modifying the global mesh size gave enough control over the number of distorted elements to be able to overcome this limitation. The bigger the mesh size in the area, the less distorted elements appear after completing the meshing operations.
+    It was seen that the number of distorted elements had a significant effect in the simulation convergence evolution. For a high number of distorted elements, the simulation could not go further from the first step. No attempts to locally modify the mesh at the mentioned locations were made, instead, it was found that modifying the global mesh size gave enough control over the number of distorted elements to be able to overcome this limitation. The bigger the mesh size in the area, the less distorted elements appear after completing the meshing operations.
 
-    For this reason, it was decided not to use a model where the connection between the chiral lattice and the wing-box skin is modeled following the approach exposed in the Subsection \ref{subsec:connections_computationalModel}. Instead, a more rough connection is used, as shown in Figure \ref{fig:connectionSimple}.
-
-    \begin{figure}[!htpb]
-      \centering
-      \includegraphics[width=0.8 \textwidth]{result-model/connectionSimple}
-      \caption[Connection between the chiral lattice and the wing-box for the parametric study]{Connection between the chiral lattice and the wing-box for the parametric study.}\label{fig:connectionSimple}
-    \end{figure}
-
+  \clearpage
   \subsection{Load definition} \label{subsec:load_results_model}
 
   \clearpage
@@ -257,8 +258,6 @@
     %     - Some local deformation still ocurrs at the section of the wing-box skin located in between the root at the first inner rib.
     %     - However, the inner ribs help the upper skin of the wing-box to remain more flat than before.
 
-    In the present section, the response the general response of the model will be analyzed. This will provide an insight view of what to expect when executing the simulations for different parameters.
-
     %First approach: no ribs, no damp
     Initially, the model did not incorporate inner ribs and the ribs located at the tip and the root had an open profile. In Figure \ref{fig:closeOfRib-800N}, it can be seen an example of the response seen for this type of configuration.
 
@@ -285,7 +284,7 @@
     \end{figure}
 
     %Inner ribs, no damp
-    In order to reduce the local deformations occurring on the wing-box, a pair of inner ribs as described in Subsection \ref{subsec:parametrization_Model} were added to the model. This element added stiffness to the structure in bending. Now, the response of the model was shown to be like the one represented in Figure \ref{fig:normalCaseNoDamp2InnerRibs}. Here it can be seen that the ligaments that start to buckle are located at the same position as they were in the response of the model that did not incorporate inner ribs seen in Figure \ref{fig:normalCaseNoDampNoInnerRibs_800N}. However, now the degree of deformation has decreased due to the stiffness added to the structure as a result of the inner ribs incorporation.
+    In order to reduce the local deformations occurring on the wing-box, a pair of inner ribs as described in Subsection \ref{subsec:parametrization_Model} were added to the model. This element added stiffness to the structure in bending. Now, the response of the model was shown to be like the one represented in Figure \ref{fig:normalCaseNoDamp2InnerRibs}. Here it can be seen that the ligaments that start to buckle are located at the same position as they were in the response of the model that did not incorporate inner ribs seen in Figure \ref{fig:normalCaseNoDampNoInnerRibs_800N}. However, now the degree of deformation has decreased due to the stiffness added to the structure as a result of the inner ribs addition.
 
     \begin{figure}[!htpb]
       \centering
@@ -295,4 +294,4 @@
     \end{figure}
 
     %Now damp and inner ribs
-    However, for this last case, the simulation was only able to converge up to 13\% of the prescribed load. In other to progress further in the analysis, the use of automatic stabilization becomes necessary again. For this reason, in the final configuration, automatic stabilization through constant damping factor will be used together with the inner ribs. A description of the response of the structure for this last case will be included at the beginning of next chapter. 
+    However, for this last case, the simulation was only able to converge up to 13\% of the prescribed load. In other to progress further in the analysis, the use of automatic stabilization becomes necessary again. For this reason, in the final configuration, automatic stabilization through constant damping factor will be used together with the inner ribs. A description of the response of the structure for this last case is presented on next chapter.
