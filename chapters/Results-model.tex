@@ -1,5 +1,5 @@
 \chapter{Model analysis} \label{chap:Results_model}
-
+%
 % Overview:
 % - Analytical model: Parametric study
 % - Connection lattice - wing-box skin
@@ -8,6 +8,10 @@
 % - Inner ribs
 
 \section{Introduction} \label{sec:intro_Results_sim}
+
+  In the present chapter the general characterization of the model is presented. In the first section an analysis of the results obtained from the parametric study performed on the analytical model is introduced. This will provide insight of how the different design parameters affect the final mechanical properties of the beam.
+
+  In the second section, the computational model is analyzed in order to obtain the most suitable configuration to show the response expected from the concept proposed. In particular, a discussions over the methods to model the connection between the chiral lattice and the wing-box, the load introduction method, the mesh particularities, the ribs inclusion and the nonlinearities the response are presented. 
 
 \section{Parametric study on the analytical model} \label{sec:analyticalParametricStudy_results_model}
 
@@ -144,33 +148,6 @@
     It was seen that the number of distorted elements had a significant effect in the simulation convergence evolution. For a high number of distorted elements, the simulation could not go further from the first step. No attempts to locally modify the mesh at the mentioned locations were made, instead, it was found that modifying the global mesh size gave enough control over the number of distorted elements to be able to overcome this limitation. The bigger the mesh size in the area, the less distorted elements appear after completing the meshing operations.
 
   \clearpage
-  \subsection{Load definition} \label{subsec:load_results_model}
-
-  \clearpage
-  \subsection{Boundary condition} \label{subsec:boundary_results_model}
-
-    The boundary condition was the one shown in Figure \ref{fig:fixed}. It consisted in a kinematic coupling similar to the one introduced in Section \ref{subsec:parametrization_Model} to model the rigid body behavior of the lattice nodes. In this case, the kinematic coupling is establish between a reference point located approximately at the centre of the root rib and the faces of this mentioned rib. The reference point acts as a master node while the mesh nodes located at the faces of the rib are the slave nodes. The reference point is next fixed in all its degrees of freedom using the corresponding boundary condition Abaqus module.
-
-    \begin{figure}[!htpb]
-      \centering
-      \includegraphics[width=0.8 \textwidth]{../figures/result-model/fixed}
-      \caption[Boundary condition for the model]{Boundary condition for the model. The condition is establish through a coupling interaction between a reference point and the faces of the rib at the root. The reference point is fixed in all its degrees of freedom using the corresponding boundary condition Abaqus module.}\label{fig:fixed}
-    \end{figure}
-
-  \clearpage
-  \subsection{Results analysis} \label{subsec:resultsAnalysis_results_model} %To be extended, maybe
-
-    The results obtained from the Abaqus simulations were analyzed in two different ways. Firstly, qualitatively by means of the deformation plots that shown by the Abaqus. And, secondly, extracting values of different magnitudes directly from the mesh nodes or elements located at certain positions of interest.
-
-    Through the definition of paths in Abaqus, it is possible to obtain the value of a determined magnitude for all the mesh elements located along the path. In Figure \ref{fig:pathUpper}, an example of a path located on the upper skin of the wing-box is shown.
-
-    \begin{figure}[!htpb]
-      \centering
-      \includegraphics[width=0.8 \textwidth]{../figures/result-model/pathUpper}
-      \caption[Path of mesh elements on the solution model]{Path of mesh elements on the solution model.}\label{fig:pathUpper}
-    \end{figure}
-
-  \clearpage
   \subsection{Nonlinear problem and automatic stabilization} \label{subsec:nonlinear_results_model} %OK
 
     For the case under study, nonlinear simulations will be carried out as is expected to find a nonlinear load-displacement curve as a result of the analysis. In Abaqus, to execute nonlinear simulation involves the following, as shown in \cite{Abaqus}:
@@ -230,7 +207,7 @@
     Finally and based on what has been previously explained, it was decided to use damping factor $c =$\notcien{2}{-9} for the simulations perform ahead.
 
   \clearpage
-  \subsection{Inner ribs} \label{subsec:finalConfiguration_results_model}
+  \subsection{Ribs} \label{subsec:ribs_results_model}
     %
     %Solution characterization
     % -> For the normal case
