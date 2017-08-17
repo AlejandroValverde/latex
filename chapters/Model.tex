@@ -2,97 +2,147 @@
 
 \section{Introduction} \label{sec:intro_Model}
 
-% Introduction to the chapter
+  In the present chapter the model used for the wing-box design is presented. On first place, the working principle of the technology that it is the topic of this work is presented.
+
+  Next, the two different models developed to provide fully understanding of the structure response are presented. Firstly, a simple analytical model is presented to provide fast insight of the role of each of the parameters that characterize the ideal beam configuration of a beam with a web featuring variable stiffness properties. Important relevance is given to the section's shear centre $y_{\mathrm{SC}}$ shifting as this variable determinate the magnitude of the resulting torsional moment action on the beam as a result of a load acting on the beam's transversal plane.
+
+  Secondly, the computational model is introduced. The different constituting elements are explained together with the boundary conditions, loads and mesh that are used in the simulations 
+
+  Finally, the program used to carry out automatic parametric studies is presented, together with its methodology.
 
 \section{Concept} \label{sec:concept_Model}
-
+  %
   % Explanation of the concept
   % -> Bending-twist coupling
   % -> Shiftable shear centre location
   % -> A web with variable-stiffness capability
-
+  %
   % Figure: Fig. 1 Raither ?, Geometry and system of coordinates.
   % Figure: Fig. 2 Raither ?, Schematic of the working principle.
-
+  %
   %Chiral structure
   %View Airoldi (2012)
-
+  %
   % -> Buckling phenomena
   % Figure: Schematic representation buckling phenomena
 
-  The negative Poisson’s ratio behavior leads to unique deformation patterns, and corresponds to a very high in-plane shear modulus $G$, as shown in Equation \ref{eq:shearModulus} for values of $\nu \to -1$. The high shear modulus causes the opposition of the structure to the distortion of unit cells.
+  As it was already introduced in last chapter, the proposed technology to achieve twist morphing through a variable torsional stiffness wing-box is based on the working principle presented in \cite{Raither2013a} and exploits the buckling characteristics of a lattice of chiral ligaments as a way of varying the stiffness on the adaptive spar of the wing-box.
 
-  \begin{equation}\label{eq:shearModulus}
-    G = \frac{E}{2 (1 - \nu)}
-  \end{equation}
+  The basic working principle consisted on employing profile beams in which the shear centre is shifted as a result of the variable-stiffness capability of one of the webs. An schematic view of the working principle is shown in Figure \ref{fig:adaptive-beam-concept} where an adaptive beam is displayed. In Figure \ref{fig:adaptive-beam-concept}(a), the four webs that constitute the rectangular profile of the beam have the same shear stiffness $G_2 t_2 = G_1 t_1$. The double symmetry characteristic of such a configuration indicates that the shear centre is located at the point where the two symmetry axes intersect. For this case, under a load applied on the shear centre, the beam experiences bending deformation with null twist. On the other hand, when considering the situation shown in Figure \ref{fig:adaptive-beam-concept}(b) where $G_1 t_1 > G_2 t_2$, the reduced shear stiffness of the adaptive web produces that shear centre moves along the $y$ direction and towards positive values of $y$. In this case, if the load is maintained in the same application point as before, the beam experiences bending deformation and negative twist. Correspondingly, for the case shown in Figure \ref{fig:adaptive-beam-concept}(b) where $G_2 t_2 > G_1 t_1$, the shifting of the shear centre is towards negative values of $y$ and the beam experiences a positive twisting under the prescribed load.
+
+  \begin{figure}[!htpb]
+    \centering
+    \includegraphics[width=0.7 \textwidth]{state-of-the-art/adaptive-beam-concept}
+    \caption[Working principle for the adaptive beam]{Working principle for the adaptive beam. \cite{Raither2013}}\label{fig:adaptive-beam-concept}
+  \end{figure}
+
+  The bending-twist coupling of the beam can therefore be controlled by the variable-stiffness web. The properties of the web can be modified by either adjusting the shear modulus $G_2$ or the thickness $t_2$ of the web. 
+
+  In the technology presented in this work, the adaptive web is constituted of a lattice of chiral structures. On these elements, elastic buckling is intentionally induced and the resulting consequence is the reduction of the overall shear modulus $G_2$ effectively introducing an effective shear modulus $G_{2,\mathrm{eff}} < G_1$. An example of the chiral structure undergoing buckling instabilities can be seen in Figure \ref{fig:bucklingChiral}.
+
+  \begin{figure}[!htpb]
+    \centering
+    \includegraphics[width=0.5 \textwidth]{state-of-the-art/bucklingChiral}
+    \caption[Chiral unit cell undergoing buckling instabilities]{Chiral unit cell undergoing buckling instabilities. \cite{Ramstein2016}}\label{fig:bucklingChiral}
+  \end{figure}
+
+  % wHAT'S THE ROLE OF ALL THIS IF BUCKLING IS NOW USED????
+  % As shown in Section \ref{sec:chiral_state}, the negative Poisson’s ratio behavior leads to unique deformation patterns, and corresponds to a very high in-plane shear modulus $G$, as shown in Equation \ref{eq:shearModulus} for values of Poisson's ratio $\nu \to -1$:
+  % %
+  % \begin{equation}\label{eq:shearModulus}
+  %   G = \frac{E}{2 (1 - \nu)},
+  % \end{equation}
+  % %
+  % where $E$ is the Young's modulus. 
 
 \section{Analytical model} \label{sec::analytical_Model}
-
+  %
   %% Analytical apprach description
   % An analytical model of the Wing Box will be build.
   % Shear centre calculation
   % The twist of the beam will be calculated
   %
   %Figure of analytical model
+
+  The analytical model of the wing-box is presented in the present section. An schematic view of the section of the beam can be seen in Figure \ref{fig:analyticalBox}. The main dimensions for the section are given by the height $H$ and the width $B$. Such a structure if characterized by having three elements with identical thickness $t_1$, shear modulus $G_1$ and Young's modulus $E_1$. For the element on the right, the adaptive web, the same parameters are $t_2$, $G_2$ and $E_2$, respectively. 
+
   \begin{figure}[!htpb]
     \centering
-    \includegraphics[width=0.8 \textwidth]{model/analyticalBox}
-    \caption[Schematic view of the beam closed section]{Schematic view of the beam closed section. The dimensions are given by the width $B$ and the height $H$. For the upper, lower and left elements, the shear modulus and the elastic modulus are given by $G_1$ and $E_1$, respectively. For the right element, the same mechanical properties are given by $G_2$ and $E_2$.}\label{fig:analyticalBox}
+    \includegraphics[width=0.7 \textwidth]{model/analyticalBox2}
+    \caption[Schematic view of the beam closed section]{Schematic view of the beam closed section. The dimensions are given by the width $B$ and the height $H$. For the upper, lower and left elements, the wall thickness, shear modulus and the Young's modulus are given by $t_1$, $G_1$ and $E_1$, respectively. For the right element, the same parameters are given by $t_2$, $G_2$ and $E_2$.}\label{fig:analyticalBox}
   \end{figure}
 
-  %Torsional stiffness
+  As explained in Section \ref{sec:concept_Model}, the shear stiffness $G t$ of the adaptive web can be modified by varying either thickness $t$ or shear modulus $G$. For the remaining, it is assumed that $t_1 = t_2 = t$ and therefore the thickness $t$ will not be considered as a modifiable parameter on the adaptive web.
 
-  \begin{equation}\label{eq:torStiff}
-    G I_t = \frac{4 A_0^2}{\oint \frac{\mathrm{d} s}{G(s) t(s)}}
+  Now the bending-twisting coupling of the structure is investigated using well-know equation to describe the elastic behaviour of thin-wall beam elements. Based on the analytical approach to the problem of a beam bending-twisting coupling followed in \cite{Raither2013a}, it is known that warping can be neglected for a configuration like the one presented in this section.
+
+  The bending displacement of the structure is therefore given by Equation \ref{eq:wb} which a solution of the well-know Bernoulli-Euler equation for a beam:
+
+  \begin{equation}\label{eq:wb}
+    w_b = \frac{Q L^3}{6 \Phi_y} \left( -\frac{x^3}{L^3} + \frac{3 x^2}{L^2} \right),
+  \end{equation}
+  %
+  where $w_b$ is the displacement along the $z$ direction and $\Phi_y$ is the flexural stiffness given by Equation \ref{eq:flexuralStiffness}:
+  %
+  \begin{equation}\label{eq:flexuralStiffness}
+    \Phi_y = \int \int E(y,z) z^2 \mathrm{d}y \mathrm{d}z.
   \end{equation}
 
-  %Equations for the static moment and the flexural stiffness along the $y$ axis $\Phi_y$ (3.17, 3.18, 3.19)
-  Furthermore, the shear flow distribution in the beam will be calculated. In other to consider this distribution, the profile can be considered to be cut at one point, resulting on a opened section. The shear flow $q_{\parallel}(s)$ for this case can be calculated using Equation \ref{eq:shearFlowEquation}. The corresponding shear flow for a closed section can be obtained using the Equation \ref{eq:shearFlowDescomposition}.
+  %Twist
+  On the other hand, the twist of a beam with closed section can be obtained from the St. Venant expression for the specific twist $\vartheta$, which is shown in Equation \ref{eq:specificTwist}:
+  %
+  \begin{equation}\label{eq:specificTwist}
+    \vartheta = \frac{\mathrm{d} \phi}{\mathrm{d} x} = \frac{M_t}{4 A_0^2} \oint \frac{\mathrm{d} s}{Gt},
+  \end{equation}
+  %
+  where $A_0$ represent the area enclosed by the profile's wall midline, $\phi$ is the twist of the beam and $M_t$ is the torsional moment applied. Additionally, the torsional stiffness for the closed section under study is given by the Equation \ref{eq:torStiff}:
+  %
+  \begin{equation}\label{eq:torStiff}
+    G I_t = \frac{4 A_0^2}{\oint \frac{\mathrm{d} s}{G(s) t(s)}}.
+  \end{equation}
+
+  In order to calculate the specific twist $\vartheta$ , it is necessary to evaluate the shear centre position $y_{\mathrm{SC}}$ for a given configuration. In order to achieve this, evaluation of the shear flow distribution in the section also needs to be undertaken. To calculate the shear flow $q(s)$, the profile can be considered to be cut at one point, resulting on a opened section. The shear flow $q_{\parallel}(s)$ for this case can be calculated using Equation \ref{eq:shearFlowEquation}. The corresponding shear flow for a closed section can be obtained using the Equation \ref{eq:shearFlowDescomposition}:
   %
   \begin{equation}\label{eq:shearFlowEquation}
-    q_{\parallel}(s) = - \frac{Q_z}{\Phi_y} S_{E_y}(s)
+    q_{\parallel}(s) = - \frac{Q_z}{\Phi_y} S_{E_y}(s),
   \end{equation}
   %
   \begin{equation}\label{eq:shearFlowDescomposition}
-    q_\mathrm{C}(s) = q_\parallel(s) + q_0
+    q_\mathrm{C}(s) = q_\parallel(s) + q_0,
   \end{equation}
   %
-  where $Q_z$ is the force applied in the z direction and $\Phi_y$ is the flexural stiffness given by Equation \ref{eq:flexuralStiffness}. Additionally, $S_{E_y}$ is the so called static moment or first moment of area, which is calculated through the integral shown in Equation \ref{eq:staticMoment}. Also, the variable $q_0$ represents the shear flow at the boundary that results from the torsion of the beam and can be calculated using the Equation \ref{eq:constantShearFlow}.
-  %
-  \begin{equation}\label{eq:flexuralStiffness}
-    \Phi_y = \int \int E(y,z) z^2 \mathrm{d}y \mathrm{d}z
-  \end{equation}
+  where $Q_z$ is the force applied in the z direction and $S_{E_y}$ is the so called static moment or first moment of area, which is calculated through the integral shown in Equation \ref{eq:staticMoment}. Also, the variable $q_0$ represents the shear flow at the boundary that results from the torsion of the beam and can be calculated using the Equation \ref{eq:constantShearFlow}:
   %
   \begin{equation}\label{eq:staticMoment}
-    S_{E_y}(s) = \int_0^s E(s) t(s) z(s) \mathrm{d}s
+    S_{E_y}(s) = \int_0^s E(s) t(s) z(s) \mathrm{d}s,
   \end{equation}
   %
   \begin{equation}\label{eq:constantShearFlow}
-    q_0 = \frac{Q_z}{\Phi_y} \frac{ \oint_s \frac{S_{E_y}(s)}{G(s) t(s)} \mathrm{d}s }{ \oint_s \frac{1}{G(s) t(s)} \mathrm{d}s }
+    q_0 = \frac{Q_z}{\Phi_y} \frac{ \oint_s \frac{S_{E_y}(s)}{G(s) t(s)} \mathrm{d}s }{ \oint_s \frac{1}{G(s) t(s)} \mathrm{d}s }.
   \end{equation}
 
-  Now, the shear centre position in the beam transversal section will be calculated for the case of open section. Given that beam mechanical properties and geometrical dimensions are symmetric around y axis, the shear centre position in the z axis will be $z_{\mathrm{SC}} = 0$. On the other hand, the shear centre position in the y axis will be given by the Equation \ref{eq:shearCentrePosition}.
+  Now, the shear centre position in the beam transversal section will be calculated for the case of open section. Given that beam mechanical properties and geometrical dimensions are symmetric around y axis, the shear centre position in the z axis will be $z_{\mathrm{SC}} = 0$. On the other hand, the shear centre position in the y axis will be given by the Equation \ref{eq:shearCentrePosition}:
   %
   \begin{equation}\label{eq:shearCentrePosition}
-    y_{\mathrm{SC,open}} = \frac{1}{Q_z} \oint_s q_\mathrm{C}(s) r(s) \mathrm{d}s
+    y_{\mathrm{SC,open}} = \frac{1}{Q_z} \oint_s q_\mathrm{C}(s) r(s) \mathrm{d}s,
   \end{equation}
   %
   where $r$ represents the perpendicular distance to the coordinate origin.
 
-  Now, it is necessary that equilibrium exists between the torsional moment due to the shift of the shear centre (caused during the opening of the profile) and the moment due to the torsional shear flow of the closed profile. This condition can be mathematically expressed through Equation \ref{eq:shearCentrePositionMoment}.
+  Now, it is necessary that equilibrium exists between the torsional moment due to the shift of the shear centre (caused during the opening of the profile) and the moment due to the torsional shear flow of the closed profile. This condition can be mathematically expressed through Equation \ref{eq:shearCentrePositionMoment}:
   %
   \begin{eqnarray}\label{eq:shearCentrePositionMoment}
   % \nonumber % Remove numbering (before each equation)
     M_\mathrm{t} &=& Q_\mathrm{z} (y_{\mathrm{SC,open}} - y_{\mathrm{SC,closed}}) \nonumber \\
-    &=& 2 A_0 q_0
+    &=& 2 A_0 q_0.
   \end{eqnarray}
   %
   %where it has been considered that a positive moment $M_\mathrm{t}$ along the x direction produces a constant shear flow distribution which has negative sign given the shear flow distribution definition in the present text.
 
-  Finally, the total shear flow $q(s)$ results from the superposition of the shear flow of the open profile $q_\mathrm{C}$ and the constant shear flow due to torsion $q_0$, as shown in the Equation \ref{eq:totalShearFlow}.
+  Finally, the total shear flow $q(s)$ results from the superposition of the shear flow of the open profile $q_\mathrm{C}$ and the constant shear flow due to torsion $q_0$, as shown in the Equation \ref{eq:totalShearFlow}:
   %
   \begin{equation}\label{eq:totalShearFlow}
-    q(s) = q_\mathrm{C}(s) - q_0 %before it was: q_\mathrm{C}(s) - q_\mathrm{M}
+    q(s) = q_\mathrm{C}(s) - q_0. %before it was: q_\mathrm{C}(s) - q_\mathrm{M}
   \end{equation}
 
 \section{Computational model} \label{sec:computationalModel}
@@ -111,7 +161,7 @@
   % - Attachment points modeling
   % - Parametric study method
 
-  The computational model of the wing box was build using Abaqus CAE commercial software. It consisted on three main elements: the wing-box with C-profile, the lattice constituted of the chiral elements, a closed rib at the tip of the box and a closed rib at the root of the box. A general overview of the assembly of the different parts can be seen in Figure \ref{fig:all-assembly}.
+  The computational model of the wing box was built using Abaqus CAE commercial software. It consisted on three main elements: the wing-box with C-profile, the lattice constituted of the chiral elements, a closed rib at the tip of the box and a closed rib at the root of the box. A general overview of the assembly of the different parts can be seen in Figure \ref{fig:all-assembly}.
 
   \begin{figure}[!htpb]
     \centering
