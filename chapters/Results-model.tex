@@ -9,109 +9,142 @@
 
 \section{Introduction} \label{sec:intro_Results_sim}
 
-  In the present chapter the general characterization of the model is presented. In the first section an analysis of the results obtained from the parametric study performed on the analytical model is introduced. This will provide insight of how the different design parameters affect the final mechanical properties of the beam.
+  In the present chapter the general characterization of the model is presented. The first section include an analysis of the analytical model. For this, a variation of the beam geometric parameters and the stiffness ratio $E_1/E_2$ between the adaptive web and the rest of the model is performed. Firstly, the predicted evolution of the bending-twist coupling as a function of the stiffness ratio $E_1/E_2$ is presented. Secondly, the results obtained from the parametric study performed are introduced. This will provide insight of how the different design parameters affect the final mechanical properties of the beam.
 
   In the second section, the computational model is analyzed in order to obtain the most suitable configuration to show the response expected from the concept proposed. In particular, a discussions over the methods to model the connection between the chiral lattice and the wing-box, the load introduction method, the mesh particularities, the ribs inclusion and the nonlinearities the response are presented. 
 
 \section{Parametric study on the analytical model} \label{sec:analyticalParametricStudy_results_model}
 
-  In the present subsection, the variation of the beam properties for different parameter values will be shown. The beam geometry will be characterized through the cross-sectional aspect ratio $B/H$, the thickness ratio $t_2/t_1$ and the slenderness ratio $L/B$. The effect of these parameters on the sectional properties, twist and bending stiffness, and flexural and twisting compliance will be shown. Additionally, the variance of the stiffness ratio $E_1/E_2$ will also be included in the analysis.
+  The analytical model of the wing-box was already presented in the Section \ref{sec:analytical_Model}. For the results that are presented in the subsections below, the parameters already defined in the mentioned section are assigned to the nominal values presented in Table \ref{tab:parameters_analytical}. These are taken from a similar analytical approach to the problem of a wing-box with a variable-stiffness web, presented in \cite{Raither2013a}. By doing this, verification of the results becomes possible.
 
-  \subsection{Results} \label{subsec:results_parametricStudy}
+  \begin{table}[!htpb]
+  \centering
+  \begin{tabular}{|l|lll|}
+  \hline
+  \textbf{Parameter} & \multicolumn{1}{l|}{\textbf{Symbol}} & \multicolumn{1}{l|}{\textbf{Units}} & \textbf{Nominal value} \\ \hline \hline
+  {\textbf{Dimensions}} &  &  &  \\ \hline
+  Height of the cross section & \multicolumn{1}{l|}{$H$} & \multicolumn{1}{l|}{mm} & 200 \\ \hline
+  Wing-box length & \multicolumn{1}{l|}{$L$} & \multicolumn{1}{l|}{mm} & 800 \\ \hline
+  Width of the cross section & \multicolumn{1}{l|}{$B$} & \multicolumn{1}{l|}{mm} & 80 \\ \hline
+  Wing-box wall thickness & \multicolumn{1}{l|}{$t_1, t_2$} & \multicolumn{1}{l|}{mm} & 1 \\ \hline \hline
+  {\textbf{Material (Aluminum)}} &  &  &  \\ \hline
+  Young's modulus & \multicolumn{1}{l|}{$E_1, E_2$} & \multicolumn{1}{l|}{N/mm$^2$} & 69000 \\ \hline
+  Shear modulus & \multicolumn{1}{l|}{$G_1, G_2$} & \multicolumn{1}{l|}{N/mm$^2$} & 26000 \\ \hline
+  \end{tabular}
+  \caption[Nominal value of the parameters used for the analytical model]{Nominal value of the parameters used for the analytical model. The mechanical properties of the material used correspond to standard aluminum.}
+  \label{tab:parameters_analytical}
+  \end{table}
 
-  The influence of the cross-sectional aspect ratio $B/H$ on the torsional stiffness $G I_t$, the shear centre position $y_{\mathrm{SC}}$ and the flexural stiffness $E I_y$ is shown in Figures \ref{fig:GIt-E1overE2-BoverH}, \ref{fig:SC-E1overE2-BoverH} and \ref{fig:EIy-E1overE2-BoverH}, respectively. On its side, the effect of thickness ratio $t_2/t_1$ on the same three beam parameters is shown in Figures \ref{fig:GIt-E1overE2-t2overt1}, \ref{fig:SC-E1overE2-t2overt1} and \ref{fig:EIy-E1overE2-t2overt1}.
+  \subsection{Bending and twisting coupling results} \label{subsec:bendingTwistCoupling_results_model}
+  
+    Here, the influence of the the stiffness ratio $E_1/E_2$ on the coupling between the bending and the twist deformations of the beam is presented. This is graphically shown in Figure \ref{fig:twist-E1overE2} for a number of simulations performed for a load $Q_z$ equal to 2000 N. In the plot, the twist variation is shown with the solid line and it is represented using the variable $\phi_{\mathrm{tip}}/Q$ while the bend is shown with the dashed line and it is also represented as $w_{\mathrm{tip}}/Q$.
 
-  Additionally, the effect of the cross-sectional aspect ratio $B/H$ on the deflection and torsional compliance is shown on Figures \ref{fig:woverQ-E1overE2-BoverH} and \ref{fig:phioverQ-E1overE2-BoverH}, respectively. The corresponding plots when analysing the effect of the thickness ratio $t_2/t_1$ on the deflection and torsional compliance are shown on Figures \ref{fig:woverQ-E1overE2-t2overt1} and \ref{fig:phioverQ-E1overE2-t2overt1}, respectively. The beam's torsional compliance will be expressed as fraction of the twist at the tip divided by the vertical force applied, that is $|\phi_{\mathrm{tip}}| / Q$, while the beam deflection compliance will be expressed as fraction of the maximum vertical displacement at the tip divided by the vertical force applied, that is $w_{\mathrm{0,tip}} / Q$.
+    \begin{figure}[!htpb] %twist and bend versus E1/E2
+      \centering
+      \includegraphics[width=0.8 \textwidth]{../../analytical/figures/twist-E1overE2}
+      \caption[Influence of the stiffness ratio on the wing-box tip twist and bend]{Influence of the stiffness ratio $E_1/E_2$ on the wing-box tip twist $\phi_{\mathrm{tip}}$ and bend $w_{\mathrm{tip}}$. The solid line is used to represent the twist $\phi_{\mathrm{tip}}$ while the dashed line represents the bend $w_{\mathrm{tip}}$. The two displacements are divided by the magnitude of the applied force $Q_z$.}\label{fig:twist-E1overE2}
+    \end{figure}
 
-  The effect of the slenderness ratio $L/B$ on the deflection and torsional compliances is shown in Figures \ref{fig:woverQ-E1overE2-LoverB} and \ref{fig:phioverQ-E1overE2-LoverB}, respectively.
+  \subsection{Parametric study results} \label{subsec:results_parametricStudy}
 
-  %Figures variation of B/H
-  \begin{figure}[!htpb] %G I_t versus B/H
-    \centering
-    \includegraphics[width=0.8 \textwidth]{../../analytical/figures/GIt-E1overE2-BoverH}
-    \caption[Influence of the cross-sectional aspect ratio $B/H$ on the torsional stiffness $GI_t$]{Influence of the cross-sectional aspect ratio $B/H$ on the torsional stiffness $GI_t$ is shown for various values of the stiffness ratio $E_1/E_2$ ranging from $10^0$ to $10^3$. }\label{fig:GIt-E1overE2-BoverH}
-  \end{figure}
+    In the present subsection, the variation of the beam mechanical properties for different geometric parameter values is shown. The beam geometry is characterized through the cross-sectional aspect ratio $B/H$, the thickness ratio $t_2/t_1$ and the slenderness ratio $L/B$. The effect of these parameters on the sectional properties, twist and bending stiffness, and flexural and twisting compliance are shown. Additionally, the variance of the stiffness ratio $E_1/E_2$ is also included in the analysis.
 
-  \begin{figure}[!htpb] %Shear centre versus B/H
-    \centering
-    \includegraphics[width=0.8 \textwidth]{../../analytical/figures/SC-E1overE2-BoverH}
-    \caption[Influence of the cross-sectional aspect ratio $B/H$ on the dimensionless shear centre position $y_{\mathrm{SC}}/B$]{Influence of the cross-sectional aspect ratio $B/H$ on the dimensionless shear centre position $y_{\mathrm{SC}}/B$ is shown for various values of the stiffness ratio $E_1/E_2$ ranging from $10^0$ to $10^3$. }\label{fig:SC-E1overE2-BoverH}
-  \end{figure}
+    The influence of the cross-sectional aspect ratio $B/H$ on the torsional stiffness $G I_t$, the shear centre position $y_{\mathrm{SC}}$ and the flexural stiffness $E I_y$ is shown in Figures \ref{fig:GIt-E1overE2-BoverH}, \ref{fig:SC-E1overE2-BoverH} and \ref{fig:EIy-E1overE2-BoverH}, respectively. On its side, the effect of thickness ratio $t_2/t_1$ on the same three beam parameters is shown in Figures \ref{fig:GIt-E1overE2-t2overt1}, \ref{fig:SC-E1overE2-t2overt1} and \ref{fig:EIy-E1overE2-t2overt1}.
 
-  \begin{figure}[!htpb] %E I_y = \Phi_y versus B/H
-    \centering
-    \includegraphics[width=0.8 \textwidth]{../../analytical/figures/EIy-E1overE2-BoverH}
-    \caption[Influence of the cross-sectional aspect ratio $B/H$ on the flexural stiffness $EI_y$]{Influence of the cross-sectional aspect ratio $B/H$ on the flexural stiffness $EI_y = \Phi_y$ is shown for various values of the stiffness ratio $E_1/E_2$ ranging from $10^0$ to $10^3$. }\label{fig:EIy-E1overE2-BoverH}
-  \end{figure}
+    Additionally, the effect of the cross-sectional aspect ratio $B/H$ on the deflection and torsional compliance is shown on Figures \ref{fig:woverQ-E1overE2-BoverH} and \ref{fig:phioverQ-E1overE2-BoverH}, respectively. The corresponding plots when analysing the effect of the thickness ratio $t_2/t_1$ on the deflection and torsional compliance are shown on Figures \ref{fig:woverQ-E1overE2-t2overt1} and \ref{fig:phioverQ-E1overE2-t2overt1}, respectively. The beam's torsional compliance will be expressed as fraction of the twist at the tip divided by the vertical force applied, that is $|\phi_{\mathrm{tip}}| / Q$, while the beam deflection compliance will be expressed as fraction of the maximum vertical displacement at the tip divided by the vertical force applied, that is $w_{\mathrm{0,tip}} / Q$.
 
-  \begin{figure}[!htpb] %w_0,tip / Q versus B/H, deflection compliance
-    \centering
-    \includegraphics[width=0.8 \textwidth]{../../analytical/figures/woverQ-E1overE2-BoverH}
-    \caption[Influence of the cross-sectional aspect ratio $B/H$ on the deflection compliance]{Influence of the cross-sectional aspect ratio $B/H$ on the deflection compliance $w_{\mathrm{0,tip}} / Q$ is shown for various values of the stiffness ratio $E_1/E_2$ ranging from $10^0$ to $10^3$. }\label{fig:woverQ-E1overE2-BoverH}
-  \end{figure}
+    The effect of the slenderness ratio $L/B$ on the deflection and torsional compliances is shown in Figures \ref{fig:woverQ-E1overE2-LoverB} and \ref{fig:phioverQ-E1overE2-LoverB}, respectively.
 
-  \begin{figure}[!htpb] %\phi_tip / Q versus B/H, torsional compliance
-    \centering
-    \includegraphics[width=0.8 \textwidth]{../../analytical/figures/phioverQ-E1overE2-BoverH}
-    \caption[Influence of the cross-sectional aspect ratio $B/H$ on the torsional compliance]{Influence of the cross-sectional aspect ratio $B/H$ on the torsional compliance $|\phi_{\mathrm{tip}}| / Q$ is shown for various values of the stiffness ratio $E_1/E_2$ ranging from $10^0$ to $10^3$. }\label{fig:phioverQ-E1overE2-BoverH}
-  \end{figure}
+    %Figures variation of B/H
+    \begin{figure}[!htpb] %G I_t versus B/H
+      \centering
+      \includegraphics[width=0.8 \textwidth]{../../analytical/figures/GIt-E1overE2-BoverH}
+      \caption[Influence of the cross-sectional aspect ratio $B/H$ on the torsional stiffness $GI_t$]{Influence of the cross-sectional aspect ratio $B/H$ on the torsional stiffness $GI_t$, shown for various values of the stiffness ratio $E_1/E_2$ ranging from $10^0$ to $10^3$. }\label{fig:GIt-E1overE2-BoverH}
+    \end{figure}
 
-  %%%% Figures variation of t2/t1
-  \begin{figure}[!htpb] %G I_t versus t2/t1
-    \centering
-    \includegraphics[width=0.8 \textwidth]{../../analytical/figures/GIt-E1overE2-t2overt1}
-    \caption[Influence of the wall thickness ratio $t_2/t_1$ on the torsional stiffness $GI_t$]{Influence of the wall thickness ratio $t_2/t_1$ on the torsional stiffness $GI_t$ shown for various values of the stiffness ratio $E_1/E_2$ ranging from $10^0$ to $10^3$. }\label{fig:GIt-E1overE2-t2overt1}
-  \end{figure}
+    \begin{figure}[!htpb] %Shear centre versus B/H
+      \centering
+      \includegraphics[width=0.8 \textwidth]{../../analytical/figures/SC-E1overE2-BoverH}
+      \caption[Influence of the cross-sectional aspect ratio $B/H$ on the dimensionless shear centre position $y_{\mathrm{SC}}/B$]{Influence of the cross-sectional aspect ratio $B/H$ on the dimensionless shear centre position $y_{\mathrm{SC}}/B$, shown for various values of the stiffness ratio $E_1/E_2$ ranging from $10^0$ to $10^3$. }\label{fig:SC-E1overE2-BoverH}
+    \end{figure}
 
-  \begin{figure}[!htpb] %Shear centre versus t2/t1
-    \centering
-    \includegraphics[width=0.8 \textwidth]{../../analytical/figures/SC-E1overE2-t2overt1}
-    \caption[Influence of the wall thickness ratio $t_2/t_1$ on the dimensionless shear centre position $y_{\mathrm{SC}}/B$]{Influence of the wall thickness ratio $t_2/t_1$ on the dimensionless shear centre position $y_{\mathrm{SC}}/B$ shown for various values of the stiffness ratio $E_1/E_2$ ranging from $10^0$ to $10^3$. }\label{fig:SC-E1overE2-t2overt1}
-  \end{figure}
+    \begin{figure}[!htpb] %E I_y = \Phi_y versus B/H
+      \centering
+      \includegraphics[width=0.8 \textwidth]{../../analytical/figures/EIy-E1overE2-BoverH}
+      \caption[Influence of the cross-sectional aspect ratio $B/H$ on the flexural stiffness $EI_y$]{Influence of the cross-sectional aspect ratio $B/H$ on the flexural stiffness $EI_y = \Phi_y$, shown for various values of the stiffness ratio $E_1/E_2$ ranging from $10^0$ to $10^3$. }\label{fig:EIy-E1overE2-BoverH}
+    \end{figure}
 
-  \begin{figure}[!htpb] %E I_y = \Phi_y versus t2/t1
-    \centering
-    \includegraphics[width=0.8 \textwidth]{../../analytical/figures/EIy-E1overE2-t2overt1}
-    \caption[Influence of the wall thickness ratio $t_2/t_1$ on the flexural stiffness $EI_y$]{Influence of the wall thickness ratio $t_2/t_1$ on the flexural stiffness $EI_y = \Phi_y$ shown for various values of the stiffness ratio $E_1/E_2$ ranging from $10^0$ to $10^3$. }\label{fig:EIy-E1overE2-t2overt1}
-  \end{figure}
+    %%%% Figures variation of t2/t1
+    \begin{figure}[!htpb] %G I_t versus t2/t1
+      \centering
+      \includegraphics[width=0.8 \textwidth]{../../analytical/figures/GIt-E1overE2-t2overt1}
+      \caption[Influence of the wall thickness ratio $t_2/t_1$ on the torsional stiffness $GI_t$]{Influence of the wall thickness ratio $t_2/t_1$ on the torsional stiffness $GI_t$, shown for various values of the stiffness ratio $E_1/E_2$ ranging from $10^0$ to $10^3$. }\label{fig:GIt-E1overE2-t2overt1}
+    \end{figure}
 
-  \begin{figure}[!htpb] %w_0,tip / Q versus t2/t1, deflection compliance
-    \centering
-    \includegraphics[width=0.8 \textwidth]{../../analytical/figures/woverQ-E1overE2-t2overt1}
-    \caption[Influence of the thickness ratio $t2/t1$ on the deflection compliance]{Influence of the thickness ratio $t2/t1$ on the deflection compliance $w_{\mathrm{0,tip}} / Q$ is shown for various values of the stiffness ratio $E_1/E_2$ ranging from $10^0$ to $10^3$. }\label{fig:woverQ-E1overE2-t2overt1}
-  \end{figure}
+    \begin{figure}[!htpb] %Shear centre versus t2/t1
+      \centering
+      \includegraphics[width=0.8 \textwidth]{../../analytical/figures/SC-E1overE2-t2overt1}
+      \caption[Influence of the wall thickness ratio $t_2/t_1$ on the dimensionless shear centre position $y_{\mathrm{SC}}/B$]{Influence of the wall thickness ratio $t_2/t_1$ on the dimensionless shear centre position $y_{\mathrm{SC}}/B$, shown for various values of the stiffness ratio $E_1/E_2$ ranging from $10^0$ to $10^3$. }\label{fig:SC-E1overE2-t2overt1}
+    \end{figure}
 
-  \begin{figure}[!htpb] %\phi_tip / Q versus t2/t1, torsional compliance
-    \centering
-    \includegraphics[width=0.8 \textwidth]{../../analytical/figures/phioverQ-E1overE2-t2overt1}
-    \caption[Influence of the thickness ratio $t2/t1$ on the torsional compliance]{Influence of the thickness ratio $t2/t1$ on the torsional compliance $|\phi_{\mathrm{tip}}| / Q$ is shown for various values of the stiffness ratio $E_1/E_2$ ranging from $10^0$ to $10^3$. }\label{fig:phioverQ-E1overE2-t2overt1}
-  \end{figure}
+    \begin{figure}[!htpb] %E I_y = \Phi_y versus t2/t1
+      \centering
+      \includegraphics[width=0.8 \textwidth]{../../analytical/figures/EIy-E1overE2-t2overt1}
+      \caption[Influence of the wall thickness ratio $t_2/t_1$ on the flexural stiffness $EI_y$]{Influence of the wall thickness ratio $t_2/t_1$ on the flexural stiffness $EI_y = \Phi_y$, shown for various values of the stiffness ratio $E_1/E_2$ ranging from $10^0$ to $10^3$. }\label{fig:EIy-E1overE2-t2overt1}
+    \end{figure}
 
-  %%%% Figures variation of L / B
-  \begin{figure}[!htpb] %w_0,tip / Q versus L/B, deflection compliance
-    \centering
-    \includegraphics[width=0.8 \textwidth]{../../analytical/figures/woverQ-E1overE2-LoverB}
-    \caption[Influence of the slenderness ratio $L/B$ on the deflection compliance]{Influence of the slenderness ratio $L/B$ on the deflection compliance $w_{\mathrm{0,tip}} / Q$ is shown for various values of the stiffness ratio $E_1/E_2$ ranging from $10^0$ to $10^3$. }\label{fig:woverQ-E1overE2-LoverB}
-  \end{figure}
+    % Displacements
+    \begin{figure}[!htpb] %w_0,tip / Q versus B/H, deflection compliance
+      \centering
+      \includegraphics[width=0.8 \textwidth]{../../analytical/figures/woverQ-E1overE2-BoverH}
+      \caption[Influence of the cross-sectional aspect ratio $B/H$ on the deflection compliance]{Influence of the cross-sectional aspect ratio $B/H$ on the deflection compliance $w_{\mathrm{0,tip}} / Q$, shown for various values of the stiffness ratio $E_1/E_2$ ranging from $10^0$ to $10^3$. }\label{fig:woverQ-E1overE2-BoverH}
+    \end{figure}
 
-  \begin{figure}[!htpb] %\phi_tip / Q versus L/B, torsional compliance
-    \centering
-    \includegraphics[width=0.8 \textwidth]{../../analytical/figures/phioverQ-E1overE2-LoverB}
-    \caption[Influence of the slenderness ratio $L/B$ on the torsional compliance]{Influence of the slenderness ratio $L/B$ on the torsional compliance $|\phi_{\mathrm{tip}}| / Q$ is shown for various values of the stiffness ratio $E_1/E_2$ ranging from $10^0$ to $10^3$. }\label{fig:phioverQ-E1overE2-LoverB}
-  \end{figure}
+    \begin{figure}[!htpb] %\phi_tip / Q versus B/H, torsional compliance
+      \centering
+      \includegraphics[width=0.8 \textwidth]{../../analytical/figures/phioverQ-E1overE2-BoverH}
+      \caption[Influence of the cross-sectional aspect ratio $B/H$ on the torsional compliance]{Influence of the cross-sectional aspect ratio $B/H$ on the torsional compliance $|\phi_{\mathrm{tip}}| / Q$, shown for various values of the stiffness ratio $E_1/E_2$ ranging from $10^0$ to $10^3$. }\label{fig:phioverQ-E1overE2-BoverH}
+    \end{figure}
+
+    \begin{figure}[!htpb] %w_0,tip / Q versus t2/t1, deflection compliance
+      \centering
+      \includegraphics[width=0.8 \textwidth]{../../analytical/figures/woverQ-E1overE2-t2overt1}
+      \caption[Influence of the thickness ratio $t2/t1$ on the deflection compliance]{Influence of the thickness ratio $t2/t1$ on the deflection compliance $w_{\mathrm{0,tip}} / Q$, shown for various values of the stiffness ratio $E_1/E_2$ ranging from $10^0$ to $10^3$. }\label{fig:woverQ-E1overE2-t2overt1}
+    \end{figure}
+
+    \begin{figure}[!htpb] %\phi_tip / Q versus t2/t1, torsional compliance
+      \centering
+      \includegraphics[width=0.8 \textwidth]{../../analytical/figures/phioverQ-E1overE2-t2overt1}
+      \caption[Influence of the thickness ratio $t2/t1$ on the torsional compliance]{Influence of the thickness ratio $t2/t1$ on the torsional compliance $|\phi_{\mathrm{tip}}| / Q$, shown for various values of the stiffness ratio $E_1/E_2$ ranging from $10^0$ to $10^3$. }\label{fig:phioverQ-E1overE2-t2overt1}
+    \end{figure}
+
+    %%%% Figures variation of L / B
+    \begin{figure}[!htpb] %w_0,tip / Q versus L/B, deflection compliance
+      \centering
+      \includegraphics[width=0.8 \textwidth]{../../analytical/figures/woverQ-E1overE2-LoverB}
+      \caption[Influence of the slenderness ratio $L/B$ on the deflection compliance]{Influence of the slenderness ratio $L/B$ on the deflection compliance $w_{\mathrm{0,tip}} / Q$, shown for various values of the stiffness ratio $E_1/E_2$ ranging from $10^0$ to $10^3$. }\label{fig:woverQ-E1overE2-LoverB}
+    \end{figure}
+
+    \begin{figure}[!htpb] %\phi_tip / Q versus L/B, torsional compliance
+      \centering
+      \includegraphics[width=0.8 \textwidth]{../../analytical/figures/phioverQ-E1overE2-LoverB}
+      \caption[Influence of the slenderness ratio $L/B$ on the torsional compliance]{Influence of the slenderness ratio $L/B$ on the torsional compliance $|\phi_{\mathrm{tip}}| / Q$, shown for various values of the stiffness ratio $E_1/E_2$ ranging from $10^0$ to $10^3$. }\label{fig:phioverQ-E1overE2-LoverB}
+    \end{figure}
 
   \clearpage
   \subsection{Discussion of the results} \label{ubsec:disc_results_parametricStudy}
 
-  The maximum torsional stiffness $G I_t$ as a function on the cross-sectional aspect ratio $B/H$ can be visualized in Figure \ref{fig:GIt-E1overE2-BoverH}. It can be seen that it appears for $B/H = 1$ when $E_1/E_2 = 1$. Therefore, as it is also shown in \cite{Raither2013a}, the closer the torsional stiffness to the doubly symmetric case, the higher its torsional stiffness. However, when $E_1/E_2 > 10$, the maximum torsional stiffness is shown to appear for $B/H > 1$. A similar conclusion can be extract when analysing the Figure \ref{fig:GIt-E1overE2-t2overt1}, that shows the influence of the thickness ratio $t_2/t_1$ on the torsional stiffness $G I_t$.
+    Results shown in Figure \ref{fig:twist-E1overE2} describe how the coupling between the twist at the tip of the wing-box $\phi_{\mathrm{tip}}$ and the bend of the wing-box $w_{\mathrm{tip}}$ would vary for different values of the stiffness ratio $E_1/E_2$. This last parameter is modified over a wide range such that $E_1/E_2 \in [10^{0}, 10^{3}]$. The point load $Q_z$ is considered to have a magnitude equal to 2000 N. It can be seen that the variable $\phi_{\mathrm{tip}}/Q_z$ is consequently increased by various orders of magnitude from $\phi_{\mathrm{tip}}/Q_z = 10^{-4}$ deg/N to $\phi_{\mathrm{tip}}/Q_z = 10^{-1}$ deg/N. However the variation in bend represented with the variable $w_{\mathrm{tip}}/Q_z$ is negligible in comparison. In can be seen that the bend displacement quickly increases for values of $E_1/E_2 > 1$ and it gets to an asymptote for values $E_1/E_2 \gg 1$. These results therefore show how twist displacement, which gives information regarding the torsional stiffness of the structure, is much more affected by variations of the stiffness ratio $E_1/E_2$ than the bending stiffness is. Consequently, it is not expected to see large increments in bend displacement in comparison with the twist when the variable-stiffness mechanism is activated. This results are in compliance with those presented in \cite{Raither2013a}.
 
-  In Figure \ref{fig:SC-E1overE2-BoverH} it can be seen that for values $E_2 \ll E_1$, the shear centre position $y_{\mathrm{SC}}$ is approximately constant for $B/H$ variations. In this context, the beam approximates its behavior as if it has an open profile section. However, as the value of $E_1/E_2$ decreases, the influence of the ratio $B/H$ increases showing a bigger influence of the web where the Young's modulus $E_2$ applies. On the other hand, Figure \ref{fig:SC-E1overE2-t2overt1} shows that the bigger the thickness ratio $t_2/t_1$ is, the closer that the shear centre $y_{\mathrm{SC}}$ will be to the vertical axis of simmetry. However, for $E_2 \ll E_1$ the influence of the thickness ratio $t_2/t_1$ is reduced.
+    The maximum torsional stiffness $G I_t$ as a function on the cross-sectional aspect ratio $B/H$ can be visualized in Figure \ref{fig:GIt-E1overE2-BoverH}. It can be seen that it appears for $B/H = 1$ when $E_1/E_2 = 1$. Therefore, as it is also shown in \cite{Raither2013a}, the closer the torsional stiffness to the doubly symmetric case, the higher its torsional stiffness. However, when $E_1/E_2 > 10$, the maximum torsional stiffness is shown to appear for $B/H > 1$. A similar conclusion can be extract when analysing the Figure \ref{fig:GIt-E1overE2-t2overt1}, that shows the influence of the thickness ratio $t_2/t_1$ on the torsional stiffness $G I_t$.
 
-  The influence of the cross-sectional aspect ratio $B/H$ and the tickness ratio $t_2/t_1$ on the flexural stiffness $E I_y$ is shown to be bigger that that of the Young's modulus ratio $E_1/E_2$, as shown on Figures \ref{fig:EIy-E1overE2-BoverH} and \ref{fig:EIy-E1overE2-t2overt1}, respectively.
+    In Figure \ref{fig:SC-E1overE2-BoverH} it can be seen that for values $E_2 \ll E_1$, the shear centre position $y_{\mathrm{SC}}$ is approximately constant for $B/H$ variations. In this context, the beam approximates its behavior as if it has an open profile section. However, as the value of $E_1/E_2$ decreases, the influence of the ratio $B/H$ increases showing a bigger influence of the web where the Young's modulus $E_2$ applies. On the other hand, Figure \ref{fig:SC-E1overE2-t2overt1} shows that the bigger the thickness ratio $t_2/t_1$ is, the closer that the shear centre $y_{\mathrm{SC}}$ will be to the vertical axis of simmetry. However, for $E_2 \ll E_1$ the influence of the thickness ratio $t_2/t_1$ is reduced.
 
-  % The beam torsional compliance is highly dependant on that torsional moment applied on the beam, that depends on the shear centre $y_{\mathrm{SC}} position. Therefore, as shown on Figure \ref{fig:phioverQ-E1overE2-t2overt1}, the beam's torsional compliance is approximately constant for values of thickness ratio $t_2/t_1 > 1$.
-
-  %Comparison of the torsional compliance at the tip against stiffness ratiosub
+    The influence of the cross-sectional aspect ratio $B/H$ and the tickness ratio $t_2/t_1$ on the flexural stiffness $E I_y$ is shown to be bigger that that of the Young's modulus ratio $E_1/E_2$, as shown on Figures \ref{fig:EIy-E1overE2-BoverH} and \ref{fig:EIy-E1overE2-t2overt1}, respectively.
+    %
+    % The beam torsional compliance is highly dependant on that torsional moment applied on the beam, that depends on the shear centre $y_{\mathrm{SC}} position. Therefore, as shown on Figure \ref{fig:phioverQ-E1overE2-t2overt1}, the beam's torsional compliance is approximately constant for values of thickness ratio $t_2/t_1 > 1$.
+    %
+    %Comparison of the torsional compliance at the tip against stiffness ratiosub
 
 \section{Computational model analysis} \label{sec:computationalModelAnalysis_results_model}
 
@@ -167,13 +200,14 @@
     Since the above situation represents what it is expected to be found in the model response, a constant artificial damping factor will be used throughout the whole step to account for the appearance of local instabilities.
 
     Automatic stabilization with a constant damping factor implies that viscous forces of the form:
-    $$
-    F_v = c \mat{M} v
-    $$
+    \begin{equation}
+      F_v = c \mat{M} v
+    \end{equation}
     are added to the global equilibrium equations:
-    $$
-    P - I - F_v = 0,
-    $$
+    \begin{equation}
+      P - I - F_v = 0,
+    \end{equation}
+    %
     where $I$ represents the internal forces, $P$ the external forces, $\mat{M}$ is the artificial mass matrix calculated with unity density, $c$ is the defined damping factor, $v = \Delta u / \Delta t$ is the vector of nodal velocities, and $\Delta t$ is the increment of simulation time.
 
     The final value that is going to be used during the simulations was chosen after performing a small parametric study of the different possibilities. As a result, the plot shown in Figure \ref{fig:forceDisplacement-damp} was produced. This plot represents the evolution of the twist at the tip as the load is increased step by step during the nonlinear simulation. As it will be explained in Section \ref{sec:generalResponseCharact_results_sim}, the use of automatic stabilization becomes necessary to capture the dynamics that involve buckling on the chiral ligaments and the ultimate collapse of the structure.
