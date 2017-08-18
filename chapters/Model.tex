@@ -42,7 +42,7 @@
 
   \begin{figure}[!htpb]
     \centering
-    \includegraphics[width=0.5 \textwidth]{model/exampleBuckling}
+    \includegraphics[width=0.7 \textwidth]{model/exampleBuckling}
     \caption[Set of chiral ligaments undergoing instabilities at the root of the wing-box]{Set of chiral ligaments undergoing instabilities at the root of the wing-box.}\label{fig:exampleBuckling}
   \end{figure}
 
@@ -276,7 +276,7 @@
     \begin{figure}[!htpb]
       \centering
       \includegraphics[width=0.6 \textwidth]{model/couplingThroughRF}
-      \caption[Overview of the elements that are involved in the coupling condition at the lattice nodes]{Overview of the elements that are involved in the coupling condition at the lattice nodes. The coupling condition was defined in between the mesh nodes located in the faces of the lattince node and a reference point located in the middle. All the degrees of fredom were linked except from the translation displacements in the plane where the chiral lattice is contained, i.e. the translational displacement $U_1$ and $U_2$ of the plane $X-Y$.}\label{fig:couplingThroughRF}
+      \caption[Overview of the elements that are involved in the coupling condition at the lattice nodes]{Overview of the elements that are involved in the coupling condition at the lattice nodes. The coupling condition was defined in between the mesh nodes located in the faces of the lattice node and a reference point located in the middle. All the degrees of freedom translational and rotational were linked.}\label{fig:couplingThroughRF}
     \end{figure}
 
     \clearpage
@@ -501,7 +501,7 @@
 
     The model described in the previous subsections is implemented in a Python program that is read by the FEM software, Abaqus CAE. The program is fully parametrized and this enables the possibility of executing simulations for different values of the parameters introduced previously. The parametric study program is executed when calling the python file \texttt{mainAbaqusParametricStudy.py}. As part of the execution of this file, a computational model is built, submitted for analysis and post-processed by the complementary program \texttt{mainBuildAndExecuteWingBox.py}, for all the different values of the parameters that form part of the parametric study defined in the file \texttt{setUpParametricStudy.py}. The convergence of the simulation is controlled within the program \texttt{mainAbaqusParametricStudy.py} and it is able to re-run a simulation with slight variations in the mesh size and/or in artificial dissipation definition if convergence was not achieved.
 
-    An schematic characterization of the program execution is shown the flow chart represented in Figure \ref{fig:flowChart}. The code written for this program can be found in Appendix \label{appen:code}. 
+    An schematic characterization of the program execution is shown the flow chart represented in Figure \ref{fig:flowChart}. The code written for this program can be found in Appendix \ref{appen:code}. 
 
     \begin{figure}[!htpb]
       \centering
