@@ -29,7 +29,7 @@
 
 
 %Define which chapters to include
-\includeonly{chapters/Introduction, chapters/Abstract, chapters/Acknowledgments, chapters/Results-model}%chapters/Appendix, chapters/State-of-the-art,chapters/Results-model, chapters/Model,chapters/Results-sim,chapters/Summary} %{file1,file2,...}
+\includeonly{chapters/Introduction, chapters/Abstract, chapters/Acknowledgments, chapters/Results-model, chapters/Appendix, chapters/State-of-the-art,chapters/Results-model, chapters/Model,chapters/Results-sim,chapters/Summary} %{file1,file2,...}
 
 \begin{document}
 
@@ -171,10 +171,13 @@
 
 %Appendix if necessary
 \ClearDoublePageOrNot{\controlClearPage}
-\thispagestyle{plain}
-\addtocontents{toc}{\vspace{.5\baselineskip}}
-\addcontentsline{toc}{chapter}{\protect\numberline{}{Appendix A}}
+% \begin{appendices}
+% \thispagestyle{plain}
+% \addtocontents{toc}{\vspace{.5\baselineskip}}
+% \addcontentsline{toc}{chapter}{\protect\numberline{}{Appendix A}}
+\appendix
 \include{chapters/Appendix}
+% \end{appendices}
 
 
 \end{document}
