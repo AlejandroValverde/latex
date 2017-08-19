@@ -146,19 +146,28 @@
 
   % \subsection{Connection between the chiral lattice and the wing-box skin} \label{subsec:connection_results_model}
   %
-  % \subsection{Rigid body modeling} \label{subsec:rigidBody_results_model}
-  %
-  %   Two different approaches were followed to model the rigid body behavior of the lattice nodes, as shown in Section \ref{subsec:parametrization_Model}.
-  %
   %   The modeling of the lattice nodes through either the coupling through a reference point and through tyre was shown to
   %
   %For the parametric study that was performed this reason, it was decided not to use a model where the connection between the chiral lattice and the wing-box skin is modeled following the approach exposed in the Subsection \ref{subsec:connections_computationalModel}. Instead, a more rough connection is used, as shown in Figure \ref{fig:connectionSimple}.
-%
-%    \begin{figure}[!htpb]
-%      \centering
-%      \includegraphics[width=0.8 \textwidth]{result-model/connectionSimple}
-%      \caption[Connection between the chiral lattice and the wing-box for the parametric study]{Connection between the chiral lattice and the wing-box for the parametric study.}\label{fig:connectionSimple}
-%    \end{figure}
+  %
+  %    \begin{figure}[!htpb]
+  %      \centering
+  %      \includegraphics[width=0.8 \textwidth]{result-model/connectionSimple}
+  %      \caption[Connection between the chiral lattice and the wing-box for the parametric study]{Connection between the chiral lattice and the wing-box for the parametric study.}\label{fig:connectionSimple}
+  %    \end{figure}
+  %
+  \subsection{Rigid body modeling} \label{subsec:rigidBody_results_model}
+    % -> Rotation of the nodes was like 20\% inferior with the coupling
+    
+    Two different approaches were followed to model the rigid body behavior of the lattice nodes, as shown in Subsection \ref{subsec:latticeNodesRigid_Parametrization}. The first model approach considered was to create a coupling condition between a reference point positioned at the centre of the lattice node cylinder and the mesh nodes found on the faces of the lattice node. The second approach used an additional part that was placed in the middle of the cylinder and added stiffness to the element. In this section, the results obtained for each modeling approach are compared.
+
+    If Figure \ref{fig:rigid-modeling}, the response nonlinear and linear responses in wing-box twist obtained for each modeling approach are compared. It can be seen that when the tyre approach is used, the collapse of the structure occurred at a smaller load if compared with the one 
+
+    \begin{figure}[!htpb]
+      \centering
+      \includegraphics[width=0.8 \textwidth]{result-model/rigid-modeling}
+      \caption[Force-displacement curve obtained using different approaches to model the rigid lattice node]{Force-displacement curve obtained using different approaches to model the rigid lattice node. }\label{fig:rigid-modeling}
+    \end{figure}
 
   \subsection{Mesh} \label{subsec:mesh_results_model}
 

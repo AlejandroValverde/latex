@@ -250,55 +250,6 @@
     \label{tab:parameters_lattice}
     \end{table}
 
-    %This is like if it was a new section inside of this section
-    \clearpage
-    \subsubsection{Lattice nodes rigid body modeling} \label{subsubsec:latticeNodesRigid_Parametrization}
-
-    The lattice nodes is one of the essential parts of the lattice of chiral elements. These are only constrained in rotation around its own axis by the ligaments connected to them. For the modeling, they are assumed to behave like a rigid body. In Figure \ref{fig:closeLookToLatticeNodes}, a closer look to the chiral nodes can be seen, showing two different approaches to manufacture a node that would behave like a rigid body compared with the rest of the structure.
-
-    \begin{figure}[!htpb]
-      \centering
-      \includegraphics[width=0.8 \textwidth]{model/closeLookToLatticeNodes}
-      \caption[Picture of the manufactured chiral lattice nodes]{Picture of the manufactured chiral lattice nodes. The figure shows two different approaches followed to manufacture the nodes. The one on the right was the standard one showing a cylinder with a thickness bigger than the thickness of the chiral ligaments $t_{\mathrm{node}} \gg t_{\mathrm{ligaments}}$. On the left, an alternative approach is followed in order to allow the assembly of the chiral lattice that is not manufactured as a unique piece. The photography was taken from the demonstrator built by \cite{Vincenz2017}.}\label{fig:closeLookToLatticeNodes}
-    \end{figure}
-
-    In the Abaqus model, different approaches were followed to model the chiral nodes together its rigid body feature. The first one was to create a coupling condition using Abaqus corresponding module. In particular, a kinematic coupling was enabled. A kinematic coupling constrains the motion of one or more coupling nodes, also called slave node or nodes, to the rigid body motion of a reference node, also called master node. They are imposed by eliminating degrees of freedom at the coupling nodes. In Figure \ref{fig:kinematicCoupling}, an example of a kinematic coupling can be seen.
-
-    \begin{figure}[!htpb]
-      \centering
-      \includegraphics[width=0.8 \textwidth]{model/pcoupling-kinematic}
-      \caption[Kinematic coupling constraint]{Kinematic coupling constraint. The sketch illustrates the use of a kinematic coupling constraint to prescribe a twisting motion to a model without constraining the radial motion. In this case, a local cylindrical reference system is used and the constrained nodes have two degrees of freedom coupled to those of the reference node, the angular position $\theta$ and the position along the $z$ axis. The coupling nodes are therefore free to translate radially, varying $R$. \cite{Abaqus}}\label{fig:kinematicCoupling}
-    \end{figure}
-
-    For the considered case, the coupling nodes are those mesh nodes located faces of the lattice node and the master node is the reference point located in the center of the lattice node. In order to achieve the rigid solid behavior, all the degrees of freedom were coupled except from the translation displacements in the plane where the chiral lattice is contained, i.e. the translational displacement $U_1$ and $U_2$ of the plane $X-Y$. In Figure \ref{fig:couplingThroughRF} an overview of this coupling condition can be viewed.
-
-    \begin{figure}[!htpb]
-      \centering
-      \includegraphics[width=0.6 \textwidth]{model/couplingThroughRF}
-      \caption[Overview of the elements that are involved in the coupling condition at the lattice nodes]{Overview of the elements that are involved in the coupling condition at the lattice nodes. The coupling condition was defined in between the mesh nodes located in the faces of the lattice node and a reference point located in the middle. All the degrees of freedom translational and rotational were linked.}\label{fig:couplingThroughRF}
-    \end{figure}
-
-    \clearpage
-    Another approach consisted in embedding an additional part inside the lattice nodes to add rigidity to the element. The proposed design of such a part, which is referred as tyre from now on, can be seen in Figure \ref{fig:tyre-part}. The internal dimensions of this element are shown in Figure \ref{fig:tyre-internalParameters}. This dimensions were dependent on parameters of the chiral lattice, that is, the thickness of the tyre was equal to that of the chiral lattice $r_{\mathrm{tyre}} = r_{\mathrm{chiral}}$ and the same occurred for the height $B_{\mathrm{tyre}}$ and the radius $r_{\mathrm{tyre}}$ which were $r_{\mathrm{tyre}} = r_{\mathrm{chiral}}$ and $B_{\mathrm{tyre}} = B_{\mathrm{chiral}}$. The added rigidity was obtained as a result of considering a different material for the tyre such that the Young's modulus of the two parts verify the condition $E_{\mathrm{tyre}} \gg E_{\mathrm{chiral}}$. Once, the connection was completed, the resulting merged part looked as shown in Figure \ref{fig:tyre-connection}.
-
-    \begin{figure}[!htpb]
-      \centering
-      \includegraphics[width=0.6 \textwidth]{model/tyre-part}
-      \caption[Overview of the tyre part]{Overview of the tyre part.}\label{fig:tyre-part}
-    \end{figure}
-
-    \begin{figure}[!htpb]
-      \centering
-      \includegraphics[width=0.8 \textwidth]{model/tyre-internalParameters}
-      \caption[Internal parameters of the tyre part]{Internal parameters of the tyre part. The sketch shows a transversal cut to the part. The tyre is characterized by the radius $r_{\mathrm{tyre}}$, the height $B_{\mathrm{tyre}}$ and the thickness $t_{\mathrm{tyre}}$. All this parameters were equal to the corresponding ones in the lattice nodes, therefore: $r_{\mathrm{tyre}} = r_{\mathrm{chiral}}$, $B_{\mathrm{tyre}} = B_{\mathrm{chiral}}$ and $t_{\mathrm{tyre}} = t_{\mathrm{chiral}}$.}\label{fig:tyre-internalParameters}
-    \end{figure}
-
-    \begin{figure}[!htpb]
-      \centering
-      \includegraphics[width=0.8 \textwidth]{model/tyre-connection}
-      \caption[Overview of the connection between tyre and lattice node]{Overview of the connection between tyre and lattice node. The tyre will be embed inside the lattice node.}\label{fig:tyre-connection}
-    \end{figure}
-
     \clearpage
     \subsubsection{Wing-box in C-profile} \label{subsubsec:wingBox_Parametrization}
 
@@ -373,6 +324,55 @@
     \caption[Parameters used for the ribs model]{Parameters used for the ribs model. The material of choice is steel. The value of the rib width $W_{\mathrm{rib,close}}$ and the height $H_{\mathrm{rib}}$ will be equal to the wing-box width $W_{\mathrm{box}}$ and to the chiral lattice structure height, respectively.}
     \label{tab:parameters_rib}
     \end{table}
+
+  %This is like if it was a new section inside of this section
+  \clearpage
+  \subsection{Lattice nodes rigid body modeling} \label{subsec:latticeNodesRigid_Parametrization}
+
+    The lattice nodes is one of the essential parts of the lattice of chiral elements. These are only constrained in rotation around its own axis by the ligaments connected to them. For the modeling, they are assumed to behave like a rigid body. In Figure \ref{fig:closeLookToLatticeNodes}, a closer look to the chiral nodes can be seen, showing two different approaches to manufacture a node that would behave like a rigid body compared with the rest of the structure.
+
+    \begin{figure}[!htpb]
+      \centering
+      \includegraphics[width=0.8 \textwidth]{model/closeLookToLatticeNodes}
+      \caption[Picture of the manufactured chiral lattice nodes]{Picture of the manufactured chiral lattice nodes. The figure shows two different approaches followed to manufacture the nodes. The one on the right was the standard one showing a cylinder with a thickness bigger than the thickness of the chiral ligaments $t_{\mathrm{node}} \gg t_{\mathrm{ligaments}}$. On the left, an alternative approach is followed in order to allow the assembly of the chiral lattice that is not manufactured as a unique piece. The photography was taken from the demonstrator built by \cite{Vincenz2017}.}\label{fig:closeLookToLatticeNodes}
+    \end{figure}
+
+    In the Abaqus model, different approaches were followed to model the chiral nodes together its rigid body feature. The first one was to create a coupling condition using Abaqus corresponding module. In particular, a kinematic coupling was enabled. A kinematic coupling constrains the motion of one or more coupling nodes, also called slave node or nodes, to the rigid body motion of a reference node, also called master node. They are imposed by eliminating degrees of freedom at the coupling nodes. In Figure \ref{fig:kinematicCoupling}, an example of a kinematic coupling can be seen.
+
+    \begin{figure}[!htpb]
+      \centering
+      \includegraphics[width=0.8 \textwidth]{model/pcoupling-kinematic}
+      \caption[Kinematic coupling constraint]{Kinematic coupling constraint. The sketch illustrates the use of a kinematic coupling constraint to prescribe a twisting motion to a model without constraining the radial motion. In this case, a local cylindrical reference system is used and the constrained nodes have two degrees of freedom coupled to those of the reference node, the angular position $\theta$ and the position along the $z$ axis. The coupling nodes are therefore free to translate radially, varying $R$. \cite{Abaqus}}\label{fig:kinematicCoupling}
+    \end{figure}
+
+    For the considered case, the coupling nodes are those mesh nodes located faces of the lattice node and the master node is the reference point located in the center of the lattice node. In order to achieve the rigid solid behavior, all the degrees of freedom translational and rotational were coupled. In Figure \ref{fig:couplingThroughRF} an overview of this coupling condition can be viewed.
+
+    \begin{figure}[!htpb]
+      \centering
+      \includegraphics[width=0.6 \textwidth]{model/couplingThroughRF}
+      \caption[Overview of the elements that are involved in the coupling condition at the lattice nodes]{Overview of the elements that are involved in the coupling condition at the lattice nodes. The coupling condition was defined in between the mesh nodes located in the faces of the lattice node and a reference point located in the middle. All the degrees of freedom translational and rotational were linked.}\label{fig:couplingThroughRF}
+    \end{figure}
+
+    \clearpage
+    Another approach consisted in embedding an additional part inside the lattice nodes to add rigidity to the element. The proposed design of such a part, which is referred as tyre from now on, can be seen in Figure \ref{fig:tyre-part}. The internal dimensions of this element are shown in Figure \ref{fig:tyre-internalParameters}. This dimensions were dependent on parameters of the chiral lattice, that is, the thickness of the tyre was equal to that of the chiral lattice $r_{\mathrm{tyre}} = r_{\mathrm{chiral}}$ and the same occurred for the height $B_{\mathrm{tyre}}$ and the radius $r_{\mathrm{tyre}}$ which were $r_{\mathrm{tyre}} = r_{\mathrm{chiral}}$ and $B_{\mathrm{tyre}} = B_{\mathrm{chiral}}$. The added rigidity was obtained as a result of considering a different material for the tyre such that the Young's modulus of the two parts verify the condition $E_{\mathrm{tyre}} \gg E_{\mathrm{chiral}}$. Once, the connection was completed, the resulting merged part looked as shown in Figure \ref{fig:tyre-connection}.
+
+    \begin{figure}[!htpb]
+      \centering
+      \includegraphics[width=0.6 \textwidth]{model/tyre-part}
+      \caption[Overview of the tyre part]{Overview of the tyre part.}\label{fig:tyre-part}
+    \end{figure}
+
+    \begin{figure}[!htpb]
+      \centering
+      \includegraphics[width=0.8 \textwidth]{model/tyre-internalParameters}
+      \caption[Internal parameters of the tyre part]{Internal parameters of the tyre part. The sketch shows a transversal cut to the part. The tyre is characterized by the radius $r_{\mathrm{tyre}}$, the height $B_{\mathrm{tyre}}$ and the thickness $t_{\mathrm{tyre}}$. All this parameters were equal to the corresponding ones in the lattice nodes, therefore: $r_{\mathrm{tyre}} = r_{\mathrm{chiral}}$, $B_{\mathrm{tyre}} = B_{\mathrm{chiral}}$ and $t_{\mathrm{tyre}} = t_{\mathrm{chiral}}$.}\label{fig:tyre-internalParameters}
+    \end{figure}
+
+    \begin{figure}[!htpb]
+      \centering
+      \includegraphics[width=0.8 \textwidth]{model/tyre-connection}
+      \caption[Overview of the connection between tyre and lattice node]{Overview of the connection between tyre and lattice node. The tyre will be embed inside the lattice node.}\label{fig:tyre-connection}
+    \end{figure}
 
   \clearpage
   \subsection{Computational model mesh characteristics} \label{subsec:mesh_computationalModel}

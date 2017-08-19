@@ -22,9 +22,14 @@ def recursiveFunction():
 			os.system('epstopdf '+file)
 			if not os.path.isdir('eps'):
 				os.mkdir('.\\eps')
-				print('--> Making new eps folder in: '+cwd)
+				
 			print('--> Moving file: '+file)
-			os.rename(cwd+'\\'+file, cwd+'\\eps\\'+file)
+			try:
+				os.rename(cwd+'\\'+file, cwd+'\\eps\\'+file)
+			except FileExistsError as e:
+				print('--> Overwriting file: '+file)
+				os.remove(cwd+'\\eps\\'+file)
+				os.rename(cwd+'\\'+file, cwd+'\\eps\\'+file)
 
 
 recursiveFunction()
