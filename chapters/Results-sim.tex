@@ -36,14 +36,14 @@
     \caption[External work and static dissipation for a simulation of the baseline configuration]{External work and static dissipation for a simulation of the baseline configuration. It can be seen that the static dissipation through automatic stabilization is negligible in comparison with the external work showing that the inclusion of artificial damping factor is unluckily to be leading to inaccurate results. The abrupt change in the external work shows the point where structure collapses due to sudden buckling of the chiral ligaments.}\label{fig:energy}
   \end{figure}
 
-  In order to see the overall system response as load increases, a load-displacement curve can be plotted. The Figure \ref{fig:forceDisplacement-far} shows the typical twist variation as the load is increased. On this plot, the results from the nonlinear simulations are shown as the set of scatter points while the dotted line represents the forecast final twist from the linear simulation. In the case shown, the linear simulation arises a twist at the tip $\phi_{\mathrm{tip}}$ equal to $-0.196$ degrees while the nonlinear simulation predicts a final twist of $-1.248$ degrees. This shows how the problem under study is highly nonlinear.
+  In order to see the overall system response as load increases, a displacement-force curve can be plotted. The Figure \ref{fig:forceDisplacement-far} shows the typical twist variation as the load is increased. On this plot, the results from the nonlinear simulations are shown as the set of scatter points while the dotted line represents the forecast final twist from the linear simulation. In the case shown, the linear simulation arises a twist at the tip $\phi_{\mathrm{tip}}$ equal to $-0.196$ degrees while the nonlinear simulation predicts a final twist of $-1.248$ degrees. This shows how the problem under study is highly nonlinear.
 
-  The nonlinear response also shows the point where the structure collapses that its located at the point where approximately $73\%$ of the load has been applied. The deformation state of the structure at this point was the one shown in Figure \ref{fig:2-UR}. In a further stage of the simulation, the buckling propagates to other parts of the lattice chiral structure, as it can be seen in Figure \ref{fig:3-UR}. Here it can be seen that the instabilities are more generalized and buckling appears in more ligaments apart from those at the root. Under certain conditions, this generalized state can produce a second sudden variation in the slope of the force-displacement curve, showing a third effective stiffness. 
+  The nonlinear response also shows the point where the structure collapses that its located at the point where approximately $73\%$ of the load has been applied. The deformation state of the structure at this point was the one shown in Figure \ref{fig:2-UR}. In a further stage of the simulation, the buckling propagates to other parts of the lattice chiral structure, as it can be seen in Figure \ref{fig:3-UR}. Here it can be seen that the instabilities are more generalized and buckling appears in more ligaments apart from those at the root. Under certain conditions, this generalized state can produce a second sudden variation in the slope of the displacement-force curve, showing a third effective stiffness. 
 
   \begin{figure}[!htpb] %Energy plot
     \centering
     \includegraphics[width=0.8 \textwidth]{../figures/result-sim/forceDisplacement-far}
-    \caption[Force-displacement curve for the baseline configuration]{Force-displacement curve for the baseline configuration. Two breakdowns for the buckling deformation are shown in the plot. The first one is located at the point where the fraction of applied load equals to $73\%$ and the second one at the point where the fraction is $96\%$.}\label{fig:forceDisplacement-far}
+    \caption[Displacement-force curve for the baseline configuration]{Displacement-force curve for the baseline configuration. Two breakdowns for the buckling deformation are shown in the plot. The first one is located at the point where the fraction of applied load equals to $73\%$ and the second one at the point where the fraction is $96\%$.}\label{fig:forceDisplacement-far}
   \end{figure}
 
   \begin{figure}[!htpb] %Energy plot
@@ -115,18 +115,18 @@
 
     The evolution of the twist as a function of the load applied can be seen in Figure \ref{fig:forceDisplacement-far-Cbox_t} for each of the values of \boxt studied. It can be seen how the structure only collapses for \boxt$= 0.8$ mm and the final value of the twist is much higher than for the remaining cases. For this case, the curve shows the post-buckling evolution of the twist response for increasing values of load applied. The slope of the curve has decreased drastically and the twist achieved after all the prescribed load has been applied is equal to $\phi_{\mathrm{tip}} = -2.15$ deg.
 
-    The collapse of the structure for \boxt$= 0.8$ mm appears when 60\% of the load has been applied, as shown in Figure \ref{fig:forceDisplacement-close-Cbox_t}. This last plot represents a detailed view of the force-displacement curve that also shows how the nonlinear response differs from the linear one for all the considered cases.
+    The collapse of the structure for \boxt$= 0.8$ mm appears when 60\% of the load has been applied, as shown in Figure \ref{fig:forceDisplacement-close-Cbox_t}. This last plot represents a detailed view of the displacement-force curve that also shows how the nonlinear response differs from the linear one for all the considered cases.
 
     \begin{figure}[!htpb] %force_displacement-far
       \centering
       \includegraphics[width=0.8 \textwidth]{../figures/result-sim/cbox/force_displacement-far}
-      \caption[Force-displacement curve for various values of the wing-box thickness]{Force-displacement curve for various values of the wing-box thickness \boxt. For all the cases shown, the force applied was located on the upper flange of the tip rib and its magnitude was equal to -800 N.}\label{fig:forceDisplacement-far-Cbox_t}
+      \caption[Displacement-force curve for various values of the wing-box thickness]{Displacement-force curve for various values of the wing-box thickness \boxt. For all the cases shown, the force applied was located on the upper flange of the tip rib and its magnitude was equal to -800 N.}\label{fig:forceDisplacement-far-Cbox_t}
     \end{figure}
 
     \begin{figure}[!htpb] %force_displacement-close
       \centering
       \includegraphics[width=0.8 \textwidth]{../figures/result-sim/cbox/force_displacement-close}
-      \caption[Detail of the force-displacement curve for various values of the wing-box thickness]{Detail of the force-displacement curve for various values of the wing-box thickness \boxt. For all the cases shown, the force applied was located on the upper flange of the tip rib and its magnitude was equal to -800 N.}\label{fig:forceDisplacement-close-Cbox_t}
+      \caption[Detail of the displacement-force curve for various values of the wing-box thickness]{Detail of the displacement-force curve for various values of the wing-box thickness \boxt. For all the cases shown, the force applied was located on the upper flange of the tip rib and its magnitude was equal to -800 N.}\label{fig:forceDisplacement-close-Cbox_t}
     \end{figure}
 
     The differences in response for the different cases are also shown the color contour plots provided by Abaqus visualization module. The deformation in the ligaments for \boxt$= 1.2$ mm when buckling occurs is shown in Figure \ref{fig:1coma2-800N-cbox_t} that shows the total rotational displacement of the mesh elements on the color contour. It can be seen that buckling does not propagate to other parts of the lattice and it stays where it had appeared on first place, at the first ligaments after the inner rib located further from the root.
@@ -161,7 +161,7 @@
 
     Now the effect of the number of units cells in the transversal direction $M$ and in the spanwise direction $N$ on the structural response is investigated.
 
-    Firstly, the number of unit cells in the transversal direction $M$ is varied. This parameter modifies the height of the model. Similarly as it was done for the study of the wing-box thickness \boxt influence in the structure response, the results from the different simulations are shown in Table \ref{tab:para_M}. Also, the force-displacement curve is shown in Figure \ref{fig:forceDisplacement-far-M}. It can be seen from results that increments a higher $M$ resulted on a decrement of the structure sensitivity to buckling. For the case of $M = 5$, the structure did not collapse under the prescribed load of 1000 N.
+    Firstly, the number of unit cells in the transversal direction $M$ is varied. This parameter modifies the height of the model. Similarly as it was done for the study of the wing-box thickness \boxt influence in the structure response, the results from the different simulations are shown in Table \ref{tab:para_M}. Also, the displacement-force curve is shown in Figure \ref{fig:forceDisplacement-far-M}. It can be seen from results that increments a higher $M$ resulted on a decrement of the structure sensitivity to buckling. For the case of $M = 5$, the structure did not collapse under the prescribed load of 1000 N.
 
     \begin{table}[!htpb] %Results of M
       \centering
@@ -181,10 +181,10 @@
     \begin{figure}[!htpb] %force_displacement-far
       \centering
       \includegraphics[width=0.8 \textwidth]{../figures/result-sim/M/force_displacement-far-1200N}
-      \caption[Force-displacement curve for various values of the number of unit cells in the transversal direction]{Force-displacement curve for various values of the number of unit cells in the transversal direction $M$. For all the cases shown, the load introduction point was located in the middle of the upper flange of the tip rib and its magnitude was equal to -1200 N.}\label{fig:forceDisplacement-far-M}
+      \caption[Displacement-force curve for various values of the number of unit cells in the transversal direction]{Displacement-force curve for various values of the number of unit cells in the transversal direction $M$. For all the cases shown, the load introduction point was located in the middle of the upper flange of the tip rib and its magnitude was equal to -1200 N.}\label{fig:forceDisplacement-far-M}
     \end{figure}
 
-    The effects of the variation of the number of unit cells in the spanwise direction $N$, parameter responsible of the wing-box length is investigated next. The results from the parametric study carried out are shown in Table \ref{tab:para_N}. The force-displacement curve for the simulations carried out is shown in Figure \ref{fig:forceDisplacement-far-N}. It can be seen that the bigger the wing-box length, the earlier that the buckling of the lattices cause the collapse of the structure.
+    The effects of the variation of the number of unit cells in the spanwise direction $N$, parameter responsible of the wing-box length is investigated next. The results from the parametric study carried out are shown in Table \ref{tab:para_N}. The displacement-force curve for the simulations carried out is shown in Figure \ref{fig:forceDisplacement-far-N}. It can be seen that the bigger the wing-box length, the earlier that the buckling of the lattices cause the collapse of the structure.
 
     %Second stage of the buckling
     In the last plot introduced it can be seen a second change in the slope of the curve for the cases of $N = 10$ and $N = 11$. This happens when, as explained in Section \ref{sec:generalResponseCharact_results_sim}, the buckling phenomena progresses from the ligaments at the root to be more generalized in other parts of the structure. This characteristic can be seen in Figure \ref{fig:N10-UR}, where the response of the structure for the case of $N = 10$ and load fraction of $96\%$ is shown.
@@ -208,7 +208,7 @@
     \begin{figure}[!htpb] %force_displacement-far
       \centering
       \includegraphics[width=0.8 \textwidth]{../figures/result-sim/N/force_displacement-far}
-      \caption[Force-displacement curve for various values of the number of unit cells in the spanwise direction]{Force-displacement curve for various values of the number of unit cells in the spanwise direction $N$. For all the cases shown, the load introduction point was located in the middle of the upper flange of the tip rib and its magnitude was equal to -700 N.}\label{fig:forceDisplacement-far-N}
+      \caption[Displacement-force curve for various values of the number of unit cells in the spanwise direction]{Displacement-force curve for various values of the number of unit cells in the spanwise direction $N$. For all the cases shown, the load introduction point was located in the middle of the upper flange of the tip rib and its magnitude was equal to -700 N.}\label{fig:forceDisplacement-far-N}
     \end{figure}
 
     \begin{figure}[!htpb] %UR for N = 10
@@ -222,11 +222,11 @@
 
     In the present subsection, different parameters of the chiral lattice structure are varied and its effect of the system response are shown.
 
-    \subsubsection{Dimensionless chiral ligament eccentricity $\epsilon_{\mathrm{chiral}}$}
+    \subsubsection{Dimensionless chiral ligament eccentricity $\epsilon_{\mathrm{chi}}$}
       % \ref{fig:../figures/result-sim/eccen/force_displacement-far}
       % In Figure \ref{fig:../figures/result-sim/eccen/0coma1-700N} it can be seen than the excesive eccentricity of the ligaments keep them from causing the collapse of the structure
 
-      The first of the chiral parameter that is going to be studied is the ligament eccentricity $e_{\mathrm{chiral}}$, in its dimensionless form $\epsilon_{\mathrm{chiral}}$. The numeric results from the simulations carried out can be seen in Table \ref{tab:para_e}.
+      The first of the chiral parameter that is going to be studied is the ligament eccentricity $e_{\mathrm{chi}}$, in its dimensionless form $\epsilon_{\mathrm{chi}}$. The numeric results from the simulations carried out can be seen in Table \ref{tab:para_e}.
 
       The force-deformation curve for the range of simulations carried out can be seen in Figure \ref{fig:forceDisplacement-far-e}. Here it can be seen that the collapse of the structure occurs for all the cases except for \chie$= 0.1$. The deformation state of the structure for this case can be seen in Figure \ref{fig:e0coma1-UR} that shows how the excessive eccentricity of the ligaments keep them from buckling and causing the structure collapse.
 
@@ -248,7 +248,7 @@
       \begin{figure}[!htpb] %force_displacement-far
         \centering
         \includegraphics[width=0.8 \textwidth]{../figures/result-sim/eccen/force_displacement-far}
-        \caption[Force-displacement curve for various values of the dimensionless chiral ligament eccentricity]{Force-displacement curve for various values of the dimensionless chiral ligament eccentricity \chie. The plot shows how the collapse of the structure occurs for all the cases except for \chie$= 0.1$..}\label{fig:forceDisplacement-far-e}
+        \caption[Displacement-force curve for various values of the dimensionless chiral ligament eccentricity]{Displacement-force curve for various values of the dimensionless chiral ligament eccentricity \chie. The plot shows how the collapse of the structure occurs for all the cases except for \chie$= 0.1$..}\label{fig:forceDisplacement-far-e}
       \end{figure}
 
       \begin{figure}[!htpb] %UR for e = 0.1
@@ -283,14 +283,14 @@
 
 
     \clearpage
-    \subsubsection{Chiral node depth $B_{\mathrm{chiral}}$}
+    \subsubsection{Chiral node depth $B_{\mathrm{chi}}$}
       %
       % \ref{fig:../figures/result-sim/B/force_displacement-far}
       % The larger the chiral node depth, the bigger surface on the
-      % The collapse point moves backwards as the $B_{\mathrm{chiral}}$ increases. However, the bigger $B_{\mathrm{chiral}}$, the more abrupt the collapse is.
+      % The collapse point moves backwards as the $B_{\mathrm{chi}}$ increases. However, the bigger $B_{\mathrm{chi}}$, the more abrupt the collapse is.
       % It Figure \ref{fig:../figures/result-sim/B/30_UR1} the rotation $UR_1$ of the mesh elements around the $x$ direction can be seen for the case of \B$= 30$mm at the moment when collapse of the structure ocurrs. The value of this magnitude in this area is approximatelly the double to the corresponding one when \B$= 10$mm which can be seen in Figure \ref{fig:../figures/result-sim/B/10_UR1}
 
-      The numeric results from the parametric analysis on the chiral node depth \chiB can be seen in Table \ref{tab:para_B}. The force-displacement curve can be seen in Figure \ref{fig:forceDisplacement-far-B} for various values of $B$. This plot shows how the bigger \chiB is, the more abrupt the collapse is, showing a bigger sudden increment on the measured twist at the tip $\phi_{\mathrm{tip}}$.
+      The numeric results from the parametric analysis on the chiral node depth \chiB can be seen in Table \ref{tab:para_B}. The displacement-force curve can be seen in Figure \ref{fig:forceDisplacement-far-B} for various values of $B$. This plot shows how the bigger \chiB is, the more abrupt the collapse is, showing a bigger sudden increment on the measured twist at the tip $\phi_{\mathrm{tip}}$.
 
       The Figure \ref{fig:30_UR1} shows the rotation $u$ around the $x$ direction of the mesh elements located on the upper skin of the wing-box and close to the root. This is represented for the case of \chiB$= 30$ mm, at the moment when collapse of the structure occurs which is at $86\%$ of the prescribed load and in the area where local deformation of the skin takes place. Examination of the plot arises that the value of $u$ in this area is approximately double to that corresponding to \chiB$= 10$ mm which can be seen in Figure \ref{fig:10_UR1}. This shows that the bigger \chiB is, the more area is affected by the ligaments deformation when buckling occurs and the greater the local deformation will be.
 
@@ -312,7 +312,7 @@
       \begin{figure}[!htpb] %force_displacement-far
         \centering
         \includegraphics[width=0.8 \textwidth]{../figures/result-sim/B/force_displacement-far}
-        \caption[Force-displacement curve for various values of the dimensionless chiral node depth]{Force-displacement curve for various values of the dimensionless chiral node depth \chiB. Results show how the bigger the node depth \chiB is, the later the collapse of the structure occurs but the more abrupt is its.}\label{fig:forceDisplacement-far-B}
+        \caption[Displacement-force curve for various values of the dimensionless chiral node depth]{Displacement-force curve for various values of the dimensionless chiral node depth \chiB. Results show how the bigger the node depth \chiB is, the later the collapse of the structure occurs but the more abrupt is its.}\label{fig:forceDisplacement-far-B}
       \end{figure}
 
       \begin{figure}[!htpb] %UR for B = 30
@@ -336,7 +336,7 @@
       \end{figure}
 
     \clearpage
-    \subsubsection{Chiral node radius $r_{\mathrm{chiral}}$}
+    \subsubsection{Chiral node radius $r_{\mathrm{chi}}$}
       %
       % Ranges: 7.5, 10, 12.5, 15, 17.5, 20
       % \ref{fig:../figures/result-sim/r/force_displacement-far}
@@ -345,7 +345,7 @@
 
       In the case of the chiral node radius \chir, the possible values were limited by the geometry of the chiral lattice. For values \chir$\le 5$ mm, it was not possible to build the mode due to interferences between the different ligaments that joined at each of the nodes. The numeric results from the simulations are presented in Table \ref{tab:para_r}.
 
-      The force-displacement curve obtained from the simulations is shown in Figure \ref{fig:forceDisplacement-far-r}. This curve shows how the structure collapses for analyzed cases except for \chir$ = 17.5$ mm and \chir$ = 20$ mm. For \chir$= 12.5$mm, the buckling ligaments are located at the root, as it can be seen in Figure \ref{fig:r12coma5-UR}. However, for the case of \chir$= 17.5$mm, buckling do not occur on the ligaments located at the root but in those located just after the inner rib located closer to the root, with smaller $x$. This explains the characteristic seen in Figure \ref{fig:forceDisplacement-far-r} for the case of \chir$= 17.5$mm which breaks the trend followed by values \chir$< 17.5$mm. Then, the chiral node radius \chir value shifts the position of the buckling ligaments that origin the collapse of the structure.
+      The displacement-force curve obtained from the simulations is shown in Figure \ref{fig:forceDisplacement-far-r}. This curve shows how the structure collapses for analyzed cases except for \chir$ = 17.5$ mm and \chir$ = 20$ mm. For \chir$= 12.5$mm, the buckling ligaments are located at the root, as it can be seen in Figure \ref{fig:r12coma5-UR}. However, for the case of \chir$= 17.5$mm, buckling do not occur on the ligaments located at the root but in those located just after the inner rib located closer to the root, with smaller $x$. This explains the characteristic seen in Figure \ref{fig:forceDisplacement-far-r} for the case of \chir$= 17.5$mm which breaks the trend followed by values \chir$< 17.5$mm. Then, the chiral node radius \chir value shifts the position of the buckling ligaments that origin the collapse of the structure.
 
       The variation of the force that makes the structure to collapse as a function of the chiral node radius \chir can be seen in Figure \ref{fig:force_r}.
 
@@ -368,7 +368,7 @@
       \begin{figure}[!htpb] %force_displacement-far
         \centering
         \includegraphics[width=0.8 \textwidth]{../figures/result-sim/r/force_displacement-far}
-        \caption[Force-displacement curve for various values of the chiral node radius]{Force-displacement curve for various values of the chiral node radius \chir.}\label{fig:forceDisplacement-far-r}
+        \caption[Displacement-force curve for various values of the chiral node radius]{Displacement-force curve for various values of the chiral node radius \chir.}\label{fig:forceDisplacement-far-r}
       \end{figure}
 
       \begin{figure}[!htpb] %UR for r = 12.5
@@ -390,11 +390,11 @@
       \end{figure}
 
     \clearpage
-    \subsubsection{Chiral ligament half length $L_{\mathrm{chiral}}$}
+    \subsubsection{Chiral ligament half length $L_{\mathrm{chi}}$}
       %
       %
 
-      The numeric results obtained for the parametric study on the chiral ligament half length \chiL are shown in Table \ref{tab:para_L}. The force-displacement curve for the set of values analyzed is shown in Figure \ref{fig:forceDisplacement-far-L}. This plot shows that the bigger the ligament half length is, the earlier that the structure will collapse after severe buckling of the ligaments at the root. For the case of \chiL$= 30$, the structure does not collapse as the structure has become very stiff.
+      The numeric results obtained for the parametric study on the chiral ligament half length \chiL are shown in Table \ref{tab:para_L}. The displacement-force curve for the set of values analyzed is shown in Figure \ref{fig:forceDisplacement-far-L}. This plot shows that the bigger the ligament half length is, the earlier that the structure will collapse after severe buckling of the ligaments at the root. For the case of \chiL$= 30$, the structure does not collapse as the structure has become very stiff.
 
       Again, in a further step, the force that causes the structure to collapse for a given value of the half length \chiL parameter was investigated. The resulting plot is shown in Figure \ref{fig:force_L}.
 
@@ -413,8 +413,8 @@
 
       \begin{figure}[!htpb] %force_displacement-far
         \centering
-        \includegraphics[width=0.8 \textwidth]{../figures/result-sim/r/force_displacement-far}
-        \caption[Force-displacement curve for various values of the chiral ligament half length]{Force-displacement curve for various values of the chiral ligament half length \chiL. The bigger the ligament half length is, the earlier that the structure will collapse after severe buckling of the ligaments at the root.}\label{fig:forceDisplacement-far-L}
+        \includegraphics[width=0.8 \textwidth]{../figures/result-sim/L/force_displacement-far}
+        \caption[Displacement-force curve for various values of the chiral ligament half length]{Displacement-force curve for various values of the chiral ligament half length \chiL. The bigger the ligament half length is, the earlier that the structure will collapse after severe buckling of the ligaments at the root.}\label{fig:forceDisplacement-far-L}
       \end{figure}
 
       \begin{figure}[!htpb] %force_plot
@@ -424,10 +424,10 @@
       \end{figure}
 
     \clearpage
-    \subsubsection{Chiral structure thickness $t_{\mathrm{chiral}}$}
+    \subsubsection{Chiral structure thickness $t_{\mathrm{chi}}$}
       %
 
-      The results for the parametric study performed on the chiral structure thickness \chit are shown in Table \ref{tab:para_chi_t}. The force-displacement curve is shown in Figure \ref{fig:forceDisplacement-far-chiral-t}. Here it can be seen that a thicker chiral structure delays the structure collapse. Similarly as it occurred for the chiral node depth \chiB, the more bigger the thickness \chit is, the more abrupt is the decrement in tip twist is.
+      The results for the parametric study performed on the chiral structure thickness \chit are shown in Table \ref{tab:para_chi_t}. The displacement-force curve is shown in Figure \ref{fig:forceDisplacement-far-chiral-t}. Here it can be seen that a thicker chiral structure delays the structure collapse. Similarly as it occurred for the chiral node depth \chiB, the more bigger the thickness \chit is, the more abrupt is the decrement in tip twist is.
 
       Finally, the required force to induce the structure to collapse was plot against the corresponding value of the chiral structure thickness \chit, resulting on the curve shown in Figure \ref{fig:force_chiral_t}.
 
@@ -448,7 +448,7 @@
       \begin{figure}[!htpb] %force_displacement-far
         \centering
         \includegraphics[width=0. \textwidth]{../figures/result-sim/chiral_t/force_displacement-far}
-        \caption[Force-displacement curve for various values of the chiral structure thickness]{Force-displacement curve for various values of the chiral structure thickness \chit. The bigger the ligament half length is, the earlier that the structure will collapse after severe buckling of the ligaments at the root.}\label{fig:forceDisplacement-far-chiral-t}
+        \caption[Displacement-force curve for various values of the chiral structure thickness]{Displacement-force curve for various values of the chiral structure thickness \chit. The bigger the ligament half length is, the earlier that the structure will collapse after severe buckling of the ligaments at the root.}\label{fig:forceDisplacement-far-chiral-t}
       \end{figure}
 
       \begin{figure}[!htpb] %force_plot

@@ -20,9 +20,15 @@
 \nomenclature[a]{$B$}{Width of the cross section for the analytical model \nomunit{mm}}
 \nomenclature[a]{$H$}{Height of the cross section for the analytical model \nomunit{mm}}
 \nomenclature[a]{$L$}{Length of the beam for the analytical model \nomunit{mm}}
-\nomenclature[a]{$E,E_1,E_2,E_{\mathrm{chiral}},E_{\mathrm{box}},E_{\mathrm{rib}}$}{Young's modulus \nomunit{N/mm$^2$}}
-\nomenclature[a]{$G,G_1,G_2,G_{\mathrm{chiral}},G_{\mathrm{box}},G_{\mathrm{rib}}$}{Shear modulus \nomunit{N/mm$^2$}}
-\nomenclature[a]{$t,t_1,t_2,t_{\mathrm{chiral}},t_{\mathrm{box}},t_{\mathrm{rib}}$}{Wall thickness \nomunit{mm}}
+\nomenclature[a]{$E,E_1,E_2$}{Young's modulus in the analytical model \nomunit{N/mm$^2$}}
+\nomenclature[a]{$E_{\mathrm{chi}}$}{Young's modulus for the chiral structure in the computational model \nomunit{N/mm$^2$}}
+\nomenclature[a]{$E_{\mathrm{box}},E_{\mathrm{rib}}$}{Young's modulus for the rib and the wing-box in the computational model \nomunit{N/mm$^2$}}
+\nomenclature[a]{$G,G_1,G_2$}{Shear modulus in the analytical model \nomunit{N/mm$^2$}}
+\nomenclature[a]{$G_{\mathrm{chi}}$}{Shear modulus for the chiral structure in the computational model \nomunit{N/mm$^2$}}
+\nomenclature[a]{$G_{\mathrm{box}},G_{\mathrm{rib}}$}{Shear modulus for the rib and the wing-box in the computational model \nomunit{N/mm$^2$}}
+\nomenclature[a]{$t,t_1,t_2$}{Wall thickness in the analytical model \nomunit{mm}}
+\nomenclature[a]{$t_{\mathrm{chi}}$}{Wall thickness for the chiral structure in the computational model \nomunit{mm}}
+\nomenclature[a]{$t_{\mathrm{box}},t_{\mathrm{rib}}$}{Wall thickness for the rib and the wing-box structure in the computational model \nomunit{mm}}
 \nomenclature[a]{$S_{E_y}$}{First moment of area \nomunit{N mm}}
 \nomenclature[b]{$\Phi_y$}{Flexural stiffness \nomunit{N mm$^2$}}
 \nomenclature[a]{$q_0$}{Constant shear flow \nomunit{N/mm}}
@@ -30,7 +36,9 @@
 \nomenclature[a]{$q_\parallel$}{Open section shear flow \nomunit{N/mm}}
 \nomenclature[a]{$Q_z$}{Force in direction of $z$ \nomunit{N}}
 \nomenclature[a]{$I_t$}{Torsional constant \nomunit{mm$^4$}}
-\nomenclature[b]{$\nu,\nu_{\mathrm{chiral}},\nu_{\mathrm{box}},\nu_{\mathrm{rib}}$}{Poisson's ratio}
+\nomenclature[b]{$\nu$}{Poisson's ratio}
+\nomenclature[b]{$\nu_{\mathrm{chi}}$}{Poisson's ratio for the chiral structure in the computational model}
+\nomenclature[b]{$\nu_{\mathrm{box}},\nu_{\mathrm{rib}}$}{Poisson's ratio for the rib and the wing-box in the computational model}
 
 %Coordinates
 \nomenclature[a]{$x$}{Coordinate in the spanwise direction \nomunit{mm}}
@@ -41,29 +49,33 @@
 \nomenclature[a]{$\hat{y}$}{Dimensionless coordinate in the transversal direction in the computational model ($y_{\mathrm{comp}}/H_{\mathrm{box}}$)}
 
 %Displacements
-\nomenclature[b]{$\phi,\phi_{\mathrm{tip}},\tilde{\phi}_{\mathrm{tip}}$}{Twist angle \nomunit{deg}}
+\nomenclature[b]{$\phi$}{Twist angle \nomunit{deg}}
+\nomenclature[b]{$\phi_{\mathrm{tip}}$}{Twist angle at the tip for the nonlinear simulation \nomunit{deg}}
+\nomenclature[b]{$\tilde{\phi}_{\mathrm{tip}}$}{Twist angle at the tip for the linear simulation \nomunit{deg}}
 \nomenclature[a]{$u$}{Displacement along the $x$ direction \nomunit{mm}}
 \nomenclature[a]{$v$}{Displacement along the $y$ direction \nomunit{mm}}
 \nomenclature[a]{$w, w_0$}{Displacements in direction of $z$ \nomunit{mm$^2$}}
-\nomenclature[b]{$\vartheta{w, w_0}$}{Specific twist angle \nomunit{deg/mm}}
+\nomenclature[b]{$\vartheta$}{Specific twist angle \nomunit{deg/mm}}
 
 %Model
-\nomenclature[a]{$e_{\mathrm{chiral}}$}{Ligament eccentricity \nomunit{mm}}
-\nomenclature[a]{$\epsilon_{\mathrm{chiral}}$}{Dimensionless ligament eccentricity}
+\nomenclature[a]{$e_{\mathrm{chi}}$}{Ligament eccentricity \nomunit{mm}}
+\nomenclature[a]{$\epsilon_{\mathrm{chi}}$}{Dimensionless ligament eccentricity}
 \nomenclature[a]{$M$}{Number of unit cells in transversal direction}
 \nomenclature[a]{$N$}{Number of unit cells in spanwise direction}
-\nomenclature[a]{$r_{\mathrm{chiral}}$}{Chiral node radius \nomunit{mm}}
-\nomenclature[a]{$R_{\mathrm{chiral}}$}{Ligament eccentricity radius \nomunit{mm}}
-\nomenclature[a]{$B_{\mathrm{chiral}}$}{Chiral node depth \nomunit{mm}}
-\nomenclature[a]{$L_{\mathrm{chiral}}$}{Chiral ligament half length \nomunit{mm}}
+\nomenclature[a]{$r_{\mathrm{chi}}$}{Chiral node radius \nomunit{mm}}
+\nomenclature[a]{$R_{\mathrm{chi}}$}{Ligament eccentricity radius \nomunit{mm}}
+\nomenclature[a]{$B_{\mathrm{chi}}$}{Chiral node depth \nomunit{mm}}
+\nomenclature[a]{$L_{\mathrm{chi}}$}{Chiral ligament half length \nomunit{mm}}
 \nomenclature[a]{$S_{\mathrm{f}}$}{Fine mesh size}
 \nomenclature[a]{$S_{\mathrm{c}}$}{Course mesh size}
 \nomenclature[b]{$\theta$}{Angular position in the local cylindrical reference system \nomunit{rad}}
 \nomenclature[a]{$r$}{Radial position in the local cylindrical reference system \nomunit{mm}}
 \nomenclature[a]{$z$}{Perpendicular position in the local cylindrical reference system \nomunit{mm}}
 \nomenclature[a]{$H_{\mathrm{box}},H_{\mathrm{rib}}$}{Height for the wing-box and the ribs \nomunit{mm}}
-\nomenclature[a]{$W_{\mathrm{box}},W_{\mathrm{rib,close}},W_{\mathrm{rib,open}}$}{Width for the wing-box and the ribs \nomunit{mm}}
+\nomenclature[a]{$W_{\mathrm{box}}$}{Width of the wing-box \nomunit{mm}}
+\nomenclature[a]{$W_{\mathrm{rib,close}}$}{Width of the open rib \nomunit{mm}}
+\nomenclature[a]{$W_{\mathrm{rib,open}}$}{Width of the closed rib \nomunit{mm}}
 \nomenclature[a]{$A_{\mathrm{rib}}$}{Rib frame width \nomunit{mm}}
 \nomenclature[a]{$L_{\mathrm{box}}$}{Length of the wing-box in the spanwise direction \nomunit{mm}}
-\nomenclature[a]{$d_{\mathrm{chiral-rib}}$}{Gap between lattice and inner ribs \nomunit{mm}}
+\nomenclature[a]{$d_{\mathrm{chi-rib}}$}{Gap between lattice and inner ribs \nomunit{mm}}
 \nomenclature[a]{$c$}{Artificial damping factor}
