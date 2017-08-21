@@ -410,7 +410,7 @@
       \label{fig:loadIntroductionPoints}
     \end{figure}
 
-  \clearpage
+  % \clearpage
   \subsection{Boundary condition} \label{subsec:boundary_computationalModel}
 
     The boundary condition for the whole assembly is the one shown in Figure \ref{fig:fixed}. It consisted in a kinematic coupling similar to the one introduced in Section \ref{subsec:parametrization_Model} to model the rigid body behavior of the lattice nodes. In this case, the kinematic coupling is establish between a reference point located approximately at the centre of the root rib and the faces of this mentioned rib. The reference point acts as a master node while the mesh nodes located at the faces of the rib are the slave nodes. The reference point is next fixed in all its degrees of freedom using the corresponding boundary condition Abaqus module.
@@ -421,12 +421,14 @@
       \caption[Boundary condition for the model]{Boundary condition for the model. The condition is establish through a coupling interaction between a reference point and the faces of the rib at the root. The reference point is fixed in all its degrees of freedom using the corresponding boundary condition Abaqus module.}\label{fig:fixed}
     \end{figure}
 
-  \clearpage
+  % \clearpage
   \subsection{Post-processing operations} \label{subsec:postProc_computationalModel} %To be extended, maybe
 
-    The results obtained from the Abaqus simulations were analysed in two different ways. Firstly, qualitatively by means of the deformation plots that shown by the Abaqus. And, secondly, extracting values of different magnitudes directly from the mesh nodes or elements located at certain positions of interest.
+    The results obtained from the Abaqus simulations were analysed in two different ways. Firstly, qualitatively by means of the deformation plots that shown the corresponding Abaqus visualization module. And, secondly, extracting values of different magnitudes directly from the mesh nodes or elements located at certain positions of interest on the solution model.
 
     Through the definition of paths in Abaqus, it is possible to obtain the value of a determined magnitude for all the mesh elements located along the path. In Figure \ref{fig:pathUpper}, an example of a path located on the upper skin of the wing-box is shown.
+
+    In the Python program written to run the parametric analysis, a special module is executed to extract information from the the Abaqus solution model. This piece code is able to extract magnitude values from different parts of the model, using paths. In the case of the rotational displacement $u$ around the $x$ direction, the value of the corresponding magnitude is extracted from mesh elements on the upper and lower flange of the wing-box, and also from differences in the displacement $v$ along the transversal direction $y$. The final value of the rotation is obtained calculating the mean of the previous values. The error in this calculation is also included in the tables that contain results from the simulations.
 
     \begin{figure}[!htpb]
       \centering
@@ -437,7 +439,7 @@
   \clearpage
   \subsection{Parametric study method} \label{subsec:parametricStudy_computationalModel}
 
-    The model described in the previous subsections is implemented in a Python program that is read by the FEM software, Abaqus CAE. The program is fully parametrized and this enables the possibility of executing simulations for different values of the parameters introduced previously. The parametric study program is executed when calling the python file \texttt{mainAbaqusParametricStudy.py}. As part of the execution of this file, a computational model is built, submitted for analysis and post-processed by the complementary program \texttt{mainBuildAndExecuteWingBox.py}, for all the different values of the parameters that form part of the parametric study defined in the file \texttt{setUpParametricStudy.py}. The convergence of the simulation is controlled within the program \texttt{mainAbaqusParametricStudy.py} and it is able to re-run a simulation with slight variations in the mesh size and/or in artificial dissipation definition if convergence was not achieved.
+    The model described in the previous subsections is implemented in a Python program that is read by the FEM software, Abaqus CAE. The program is fully parametrized and this enables the possibility of executing simulations for different values of the parameters introduced previously. The parametric study program is executed when calling the python file \texttt{mainAbaqusParametricStudy.py}. As part of the execution of this file, a computational model is built, submitted for analysis and post-processed by the complementary program \texttt{mainBuildAndExecuteWingBox.py}, for all the different values of the parameters that belong to the parametric study defined in the file \texttt{setUpParametricStudy.py}. The convergence of the simulation is controlled within the program \texttt{mainAbaqusParametricStudy.py} and it is able to re-run a simulation with slight variations in the mesh size and/or in artificial dissipation definition if convergence was not achieved.
 
     An schematic characterization of the program execution is shown the flow chart represented in Figure \ref{fig:flowChart}. The code written for this program can be found in Appendix \ref{appen:code}. 
 
