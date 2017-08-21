@@ -20,7 +20,7 @@
 
 %% DOCUMENT TYPE
 \def\typeThesis{CRANFIELD} %{ETH, CRANFIELD}
-\def\controlClearPage{electronicCopy} %possible inputs: paperCopy (also needs to add "twoside" to \documentclass options), electronicCopy
+\def\controlClearPage{paperCopy} %possible inputs: paperCopy (also needs to add "twoside" to \documentclass options), electronicCopy
 
 %% IMPORT DOCUMENT SETTINGS
 \usepackage{ifthen}
@@ -39,12 +39,12 @@
 
 %Define which chapters to include
 \includeonly{
-	% chapters/Introduction, 
-	% chapters/Abstract, 
-	% chapters/Acknowledgments, 
-	% chapters/State-of-the-art,
-	% chapters/Model,
-	% chapters/Results-model, 
+	chapters/Introduction, 
+	chapters/Abstract, 
+	chapters/Acknowledgments, 
+	chapters/State-of-the-art,
+	chapters/Model,
+	chapters/Results-model, 
 	chapters/Results-sim,
 	chapters/Appendix, 
 	chapters/Summary} %{file1,file2,...}
@@ -66,8 +66,31 @@
 	}{}}
 
 
-
 \pagenumbering{roman}
+
+%Official Task Assignement
+\ifthenelse{\equal{\typeThesis}{ETH}}{
+	%ETH option
+	%Official task assignments
+	\newpage
+	\addcontentsline{toc}{section}{\protect\numberline{}{Task assignement}}
+	\markright{Task assignement}
+	\include{chapters/Official_Task_Assignement}
+	\ClearDoublePageOrNot{\controlClearPage}
+
+	%Declaration of originality
+	\newpage
+	\addcontentsline{toc}{section}{\protect\numberline{}{Declaration of Originality}}
+	\markright{Declaration of Originality}
+	\include{chapters/Declaration_of_Originality}
+	\ClearDoublePageOrNot{\controlClearPage}
+	%ETH option
+	}{\ifthenelse{\equal{\typeThesis}{CRANFIELD}}{
+	%CRANFIELD option
+	\input{chapters/CranfieldPlagiarismDeclarationForm}
+	\ClearDoublePageOrNot{\controlClearPage}
+	%CRANFILED option
+	}{}}
 
 %Abstract English and German
 \newpage
@@ -101,28 +124,6 @@
 \addcontentsline{toc}{section}{\protect\numberline{}{Acknowledgments}}
 \thispagestyle{plain}
 \ClearDoublePageOrNot{\controlClearPage}
-
-%Official Task Assignement
-\ifthenelse{\equal{\typeThesis}{ETH}}{
-	%ETH option
-	%Official task assignments
-	\newpage
-	\addcontentsline{toc}{section}{\protect\numberline{}{Task assignement}}
-	\markright{Task assignement}
-	\include{chapters/Official_Task_Assignement}
-	\ClearDoublePageOrNot{\controlClearPage}
-
-	%Declaration of originality
-	\newpage
-	\addcontentsline{toc}{section}{\protect\numberline{}{Declaration of Originality}}
-	\markright{Declaration of Originality}
-	\include{chapters/Declaration_of_Originality}
-	\ClearDoublePageOrNot{\controlClearPage}
-	%ETH option
-	}{\ifthenelse{\equal{\typeThesis}{CRANFIELD}}{
-	%CRANFIELD option
-	%CRANFILED option
-	}{}}
 
 %%%%%%%%% Lists %%%%%%%%%%%%%%%%%%
 % Contents
@@ -199,4 +200,3 @@
 
 
 \end{document}
-

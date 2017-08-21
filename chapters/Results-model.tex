@@ -10,7 +10,7 @@
   %Intro
   In the present chapter the general characterization of the model is presented. The first section include an analysis of the analytical model. For this, a variation of the beam geometric parameters and the stiffness ratio $E_1/E_2$ between the adaptive web and the rest of the model is performed. Firstly, the predicted evolution of the bending-twist coupling as a function of the stiffness ratio $E_1/E_2$ is presented. Secondly, the results obtained from the parametric study performed are introduced. This will provide insight of how the different design parameters affect the final mechanical properties of the beam.
 
-  In the second section, the computational model is analyzed in order to obtain the most suitable configuration to show the response expected from the concept proposed. In particular, a discussions over the methods to model the connection between the chiral lattice and the wing-box, the load introduction method, the mesh particularities, the ribs inclusion and the nonlinearities the response are presented. 
+  In the second section, the computational model is analysed in order to obtain the most suitable configuration to show the response expected from the concept proposed. In particular, a discussions over the methods to model the connection between the chiral lattice and the wing-box, the load introduction method, the mesh particularities, the ribs inclusion and the nonlinearities the response are presented. 
 
 \section{Analytical model analysis} \label{sec:analyticalParametricStudy_results_model}
 
@@ -174,21 +174,23 @@
   \clearpage
   \subsection{Load introduction method} \label{subsec:load_results_model}
 
-    As shown in Subsection \ref{subsec:load_computationalMode}, there are multiple ways in which the load can be introduced into the structure. It was decided to located the load introduction points at the upper flange of the ribs in an attempt of replicate how the load introduction would be done in a future manufactured demonstrator. In this section, the difference of results obtained when modifying the load introduction method are shown. 
+    As shown in Subsection \ref{subsec:load_computationalModel}, there are multiple ways in which the load can be introduced into the structure. It was decided to located the load introduction points at the upper flange of the ribs in an attempt of replicate how the load introduction would be done in a future manufactured demonstrator. In this section, the difference of results obtained when modifying the load introduction method are shown. 
 
-    Firstly, the option of distributing a same load magnitude over the total number of ribs, three in the baseline configuration, is compared with the option of concentrating all the load on the upper flange of the tip rib. In Figure \ref{fig:forceDisplacement-distributedLoad700N} the curve displacement-force for these two different cases is shown. It can be seen how when the load is distributed over a number of points and it is not concentrated on a single point, a delay in the onset of the structure collapse occurs. This results is correlated with visual inspection of the deformed model in Abaqus. The corresponding plot is shown in Figure \ref{fig:distributedLoad700N} where the total value of the rotational displacement of the mesh nodes is shown in the color contour. It cane be seen that... XX
+    Firstly, the option of distributing a same load magnitude over the total number of ribs, three in the baseline configuration, is compared with the option of concentrating all the load on the upper flange of the tip rib. In Figure \ref{fig:forceDisplacement-distributedLoad700N} the curve displacement-force for these two different cases is shown. It can be seen how when the load is distributed over a number of points and it is not concentrated on a single point, a delay in the onset of the structure collapse occurs. This results is correlated with visual inspection of the deformed model in Abaqus. The corresponding plot for a distributed load is shown in Figure \ref{fig:distributedLoad700N}. Here it can be seen how buckling has started to occur on the ligaments located close to the ribs, where the load is being introduced. In a further stage, if the load is increased, buckling will start to occur at the root of the wing-box just like it happens for a single load introduction point.
+
+    Since the distribution of the load in more that one rib only delays the onset of the instabilities, it is decided to use a single load introduction point for the study performed on the baseline configuration, in a attempt to simplify the model.
 
     \begin{figure}[!htpb]
       \centering
       \includegraphics[width=0.8 \textwidth]{../figures/result-model/forceDisplacement-distributedLoad700N}
-      \caption[]{}
+      \caption[Displacement-force curve showing the model response using different load introduction methods]{Displacement-force curve showing the model response using different load introduction methods.}% The label ``singleForceOnLastRib_upper'' corresponds to the case of using one single point for the load introduction. This point is located at the upper flange of the tip rib. The label ``linForceInnerRibs_upper'' corresponds to the case of introducing load on the upper flange of all the available ribs, which are three for the baseline configuration, two in the inner part of the wing-box and one at the tip. It can be see that the concentration of the load accelerates the onset of the structure collapse.
       \label{fig:forceDisplacement-distributedLoad700N}
     \end{figure}
 
     \begin{figure}[!htpb]
       \centering
       \includegraphics[width=0.8 \textwidth]{../figures/result-model/distributedLoad700N}
-      \caption[]{}
+      \caption[Deformed state of the model for a distributed load introduction method]{Deformed state of the model for a distributed load introduction method. It can be seen how since the buckling is starting to occur at the ligaments located close to the ribs, the onset of the elastic instabilities is delayed.}
       \label{fig:distributedLoad700N}
     \end{figure}
 

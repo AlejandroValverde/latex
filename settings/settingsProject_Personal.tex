@@ -22,6 +22,8 @@
 
 %Additional packages
 \usepackage{ifthen}
+\usepackage[final]{pdfpages} %Import pdf
+\usepackage{xspace} %the xs­pace pack­age provides a single command that looks at what comes after it in the command stream, and decides whether to insert a space to replace one "eaten" by the TEX command decoder.
 
 %bibliography
 % \usepackage[square, numbers]{natbib}
@@ -98,9 +100,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %New commands
-\newcommand{\chiB}{$B_{\mathrm{chi}}$}
-\newcommand{\chir}{$r_{\mathrm{chi}}$}
-\newcommand{\chiL}{$L_{\mathrm{chi}}$}
-\newcommand{\chit}{$t_{\mathrm{chi}}$}
-\newcommand{\boxt}{$t_{\mathrm{box}}$}
-\newcommand{\chie}{$\epsilon_{\mathrm{chi}}$}
+\newcommand{\chiB}{$B_{\mathrm{chi}}$\xspace}
+\newcommand{\chir}{$r_{\mathrm{chi}}$\xspace}
+\newcommand{\chiL}{$L_{\mathrm{chi}}$\xspace}
+\newcommand{\chit}{$t_{\mathrm{chi}}$\xspace}
+\newcommand{\boxt}{$t_{\mathrm{box}}$\xspace}
+\newcommand{\chie}{$\epsilon_{\mathrm{chi}}$\xspace}
+\newcommand{\philin}{$\tilde{\phi}_{\mathrm{tip}}$\xspace}
+\newcommand{\phinonlin}{$\phi_{\mathrm{tip}}$\xspace}
