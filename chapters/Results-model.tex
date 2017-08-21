@@ -265,7 +265,7 @@
       \caption[Displacement-force curve for various values of constant artificial damping factor]{Displacement-force curve for various values of constant artificial damping factor.}\label{fig:forceDisplacement-damp}
     \end{figure}
 
-    As it can be seen in the mentioned figure, all the different values of the damping factors success to capture the rapidly change in tip twist that occurs for fractions of load applied $>60\%$. However, special care needs to be taken in order to ensure that the inclusion of artificial damping factor is not leading to inaccurate results due to over-damping of the structure. This can be done by comparing the fraction of the static energy that it is dissipated compared to the external work that its put into the system. This is done for a values of $c =$\notcien{2}{-5}, $c =$\notcien{2}{-8} and $c =$\notcien{2}{-9} in Figures \ref{fig:energy_damp-5}, \ref{fig:energy_damp-8} and \ref{fig:energy_damp-9}, respectively. In these plots, the moment where the structure collapses due to the buckling phenomena occurring on the chiral ligaments can be seen as a sudden change in the slope of both curves. Here it can be seen that for the case of $c =$\notcien{2}{-5}, the slope of the curve showing the energy dissipated through artificial stabilization is positive after the onset of buckling, which is a sign of over-damping in this region. On the other hand, for the case of $c =$\notcien{2}{-8}, the slope remains of the curve remains zero. Finally, for the case of $c =$\notcien{2}{-9}, the slope also remains zero and the final value for the energy dissipated is smaller than for $c =$\notcien{2}{-8}.
+    As it can be seen in the mentioned figure, all the different values of the damping factors success to capture the rapidly change in tip twist that occurs for fractions of load applied $>60\%$. However, special care needs to be taken in order to ensure that the inclusion of artificial damping factor is not leading to inaccurate results due to over-damping of the structure. This can be done by comparing the fraction of the static energy that it is dissipated compared with the external work that its put into the system. This is done for a values of $c =$\notcien{2}{-5}, $c =$\notcien{2}{-8} and $c =$\notcien{2}{-9} in Figures \ref{fig:energy_damp-5}, \ref{fig:energy_damp-8} and \ref{fig:energy_damp-9}, respectively. In these plots, the moment where the structure collapses due to the buckling phenomena occurring on the chiral ligaments can be seen as a sudden change in the slope of both curves. Here it can be seen that for the case of $c =$\notcien{2}{-5}, the slope of the curve showing the energy dissipated through artificial stabilization is positive after the onset of buckling, which is a sign of over-damping in this region. On the other hand, for the case of $c =$\notcien{2}{-8}, the slope remains of the curve remains zero. Finally, for the case of $c =$\notcien{2}{-9}, the slope also remains zero and the final value for the energy dissipated is smaller than for $c =$\notcien{2}{-8}.
 
     \begin{figure}[!htpb]
       \centering
@@ -317,7 +317,7 @@
     %     - However, the inner ribs help the upper skin of the wing-box to remain more flat than before.
 
     %First approach: no ribs, no damp
-    Initially, the model did not incorporate inner ribs and the ribs located at the tip and the root had an open profile. In Figure \ref{fig:closeOfRib-800N}, it can be seen an example of the response seen for this type of configuration.
+    As explained in Subsection \ref{subsubsec:Ribs_Parametrization}, two different designs were developed for the rib, one consisted in a open profile and the other one was a closed profile. A first set of simulations were executed for the option of one open section at the rib at the tip. In Figure \ref{fig:closeOfRib-800N}, it can be seen an example of the response seen for this type of configuration after a prescribed load of 800 N has been applied. It can be seen that, under the prescribed load, the rib is closing its profile and the upper flange shows a bigger displacement $v$ compared with the lower flange.
 
     \begin{figure}[!htpb]
       \centering
@@ -325,7 +325,7 @@
       \caption[Vertical displacement $v$ at the tip rib]{Vertical displacement $v$ at the tip rib. The color contour shows those mesh nodes located on the upper flange of the rib have a higher $v$, therefore showing how the rib is closing under the prescribed load (800 N)}\label{fig:closeOfRib-800N}
     \end{figure}
 
-    For this reason, it was decided to use ribs with a close profile. The simulations then provided a solution like the one shown in Figure \ref{fig:normalCaseNoDampNoInnerRibs_800N}. For this case, the initial buckling occurs in ligaments located far from the root. The twist of the beam, measured as the angular rotation $UR_1$ around the $x$ axis is of ~0.3 deg. The prescribed load was -800 N and the simulation converged to the 0.95\% of the prescribed load.
+    In an attempt to avoid a deformation in the rib that causes the rib to close, it was decided to use ribs with a close profile. The simulations then provided a solution like the one shown in Figure \ref{fig:normalCaseNoDampNoInnerRibs_800N}. For this case, the initial buckling occurs in ligaments located far from the root. The twist of the beam, measured as the rotational displacement $u$ around the $x$ axis is of approximately 0.3 deg. The prescribed load was -800 N and the simulation converged to the 0.95\% of the prescribed load.
 
     \begin{figure}[!htpb]
       \centering
@@ -338,7 +338,7 @@
     \begin{figure}[!htpb]
       \centering
       \includegraphics[width=0.8 \textwidth]{../figures/result-model/normalCaseDampNoInnerRibs}
-      \caption[Model response without the use of inner ribs with automatic stabilization]{Model response without the use of inner ribs with automatic stabilization.}\label{fig:normalCaseDampNoInnerRibs}
+      \caption[Model response without the use of inner ribs and with automatic stabilization]{Model response without the use of inner ribs and with automatic stabilization.}\label{fig:normalCaseDampNoInnerRibs}
     \end{figure}
 
     %Inner ribs, no damp
