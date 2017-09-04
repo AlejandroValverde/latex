@@ -482,7 +482,7 @@
 
     \subsubsection{Coupling through local cylindrical reference system}
 
-    An additional approach was implemented to model the BLABLABLA
+    An additional approach was implemented to model the connection between the lattice structure and the wing-box skin. 
 
     In this case, the rigid body feature provided by the tyre installation is replaced by an additional coupling condition created in a local cylindrical reference system located at each of the lattice nodes. This new reference system substitutes the global Cartesian coordinates system and its origin is a reference point located in the centre of the lattice node,  at $z=B/2$mm. The position of a point in the lattice node face will be determined by the radial distance $r$ to the origin, the angular position $\theta$ and the position $z$ along the lattice node rotation axis. An sketch of this reference system is shown in Figure \ref{fig:connection-localSYS1}.
 
@@ -506,26 +506,37 @@
   \subsection{Post-processing operations} \label{subsec:postProc_computationalModel} %To be extended, maybe
 
     The results obtained from the Abaqus simulations were analysed in two different ways. Firstly, qualitatively by means of the deformation plots that shown the corresponding Abaqus visualization module. And, secondly, extracting values of different magnitudes directly from the mesh nodes or elements located at certain positions of interest on the solution model.
+    % PATHS, not important
+    % Through the definition of paths in Abaqus, it is possible to obtain the value of a determined magnitude for all the mesh elements located along the path. In Figure \ref{fig:pathUpper}, an example of a path located on the upper skin of the wing-box is shown.
 
-    Through the definition of paths in Abaqus, it is possible to obtain the value of a determined magnitude for all the mesh elements located along the path. In Figure \ref{fig:pathUpper}, an example of a path located on the upper skin of the wing-box is shown.
+    % \begin{figure}[!htpb]
+    %   \centering
+    %   \includegraphics[width=0.8 \textwidth]{../figures/result-model/pathUpper}
+    %   \caption[Path of mesh elements on the solution model]{Path of mesh elements on the solution model.}\label{fig:pathUpper}
+    % \end{figure}
 
-    In the Python program written to run the parametric analysis, a special module is executed to extract information from the the Abaqus solution model. This piece code is able to extract magnitude values from different parts of the model, using paths. In the case of the rotational displacement $u$ around the $x$ direction, the value of the corresponding magnitude is extracted from mesh elements on the upper and lower flange of the wing-box, and also from differences in the displacement $v$ along the transversal direction $y$. The final value of the rotation is obtained calculating the mean of the previous values. The error in this calculation is also included in the tables that contain results from the simulations.
+    As part of the execution of the parametric analysis program written using Python scripting, an additional module is used to perform the post-processing operations. The obtained values of the selected variables are written to an external files. 
 
-    \begin{figure}[!htpb]
-      \centering
-      \includegraphics[width=0.8 \textwidth]{../figures/result-model/pathUpper}
-      \caption[Path of mesh elements on the solution model]{Path of mesh elements on the solution model.}\label{fig:pathUpper}
-    \end{figure}
+    The calculation of the wing-box twist is done through the evaluation of the rotational displacement $u$ around the $x$ direction at a number of mesh elements located in different parts of the tip rib, as shown in Figure \ref{fig:pointsToEvaluateTwist}.
+
+    Due to deformations occurring at the tip rib, the value of $u$ extracted from each of the mesh nodes is going to differ. A magnitude of this discrepancy between the mean value and the single values is shown through the evaluation of the deviation from the mean. The calculated mean value and the maximum deviation are included in the tables that contain results from the simulations.
+
+    % \begin{figure}[!htpb]
+    %   \centering
+    %   \includegraphics[width=0.8 \textwidth]{../figures/model/pointsToEvaluateTwist}
+    %   \caption[Location of the mesh nodes from which valued of the rotational displacement $u$ is extracted]{Location of the mesh nodes from which valued of the rotational displacement $u$ is extracted. The final value for the twist is calculated from the mean value of $u$ at the mesh nodes shown.}
+    %   \label{fig:pointsToEvaluateTwist}
+    % \end{figure}
   
   % \clearpage
   \subsection{Parametric study method} \label{subsec:parametricStudy_computationalModel}
 
-    The model described in the previous subsections is implemented in a Python program that is read by the FEM software, Abaqus CAE. The program is fully parametrized and this enables the possibility of executing simulations for different values of the parameters introduced previously. The parametric study program is executed when calling the python file \texttt{mainAbaqusParametricStudy.py}. As part of the execution of this file, a computational model is built, submitted for analysis and post-processed by the complementary program \texttt{mainBuildAndExecuteWingBox.py}, for all the different values of the parameters that belong to the parametric study defined in the file \texttt{setUpParametricStudy.py}. The convergence of the simulation is controlled within the program \texttt{mainAbaqusParametricStudy.py} and it is able to re-run a simulation with slight variations in the mesh size and/or in artificial dissipation definition if convergence was not achieved.
+    The model described in the previous subsections is implemented in a Python program that is read by the FEM software, Abaqus CAE. The program is fully parametrized, enabling the possibility of executing simulations for different values of the parameters introduced previously. The solution model is used to perform the post-processing operations. The parametric study program is initiated when executing the python file \texttt{mainAbaqusParametricStudy.py}. As part of the execution of this file, a computational model is built, submitted for analysis and post-processed by the complementary program \texttt{mainBuildAndExecuteWingBox.py}, for all the different values of the parameters introduced in the parametric study definition in the file \texttt{setUpParametricStudy.py}. The convergence of the simulation is controlled within the program \texttt{mainAbaqusParametricStudy.py} and it is able to re-run a simulation with slight variations in the mesh size and/or in artificial dissipation definition if convergence was not achieved.
 
     An schematic characterization of the program execution is shown the flow chart represented in Figure \ref{fig:flowChart}. The code written for this program can be found in Appendix \ref{appen:code}. 
 
     \begin{figure}[!htpb]
       \centering
       \includegraphics[width=1.0 \textwidth]{model/flowChart}
-      \caption[Flow chart showing the execution of the parametric study code]{Flow chart showing the execution of the parametric study python code.}\label{fig:flowChart}
+      \caption[Flow chart showing the execution of the parametric study python code]{Flow chart showing the execution of the parametric study python code. The execution is controlled within the program \texttt{mainAbaqusParametricStudy.py}, responsible of the execution the program \texttt{mainBuildAndExecuteWingBox.py} that builds the model, submits the job for analysis and performs the post-processing operations on the solution model, for each of the cases considered in the parametric study definition.}\label{fig:flowChart}
     \end{figure}
