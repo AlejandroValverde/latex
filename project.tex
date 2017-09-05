@@ -1,8 +1,8 @@
 %
 % Thesis document - Alejandro Valverde López
 %
-% THINGS THAT ARE MISSING:
-%
+% Compile doing:
+% rm project.aux & rm chapters/*.aux & rm project.nlo & rm project.nls & pdflatex project && makeindex project.nlo -s nomencl.ist -o project.nls && bibtex project && pdflatex project && clear && pdflatex projec
 
 \documentclass[11pt,a4paper,fleqn,twoside]{report}
 
@@ -33,14 +33,14 @@
 
 %Define which chapters to include
 \includeonly{
-	% chapters/Abstract, 
-	% chapters/Acknowledgments, 
+	chapters/Abstract, 
+	chapters/Acknowledgments, 
 	chapters/Introduction, 
 	chapters/State-of-the-art,
 	chapters/Model,
-	% chapters/Results-model, 
-	% chapters/Results-sim,
-	% chapters/Summary,
+	chapters/Results-model, 
+	chapters/Results-sim,
+	chapters/Summary,
 	chapters/Appendix} %{file1,file2,...} 
 
 \begin{document}
