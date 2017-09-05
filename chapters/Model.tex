@@ -519,24 +519,24 @@
 
     The calculation of the wing-box twist is done through the evaluation of the rotational displacement $u$ around the $x$ direction at a number of mesh elements located in different parts of the tip rib, as shown in Figure \ref{fig:pointsToEvaluateTwist}.
 
-    Due to deformations occurring at the tip rib, the value of $u$ extracted from each of the mesh nodes is going to differ. A magnitude of this discrepancy between the mean value and the single values is shown through the evaluation of the deviation from the mean. The calculated mean value and the maximum deviation are included in the tables that contain results from the simulations.
+    Due to deformations occurring at the tip rib, the value of $u$ extracted from each of the mesh nodes is going to differ. A magnitude of this discrepancy between the mean value and the single values of $u$ is shown through the evaluation of the deviation from the mean. The calculated mean value and the maximum deviation are included in the tables that contain results from the simulations.
 
-    % \begin{figure}[!htpb]
-    %   \centering
-    %   \includegraphics[width=0.8 \textwidth]{../figures/model/pointsToEvaluateTwist}
-    %   \caption[Location of the mesh nodes from which valued of the rotational displacement $u$ is extracted]{Location of the mesh nodes from which valued of the rotational displacement $u$ is extracted. The final value for the twist is calculated from the mean value of $u$ at the mesh nodes shown.}
-    %   \label{fig:pointsToEvaluateTwist}
-    % \end{figure}
+    \begin{figure}[!htpb]
+      \centering
+      \includegraphics[width=0.6 \textwidth]{../figures/model/pointsToEvaluateTwist}
+      \caption[Location of the mesh nodes from which valued of the rotational displacement $u$ is extracted]{Location of the mesh nodes from which valued of the rotational displacement $u$ is extracted. The final value for the twist is calculated from the mean value of $u$ at the mesh nodes shown.}
+      \label{fig:pointsToEvaluateTwist}
+    \end{figure}
   
   % \clearpage
   \subsection{Parametric study method} \label{subsec:parametricStudy_computationalModel}
 
-    The model described in the previous subsections is implemented in a Python program that is read by the FEM software, Abaqus CAE. The program is fully parametrized, enabling the possibility of executing simulations for different values of the parameters introduced previously. The solution model is used to perform the post-processing operations. The parametric study program is initiated when executing the python file \texttt{mainAbaqusParametricStudy.py}. As part of the execution of this file, a computational model is built, submitted for analysis and post-processed by the complementary program \texttt{mainBuildAndExecuteWingBox.py}, for all the different values of the parameters introduced in the parametric study definition in the file \texttt{setUpParametricStudy.py}. The convergence of the simulation is controlled within the program \texttt{mainAbaqusParametricStudy.py} and it is able to re-run a simulation with slight variations in the mesh size and/or in artificial dissipation definition if convergence was not achieved.
+    The model described in the previous subsections is implemented in a Python program that is read by the FEM software, Abaqus CAE. The program is fully parametrized, enabling the possibility of executing simulations for different values of the parameters introduced previously. This procedure consists on a parametric study procedure that is initiated when executing the python file \texttt{mainAbaqusParametricStudy.py}. This piece of code reads the parameters that belong to the parametric study by executing the file \texttt{setUpParametricStudy.py}. As part of the parametric study process, a computational model is built in Abaqus, submitted for analysis using Abaqus Standard and post-processed by the complementary program \texttt{mainBuildAndExecuteWingBox.py}. The convergence of the simulation is controlled within the program \texttt{mainAbaqusParametricStudy.py} and it is able to re-run a simulation with slight variations in the mesh size and/or in artificial dissipation definition if convergence was not achieved. 
 
     An schematic characterization of the program execution is shown the flow chart represented in Figure \ref{fig:flowChart}. The code written for this program can be found in Appendix \ref{appen:code}. 
 
     \begin{figure}[!htpb]
       \centering
       \includegraphics[width=1.0 \textwidth]{model/flowChart}
-      \caption[Flow chart showing the execution of the parametric study python code]{Flow chart showing the execution of the parametric study python code. The execution is controlled within the program \texttt{mainAbaqusParametricStudy.py}, responsible of the execution the program \texttt{mainBuildAndExecuteWingBox.py} that builds the model, submits the job for analysis and performs the post-processing operations on the solution model, for each of the cases considered in the parametric study definition.}\label{fig:flowChart}
+      \caption[Flow chart showing the execution of the parametric study python code]{Flow chart showing the execution of the parametric study python code. The execution of the parametric study is controlled within the program \texttt{mainAbaqusParametricStudy.py}, responsible of the execution the program \texttt{mainBuildAndExecuteWingBox.py} that builds the model, submits the job for analysis and performs the post-processing operations on the solution model, for each of the cases considered in the parametric study definition.}\label{fig:flowChart}
     \end{figure}

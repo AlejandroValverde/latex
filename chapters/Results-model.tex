@@ -6,15 +6,15 @@
 % - Mesh: mesh problems
 % - Artifical damping factor
 % - Inner ribs
-  
-  %Intro
-  In the present chapter the general characterization of the model is presented. The first section includes an analysis of the analytical model. For this, a variation of the beam geometric parameters and the stiffness ratio $E_1/E_2$ is performed. Firstly, the predicted evolution of the bending-twist coupling as a function of the stiffness ratio $E_1/E_2$ is presented. Secondly, the results obtained from the effect of the beam geometric parameters on the section mechanical properties are introduced. This will provide insight of how the different design parameters affect the final mechanical properties of the beam.
 
-  In the second section, the computational model is analysed in order to obtain the most suitable configuration to show the response expected from the concept proposed. In particular, discussions over the methods to model the rigid body behavior of the lattice nodes, the load introduction method, the mesh particularities, the ribs inclusion and the nonlinearities the response are presented. 
+%Intro
+In the present chapter the general characterization of the model is presented. The first section includes an analysis of the analytical model. For this, a variation of the beam geometric parameters and the stiffness ratio $E_1/E_2$ is performed, and the consequent effect on the mechanical properties and the bending-twist coupling of the beam is evaluated. This analysis provides fast insight of how the different design parameters affect the final mechanical properties of the beam.
+
+In the second section, the computational model is analysed in order to obtain the most suitable configuration that allows the validation of the proposed technology. In particular, discussions over the methods to model the rigid body behavior of the lattice nodes, the load introduction method, the mesh particularities, the ribs inclusion and the nonlinearities the response are presented. 
 
 \section{Analytical model analysis} \label{sec:analyticalParametricStudy_results_model}
 
-  The analytical model of the wing-box was already presented in the Section \ref{sec:analytical_Model}. For the results that are presented in the subsections below, the parameters already defined in the mentioned section are assigned to the nominal values presented in Table \ref{tab:parameters_analytical}. These are taken from a similar analytical approach to the problem of a wing-box with a variable-stiffness web, presented in \cite{Raither2013a}. By doing this, verification of the results becomes possible.
+  The analytical model of the wing-box was already presented in the Section \ref{sec:analytical_Model}. For the results that are presented in the subsections below, the model parameters take the nominal values presented in Table \ref{tab:parameters_analytical}. These are taken from a similar analytical approach to the problem of a wing-box with a variable-stiffness web, presented in \cite{Raither2013a}. By doing this, verification of the results becomes possible.
 
   \begin{table}[!htpb]
   \centering
@@ -42,33 +42,18 @@
     \begin{figure}[!htpb] %twist and bend versus E1/E2
       \centering
       \includegraphics[width=0.8 \textwidth]{../../analytical/figures/twist-E1overE2}
-      \caption[Influence of the stiffness ratio on the wing-box tip twist and bend]{Influence of the stiffness ratio $E_1/E_2$ on the wing-box tip twist $\phi_{\mathrm{tip}}$ and bend $w_{\mathrm{tip}}$. The solid line is used to represent the twist $\phi_{\mathrm{tip}}$ while the dashed line represents the bend $w_{\mathrm{tip}}$. The two displacements are divided by the magnitude of the applied force $Q_z$.}\label{fig:twist-E1overE2}
+      \caption[Influence of the stiffness ratio on the wing-box tip twist and bend]{Influence of the stiffness ratio $E_1/E_2$ on the wing-box tip twist $\phi_{\mathrm{tip}}$ and bend $w_{\mathrm{tip}}$. The solid line is used to represent the twist $\phi_{\mathrm{tip}}$ while the dashed line represents the bend $w_{\mathrm{tip}}$. The two displacements correspond to values seen in the wing-box tip and are divided by the applied force magnitude $Q_z$.}\label{fig:twist-E1overE2}
     \end{figure}
 
-    In Figure \ref{fig:twist-E1overE2}, the stiffness ratio $E_1/E_2$ is modified over a wide range such that $E_1/E_2 \in [10^{0}, 10^{3}]$. It can be seen that the variable $\phi_{\mathrm{tip}}/Q_z$ is consequently increased by various orders of magnitude from $\phi_{\mathrm{tip}}/Q_z = 10^{-4}$ deg/N to $\phi_{\mathrm{tip}}/Q_z = 10^{-1}$ deg/N. However the variation in bend represented with the variable $w_{\mathrm{tip}}/Q_z$ is negligible in comparison. In can be seen that the bend displacement quickly increases for values of $E_1/E_2 > 1$ and it gets to an asymptote for values $E_1/E_2 \gg 1$. These results therefore show how the twist displacement, which gives information regarding the torsional stiffness of the structure, is much more affected by variations of the stiffness ratio $E_1/E_2$ than the bending stiffness is. Consequently, it is not expected to see large increments in bend displacement in comparison with the twist when the variable-stiffness mechanism is activated. This results are in compliance with those presented in \cite{Raither2013a}.
+    In Figure \ref{fig:twist-E1overE2}, the stiffness ratio $E_1/E_2$ is modified over a wide range such that $E_1/E_2 \in [10^{0}, 10^{3}]$. It can be seen that the variable $\phi_{\mathrm{tip}}/Q_z$ is consequently increased by various orders of magnitude from $\phi_{\mathrm{tip}}/Q_z = 10^{-4}$ deg/N to $\phi_{\mathrm{tip}}/Q_z = 10^{-1}$ deg/N, as a consequence of the stiffness ratio variation. However, the variation in bend represented with the variable $w_{\mathrm{tip}}/Q_z$ is negligible in comparison. It can be seen that the bending displacement quickly increases for values of $E_1/E_2 > 1$ and it gets to an asymptote for values $E_1/E_2 \gg 1$. These results therefore show how the twist displacement, which gives information regarding the torsional stiffness of the structure, is much more affected by variations of the stiffness ratio $E_1/E_2$ than the bending stiffness is. Consequently, it is not expected to see large increments in bend displacement in comparison with twist displacement when the variable-stiffness mechanism is activated. This results are in compliance with those presented in \cite{Raither2013a}.
 
-    For the proposed mechanism, it is expected that the ratio $E_1/E_2$, which is linked to the effective shear modulus $G_{\mathrm{eff}}$ of the real wing-box, is reduced in various orders of magnitude once the buckling is triggered. After this event, the results above show that the bending stiffness of the wing-box reduction will be negligible in comparison with the reduction in torsional stiffness. 
+    For the proposed mechanism, it is expected that the ratio $E_1/E_2$, which is linked to the effective shear modulus $G_{\mathrm{eff}}$ of the real wing-box, is reduced in various orders of magnitude once the buckling phenomena is triggered. After this event, the results above show that the reduction in bending stiffness of the wing-box will be negligible in comparison with the reduction in torsional stiffness.
 
   \subsection{Parametric study results and discussion} \label{subsec:results_parametricStudy}
 
     In the present subsection, the variation of the beam mechanical properties for different geometric parameter values is shown. The beam geometry is characterized through the cross-sectional aspect ratio $B/H$, the thickness ratio $t_2/t_1$ and the slenderness ratio $L/B$. The effect of these parameters on the sectional properties, twist and bending stiffness, and flexural and twisting compliance are shown. Additionally, the variance of the stiffness ratio $E_1/E_2$ is also included in the analysis.
 
     The influence of the cross-sectional aspect ratio $B/H$ on the torsional stiffness $G I_t$, the shear centre position $y_{\mathrm{SC}}$ and the flexural stiffness $E I_y$ is shown in Figures \ref{fig:GIt-E1overE2-BoverH}, \ref{fig:SC-E1overE2-BoverH} and \ref{fig:EIy-E1overE2-BoverH}, respectively. On its side, the effect of thickness ratio $t_2/t_1$ on the same three beam parameters is shown in Figures \ref{fig:GIt-E1overE2-t2overt1}, \ref{fig:SC-E1overE2-t2overt1} and \ref{fig:EIy-E1overE2-t2overt1}.
-
-    In Figure \ref{fig:GIt-E1overE2-BoverH}, it can be seen that a maximum torsional stiffness appears for $B/H = 1$ when $E_1/E_2 = 1$. This can be explained because, as it is also shown in \cite{Raither2013a}, the closer the torsional stiffness to the doubly symmetric case, the higher its torsional stiffness. However, when $E_1/E_2 > 10$, the maximum torsional stiffness is shown to appear for $B/H > 1$. A similar conclusion can be extract when analyzing the Figure \ref{fig:GIt-E1overE2-t2overt1}, that shows the influence of the thickness ratio $t_2/t_1$ on the torsional stiffness $G I_t$.
-
-    In Figure \ref{fig:SC-E1overE2-BoverH} shows that for values $E_2 \ll E_1$, the shear centre position $y_{\mathrm{SC}}$ is approximately constant for $B/H$ variations. In this context, the beam approximates its behavior as if it has an open profile section. However, as the value of $E_1/E_2$ decreases, the influence of the ratio $B/H$ increases showing a bigger influence of the web where the Young's modulus $E_2$ applies. On the other hand, Figure \ref{fig:SC-E1overE2-t2overt1} shows that the bigger the thickness ratio $t_2/t_1$ is, the closer that the shear centre $y_{\mathrm{SC}}$ will be to the vertical axis of symmetry. However, for $E_2 \ll E_1$ the influence of the thickness ratio $t_2/t_1$ is reduced.
-
-    In Figure \ref{fig:EIy-E1overE2-BoverH} it can be seen that the flexural stiffness $E I_y$ decreases when the cross-sectional aspect ratio $B/H$ increases. This is explained because the second moment of area $I_y$ is reduced when $B/H$ increases as the coordinate $y$ of the points in the section is reduced as well. Similarly, it can be seen in Figure \ref{fig:EIy-E1overE2-t2overt1} that when the thickness ratio $t_2/t_1$ increases, the value of $E I_y$ decreases. In both cases, the flexural stiffness $E I_y$ is little affected by variations of the stiffness ratio $E_1/E_2$. This result matches what was already shown in Subsection \ref{subsec:bendingTwistCoupling_results_model}.
-
-    % Effect on deflection and torsional compliance
-    Additionally, the effect of the cross-sectional aspect ratio $B/H$ on the deflection and torsional compliances is shown on Figures \ref{fig:woverQ-E1overE2-BoverH} and \ref{fig:phioverQ-E1overE2-BoverH}, respectively. The corresponding plots when analyzing the effect of the thickness ratio $t_2/t_1$ on the deflection and torsional compliance are shown on Figures \ref{fig:woverQ-E1overE2-t2overt1} and \ref{fig:phioverQ-E1overE2-t2overt1}, respectively. The beam torsional compliance is expressed as fraction of the twist at the tip divided by the vertical force applied, that is $|\phi_{\mathrm{tip}}| / Q$, while the beam deflection compliance is expressed as fraction of the maximum vertical displacement at the tip divided by the vertical force applied, that is $w_{\mathrm{0,tip}} / Q$.
-
-    From the analysis of the torsional compliance $|\phi_{\mathrm{tip}}| / Q$ as a function of the thickness ratio $t_2/t_1$ in Figure \ref{fig:woverQ-E1overE2-t2overt1}, it can be seen that increments in $t_2/t_1$ amplifies the effects of variations of the stiffness ratio $E_1/E_2$ on the deflection compliance $w_{\mathrm{0,tip}} / Q$. On the other hand, Figure \ref{fig:woverQ-E1overE2-BoverH} shows that the deflection compliance $w_{\mathrm{0,tip}} / Q$ increases when the cross-sectional aspect ratio $B/H$ increases and the value of $B/H$ does not alter the effect of variations of $E_1/E_2$ in the deflection compliance, effect that remains small.
-
-    From Figure \ref{fig:phioverQ-E1overE2-t2overt1}, it can be seen that the there is not variation in the torsional compliance for values of the thickness ratio $t_2/t_1 > 1$, but for $t_2/t_1 < 1$, the torsional compliance increases considerably. This result shows again something similar at what it was shown in Subsection \ref{subsec:bendingTwistCoupling_results_model}, how the modification of shear stiffness in the second web has a considerable effect on the torsional stiffness. On the other hand, Figure \ref{fig:phioverQ-E1overE2-BoverH} shows small effect of the variation of the cross-sectional aspect ratio $B/H$ on the torsional compliance.
-
-    The effect of the slenderness ratio $L/B$ on the deflection and torsional compliances is shown in Figures \ref{fig:woverQ-E1overE2-LoverB} and \ref{fig:phioverQ-E1overE2-LoverB}, respectively. These two figures show how the deflection and torsional compliance increase for increasing values of $L/B$. Also, Figure \ref{fig:woverQ-E1overE2-LoverB} shows again the small effect of $E_1/E_2$ in the deflection compliance while Figure \ref{fig:phioverQ-E1overE2-LoverB} shows how the torsional compliance is considerably affected by variations of $E_1/E_2$.
 
     %Figures variation of B/H
     \begin{figure}[!htpb] %G I_t versus B/H
@@ -108,11 +93,22 @@
       \caption[Influence of the wall thickness ratio $t_2/t_1$ on the flexural stiffness $EI_y$]{Influence of the wall thickness ratio $t_2/t_1$ on the flexural stiffness $EI_y = \Phi_y$, shown for various values of the stiffness ratio $E_1/E_2$ ranging from $10^0$ to $10^3$. }\label{fig:EIy-E1overE2-t2overt1}
     \end{figure}
 
+    \clearpage
+    In Figure \ref{fig:GIt-E1overE2-BoverH}, it can be seen that a maximum torsional stiffness appears for $B/H = 1$ when $E_1/E_2 = 1$. This can be explained because, as it is also shown in \cite{Raither2013a}, the closer the torsional stiffness to the doubly symmetric case, the higher its torsional stiffness. However, when $E_1/E_2 > 10$, the maximum torsional stiffness is shown to appear for $B/H > 1$. A similar conclusion can be extract when analyzing the Figure \ref{fig:GIt-E1overE2-t2overt1}, that shows the influence of the thickness ratio $t_2/t_1$ on the torsional stiffness $G I_t$.
+
+    In Figure \ref{fig:SC-E1overE2-BoverH} shows that for values $E_2 \ll E_1$, the shear centre position $y_{\mathrm{SC}}$ is approximately constant for $B/H$ variations. In this context, the beam approximates its behavior as if it has an open profile section. However, as the value of $E_1/E_2$ decreases, the influence of the ratio $B/H$ increases showing a bigger influence of the web where the Young's modulus $E_2$ applies. On the other hand, Figure \ref{fig:SC-E1overE2-t2overt1} shows that the bigger the thickness ratio $t_2/t_1$ is, the closer that the shear centre $y_{\mathrm{SC}}$ will be to the vertical axis of symmetry. However, for $E_2 \ll E_1$ the influence of the thickness ratio $t_2/t_1$ is reduced.
+
+    In Figure \ref{fig:EIy-E1overE2-BoverH} it can be seen that the flexural stiffness $E I_y$ decreases when the cross-sectional aspect ratio $B/H$ increases. This is explained because the second moment of area $I_y$ is reduced when $B/H$ increases as the coordinate $y$ of the points in the section is reduced as well. Similarly, it can be seen in Figure \ref{fig:EIy-E1overE2-t2overt1} that when the thickness ratio $t_2/t_1$ increases, the value of $E I_y$ decreases. In both cases, the flexural stiffness $E I_y$ is little affected by variations of the stiffness ratio $E_1/E_2$. This result matches what was already shown in Subsection \ref{subsec:bendingTwistCoupling_results_model}.
+
+    % Effect on deflection and torsional compliance
+    \clearpage
+    Additionally, the effect of the cross-sectional aspect ratio $B/H$ on the deflection and torsional compliances is shown in Figures \ref{fig:woverQ-E1overE2-BoverH} and \ref{fig:phioverQ-E1overE2-BoverH}, respectively. The corresponding plots when analyzing the effect of the thickness ratio $t_2/t_1$ on the deflection and torsional compliance are shown on Figures \ref{fig:woverQ-E1overE2-t2overt1} and \ref{fig:phioverQ-E1overE2-t2overt1}, respectively. The beam torsional compliance is expressed as a fraction of the twist at the tip divided by the vertical force applied, that is $|\phi_{\mathrm{tip}}| / Q$, while the beam flexural compliance is expressed as fraction of the maximum vertical displacement at the tip divided by the vertical force applied, that is $w_{\mathrm{0,tip}} / Q$.
+
     % Displacements
-    \begin{figure}[!htpb] %w_0,tip / Q versus B/H, deflection compliance
+    \begin{figure}[!htpb] %w_0,tip / Q versus B/H, flexural compliance
       \centering
       \includegraphics[width=0.8 \textwidth]{../../analytical/figures/woverQ-E1overE2-BoverH}
-      \caption[Influence of the cross-sectional aspect ratio $B/H$ on the deflection compliance]{Influence of the cross-sectional aspect ratio $B/H$ on the deflection compliance $w_{\mathrm{0,tip}} / Q$, shown for various values of the stiffness ratio $E_1/E_2$ ranging from $10^0$ to $10^3$. }\label{fig:woverQ-E1overE2-BoverH}
+      \caption[Influence of the cross-sectional aspect ratio $B/H$ on the flexural compliance]{Influence of the cross-sectional aspect ratio $B/H$ on the flexural compliance $w_{\mathrm{0,tip}} / Q$, shown for various values of the stiffness ratio $E_1/E_2$ ranging from $10^0$ to $10^3$. }\label{fig:woverQ-E1overE2-BoverH}
     \end{figure}
 
     \begin{figure}[!htpb] %\phi_tip / Q versus B/H, torsional compliance
@@ -121,10 +117,10 @@
       \caption[Influence of the cross-sectional aspect ratio $B/H$ on the torsional compliance]{Influence of the cross-sectional aspect ratio $B/H$ on the torsional compliance $|\phi_{\mathrm{tip}}| / Q$, shown for various values of the stiffness ratio $E_1/E_2$ ranging from $10^0$ to $10^3$. }\label{fig:phioverQ-E1overE2-BoverH}
     \end{figure}
 
-    \begin{figure}[!htpb] %w_0,tip / Q versus t2/t1, deflection compliance
+    \begin{figure}[!htpb] %w_0,tip / Q versus t2/t1, flexural compliance
       \centering
       \includegraphics[width=0.8 \textwidth]{../../analytical/figures/woverQ-E1overE2-t2overt1}
-      \caption[Influence of the thickness ratio $t2/t1$ on the deflection compliance]{Influence of the thickness ratio $t2/t1$ on the deflection compliance $w_{\mathrm{0,tip}} / Q$, shown for various values of the stiffness ratio $E_1/E_2$ ranging from $10^0$ to $10^3$. }\label{fig:woverQ-E1overE2-t2overt1}
+      \caption[Influence of the thickness ratio $t2/t1$ on the flexural compliance]{Influence of the thickness ratio $t2/t1$ on the flexural compliance $w_{\mathrm{0,tip}} / Q$, shown for various values of the stiffness ratio $E_1/E_2$ ranging from $10^0$ to $10^3$. }\label{fig:woverQ-E1overE2-t2overt1}
     \end{figure}
 
     \begin{figure}[!htpb] %\phi_tip / Q versus t2/t1, torsional compliance
@@ -133,11 +129,19 @@
       \caption[Influence of the thickness ratio $t2/t1$ on the torsional compliance]{Influence of the thickness ratio $t2/t1$ on the torsional compliance $|\phi_{\mathrm{tip}}| / Q$, shown for various values of the stiffness ratio $E_1/E_2$ ranging from $10^0$ to $10^3$. }\label{fig:phioverQ-E1overE2-t2overt1}
     \end{figure}
 
+    \clearpage
+    From the analysis of the torsional compliance $|\phi_{\mathrm{tip}}| / Q$ as a function of the thickness ratio $t_2/t_1$ in Figure \ref{fig:woverQ-E1overE2-t2overt1}, it can be seen that increments in $t_2/t_1$ amplifies the effects of variations of the stiffness ratio $E_1/E_2$ on the flexural compliance $w_{\mathrm{0,tip}} / Q$. On the other hand, Figure \ref{fig:woverQ-E1overE2-BoverH} shows that the flexural compliance $w_{\mathrm{0,tip}} / Q$ increases when the cross-sectional aspect ratio $B/H$ increases and the value of $B/H$ does not alter the magnitude of the effect of variations of $E_1/E_2$ in the flexural compliance, effect that remains small.
+
+    From Figure \ref{fig:phioverQ-E1overE2-t2overt1}, it can be understood that there is not variation in the torsional compliance for values of the thickness ratio $t_2/t_1 > 1$; but for $t_2/t_1 < 1$, the torsional compliance increases considerably. This result shows again something similar at what it was shown in Subsection \ref{subsec:bendingTwistCoupling_results_model}, how the modification of shear stiffness in the second web has a considerable effect on the torsional stiffness. On the other hand, Figure \ref{fig:phioverQ-E1overE2-BoverH} shows small effect of the variation of the cross-sectional aspect ratio $B/H$ on the torsional compliance.
+
+    \clearpage
+    The effect of the slenderness ratio $L/B$ on the deflection and torsional compliances is shown in Figures \ref{fig:woverQ-E1overE2-LoverB} and \ref{fig:phioverQ-E1overE2-LoverB}, respectively. These two figures show how the flexural and torsional compliance increase for increasing values of $L/B$. Also, Figure \ref{fig:woverQ-E1overE2-LoverB} shows again the small influence of the stiffness ratio $E_1/E_2$ in the flexural compliance while Figure \ref{fig:phioverQ-E1overE2-LoverB} shows how the torsional compliance is considerably affected by variations of $E_1/E_2$.
+
     %%%% Figures variation of L / B
-    \begin{figure}[!htpb] %w_0,tip / Q versus L/B, deflection compliance
+    \begin{figure}[!htpb] %w_0,tip / Q versus L/B, flexural compliance
       \centering
       \includegraphics[width=0.8 \textwidth]{../../analytical/figures/woverQ-E1overE2-LoverB}
-      \caption[Influence of the slenderness ratio $L/B$ on the deflection compliance]{Influence of the slenderness ratio $L/B$ on the deflection compliance $w_{\mathrm{0,tip}} / Q$, shown for various values of the stiffness ratio $E_1/E_2$ ranging from $10^0$ to $10^3$. }\label{fig:woverQ-E1overE2-LoverB}
+      \caption[Influence of the slenderness ratio $L/B$ on the flexural compliance]{Influence of the slenderness ratio $L/B$ on the flexural compliance $w_{\mathrm{0,tip}} / Q$, shown for various values of the stiffness ratio $E_1/E_2$ ranging from $10^0$ to $10^3$. }\label{fig:woverQ-E1overE2-LoverB}
     \end{figure}
 
     \begin{figure}[!htpb] %\phi_tip / Q versus L/B, torsional compliance
@@ -149,7 +153,11 @@
 \clearpage
 \section{Computational model analysis} \label{sec:computationalModelAnalysis_results_model}
 
-  In the present section, results from the analysis of the computational model are presented. Different aspects of the model are evaluated and design decisions are justified. The analysis is going to consider the modeling of the lattice nodes rigid behavior, the influence of the mesh in the simulation convergence, the ribs addition and the nonlinearities that appear in the problem.
+  In the present section, results from the analysis performed on the computational model are presented. Different aspects of the model are evaluated and design decisions are justified. The analysis is going to consider the modeling of the lattice nodes rigid behavior, the different load introduction strategies, the influence of the mesh in the simulation convergence, the ribs addition and the nonlinearities that appear in the problem.
+
+  For the prosed technology, it is expected to see the appearance of large deformations and elastic instabilities in the structure response. This means that the structural stiffness of the model is going to be altered as the load applied increases. For this reason, it becomes necessary to execute nonlinear simulations in which the load applied is increased by small step increments. The results obtained from the nonlinear simulations are compared to those from the linear simulations. This last type of simulations gives a sense of the expected response of the structure considering the initial stiffness of the structure, before the onset of the elastic instabilities that alter the stiffness.
+
+  Apart for this general nonlinear/linear global response comparison, the performance of the structure is also analysed by means of the evaluation of the six possible displacements of the mesh nodes at different parts of the structure. The value of these magnitudes are shown in colour contours plots over the solution model.
 
   % \subsection{Connection between the chiral lattice and the wing-box skin} \label{subsec:connection_results_model}
   %
@@ -166,7 +174,7 @@
   \subsection{Rigid body modeling} \label{subsec:rigidBody_results_model} %To be reviewed
     % -> Rotation of the nodes was like 20\% inferior with the coupling
     
-    Two different approaches were followed to model the rigid body behavior of the lattice nodes, as it been already explained in Subsection \ref{subsec:latticeNodesRigid_Parametrization}. The first model approach considers the creation of a coupling condition between a reference point positioned at the centre of the lattice node cylinder and the mesh nodes found on the faces of the lattice node. The second approach consisted on an additional part that is placed in the middle of the cylinder to added stiffness to the element. In this section, the results obtained for each modeling approach are compared.
+    Two different approaches were followed to model the rigid body behavior of the lattice nodes, as it been already explained in Subsection \ref{subsec:latticeNodesRigid_Parametrization}. The first model approach considers the creation of a coupling condition between a reference point positioned at the centre of the lattice node cylinder and mesh nodes located in the faces of the lattice node. The second approach consists on the introduction of an additional part that is placed in the middle of the cylinder to add stiffness to the element. In this section, the results obtained for each modeling approach are compared.
 
     If Figure \ref{fig:rigid-modeling}, the nonlinear and linear responses in wing-box twist obtained for each modeling approach are compared. It can be seen that when the tyre approach is used, the collapse of the structure occurred at a smaller load than if the approach with the coupling implementation is used.
 
@@ -322,7 +330,7 @@
     \begin{figure}[!htpb]
       \centering
       \includegraphics[width=0.8 \textwidth]{../figures/result-model/closeOfRib-800N}
-      \caption[Vertical displacement $v$ at the tip rib]{Vertical displacement $v$ at the tip rib. The color contour shows those mesh nodes located on the upper flange of the rib have a higher $v$, therefore showing how the rib is closing under the prescribed load (800 N)}\label{fig:closeOfRib-800N}
+      \caption[Vertical displacement $v$ at the tip rib]{Vertical displacement $v$ at the tip rib. The colour contour shows those mesh nodes located on the upper flange of the rib have a higher $v$, therefore showing how the rib is closing under the prescribed load (800 N)}\label{fig:closeOfRib-800N}
     \end{figure}
 
     In an attempt to avoid a deformation in the rib that causes the rib to close, it was decided to use ribs with a close profile. The simulations then provided a solution like the one shown in Figure \ref{fig:normalCaseNoDampNoInnerRibs_800N}. For this case, the initial buckling occurs in ligaments located far from the root. The twist of the beam, measured as the rotational displacement $u$ around the $x$ axis is of approximately 0.3 deg. The prescribed load was -800 N and the simulation converged to the 0.95\% of the prescribed load.
