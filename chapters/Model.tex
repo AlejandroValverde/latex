@@ -459,7 +459,7 @@
       \caption[Free translation and rotation connection between the lattice nodes and the skin]{Free translation and rotation connection between the lattice nodes and the skin. For this case, the unrestricted degrees of freedom of the lattice nodes are the rotational displacement $\theta$ around its own axis, i.e.: the direction $z$; and the displacement $u$ parallel to the wing-box wall, i.e.: along the direction $x$.}\label{fig:connectionModeling2}
     \end{figure}
 
-    Depending on the type of connection considered, it is necessary to leave a space gap between the chiral node and the wing-box skin. For the most restrictive case, in which the connection between the lattice structure and the wing-box is rigid, the lattice node was cut by half and directly attached to the wing-box skin, as shown in Figure \ref{fig:chiralNodeCut}. In this case, there is no gap between the two elements. However, when the allowance of the node rotation is implemented, it is necessary leave a gap between the elements. It becomes then necessary to use the interaction module provided by Abaqus CAE to model the different connections. Two different approaches are studied to achieve this modeling task. These are presented below.
+    Depending on the type of connection considered, it is necessary to leave a space gap between the chiral node and the wing-box skin. For the most restrictive case, in which the connection between the lattice structure and the wing-box is rigid, the lattice node was cut by half and directly attached to the wing-box skin, as shown in Figure \ref{fig:chiralNodeCut}. In this case, there is no gap between the two elements. However, when the allowance of the node rotation is implemented, it is necessary leave a gap between the elements. It becomes then necessary to use the interaction module provided by Abaqus CAE to model the different connections. %Two different approaches are studied to achieve this modeling task. These are presented below.
 
     \begin{figure}[!htpb]
       \centering
@@ -468,8 +468,8 @@
       \label{fig:chiralNodeCut}
     \end{figure} 
 
-    \subsubsection{Coupling through tyre part}
-
+    % \subsubsection{Coupling through tyre part}
+    %
     When modeling a type connection between the wing-box skin and the lattice node that allows the free rotation of this last element around its own axis, it is also necessary to preserve the rigid body behavior of the lattice node. For this reason, a tyre part as described in Subsection \ref{subsec:parametrization_Model}, is implemented to model both the rigid body characteristics of the lattice node and the allowance of relative displacement between this element and the wing-box skin above it. Therefore, the tyre part is embedded at the centre of each of the lattice nodes located at the border of the lattice structure, as it is shown in Figure \ref{fig:tyre-connection}. Then, a coupling constraint is established between a mesh node in the middle of the tyre that acts as slave node; and a mesh node located at the wing-box skin just above the tyre that acts as master node, as shown in Figure \ref{fig:connection-tyre}.
 
     \begin{figure}[!htpb]
@@ -480,28 +480,28 @@
 
     The free rotation of the chiral node is allowed by not constraining the rotational displacement $\theta$ around the $z$ direction in the coupling constraint definition. Finally, the last type of connection allowed the displacement of the lattice node parallel to the wing-box skin. For this case, the translational displacement $u$ along the $x$ direction is be left uncoupled.
 
-    \subsubsection{Coupling through local cylindrical reference system}
+    % \subsubsection{Coupling through local cylindrical reference system}
 
-    An additional approach was implemented to model the connection between the lattice structure and the wing-box skin. 
+    % An additional approach was implemented to model the connection between the lattice structure and the wing-box skin. 
 
-    In this case, the rigid body feature provided by the tyre installation is replaced by an additional coupling condition created in a local cylindrical reference system located at each of the lattice nodes. This new reference system substitutes the global Cartesian coordinates system and its origin is a reference point located in the centre of the lattice node,  at $z=B/2$mm. The position of a point in the lattice node face will be determined by the radial distance $r$ to the origin, the angular position $\theta$ and the position $z$ along the lattice node rotation axis. An sketch of this reference system is shown in Figure \ref{fig:connection-localSYS1}.
+    % In this case, the rigid body feature provided by the tyre installation is replaced by an additional coupling condition created in a local cylindrical reference system located at each of the lattice nodes. This new reference system substitutes the global Cartesian coordinates system and its origin is a reference point located in the centre of the lattice node,  at $z=B/2$mm. The position of a point in the lattice node face will be determined by the radial distance $r$ to the origin, the angular position $\theta$ and the position $z$ along the lattice node rotation axis. An sketch of this reference system is shown in Figure \ref{fig:connection-localSYS1}.
 
-    \begin{figure}[!htpb]
-      \centering
-      \includegraphics[width=0.6 \textwidth]{model/connection-SYS1}
-      \caption[Local reference system at the lattice nodes]{Local reference system at the lattice nodes. The position of point in the lattice node faces will be determined by the radial distance $r$ to the origin, the angular position $\theta$ and the position $z$ along the node rotation axis.}\label{fig:connection-localSYS1}
-    \end{figure}
+    % \begin{figure}[!htpb]
+    %   \centering
+    %   \includegraphics[width=0.6 \textwidth]{model/connection-SYS1}
+    %   \caption[Local reference system at the lattice nodes]{Local reference system at the lattice nodes. The position of point in the lattice node faces will be determined by the radial distance $r$ to the origin, the angular position $\theta$ and the position $z$ along the node rotation axis.}\label{fig:connection-localSYS1}
+    % \end{figure}
 
-    In the mentioned local reference system, a kinematic coupling constrain links the rigid body motion in $r$ and $z$ of a reference point located in the centre of the lattice node to those of a set of mesh nodes located on the lattice node faces. In the coupling definition, the reference point is the master node and the mesh nodes found in the faces of the lattice node are the slave nodes. This condition is visualized in Abaqus as shown in Figure \ref{fig:connection-localSYS2}.
+    % In the mentioned local reference system, a kinematic coupling constrain links the rigid body motion in $r$ and $z$ of a reference point located in the centre of the lattice node to those of a set of mesh nodes located on the lattice node faces. In the coupling definition, the reference point is the master node and the mesh nodes found in the faces of the lattice node are the slave nodes. This condition is visualized in Abaqus as shown in Figure \ref{fig:connection-localSYS2}.
 
-    \begin{figure}[!htpb]
-      \centering
-      \includegraphics[width=0.7 \textwidth]{model/connection-SYS2}
-      \caption[Coupling condition between the lattice node and the wing-box skin through a local reference system]{Coupling condition between the lattice node and the wing-box skin through a local reference system. }\label{fig:connection-localSYS2}
-    \end{figure}
+    % \begin{figure}[!htpb]
+    %   \centering
+    %   \includegraphics[width=0.7 \textwidth]{model/connection-SYS2}
+    %   \caption[Coupling condition between the lattice node and the wing-box skin through a local reference system]{Coupling condition between the lattice node and the wing-box skin through a local reference system. }\label{fig:connection-localSYS2}
+    % \end{figure}
 
-    Then, an additional coupling constrain is necessary to be establish in between the reference node that acts as the origin of the local cylindrical reference system and the wing-box skin. This is the same one that was previously establish when using a tyre part and shown in Figure \ref{fig:connection-tyre}. The only difference is that for this case the slave node is the reference point instead of a mesh node located in the center of the tyre.
-
+    % Then, an additional coupling constrain is necessary to be establish in between the reference node that acts as the origin of the local cylindrical reference system and the wing-box skin. This is the same one that was previously establish when using a tyre part and shown in Figure \ref{fig:connection-tyre}. The only difference is that for this case the slave node is the reference point instead of a mesh node located in the center of the tyre.
+    %
   \clearpage
   \subsection{Post-processing operations} \label{subsec:postProc_computationalModel} %To be extended, maybe
 
