@@ -3,8 +3,9 @@
 %
 % Compile doing:
 % rm project.aux & rm chapters/*.aux & rm project.nlo & rm project.nls & pdflatex project && makeindex project.nlo -s nomencl.ist -o project.nls && bibtex project && pdflatex project && clear && pdflatex project
-
-\documentclass[11pt,a4paper,fleqn,twoside]{report}
+% 
+\documentclass[11pt,a4paper,fleqn,twoside]{report} % For CRANFIELD
+% \documentclass[11pt,twoside,a4paper,DIV11,numbers=noenddot]{scrartcl} %For ETH
 
 % report:				Standard report file, for CRANFIELD thesis
 % scrbook:				Koma-Script ‘article’ book, for CMAS thesis
@@ -13,20 +14,11 @@
 % fleqn:				Equations are left-aligned
 
 %% DOCUMENT TYPE
-\def\typeThesis{CRANFIELD} %{ETH, CRANFIELD}
 \def\controlClearPage{paperCopy} %possible inputs: paperCopy (also needs to add "twoside" to \documentclass options), electronicCopy
 
 %% IMPORT DOCUMENT SETTINGS
-\usepackage{ifthen}
-\ifthenelse{\equal{\typeThesis}{ETH}}{
-	%ETH option
-	\input{settings/settingsProject_CMAS}
-	%ETH option
-	}{\ifthenelse{\equal{\typeThesis}{CRANFIELD}}{
-	%CRANFIELD option
-	\input{settings/settingsProject_Cranfield}
-	%CRANFILED option
-	}{}}
+
+\input{settings/settingsProject_Cranfield}
 
 \input{settings/settingsProject_Personal}
 
@@ -46,45 +38,9 @@
 \begin{document}
 
 % Generate title page
-\ifthenelse{\equal{\typeThesis}{ETH}}{
-	%ETH option
-	\cmastitlepage{Latex template for student project at the CMASLab - English Version}{\digitsdate\today} %title
-	\makeatletter
-	\setlength\@fpbot{0\p@ \@plus 1fil}
-	\makeatother
-	%ETH option
-	}{\ifthenelse{\equal{\typeThesis}{CRANFIELD}}{
-	%CRANFIELD option
-	\input{settings/cover&title}
-	%CRANFILED option
-	}{}}
-
+\input{settings/cover&title}
 
 \pagenumbering{roman}
-
-%Official Task Assignement
-\ifthenelse{\equal{\typeThesis}{ETH}}{
-	%ETH option
-	%Official task assignments
-	\newpage
-	\addcontentsline{toc}{section}{\protect\numberline{}{Task assignement}}
-	\markright{Task assignement}
-	\include{chapters/Official_Task_Assignement}
-	\ClearDoublePageOrNot{\controlClearPage}
-
-	%Declaration of originality
-	\newpage
-	\addcontentsline{toc}{section}{\protect\numberline{}{Declaration of Originality}}
-	\markright{Declaration of Originality}
-	\include{chapters/Declaration_of_Originality}
-	\ClearDoublePageOrNot{\controlClearPage}
-	%ETH option
-	}{\ifthenelse{\equal{\typeThesis}{CRANFIELD}}{
-	%CRANFIELD option
-	\input{chapters/CranfieldPlagiarismDeclarationForm}
-	\ClearDoublePageOrNot{\controlClearPage}
-	%CRANFILED option
-	}{}}
 
 %Abstract English and German
 \newpage
@@ -94,21 +50,10 @@
 \include{chapters/Abstract}
 \ClearDoublePageOrNot{\controlClearPage}
 
-%German abstract
-\ifthenelse{\equal{\typeThesis}{ETH}}{
-	%ETH option
-	\newpage
-	\thispagestyle{plain}
-	% \markright{Zusammenfassung}
-	\include{chapters/Zusammenfassung}
-	\addcontentsline{toc}{section}{\protect\numberline{}{Zusammenfassung}}
-	\thispagestyle{plain}
-	\ClearDoublePageOrNot{\controlClearPage}
-	%ETH option
-	}{\ifthenelse{\equal{\typeThesis}{CRANFIELD}}{
-	%CRANFIELD option
-	%CRANFILED option
-	}{}}
+%CranfieldPlagiarismDeclarationForm
+\input{chapters/CranfieldPlagiarismDeclarationForm}
+\ClearDoublePageOrNot{\controlClearPage}
+
 
 % Preamble (optional) or Achknowledgments
 \newpage

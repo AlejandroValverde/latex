@@ -1,10 +1,8 @@
-% Latex-Template for student projects conducted at the Laboratory of Composite Materials and Adaptive Structures - CMAS, ETH Zürich
-% Christian Loosli <cloosli@ethz.ch>~3
-% Modified by Alejandro Valverde - 18.05 to add figures path
+% Christian Loosli <cloosli@ethz.ch>
 
 \def\packagename{cmasthesis_1}
 \def\packagemessage{Vorlage vom Laboratory of Composite Materials and Adaptive Structures - CMAS, ETH Zürich.}
-\def\fileversion{2.0}
+\def\fileversion{1.0}
 \def\filedate{2015/02/18}
 \def\docdate{2015/02/18}
 
@@ -12,7 +10,7 @@
 % ---- identification ---------------------------------------------------------
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{settings/cmasthesis_1}[\filedate\space v\fileversion\space \packagename]
+\ProvidesPackage{cmasthesis_1}[\filedate\space v\fileversion\space \packagename]
 \typeout{Package: '\packagename' v\fileversion\space <\filedate>}
 \typeout{\packagemessage}
 
@@ -32,16 +30,16 @@
 \onehalfspacing
 
 \setcounter{secnumdepth}{4}
-\setcounter{tocdepth}{2}
+\setcounter{tocdepth}{3}
 
 \numberwithin{equation}{section}
 
 
-\newcommand{\cmasthesistype}{}
-\newcommand{\cmasauthor}{}
-\newcommand{\cmasadvisor}{}
-\newcommand{\cmasthesisnumber}{}
-\newcommand{\frontpicture}{}
+\newcommand{\cmasthesistype}{Master's\ }
+\newcommand{\cmasauthor}{Alejandro Valverde L\'opez} %First name name
+\newcommand{\cmasadvisor}{Falk Runkel} %Dr. first name, name
+\newcommand{\cmasthesisnumber}{15-000}
+% \newcommand{\frontpicture}{}
 
 
 \newcommand{\cmastitlepage}[2]{
@@ -51,36 +49,33 @@
 \begin{textblock*}{15mm}(27mm,15mm)
   \includegraphics[height=12mm]{figures/logos_ETH/eth_logo.pdf}
 \end{textblock*}
-\begin{textblock*}{12mm}(136mm,43mm) %third party logo (if there is one)
-	\includegraphics[height=12mm,width=30mm]{figures/logos_ETH/inspire_logo.png}
-\end{textblock*}
 \begin{textblock*}{12mm}(135mm,10mm)
 	\includegraphics[height=25mm,width=35mm]{figures/logos_ETH/CMASLab_Logo_big_color.pdf}
 \end{textblock*}
 \begin{flushleft}
-		\vspace*{30mm}
-		\large \cmasthesistype{} thesis no. \cmasthesisnumber \\
-		\vspace*{11mm}
-		\huge\textbf #1 \\
-		\vspace*{8mm}
-		\Large\textbf \cmasauthor{} \\
+		\vspace*{15mm}
+		\large \cmasthesistype thesis no. \cmasthesisnumber \\
+		\vspace*{6mm}
+		\huge \textbf{#1} \\
+		\vspace*{5mm}
+		\Large \textbf{\cmasauthor{}} \\
 \end{flushleft}
-\vspace{20mm}
+\vspace{5mm}
 \begin{figure}[h]
 	\centering
-		\includegraphics[width=11cm]{figures/logos_ETH/titelbild.jpg}
+		\includegraphics[width=10cm]{figures/logos_ETH/titelbild.jpg}
 \end{figure}
 \begin{table}[!b]
 \begin{flushright}
 		\large Advisor: \cmasadvisor{}\\
-		\vspace*{14mm}
+		\vspace*{10mm}
 		{
 		\renewcommand{\baselinestretch}{1}
 		\large IDMF - Laboratory of Composite Materials and Adaptive Structures\\
 		\large Prof.\ Dr.\ Paolo \ Ermanni \\
 		\large ETH Zürich\\
 		}
-		\vspace*{18mm}
+		\vspace*{12mm}
 		%\large\digitsdate\today\\
 		\large #2
 \end{flushright}
@@ -88,7 +83,7 @@
 \newpage
 \thispagestyle{empty}
 \setlength{\@fpbot}{0pt}
-\begin{table}[!B]
+\begin{table}[!b]
 \begin{flushleft}
 		{
 		\renewcommand{\baselinestretch}{1}
@@ -96,7 +91,7 @@
 		\small IDMF - Laboratory of Composite Materials and Adaptive Structures\\
 		\small LEE O 203\\
 		\small Leonhardstrasse 21\\
-		\small 8092 Zürich\\
+		\small 8082 Zürich\\
 		\begin{tabbing}
 		Links \= Mitte \= Rechts \kill
 		\small Telefon: \> \> +41 (0)44 633 63 02\\

@@ -1,0 +1,237 @@
+
+% *********************************************************************************************
+% 						DOCUMENT CLASS 
+%						----------------------------
+
+\documentclass[11pt,twoside,a4paper,DIV11,numbers=noenddot]{report}
+\usepackage     [german, english]{babel}
+\usepackage     [left=2.5 cm,right=2.5 cm,top=2.5 cm,bottom=1.7cm,bindingoffset=0.6cm]{geometry}
+\usepackage     [utf8]{inputenc}
+\usepackage 		{lmodern} 
+\usepackage     [T1]{fontenc}
+% *********************************************************************************************
+
+
+% *********************************************************************************************
+% 						       PACKAGES 
+%						       ----------------
+
+\usepackage	{caption}
+\usepackage	{subcaption}
+\usepackage	{pdfpages} 
+\usepackage	{graphicx}              
+\usepackage	{float}                      
+\usepackage	{tikz}				
+\usetikzlibrary	{shapes,arrows}              
+\usepackage	{paralist, tabularx}             
+\usepackage	{gensymb}                         
+\usepackage	[ngerman]{datetime}      
+
+\usepackage	{amsmath}                       
+\usepackage	{xfrac}						
+% \usepackage	{nomencl}                           
+% \makenomenclature
+\usepackage	{longtable}	
+\usepackage	{fancyhdr}
+\restylefloat{	figure}
+\setcounter	{topnumber}{4}	
+
+\setcounter	{bottomnumber}{4}
+\setcounter	{totalnumber}{4}
+\renewcommand{\textfraction}{0} 
+% \addtokomafont{caption}{\small}
+\usepackage{settings/cmasthesis_1} 
+\newdateformat{digitsdate}{\twodigit{\THEDAY}.\twodigit{\THEMONTH}.\THEYEAR} 
+\pagestyle{fancy}                      
+\setlength{\headwidth}{\textwidth}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\fancyhead{}
+\rhead[\nouppercase{\rightmark}]{\thepage}
+\lhead[\thepage]{\nouppercase{\rightmark}}
+\fancyfoot{}                               
+% *********************************************************************************************
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% AlejandroValverde added packages 
+\usepackage{ifthen}
+\usepackage{nomencl}
+\renewcommand{\nomname}{List of symbols}
+\newcommand{\mat}[1]{\mathrm{\textbf{#1}}}
+\newcommand{\notcien}[2]{$#1\times10^{#2}$}
+\makenomenclature
+\renewcommand{\nomgroup}[1]{%
+ \ifthenelse{\equal{#1}{A}}{\item[]}{% For roman letters
+ \ifthenelse{\equal{#1}{B}}{\item[]}{% For greek letters
+ \ifthenelse{\equal{#1}{C}}{\item \vspace{1em} \textbf{Abbreviations}}{% For abbreviations
+ \ifthenelse{\equal{#1}{D}}{\item \vspace{1em} \textbf{Configurations}}{}}}}}
+\newcommand{\ClearDoublePageOrNot}[1]
+{
+  \ifthenelse{\equal{#1}{electronicCopy}}{\clearpage}{}
+  \ifthenelse{\equal{#1}{paperCopy}}{\clearpage{\pagestyle{empty}\cleardoublepage}}{}
+}
+
+
+\graphicspath{ {figures/} } %Path where the figures are located
+
+%Bibliography packages
+\usepackage{hyperref} %Enabling re-directioning in the document for references
+
+%New commands
+\newcommand{\chiB}{$B_{\mathrm{chi}}$\xspace}
+\newcommand{\chir}{$r_{\mathrm{chi}}$\xspace}
+\newcommand{\chiL}{$L_{\mathrm{chi}}$\xspace}
+\newcommand{\chit}{$t_{\mathrm{chi}}$\xspace}
+\newcommand{\boxt}{$t_{\mathrm{box}}$\xspace}
+\newcommand{\chie}{$\epsilon_{\mathrm{chi}}$\xspace}
+\newcommand{\philin}{$\tilde{\phi}_{\mathrm{tip}}$\xspace}
+\newcommand{\phinonlin}{$\phi_{\mathrm{tip}}$\xspace}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% *********************************************************************************************
+% 						       TITLE PAGE 
+%						       -----------------
+
+\renewcommand{\cmasthesistype}		{Master's}
+\renewcommand{\cmasthesisnumber}	{17-056}
+\renewcommand{\cmasauthor}			{Theofanis Tsiantas}
+\renewcommand{\cmasadvisor}			{Dr. Gerald Kress}
+% *********************************************************************************************
+
+
+% *********************************************************************************************
+% 						       DOCUMENT 
+%						       -----------------
+
+\def\controlClearPage{paperCopy} %possible inputs: paperCopy (also needs to add "twoside" to \documentclass options), 
+
+%Define which chapters to include
+\includeonly{
+	chapters/Abstract, 
+	chapters/Acknowledgments, 
+	chapters/Zusammenfassung, 
+	chapters/Introduction, 
+	chapters/State-of-the-art,
+	% chapters/Model,
+	% chapters/Results-model, 
+	% chapters/Results-sim,
+	% chapters/Summary,
+	% chapters/Appendix
+	} %{file1,file2,...} 
+
+\begin{document}
+
+\cmastitlepage{Critical loads for initiation of edge delamination in multidirectionally laminated composite materials}{\digitsdate\today} %title
+\makeatletter
+\setlength\@fpbot{0\p@ \@plus 1fil}
+\makeatother
+
+
+\pagenumbering{roman}
+
+%Abstract English and German
+\newpage
+\thispagestyle{plain}
+\addcontentsline{toc}{section}{\protect\numberline{}{Abstract}}
+% \markright{Abstract}
+\include{chapters/Abstract}
+\ClearDoublePageOrNot{\controlClearPage}
+
+\thispagestyle{plain}
+\addcontentsline{toc}{section}{\protect\numberline{}{Zusammenfassung}}
+% \markright{Zusammenfassung}
+\include{chapters/Zusammenfassung}
+\ClearDoublePageOrNot{\controlClearPage}
+
+\newpage
+\thispagestyle{plain}
+\include{chapters/Acknowledgments}
+% \markright{Acknowledgments}
+\addcontentsline{toc}{section}{\protect\numberline{}{Acknowledgments}}
+\thispagestyle{plain}
+\ClearDoublePageOrNot{\controlClearPage}
+
+%CranfieldPlagiarismDeclarationForm
+\includepdf[pages={-}]{figures/logos_ETH/Task_Assignement.pdf}
+\ClearDoublePageOrNot{\controlClearPage}
+
+%CranfieldPlagiarismDeclarationForm
+\includepdf[pages={-}]{figures/logos_ETH/Declaration_of_Originality.pdf}
+\ClearDoublePageOrNot{\controlClearPage}
+
+%%%%%%%%% Lists %%%%%%%%%%%%%%%%%%
+% Contents
+\newpage
+\thispagestyle{plain}
+\tableofcontents
+\thispagestyle{plain} %Now the plain style will be applied to all the pages of this section
+\ClearDoublePageOrNot{\controlClearPage}
+
+
+% List of Figures
+\newpage
+\thispagestyle{plain}
+\listoffigures
+\thispagestyle{plain} %Now the plain style will be applied to all the pages of this section
+\addcontentsline{toc}{section}{\protect\numberline{}{List of figures}}
+\ClearDoublePageOrNot{\controlClearPage}
+
+% List of Tables
+\newpage
+\thispagestyle{plain}
+\listoftables
+\thispagestyle{plain} %Now the plain style will be applied to all the pages of this section
+\addcontentsline{toc}{section}{\protect\numberline{}{List of tables}}
+\ClearDoublePageOrNot{\controlClearPage}
+
+
+% Abbreviations
+\newpage
+\thispagestyle{plain}
+\input{chapters/0.Nomenclature} %Import nomenclature, no text is written
+\printnomenclature[0.75in]
+\addcontentsline{toc}{section}{\protect\numberline{}{List of symbols}}
+\addtocontents{toc}{\vspace{.5\baselineskip}} %Small gap in the table of contents to separate entries
+\thispagestyle{plain} %Now the plain style will be applied to all the pages of this section
+\ClearDoublePageOrNot{\controlClearPage}
+% \include{chapters/Abbreviation}
+%%Last but not least
+
+\clearpage
+\pagestyle{fancy}
+\pagenumbering{arabic}
+
+% Main part
+\include{chapters/Introduction}
+\ClearDoublePageOrNot{\controlClearPage}
+\include{chapters/State-of-the-art}
+\ClearDoublePageOrNot{\controlClearPage}
+\include{chapters/Model}
+\ClearDoublePageOrNot{\controlClearPage}
+\include{chapters/Results-model}
+\ClearDoublePageOrNot{\controlClearPage}
+\include{chapters/Results-sim}
+\ClearDoublePageOrNot{\controlClearPage}
+\include{chapters/Summary}
+
+% Bibliography
+\ClearDoublePageOrNot{\controlClearPage}
+\addtocontents{toc}{\vspace{.5\baselineskip}}
+\addcontentsline{toc}{chapter}{\protect\numberline{}{Bibliography}}
+\bibliographystyle{ieeetr}
+\bibliography{projectBib}
+% \renewcommand\refname{Bibliography}
+
+%Appendix if necessary
+\ClearDoublePageOrNot{\controlClearPage}
+% \begin{appendices}
+% \thispagestyle{plain}
+% \addtocontents{toc}{\vspace{.5\baselineskip}}
+% \addcontentsline{toc}{chapter}{\protect\numberline{}{Appendix A}}
+\appendix
+\include{chapters/Appendix}
+% \end{appendices}
+
+
+\end{document}
+% *********************************************************************************************
