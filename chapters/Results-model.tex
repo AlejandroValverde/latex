@@ -151,9 +151,9 @@ In the second section, the computational model is analysed in order to obtain th
 \clearpage
 \section{Computational model analysis} \label{sec:computationalModelAnalysis_results_model}
 
-  In the present section, results from the analysis performed on the computational model are presented. Different aspects of the model are evaluated and design decisions are justified. The analysis is going to consider the modeling of the lattice nodes rigid behavior, the different load introduction strategies, the influence of the mesh in the simulation convergence, the ribs addition and the nonlinearities that appear in the problem.
+  In the present section, results from the analysis performed on the computational model are presented. Different aspects of the model are evaluated and design decisions are justified. The analysis considers the modeling of the lattice nodes rigid behavior, the different load introduction strategies, the influence of the mesh in the simulation convergence, the addition of the ribs and the nonlinearities that appear in the problem.
 
-  For the proposed technology, it is expected to see the appearance of large deformations and elastic instabilities in the structure. This means that the structural stiffness of the model is going to be altered as the load applied increases. For this reason, it becomes necessary to execute nonlinear simulations in which the load applied is increased by small step increments. Each of these steps constitute a different frame that contains particular magnitudes values for each of the mesh nodes and elements.
+  For the proposed technology, it is expected to see the appearance of large deformations and elastic instabilities in the structure. This means that the structural stiffness of the model is altered as the load applied increases. For this reason, it becomes necessary to execute nonlinear simulations in which the load applied is increased by small step increments. Each of these steps constitutes a different frame that contains particular values of the problem magnitudes at the mesh nodes and elements.
 
   Furthermore, linear simulations are also executed to provide information of the expected response of the structure considering its initial stiffness, before the onset of the elastic instabilities that alter the stiffness. The results obtained from the nonlinear simulations are compared to those obtained from the linear simulations. This comparison is done by means of the curve displacement-force that shows the achieved twist adaptation of the wing-box at each of the frames that build up the complete simulation window.
 
@@ -174,9 +174,9 @@ In the second section, the computational model is analysed in order to obtain th
   \subsection{Rigid body modeling} \label{subsec:rigidBody_results_model} %To be reviewed
     % -> Rotation of the nodes was like 20\% inferior with the coupling
     
-    Two different approaches are followed to model the rigid body behavior of the lattice nodes, as it been already explained in Subsection \ref{subsec:latticeNodesRigid_Parametrization}. The first modeling approach considers the creation of a coupling condition between a reference point positioned at the centre of the lattice node cylinder and mesh nodes located in the faces of the lattice node. The second approach consists on the introduction of an additional part that is placed in the middle of the cylinder to add stiffness to the element. In this section, the results obtained for each modeling approach are compared.
+    Two different approaches are followed to model the rigid body behavior of the lattice nodes, as it has been already explained in Subsection \ref{subsec:latticeNodesRigid_Parametrization}. The first modeling approach considers the creation of a coupling condition between a reference point positioned at the centre of the lattice node cylinder and mesh nodes located in the faces of the lattice node. The second approach consists on the introduction of an additional part that is placed in the middle of the cylinder to add stiffness to the element. In this section, the results obtained for each modeling approach are compared.
 
-    In Figure \ref{fig:rigid-modeling}, the displacement-force curve for the nonlinear and linear responses in wing-box twist obtained for each modeling approach are compared. It can be seen that when the tyre approach is used, the collapse of the structure occurred at a smaller load than if the approach with the coupling implementation is used.
+    In Figure \ref{fig:rigid-modeling}, the displacement-force curve for the nonlinear and linear responses in wing-box twist obtained for each modeling approach are compared. It can be seen that when the tyre approach is used, the collapse of the structure occurs at a smaller load than if the coupling implementation is used.
 
     Also, the analysis of the mesh nodes displacements on the solution model shows that, when the tyre rigid body behavior is modeled using the tyre part, the rotation of the lattice nodes around its own axis is approximately 20\% higher than when the modeling is done using the coupling constraint. This rotation should be free and be only constrained by the connection to the ligaments. Therefore, it is concluded that the use of the tyre part is a more realistic approach to modeling the rigid body behavior of the lattice nodes.
 
@@ -189,9 +189,9 @@ In the second section, the computational model is analysed in order to obtain th
   \clearpage
   \subsection{Load introduction method} \label{subsec:load_results_model}
 
-    As shown in Subsection \ref{subsec:load_computationalModel}, there are multiple ways in which the load can be introduced into the structure. It was decided to locate the load introduction points at the upper flange of the ribs in an attempt of replicate how the load introduction would be done in a future manufactured demonstrator. In this subsection, the difference of results obtained when modifying the load introduction method are shown. 
+    As shown in Subsection \ref{subsec:load_computationalModel}, there are multiple ways in which the load can be introduced into the structure. It was decided to locate the load introduction points at the upper flange of the ribs in an attempt of replicate how the load will be introduced in a future manufactured demonstrator. In this subsection, the different results obtained when modifying the load introduction method are shown. 
 
-    Firstly, the option of distributing the same load over the total number of ribs, three in the baseline configuration, is compared with the option of concentrating all the load on the upper flange of the tip rib. In Figure \ref{fig:forceDisplacement-distributedLoad700N}, the curve displacement-force is shown for these two different cases. It can be seen how when the load is distributed over a number of points and it is not concentrated on a single point, a delay in the onset of the structure collapse occurs. This result is correlated with visual inspection of the displacement of the mesh nodes on the solution model in Abaqus. The corresponding colour contour of the rotational total displacement $\sqrt{\theta^2 + \phi^2 + \psi^2}$ for a distributed load is shown in Figure \ref{fig:distributedLoad700N}. Here it can be seen how buckling has started to occur on the ligaments located close to the ribs, where the load is being introduced. In a further stage, if the load would increase, buckling would start to occur at the root of the wing-box.
+    Firstly, the option of distributing the same total load over the total number of ribs, three in the baseline configuration, is compared with the option of concentrating all the load on the upper flange of the tip rib. In Figure \ref{fig:forceDisplacement-distributedLoad700N}, the curve displacement-force is shown for these two different cases. It can be seen how when the load is distributed over a number of points and it is not concentrated on a single point, a delay in the onset of the structure collapse occurs. This result is correlated with visual inspection of the displacement of the mesh nodes on the solution model in Abaqus. The corresponding colour contour of the rotational total displacement $\sqrt{\theta^2 + \phi^2 + \psi^2}$ for a distributed load is shown in Figure \ref{fig:distributedLoad700N}. Here it can be seen how buckling has started to occur on the ligaments located close to the ribs, where the load is being introduced. In a further stage, when load increases, buckling would start to occur at the root of the wing-box.
 
     \begin{figure}[!htpb]
       \centering
@@ -223,9 +223,7 @@ In the second section, the computational model is analysed in order to obtain th
 
     The model is build using cell shell elements as the fundamental constituting part. The thickness is assigned in the perpendicular direction, as it is shown in Figure \ref{fig:shellElement}.
 
-    This type of element is a 2D element that it was used to build 3D structures. This kind of procedure may incur in distortions in the mesh elements due to shell elements intersecting in the same line at different angles.
-
-    For the designed model, this situation occurred at certain points of the chiral lattice. It can be seen in Figure \ref{fig:meshDistorted} that the distorted elements appear at two different positions mainly. Firstly, at the plane where the two ligaments with different curvature join. At this point, the sharp angles that appear in between the part geometrical lines induce the appearance of tetrahedral distorted mesh elements. The second typical location for appearance of distorted elements is along the curve where the lattice nodes and the curved ligaments join.
+    This type of element is a 2D element that it was used to build 3D structures. This kind of procedure may incur in distortions in the mesh elements due to shell elements intersecting in the same line at different angles. For the designed model, this situation occurred at certain locations of the chiral lattice structure. It can be seen in Figure \ref{fig:meshDistorted} that the distorted elements appear at two different locations. Firstly, at the plane where the two ligaments with different curvature join. At this point, the sharp angles that appear in between the geometrical lines induce the appearance of tetrahedral distorted mesh elements. The second typical location for appearance of distorted elements is along the curve where the lattice nodes and the curved ligaments join.
 
     \begin{figure}[!htpb]
       \centering
@@ -238,8 +236,8 @@ In the second section, the computational model is analysed in order to obtain th
   \clearpage
   \subsection{Nonlinear problem and automatic stabilization} \label{subsec:nonlinear_results_model} %OK
 
-    For the case under study, nonlinear simulations will be carried out as is expected to find a nonlinear displacement-force curve as a result of the analysis. In Abaqus, to execute nonlinear simulation involves the following, as shown in \cite{Abaqus}:
-
+    For the case under study, nonlinear simulations are carried out as is expected to find large displacement and non-constant stiffness. In Abaqus, to execute nonlinear simulation involves the following considerations, as shown in \cite{Abaqus}:
+    %
     \begin{itemize}
       \item a combination of incremental and iterative procedures;
       \item using the Newton method to solve the nonlinear equations;
@@ -248,12 +246,13 @@ In the second section, the computational model is analysed in order to obtain th
       \item choosing suitable time increments automatically.
     \end{itemize}
 
-    Therefore, Abaqus breaks the step where the load is applied into increments. The software will automatically choose the size of each of the increments based on the convergence evolution of previous increments.
+    Therefore, Abaqus breaks the step where the load is applied into increments. The software automatically chooses the size of each of the increments based on the convergence evolution of previous increments.
 
     Also, nonlinear static problems may become unstable. One of the possible sources of such instabilities is buckling. A model where buckling appears locally may not be resoluble using general solution methods. For this kind of cases, it becomes necessary to either solve the problem dynamically or with the aid of artificial damping.
 
     Since the above situation represents what it is expected to be found in the model response, a constant artificial damping factor is used throughout the whole step to account for the appearance of local instabilities.
 
+    \noindent
     Automatic stabilization with a constant damping factor implies that viscous forces of the form:
     \begin{equation}
       F_v = c \mat{M} v
@@ -265,7 +264,7 @@ In the second section, the computational model is analysed in order to obtain th
     %
     where $I$ represents the internal forces, $P$ the external forces, $\mat{M}$ is the artificial mass matrix calculated with unity density, $c$ is the defined damping factor, $v = \Delta u / \Delta t$ is the vector of nodal velocities, and $\Delta t$ is the increment of simulation time.
 
-    The final value of $c$ that is going to be used during the simulations is chosen after performing a small parametric study of the different possibilities. As a result, the plot shown in Figure \ref{fig:forceDisplacement-damp} is produced. This plot represents the evolution of the twist at the tip as the load is increased step by step during the nonlinear simulation. As it will be explained in Section \ref{sec:generalResponseCharact_results_sim}, the use of automatic stabilization becomes necessary to capture the dynamics that involve buckling on the chiral ligaments and the ultimate collapse of the structure.
+    The final value of $c$ that is going to be used during the simulations is chosen after performing a small parametric study of the different possibilities. As a result, the plot shown in Figure \ref{fig:forceDisplacement-damp} is produced. This plot represents the evolution of the twist at the tip as the load is increased step by step during the nonlinear simulation. As it will be explained in Section \ref{sec:generalResponseCharact_results_sim}, the use of automatic stabilization becomes necessary to capture the nonlinear mechanics that involve buckling on the chiral ligaments and the ultimate collapse of the structure. Finally, special care needs to be taken in order to ensure that the inclusion of artificial damping factor is not leading to inaccurate results due to over-damping of the structure. This can be done by comparing the fraction of the static energy that it is dissipated compared with the external work that is introduced into the system. Such a comparison is presented in the discussion below.
 
     \begin{figure}[!htpb]
       \centering
@@ -273,7 +272,7 @@ In the second section, the computational model is analysed in order to obtain th
       \caption[Displacement-force curve for various values of constant artificial damping factor]{Displacement-force curve for various values of constant artificial damping factor.}\label{fig:forceDisplacement-damp}
     \end{figure}
 
-    As it can be seen in the mentioned figure, all the different values of the damping factors success to capture the rapidly change in tip twist that occurs for fractions of load applied $>60\%$. However, special care needs to be taken in order to ensure that the inclusion of artificial damping factor is not leading to inaccurate results due to over-damping of the structure. This can be done by comparing the fraction of the static energy that it is dissipated compared with the external work that its put into the system. This is done for a values of $c =$\notcien{2}{-5}, $c =$\notcien{2}{-8} and $c =$\notcien{2}{-9} in Figures \ref{fig:energy_damp-5}, \ref{fig:energy_damp-8} and \ref{fig:energy_damp-9}, respectively. In these plots, the moment where the structure collapses due to the buckling phenomena occurring on the chiral ligaments can be seen as a sudden change in the slope of both curves. Here it can be seen that for the case of $c =$\notcien{2}{-5}, the slope of the curve showing the energy dissipated through artificial stabilization is positive after the onset of buckling, which is a sign of over-damping in this region. On the other hand, for the case of $c =$\notcien{2}{-8}, the slope remains of the curve remains zero. Finally, for the case of $c =$\notcien{2}{-9}, the slope also remains zero and the final value for the energy dissipated is smaller than for $c =$\notcien{2}{-8}.
+    As it can be seen in Figure \ref{fig:forceDisplacement-damp}, all the different values of the damping factors considered success to capture the wing-box tip twist adaptation. However, the responses differ considerably and not clear trend is shown. For low values of $c$, the structure fails to properly capture the onset of the buckling phenomena while, for high values of $c$, the structure over-damping leads to inaccurate results. To check if over-damping of the structure is occurring, a comparison between the static dissipated energy and the external work is shown for values of $c =$\notcien{2}{-5}, $c =$\notcien{2}{-8} and $c =$\notcien{2}{-9} in Figures \ref{fig:energy_damp-5}, \ref{fig:energy_damp-8} and \ref{fig:energy_damp-9}, respectively. In these plots, the moment where the structure collapses due to the buckling phenomena occurring on the chiral ligaments can be seen as a sudden change in the slope of both energy curves. Here it can be seen that for the case of $c =$\notcien{2}{-5}, the slope of the curve showing the energy dissipated through artificial stabilization is positive after the onset of buckling, which is a sign of over-damping in this region. On the other hand, for the case of $c =$\notcien{2}{-8}, the slope remains of the curve remains zero. Finally, for the case of $c =$\notcien{2}{-9}, the slope also remains zero and the final value for the energy dissipated is smaller than for $c =$\notcien{2}{-8}. The displacement-force curve is coincident for the two cases of $c =$\notcien{2}{-8} and $c =$\notcien{2}{-9}.
 
     \begin{figure}[!htpb]
       \centering
@@ -296,7 +295,7 @@ In the second section, the computational model is analysed in order to obtain th
     Finally, since the objective is to capture the dynamics that involve buckling on the chiral ligaments and the ultimate collapse of the structure, keeping the energy dissipated a small as possible fraction of the external work, it is decided to use constant damping factor $c =$\notcien{2}{-9} for the simulations perform ahead. 
 
   \clearpage
-  \subsection{Ribs} \label{subsec:ribs_results_model}
+  \subsection{Ribs inclusion and control over the local deformation} \label{subsec:ribs_results_model}
     %
     %Solution characterization
     % -> For the normal case
@@ -325,7 +324,7 @@ In the second section, the computational model is analysed in order to obtain th
     %     - However, the inner ribs help the upper skin of the wing-box to remain more flat than before.
 
     %First approach: no ribs, no damp
-    As explained in Subsection \ref{subsubsec:Ribs_Parametrization}, two different designs were developed for the rib, one consisted in a open profile and the other one was a closed profile. A first set of simulations were executed for the option of one open section at the rib at the tip. In Figure \ref{fig:closeOfRib-800N}, it can be seen an example of the response seen for this type of configuration after a prescribed load of 800 N has been applied. It can be seen that, under the prescribed load, the rib is closing its profile and the upper flange shows a bigger displacement $v$ compared with the lower flange.
+    As explained in Subsection \ref{subsubsec:Ribs_Parametrization}, two different designs are developed for the rib, one consists in a open profile and the other one in a closed profile. A first set of simulations are executed for the option of one open section at the rib at the tip. In Figure \ref{fig:closeOfRib-800N}, it can be seen an example of the response seen for this type of configuration after a prescribed load of 800 N has been applied. It can be seen that, under the prescribed load, the rib closes its profile and the upper flange shows a bigger displacement $v$ compared with the lower flange.
 
     \begin{figure}[!htpb]
       \centering
@@ -333,31 +332,31 @@ In the second section, the computational model is analysed in order to obtain th
       \caption[Vertical displacement $v$ at the tip rib]{Vertical displacement $v$ at the tip rib. The colour contour shows those mesh nodes located on the upper flange of the rib have a higher $v$, therefore showing how the rib is closing under the prescribed load (800 N)}\label{fig:closeOfRib-800N}
     \end{figure}
 
-    In an attempt to avoid a deformation in the rib that causes the rib to close, it was decided to use ribs with a close profile. The simulations then provided a solution like the one shown in Figure \ref{fig:normalCaseNoDampNoInnerRibs_800N}. For this case, the initial buckling occurs in ligaments located far from the root. The twist of the beam, measured as the rotational displacement $u$ around the $x$ axis is of approximately 0.3 deg. The prescribed load was -800 N and the simulation converged to the 0.95\% of the prescribed load.
+    In an attempt to avoid a deformation in the rib that causes the rib to close, it was decided to use ribs with a close profile. Simulation are initially executed without incorporating automatic stabilization. Then, the colour contour plot of the total rotational displacement over the solution model is shown in Figure \ref{fig:normalCaseNoDampNoInnerRibs_800N}, where it can be seen that the initial buckling occurs in ligaments located far from the root. The twist of the beam, measured as the rotational displacement $u$ around the $x$ direction, is approximately 0.3 deg. The prescribed load as -800 N and the simulation converged to the 95\% of the prescribed load.
 
     \begin{figure}[!htpb]
       \centering
       \includegraphics[width=0.8 \textwidth]{figures/result-model/normalCaseNoDampNoInnerRibs_800N}
-      \caption[Model response without the use of inner ribs nor automatic stabilization]{Model response without the use of inner ribs nor automatic stabilization.}\label{fig:normalCaseNoDampNoInnerRibs_800N}
+      \caption[Model response without the use of inner ribs nor automatic stabilization]{Model response without the use of inner ribs nor automatic stabilization. The simulation converged to the 95\% of the prescribed load (800 N). Elastic deformations in the ligaments occur at the tip of the wing-box, close to the point where the load is introduced.}\label{fig:normalCaseNoDampNoInnerRibs_800N}
     \end{figure}
 
-    In order to investigate further deformations of the ligaments, it was decided to carry out simulations that incorporate automation stabilization through artificial damping artificial damping factor, as it was explained in Subsection \ref{subsec:nonlinear_results_model}. After this, the results showed a deformation like the one shown in Figure \ref{fig:normalCaseDampNoInnerRibs}. This figure shows how big local deformations appear on the wing-box upper skin for this case. Also, it can be seen that the buckling phenomena has moved backwards to the ligaments close to the root.
+    In order to investigate further stages of the simulation, the addition of automatic stabilization through artificial damping factor becomes necessary, as it was explained in Subsection \ref{subsec:nonlinear_results_model}. After doing so, the colour contour plot of the total rotational displacement over the solution model is shown in Figure \ref{fig:normalCaseDampNoInnerRibs}. Apart from the buckling occurring at the chiral ligaments, this figure shows how big local deformations appear on the wing-box upper skin for this case. Also, it can be seen that the buckling phenomena has moved backwards to the ligaments close to the root.
 
     \begin{figure}[!htpb]
       \centering
       \includegraphics[width=0.8 \textwidth]{figures/result-model/normalCaseDampNoInnerRibs}
-      \caption[Model response without the use of inner ribs and with automatic stabilization]{Model response without the use of inner ribs and with automatic stabilization.}\label{fig:normalCaseDampNoInnerRibs}
+      \caption[Model response without the use of inner ribs and with automatic stabilization]{Model response without the use of inner ribs and with automatic stabilization. The simulation converged to the 100\% of the prescribed load (800 N). The inclusion of artificial constant damping factor allows the simulation to achieve further load increments, overpassing the point at which the collapse of the structure occurs. For the considered configuration and under the prescribed load, severe local deformations occurs at the wing-box skin which is needed to be accounted for.}\label{fig:normalCaseDampNoInnerRibs}
     \end{figure}
 
     %Inner ribs, no damp
-    In order to reduce the local deformations occurring on the wing-box, a pair of inner ribs as described in Subsection \ref{subsec:parametrization_Model} were added to the model. This element added stiffness to the structure in bending. Now, the response of the model was shown to be like the one represented in Figure \ref{fig:normalCaseNoDamp2InnerRibs}. Here it can be seen that the ligaments that start to buckle are located at the same position as they were in the response of the model that did not incorporate inner ribs seen in Figure \ref{fig:normalCaseNoDampNoInnerRibs_800N}. However, now the degree of deformation has decreased due to the stiffness added to the structure as a result of the inner ribs addition.
+    In order to reduce the local deformations occurring at the wing-box skin, a pair of inner ribs as described in Subsection \ref{subsec:parametrization_Model} are added to the model. This element adds stiffness to the structure in bending. Now, the colour contour with the total rotational displacement is shown in Figure \ref{fig:normalCaseNoDamp2InnerRibs}. Here it can be seen that the ligaments that start to buckle are located at the same position that they were when the model did not incorporate inner ribs. However, now the magnitude of local deformation at the wing-box skin has decreased due to the stiffness added to the structure as a result of the inner ribs inclusion.
 
     \begin{figure}[!htpb]
       \centering
       \includegraphics[width=0.8 \textwidth]{figures/result-model/normalCaseNoDamp2InnerRibs_800N}
-      \caption[Model response incorporating inner ribs and without automatic stabilization]{Model response incorporating inner ribs and without automatic stabilization}
+      \caption[Model response incorporating inner ribs and without automatic stabilization]{Model response incorporating inner ribs and without automatic stabilization. The simulation converged to the 13\% of the prescribed load (800 N). The inner ribs have added stiffness to the structure in the bending.}
       \label{fig:normalCaseNoDamp2InnerRibs}
     \end{figure}
 
     %Now damp and inner ribs
-    However, for this last case, the simulation was only able to converge up to 13\% of the prescribed load. In other to progress further in the analysis, the use of automatic stabilization becomes necessary again. For this reason, in the final configuration, automatic stabilization through constant damping factor will be used together with the inner ribs. A description of the response of the structure for this last case is presented on next chapter.
+    However, for this last case, the simulation was only able to converge up to 13\% of the prescribed load. In other to progress further in the analysis, the use of automatic stabilization becomes necessary again. For this reason, in the final configuration, automatic stabilization through constant damping factor is used together with the inner ribs. A description of the response of the structure for this last case is presented in next chapter.
