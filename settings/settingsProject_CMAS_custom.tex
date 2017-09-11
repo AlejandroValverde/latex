@@ -1,0 +1,78 @@
+           
+\usepackage	[ngerman]{datetime}      
+
+\newdateformat{digitsdate}{\twodigit{\THEDAY}.\twodigit{\THEMONTH}.\THEYEAR} 
+
+\newcommand{\cmastitlepage}[2]{
+	\newpage
+	\thispagestyle{empty}
+	% \textblockorigin{0cm}{0cm}
+	% \begin{textblock*}{15mm}(27mm,15mm)
+	%   \includegraphics[height=12mm]{figures/logos_ETH/eth_logo.pdf}
+	% \end{textblock*}
+	% \begin{textblock*}{12mm}(135mm,10mm)
+	% 	\includegraphics[height=25mm,width=35mm]{figures/logos_ETH/CMASLab_Logo_big_color.pdf}
+	% \end{textblock*}
+		\begin{figure}[!t]
+		\vspace*{-20mm}
+		\begin{minipage}{0.4\textwidth}
+			\includegraphics[height=12mm]{figures/logos_ETH/eth_logo.pdf}
+		\end{minipage}
+		\qquad \qquad \qquad \qquad
+		\begin{minipage}{0.4\textwidth}
+			\raggedleft
+			\includegraphics[height=25mm,width=35mm]{figures/logos_ETH/CMASLab_Logo_big_color.pdf}
+		\end{minipage}
+	\end{figure}
+	\begin{flushleft}
+			\vspace*{0mm}
+			\large \cmasthesistype thesis no. \cmasthesisnumber \\
+			\vspace*{15mm}
+			\huge \textbf{#1} \\
+			\vspace*{5mm}
+			\Large \textbf{\cmasauthor{}} \\
+	\end{flushleft}
+	\vspace{5mm}
+	\begin{figure}[h]
+		\centering
+			\includegraphics[width=10cm]{figures/logos_ETH/titelbild.jpg}
+	\end{figure}
+	\vspace{0mm}
+	\begin{table}[!b]
+	\begin{flushright}
+			\large Advisor: \cmasadvisor{}\\
+			\vspace*{10mm}
+			{
+			\renewcommand{\baselinestretch}{1}
+			\large IDMF - Laboratory of Composite Materials and Adaptive Structures\\
+			\large Prof.\ Dr.\ Paolo \ Ermanni \\
+			\large ETH Zürich\\
+			}
+			\vspace*{12mm}
+			%\large\digitsdate\today\\
+			\large #2
+	\end{flushright}
+	\end{table}
+	\newpage
+	\thispagestyle{empty}
+	% \setlength{\@fpbot}{0pt}
+	\vspace*{140mm}
+	\begin{table}[!b]
+	\begin{flushleft}
+			{
+			\renewcommand{\baselinestretch}{1}
+			\small ETH Zürich\\
+			\small IDMF - Laboratory of Composite Materials and Adaptive Structures\\
+			\small LEE O 203\\
+			\small Leonhardstrasse 21\\
+			\small 8082 Zürich\\
+			\begin{tabbing}
+			Links \= Mitte \= Rechts \kill
+			\small Telefon: \> \> +41 (0)44 633 63 02\\
+			\end{tabbing}
+			\small www.structures.ethz.ch\\
+			}
+	\end{flushleft}
+	\end{table}
+	\clearpage
+}

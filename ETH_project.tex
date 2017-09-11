@@ -2,108 +2,24 @@
 % *********************************************************************************************
 % 						DOCUMENT CLASS 
 %						----------------------------
+\documentclass[11pt,a4paper,fleqn,twoside]{report}
 
-\documentclass[11pt,twoside,a4paper,DIV11,numbers=noenddot]{report}
-\usepackage     [german, english]{babel}
-\usepackage     [left=2.5 cm,right=2.5 cm,top=2.5 cm,bottom=1.7cm,bindingoffset=0.6cm]{geometry}
-\usepackage     [utf8]{inputenc}
-\usepackage 		{lmodern} 
-\usepackage     [T1]{fontenc}
-% *********************************************************************************************
+\def\controlClearPage{paperCopy} %possible inputs: paperCopy (also needs to add "twoside" to \documentclass options), 
 
+\input{settings/settingsProject_Cranfield} %For the margins
 
-% *********************************************************************************************
-% 						       PACKAGES 
-%						       ----------------
+\input{settings/settingsProject_Personal}
 
-\usepackage	{caption}
-\usepackage	{subcaption}
-\usepackage	{pdfpages} 
-\usepackage	{graphicx}              
-\usepackage	{float}                      
-\usepackage	{tikz}				
-\usetikzlibrary	{shapes,arrows}              
-\usepackage	{paralist, tabularx}             
-\usepackage	{gensymb}                         
-\usepackage	[ngerman]{datetime}      
+\input{settings/settingsProject_CMAS_custom}
 
-\usepackage	{amsmath}                       
-\usepackage	{xfrac}						
-% \usepackage	{nomencl}                           
-% \makenomenclature
-\usepackage	{longtable}	
-\usepackage	{fancyhdr}
-\restylefloat{	figure}
-\setcounter	{topnumber}{4}	
-
-\setcounter	{bottomnumber}{4}
-\setcounter	{totalnumber}{4}
-\renewcommand{\textfraction}{0} 
-% \addtokomafont{caption}{\small}
-\usepackage{settings/cmasthesis_1} 
-\newdateformat{digitsdate}{\twodigit{\THEDAY}.\twodigit{\THEMONTH}.\THEYEAR} 
-\pagestyle{fancy}                      
-\setlength{\headwidth}{\textwidth}
-\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
-\fancyhead{}
-\rhead[\nouppercase{\rightmark}]{\thepage}
-\lhead[\thepage]{\nouppercase{\rightmark}}
-\fancyfoot{}                               
-% *********************************************************************************************
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% AlejandroValverde added packages 
-\usepackage{ifthen}
-\usepackage{nomencl}
-\renewcommand{\nomname}{List of symbols}
-\newcommand{\mat}[1]{\mathrm{\textbf{#1}}}
-\newcommand{\notcien}[2]{$#1\times10^{#2}$}
-\makenomenclature
-\renewcommand{\nomgroup}[1]{%
- \ifthenelse{\equal{#1}{A}}{\item[]}{% For roman letters
- \ifthenelse{\equal{#1}{B}}{\item[]}{% For greek letters
- \ifthenelse{\equal{#1}{C}}{\item \vspace{1em} \textbf{Abbreviations}}{% For abbreviations
- \ifthenelse{\equal{#1}{D}}{\item \vspace{1em} \textbf{Configurations}}{}}}}}
-\newcommand{\ClearDoublePageOrNot}[1]
-{
-  \ifthenelse{\equal{#1}{electronicCopy}}{\clearpage}{}
-  \ifthenelse{\equal{#1}{paperCopy}}{\clearpage{\pagestyle{empty}\cleardoublepage}}{}
-}
-
-
-\graphicspath{ {figures/} } %Path where the figures are located
-
-%Bibliography packages
-\usepackage{hyperref} %Enabling re-directioning in the document for references
-
-%New commands
-\newcommand{\chiB}{$B_{\mathrm{chi}}$\xspace}
-\newcommand{\chir}{$r_{\mathrm{chi}}$\xspace}
-\newcommand{\chiL}{$L_{\mathrm{chi}}$\xspace}
-\newcommand{\chit}{$t_{\mathrm{chi}}$\xspace}
-\newcommand{\boxt}{$t_{\mathrm{box}}$\xspace}
-\newcommand{\chie}{$\epsilon_{\mathrm{chi}}$\xspace}
-\newcommand{\philin}{$\tilde{\phi}_{\mathrm{tip}}$\xspace}
-\newcommand{\phinonlin}{$\phi_{\mathrm{tip}}$\xspace}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-% *********************************************************************************************
-% 						       TITLE PAGE 
-%						       -----------------
-
-\renewcommand{\cmasthesistype}		{Master's}
-\renewcommand{\cmasthesisnumber}	{17-056}
-\renewcommand{\cmasauthor}			{Theofanis Tsiantas}
-\renewcommand{\cmasadvisor}			{Dr. Gerald Kress}
-% *********************************************************************************************
-
+\newcommand{\cmasthesistype}		{Master's\xspace}
+\newcommand{\cmasthesisnumber}	{151-1001-00L}
+\newcommand{\cmasauthor}			{Alejandro Valverde L\'opez}
+\newcommand{\cmasadvisor}			{Falk Runkel}
 
 % *********************************************************************************************
 % 						       DOCUMENT 
-%						       -----------------
-
-\def\controlClearPage{paperCopy} %possible inputs: paperCopy (also needs to add "twoside" to \documentclass options), 
+%						       ----------------
 
 %Define which chapters to include
 \includeonly{
@@ -112,20 +28,20 @@
 	chapters/Zusammenfassung, 
 	chapters/Introduction, 
 	chapters/State-of-the-art,
-	% chapters/Model,
-	% chapters/Results-model, 
-	% chapters/Results-sim,
-	% chapters/Summary,
-	% chapters/Appendix
+	chapters/Model,
+	chapters/Results-model, 
+	chapters/Results-sim,
+	chapters/Summary,
+	chapters/Appendix
 	} %{file1,file2,...} 
 
 \begin{document}
 
-\cmastitlepage{Critical loads for initiation of edge delamination in multidirectionally laminated composite materials}{\digitsdate\today} %title
+\cmastitlepage{Bending-twist Shape Adaptation By Compliant Chiral Spar Design}{\digitsdate\today} %title
 \makeatletter
-\setlength\@fpbot{0\p@ \@plus 1fil}
+% \setlength\@fpbot{0\p@ \@plus 1fil}
 \makeatother
-
+\ClearDoublePageOrNot{\controlClearPage}
 
 \pagenumbering{roman}
 
@@ -145,18 +61,23 @@
 
 \newpage
 \thispagestyle{plain}
-\include{chapters/Acknowledgments}
-% \markright{Acknowledgments}
 \addcontentsline{toc}{section}{\protect\numberline{}{Acknowledgments}}
+\include{chapters/Acknowledgments}
+% \thispagestyle{plain}
+% \markright{Acknowledgments}
+\ClearDoublePageOrNot{\controlClearPage}
+
+%CranfieldPlagiarismDeclarationForm
 \thispagestyle{plain}
+\vspace{5mm}
+\includepdf[pages=-,width=1.25 \textwidth,pagecommand={}, offset = 0 -50]{figures/logos_ETH/Task_Assignement.pdf}
+\thispagestyle{empty}
 \ClearDoublePageOrNot{\controlClearPage}
 
 %CranfieldPlagiarismDeclarationForm
-\includepdf[pages={-}]{figures/logos_ETH/Task_Assignement.pdf}
-\ClearDoublePageOrNot{\controlClearPage}
-
-%CranfieldPlagiarismDeclarationForm
-\includepdf[pages={-}]{figures/logos_ETH/Declaration_of_Originality.pdf}
+\thispagestyle{empty}
+\includepdf[pages=-,pagecommand={}, offset = 0 -60]{figures/logos_ETH/Declaration_of_Originality.pdf}
+\thispagestyle{empty}
 \ClearDoublePageOrNot{\controlClearPage}
 
 %%%%%%%%% Lists %%%%%%%%%%%%%%%%%%
