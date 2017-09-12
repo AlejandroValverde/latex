@@ -219,6 +219,29 @@ In the second section, the computational model is analysed in order to obtain th
     \end{figure}
 
   \clearpage
+  \subsection{Connection between the wing-box skin and the chiral lattice} \label{subsec:connection_results_model} %To be reviewed
+
+    As it has been already explained in Subsection \ref{subsec:connections_computationalModel}, the modeling of the connection between the chiral lattice structure and the wing-box skin is one of the critical aspects of the design. In the basic connection type, the lattice node is cut by half and it is directly attached to the wing-box skin, restraining all the possible degrees of freedom. In a further step, the lattice node is allowed to rotate around its own axis. For this type of connection,  the rotational displacement $\theta$ of the mesh node in the centre of the tyre embedded into the lattice node is left uncoupled when defining the coupling constraint with the mesh nodes on the wing-box skin. Additionally, it is also possible to allow the lattice node to translate parallel to the wing-box skin, leaving the degree of freedom $u$ unrestrained.
+
+    In Figure \ref{fig:UR1_tau-additionalBCAll}, the displacement-force curves obtained for the three types of connection are shown. It can be seen how allowing the free rotation of the nodes leads to an earlier onset of the instabilities that causes the structure collapse. Additionally, it can be seen that when the displacement $u$ is left unrestrained, the mechanism activation occurs even before. In in case, the 
+
+    Finally, the total rotational displacement of the mesh elements is shown in a colour contour plot in Figure \ref{fig:connectionUR3}, where it can be seen how a different buckling field appears for each of the modeling approaches. 
+
+    \begin{figure}[!htpb]
+      \centering
+      \includegraphics[width=0.8 \textwidth]{figures/further/UR1_tau-additionalBCAll}
+      \caption[Displacement-force curve showing the model response for different approaches to model the connection between the chiral node and the wing-box skin]{Displacement-force curve showing the model response for different approaches to model the connection between the chiral node and the wing-box skin. The label ``fixed connection'' represents the wing-box twist adaptation obtained when creating a fixed connection while the label ``free rotation'' represents the wing-box twist adaptation when rotation of the lattice node is left unrestrained. The allowance of free rotational displacement $\theta$ of the lattice nodes around its own axis provokes the advance of the onset of the instabilities.}
+      \label{fig:UR1_tau-additionalBCAll}
+    \end{figure}
+
+    \begin{figure}[!htpb]
+      \centering
+      \includegraphics[width=0.8 \textwidth]{figures/further/connectionUR3}
+      \caption[Color contour representation of the total angular displacement of the mesh elements on the deformed structure for different approaches to model the connection between the chiral node and the wing-box skin]{Color contour representation of the total angular displacement of the mesh elements on the deformed structure for different approaches to model the connection between the chiral node and the wing-box skin. The figure on the right shows the buckling field when the connection is such that the lattice nodes are restrained in all its degrees of freedom, and the one in the left shows the buckling field when the rotation of the lattice nodes is allowed. It can be seen how different connection approaches load to different buckling fields.}
+      \label{fig:connectionUR3}
+    \end{figure}
+
+  \clearpage
   \subsection{Mesh} \label{subsec:mesh_results_model}
 
     The model is build using cell shell elements as the fundamental constituting part. The thickness is assigned in the perpendicular direction, as it is shown in Figure \ref{fig:shellElement}.
