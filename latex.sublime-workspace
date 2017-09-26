@@ -523,7 +523,7 @@
 			"file": "chapters/Aeroelastic.tex",
 			"settings":
 			{
-				"buffer_size": 1284,
+				"buffer_size": 1591,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -543,6 +543,15 @@
 				"buffer_size": 4987,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "settings/settingsProject_CMAS_custom.tex",
+			"settings":
+			{
+				"buffer_size": 2108,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -602,8 +611,9 @@
 	},
 	"expanded_folders":
 	[
-		"/D/ETH/code/latex",
-		"/D/ETH/code/latex/chapters"
+		"/H/private/code/latex",
+		"/H/private/code/latex/figures",
+		"/H/private/code/latex/settings"
 	],
 	"file_history":
 	[
@@ -780,15 +790,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1284,
+						"buffer_size": 1591,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								578,
-								578
+								1062,
+								1062
 							]
 						],
 						"settings":
@@ -837,7 +847,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -859,8 +869,8 @@
 						"selection":
 						[
 							[
-								3747,
-								3747
+								3310,
+								3310
 							]
 						],
 						"settings":
@@ -869,7 +879,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1522.0,
+						"translation.y": 495.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
@@ -878,8 +888,38 @@
 			]
 		},
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 3,
+					"file": "settings/settingsProject_CMAS_custom.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2108,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1135,
+								1135
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 156.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -970,7 +1010,7 @@
 		[
 			[
 				"",
-				"D:\\ETH\\code\\abaqus\\abaqus.sublime-project"
+				"H:\\private\\code\\abaqus\\abaqus.sublime-project"
 			]
 		],
 		"width": 380.0
@@ -992,7 +1032,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 164.0,
+	"side_bar_width": 269.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

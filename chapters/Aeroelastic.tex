@@ -9,13 +9,17 @@
 
     \begin{figure}[!htpb]
       \centering
-      \includegraphics[width=0.8 \textwidth]{figures/wing-model/wing}
+      \includegraphics[width=0.7 \textwidth]{figures/wing-model/wing}
       \caption[Overview of the wing FEM model embedded with the compliant wing-box design]{Overview of the wing FEM model embedded with the compliant wing-box design.}
       \label{fig:wing}
     \end{figure}
     
     The boundary condition for the wing-box includes establish a free condition at the tip of the wing and a clamping condition at the root.
 
-  \section{Aerodynamic forces} \label{sec:aerodynamic_aeroelastic}
+    %Introduce airfoil parameters, such as chord and so on
 
-    The pressure distribution originated from the fluid-airfoil interaction is modeled and it is responsible of the forces applied into the wing model. This is the only source of forces introduced into the model.
+  \section{Aerodynamic model} \label{sec:aerodynamic_aeroelastic}
+
+    The pressure distribution originated from the fluid-airfoil interaction is responsible of the forces applied into the wing model. This is the only source of forces introduced into the model. The pressure distribution is obtained using \copyright XFOIL software which considers the airfoil geometry and the flight condition.
+
+    The flight condition is determined by introducing the air velocity $V$, the air density $\rho$, the air dynamic viscosity $\mu$
