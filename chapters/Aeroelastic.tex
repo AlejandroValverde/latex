@@ -19,7 +19,7 @@
 
     \begin{figure}[!htpb]
       \centering
-      \includegraphics[width=0.7 \textwidth]{figures/wing-model/wing}
+      \includegraphics[width=0.7 \textwidth]{figures/wing-model/wing_correct}
       \caption[Overview of the wing FEM model embedded with the compliant wing-box design]{Overview of the wing FEM model embedded with the compliant wing-box design.}
       \label{fig:wing}
     \end{figure}
@@ -97,21 +97,23 @@
     \clearpage
     \subsection{Results from simulations} \label{subsec:results_aeroelastic}
 
-      The results from the simulations carried out with the model described in Table \ref{tab:parameters_aeroelastic} are presented below. The total pressure load given by the considered flight condition is applied in ten individual steps. The evolution of the wing twist deformation at each of these steps in shown in Figure \ref{fig:twist_perIter_s3_V30}. In 
+      The results from the simulations carried out with the model described in Table \ref{tab:parameters_aeroelastic} are presented below. The total pressure load given by the considered flight condition is applied in ten individual steps. The evolution of the wing twist deformation at each of these steps in shown in Figure \ref{fig:twist_perIter_s3_V30}. It can be seen that the wing twist deformation increases as the velocity increases. Moreover, it can be sen that the number of iterations required to achieve the convergence at each of the steps increases as the air velocity increases.
 
-      Furthermore, the deformed wing model displaying the wing tip twist can be seen in Figure \ref{fig:bucklingWing3}. A detailed view of the buckling field in the spar of chiral structures can be seen in Figure \ref{fig:bucklingWing2}.
+      When showing the achieved wing twist as a function of the current airspeed that is equivalent to the applied pressure, the Figure \ref{fig:twist_perV_s3_V30} is produced. Here, the response after executing nonlinear and linear simulations are both displayed and compared. It can be seen that the agreement between the two responses decreases as the velocity increases.
+
+      Furthermore, the deformed wing model displaying the wing tip twist can be seen in Figure \ref{fig:bucklingWing3}. In Figure \ref{fig:bucklingWing2}, a detailed cut view in the spanwise direction of the wing shows the buckling field in the spar of chiral structures.
 
       \begin{figure}[!htpb]
         \centering
         \includegraphics[width=0.95 \textwidth]{figures/wing-model/twist_perIter_s3_V30}
-        \caption[Wing twist adaptation at each step]{Wing twist adaptation at each step. Results show}
+        \caption[Wing twist adaptation at each step]{Wing twist adaptation at each step. Results show the wing twist deformation increases as the velocity increases. Also, it can be sen that the number of iterations required to achieve the convergence at each of the steps increases as the air velocity increases.}
         \label{fig:twist_perIter_s3_V30}
       \end{figure}
 
       \begin{figure}[!htpb]
         \centering
         \includegraphics[width=0.8 \textwidth]{figures/wing-model/twist_perV_s3_V30}
-        \caption[Wing twist as a function of the air velocity]{Wing twist as a function of the air velocity that corresponds to each pressure load applied at each step. The filled dots represent the response in twist for the nonlinear simulation while the }
+        \caption[Wing twist as a function of the air velocity]{Wing twist as a function of the air velocity that corresponds to each pressure load applied at each step. The filled dots represent the response in twist for the nonlinear simulation while the crosses represent the response for the linear simulation. It can be seen that the agreement between the two responses decreases as the velocity increases.}
         \label{fig:twist_perV_s3_V30}
       \end{figure}
 
@@ -125,6 +127,6 @@
       \begin{figure}[!htpb]
         \centering
         \includegraphics[width=0.8 \textwidth]{figures/wing-model/bucklingWing2}
-        \caption[Spanwise cut view of the wing showing the deformed state of the lattice of chiral elements]{Spanwise cut view of the wing showing the deformed state of .the lattice of chiral elements.}
+        \caption[Detailed cut view in the spanwise direction of the wing showing the buckling field in the spar of chiral structures]{Detailed cut view in the spanwise direction of the wing showing the buckling field in the spar of chiral structures.}
         \label{fig:bucklingWing2}
       \end{figure}

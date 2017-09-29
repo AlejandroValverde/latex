@@ -24,13 +24,13 @@
 %Define which chapters to include
 \includeonly{
 	chapters/Abstract_ETH, 
-	chapters/Acknowledgments, 
+	chapters/Acknowledgments_ETH, 
 	chapters/Zusammenfassung, 
-	% chapters/Introduction, 
-	% chapters/State-of-the-art,
+	chapters/Introduction, 
+	chapters/State-of-the-art,
 	chapters/Model,
-	% chapters/Results-model, 
-	% chapters/Results-sim,
+	chapters/Results-model, 
+	chapters/Results-sim,
 	chapters/Aeroelastic,
 	chapters/Summary,
 	chapters/Appendix
@@ -55,15 +55,15 @@
 \ClearDoublePageOrNot{\controlClearPage}
 
 \thispagestyle{plain}
-\addcontentsline{toc}{section}{\protect\numberline{}{Zusammenfassung}}
 % \markright{Zusammenfassung}
 \include{chapters/Zusammenfassung}
+\addcontentsline{toc}{section}{\protect\numberline{}{Zusammenfassung}}
 \ClearDoublePageOrNot{\controlClearPage}
 
 \newpage
 \thispagestyle{plain}
+\include{chapters/Acknowledgments_ETH}
 \addcontentsline{toc}{section}{\protect\numberline{}{Acknowledgments}}
-\include{chapters/Acknowledgments}
 % \thispagestyle{plain}
 % \markright{Acknowledgments}
 \ClearDoublePageOrNot{\controlClearPage}
