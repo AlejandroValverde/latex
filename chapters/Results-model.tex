@@ -191,7 +191,7 @@ In the second section, the computational model is analysed in order to obtain th
 
     As shown in Subsection \ref{subsec:load_computationalModel}, there are multiple ways in which the load can be introduced into the structure. It was decided to locate the load introduction points at the upper flange of the ribs in an attempt of replicate how the load will be introduced in a future manufactured demonstrator. In this subsection, the different results obtained when modifying the load introduction method are shown. 
 
-    Firstly, the option of distributing the same total load over the total number of ribs, three in the baseline configuration, is compared with the option of concentrating all the load on the upper flange of the tip rib. In Figure \ref{fig:forceDisplacement-distributedLoad700N}, the curve displacement-force is shown for these two different cases. It can be seen how when the load is distributed over a number of points and it is not concentrated on a single point, a delay in the onset of the structure collapse occurs. This result is correlated with visual inspection of the displacement of the mesh nodes on the solution model in Abaqus. The corresponding colour contour of the rotational total displacement $\sqrt{\theta^2 + \phi^2 + \psi^2}$ for a distributed load is shown in Figure \ref{fig:distributedLoad700N}. Here it can be seen how buckling has started to occur on the ligaments located close to the ribs, where the load is being introduced. In a further stage, when load increases, buckling would start to occur at the root of the wing-box.
+    Firstly, the option of distributing the same total load over the total number of ribs, three in the baseline configuration, is compared with the option of concentrating all the load on the upper flange of the tip rib. In Figure \ref{fig:forceDisplacement-distributedLoad700N}, the curve displacement-force is shown for these two different cases. It can be seen how when the load is distributed over a number of points and it is not concentrated on a single point, a delay in the onset of the structure collapse occurs. This result is correlated with visual inspection of the displacement of the mesh nodes on the solution model in ABAQUS$^{	extregistered}$. The corresponding colour contour of the rotational total displacement $\sqrt{\theta^2 + \phi^2 + \psi^2}$ for a distributed load is shown in Figure \ref{fig:distributedLoad700N}. Here it can be seen how buckling has started to occur on the ligaments located close to the ribs, where the load is being introduced. In a further stage, when load increases, buckling would start to occur at the root of the wing-box.
 
     \begin{figure}[!htpb]
       \centering
@@ -259,7 +259,7 @@ In the second section, the computational model is analysed in order to obtain th
   \clearpage
   \subsection{Nonlinear problem and automatic stabilization} \label{subsec:nonlinear_results_model} %OK
 
-    For the case under study, nonlinear simulations are carried out as is expected to find large displacement and non-constant stiffness. In Abaqus, to execute nonlinear simulation involves the following considerations, as shown in \cite{Abaqus}:
+    For the case under study, nonlinear simulations are carried out as is expected to find large displacement and non-constant stiffness. In ABAQUS$^{	extregistered}$, to execute nonlinear simulation involves the following considerations, as shown in \cite{Abaqus}:
     %
     \begin{itemize}
       \item a combination of incremental and iterative procedures;
@@ -269,7 +269,7 @@ In the second section, the computational model is analysed in order to obtain th
       \item choosing suitable time increments automatically.
     \end{itemize}
 
-    Therefore, Abaqus breaks the step where the load is applied into increments. The software automatically chooses the size of each of the increments based on the convergence evolution of previous increments.
+    Therefore, ABAQUS$^{	extregistered}$ breaks the step where the load is applied into increments. The software automatically chooses the size of each of the increments based on the convergence evolution of previous increments.
 
     Also, nonlinear static problems may become unstable. One of the possible sources of such instabilities is buckling. A model where buckling appears locally may not be resoluble using general solution methods. For this kind of cases, it becomes necessary to either solve the problem dynamically or with the aid of artificial damping.
 

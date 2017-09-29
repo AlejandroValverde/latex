@@ -523,16 +523,44 @@
 			"file": "chapters/Aeroelastic.tex",
 			"settings":
 			{
-				"buffer_size": 1591,
+				"buffer_size": 9123,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "chapters/Results-sim.tex",
+			"file": "chapters/State-of-the-art.tex",
 			"settings":
 			{
-				"buffer_size": 57196,
+				"buffer_size": 23081,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "chapters/Introduction.tex",
+			"settings":
+			{
+				"buffer_size": 6452,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "chapters/Model.tex",
+			"settings":
+			{
+				"buffer_size": 52978,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "chapters/Abstract_ETH.tex",
+			"settings":
+			{
+				"buffer_size": 2824,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
@@ -540,7 +568,7 @@
 			"file": "ETH_project.tex",
 			"settings":
 			{
-				"buffer_size": 4987,
+				"buffer_size": 4999,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -552,6 +580,15 @@
 				"buffer_size": 2108,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "chapters/0.Nomenclature.tex",
+			"settings":
+			{
+				"buffer_size": 7360,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -611,14 +648,21 @@
 	},
 	"expanded_folders":
 	[
-		"/H/private/code/latex",
-		"/H/private/code/latex/figures",
-		"/H/private/code/latex/settings"
+		"/D/ETH/code/latex",
+		"/D/ETH/code/latex/chapters",
+		"/D/ETH/code/latex/settings"
 	],
 	"file_history":
 	[
-		"/C/Users/Alejandro/AppData/Roaming/Sublime Text 3/Packages/User/figureTEX.sublime-macro",
 		"/D/ETH/code/latex/chapters/Results-sim.tex",
+		"/D/ETH/code/latex/chapters/Results-model.tex",
+		"/D/ETH/code/latex/chapters/Model.tex",
+		"/D/ETH/code/latex/chapters/Abstract_ETH.tex",
+		"/D/ETH/code/latex/chapters/Introduction.tex",
+		"/D/ETH/code/latex/chapters/Summary.tex",
+		"/D/ETH/code/latex/chapters/Zusammenfassung.tex",
+		"/D/ETH/code/latex/Cranfield_project.tex",
+		"/C/Users/Alejandro/AppData/Roaming/Sublime Text 3/Packages/User/figureTEX.sublime-macro",
 		"/D/ETH/code/latex/latex.sublime-project",
 		"/H/private/code/wing_model/code/functions_Urban_sim.py",
 		"/H/private/code/wing_model/code/Parameters70.py",
@@ -658,8 +702,6 @@
 		"/D/ETH/code/abaqus/PARA/cbox_t/linForce/2/frameInfo.txt",
 		"/D/ETH/code/abaqus/moduleBuildWingBoxAndPostProc.py",
 		"/H/private/code/abaqus/mainBuildWing.py",
-		"/D/ETH/code/latex/chapters/Model.tex",
-		"/D/ETH/code/latex/chapters/Results-model.tex",
 		"/D/ETH/code/latex/project.tex",
 		"/D/ETH/code/latex/chapters/0.Nomenclature.tex",
 		"/C/Users/Alejandro/AppData/Local/Sublime Text 3/Cache/LaTeXTools/internal/preview_math/7ea1f173cdf0df57b10e2ecd2c8ce4db.png.err",
@@ -670,7 +712,6 @@
 		"/D/ETH/code/latex/My Collection.bib",
 		"/D/ETH/code/latex/chapters/Abstract.tex",
 		"/D/ETH/code/latex/chapters/Appendix.tex",
-		"/D/ETH/code/latex/chapters/Summary.tex",
 		"/D/ETH/code/latex/settings/cover&title.tex",
 		"/D/ETH/code/latex/chapters/State-of-the-art.tex",
 		"/D/ETH/code/latex/figures/model/loadIntroductionPoints.png",
@@ -740,11 +781,7 @@
 		"/D/ETH/Python/abacus/workfolder/mainParametricStudy.py",
 		"/D/ETH/Python/abacus/workfolder/mainPostProc.py",
 		"/E/Salvado Seguridad Ubuntu 2/python/FunctionsCompareOutput.py",
-		"/E/Salvado Seguridad Ubuntu 2/python/MainCompareOutput.py",
-		"/Z/private/Python/abacus/mainBuildWingBox.py",
-		"/D/Cranfield/Modules/11.Aircraft System Identification/labs - System Identification/lab1/script.m",
-		"/C/Program Files/MATLAB/R2015b/uninstall/uninstaller_input.txt",
-		"/Z/private/Documents/Python/abacus/beamPython.py"
+		"/E/Salvado Seguridad Ubuntu 2/python/MainCompareOutput.py"
 	],
 	"find":
 	{
@@ -752,9 +789,10 @@
 	},
 	"find_in_files":
 	{
-		"height": 616.0,
+		"height": 105.0,
 		"where_history":
 		[
+			"H:\\private\\code\\latex\\chapters"
 		]
 	},
 	"find_state":
@@ -762,6 +800,31 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"i",
+			"{i = 1}",
+			"box",
+			"thickness",
+			"thick",
+			"Abaqus",
+			"the",
+			"Parameters used for the lattice model",
+			"alpha",
+			"$c",
+			"{m}",
+			"Chord length",
+			"$c",
+			"dim",
+			"ramstein",
+			"state-of-the-art",
+			"state-of-the-art/flat-ligaments",
+			"Chiral cell elements showing different ligaments curvatures",
+			"nounit",
+			"\\mu",
+			"V",
+			"velocity",
+			"Abstract",
+			"abstract",
+			"project",
 			"odel",
 			"embeeded"
 		],
@@ -771,11 +834,12 @@
 		"regex": false,
 		"replace_history":
 		[
+			"ABAQUS$^{\\textregistered}$"
 		],
 		"reverse": false,
 		"show_context": true,
 		"use_buffer2": true,
-		"whole_word": false,
+		"whole_word": true,
 		"wrap": true
 	},
 	"groups":
@@ -790,15 +854,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1591,
+						"buffer_size": 9123,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1062,
-								1062
+								1109,
+								1109
 							]
 						],
 						"settings":
@@ -809,6 +873,128 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "chapters/State-of-the-art.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 23081,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								15372,
+								14391
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1989.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 2,
+					"file": "chapters/Introduction.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6452,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5952,
+								5952
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1079.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "chapters/Model.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 52978,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								23599,
+								23331
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2692.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "chapters/Abstract_ETH.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2824,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2303,
+								2303
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 168.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -821,56 +1007,20 @@
 			"sheets":
 			[
 				{
-					"buffer": 1,
-					"file": "chapters/Results-sim.tex",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 57196,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
-				{
-					"buffer": 2,
+					"buffer": 5,
 					"file": "ETH_project.tex",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4987,
+						"buffer_size": 4999,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3310,
-								3310
+								1076,
+								1076
 							]
 						],
 						"settings":
@@ -879,7 +1029,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 495.0,
+						"translation.y": 312.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
@@ -888,11 +1038,11 @@
 			]
 		},
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
-					"buffer": 3,
+					"buffer": 6,
 					"file": "settings/settingsProject_CMAS_custom.tex",
 					"semi_transient": false,
 					"settings":
@@ -904,8 +1054,8 @@
 						"selection":
 						[
 							[
-								1135,
-								1135
+								418,
+								418
 							]
 						],
 						"settings":
@@ -914,10 +1064,38 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 156.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "chapters/0.Nomenclature.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7360,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7234,
+								7234
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1427.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -925,7 +1103,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 208.0
+		"height": 39.0
 	},
 	"input":
 	{
@@ -963,13 +1141,13 @@
 		"cols":
 		[
 			0.0,
-			0.526622296173,
+			0.476792247849,
 			1.0
 		],
 		"rows":
 		[
 			0.0,
-			0.738670694864,
+			0.539274924472,
 			1.0
 		]
 	},
@@ -990,7 +1168,7 @@
 	"project": "latex.sublime-project",
 	"replace":
 	{
-		"height": 412.0
+		"height": 73.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1024,7 +1202,7 @@
 		],
 		"width": 613.0
 	},
-	"selected_group": 0,
+	"selected_group": 1,
 	"settings":
 	{
 	},
@@ -1032,7 +1210,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 269.0,
+	"side_bar_width": 198.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
