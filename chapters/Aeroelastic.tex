@@ -25,31 +25,28 @@
     \end{figure}
 
   \clearpage
-  \section{Aerodynamic model} \label{sec:aerodynamic_aeroelastic}
-
-    The pressure distribution originated from the fluid-airfoil interaction is responsible of the forces applied into the wing model. This is the only source of forces introduced into the model. The pressure distribution is obtained using XFOIL$^{\textregistered}$ software which considers the airfoil geometry and the flight condition.
-
-    The flight condition is determined by introducing the air velocity $V$, the air density $\rho$, the air dynamic viscosity $\mu$ and the angle of attack of the wing $\alpha_0$.
-
-  \clearpage
   \section{Weakly coupled static aeroelastic analysis} \label{sec:aeroelastic_aeroelastic}
     % Parameters utilized
     % Desciption of the method
 
     In this section, the method followed to perform the weakly coupled aeroelastic analysis is described. 
 
-    Firstly, the given flight condition makes it possible to obtain a the corresponding pressure distribution that it is applied to the wing skin. However, since the aeroelastic coupling between aerodynamic forces and the wing twist adaptation is expected to be nonlinear, it becomes necessary to introduce split the prescribed pressure load into small increments.
+    The pressure distribution field originated from the fluid-airfoil interaction is responsible of the forces applied into the wing model. This is the only source of forces introduced into the model. The pressure distribution is obtained using XFOIL$^{\textregistered}$ software and a lift line method developed at CMAS lab.
 
-    At each of the increments mentioned previously, the magnitude of the pressure applied $p_{\mathrm{step}}$ into the wing skin is scaled to a fraction of the magnitude the total prescribed pressure $P_{\mathrm{total}}$, at each coordinate $x$ and $y$. The value for $p_{\mathrm{step}}$ is given by the step index $i_{\mathrm{step}}$ and the minimum fraction of pressure to be applied $p_{\mathrm{frac,0}}$, as shown in Equation \ref{eq:pressure}:
+    The flight condition is determined by introducing the air velocity $V$, the air density $\rho$, the air dynamic viscosity $\mu$ and the angle of attack of the wing $\alpha_0$.
+
+    Firstly, the given flight condition makes it possible to obtain the corresponding pressure distribution that it is applied to the wing skin. However, since the aeroelastic coupling between aerodynamic forces and the wing twist adaptation is expected to be nonlinear, it becomes necessary to introduce split the prescribed pressure load into small increments.
+
+    At each of the increments mentioned previously, the magnitude of the pressure applied $p_{\mathrm{step}}$ into the wing skin is scaled to a fraction of the magnitude of the total prescribed pressure $P_{\mathrm{total}}$, at each coordinate $x$ and $y$, as shown in Equation \ref{eq:pressure}:
     %
     \begin{equation}
-      P_{\mathrm{total}} = \sum_{i_{\mathrm{step}} = 1}^{n_{\mathrm{steps}}} p_{\mathrm{step}} = \sum_{i_{\mathrm{step}} = 1}^{n_{\mathrm{steps}}} i_{\mathrm{step}} p_{\mathrm{frac,0}},
+      P_{\mathrm{total}} = \sum_{i_{\mathrm{step}} = 1}^{n_{\mathrm{steps}}} p_{\mathrm{step}},
       \label{eq:pressure}
     \end{equation}
     %
-    where $n_{\mathrm{steps}}$ is the total number of steps.
+    where $n_{\mathrm{steps}}$ is the total number of steps. The pressure applied at each each step is added to the one from previous steps conforming a stepped load introduction.
 
-    At each of the increments, the wing deformation that is originated by the distribution of pressure in the wing skin is obtained after convergence is achieved. After, the pressure distribution that corresponds to the next increment is introduced and a new deformation state is seek.
+    At each of the increments, the wing deformation that is originated by the pressure distribution in the wing skin is obtained after convergence is achieved. After, the pressure distribution that corresponds to the next increment is introduced and a new deformation state is seek.
 
     The complete set of values of the parameters used in the model and in the aeroelastic analysis is shown in Table \ref{tab:parameters_aeroelastic}.
 
@@ -73,9 +70,9 @@
       Ligament half length & \multicolumn{1}{l|}{$L_{\mathrm{chi}}$} & \multicolumn{1}{l|}{mm} & 14.486 \\ \hline
       Thickness & \multicolumn{1}{l|}{$t_{\mathrm{chi}}$} & \multicolumn{1}{l|}{mm} & 0.4 \\ \hline \hline
       {\textbf{Flight condition}} &  &  &  \\ \hline
-      Free-stream air speed & \multicolumn{1}{l|}{$V$} & \multicolumn{1}{l|}{m/s} & 50 \\ \hline
+      Free-stream air speed & \multicolumn{1}{l|}{$V$} & \multicolumn{1}{l|}{m/s} & 30 \\ \hline
       Angle of attack of the wing & \multicolumn{1}{l|}{$\alpha_0$} & \multicolumn{1}{l|}{deg} & 8 \\ \hline
-      Air density & \multicolumn{1}{l|}{$\rho$} & \multicolumn{1}{l|}{kg/m$^3$} & 50 \\ \hline
+      Air density & \multicolumn{1}{l|}{$\rho$} & \multicolumn{1}{l|}{kg/m$^3$} & 1.225 \\ \hline
       Air dynamic viscosity & \multicolumn{1}{l|}{$\mu$} & \multicolumn{1}{l|}{N s/m$^2$} & \notcien{1.789}{-5} \\ \hline \hline
       {\textbf{Material for the chiral lattice (ABS)}} &  &  &  \\ \hline
       Young's modulus & \multicolumn{1}{l|}{$E_{\mathrm{chi}}$} & \multicolumn{1}{l|}{N/mm$^2$} & 3100 \\ \hline
@@ -97,3 +94,37 @@
       \label{tab:parameters_aeroelastic}
     \end{table}
 
+    \clearpage
+    \subsection{Results from simulations} \label{subsec:results_aeroelastic}
+
+      The results from the simulations carried out with the model described in Table \ref{tab:parameters_aeroelastic} are presented below. The total pressure load given by the considered flight condition is applied in ten individual steps. The evolution of the wing twist deformation at each of these steps in shown in Figure \ref{fig:twist_perIter_s3_V30}. In 
+
+      Furthermore, the deformed wing model displaying the wing tip twist can be seen in Figure \ref{fig:bucklingWing3}. A detailed view of the buckling field in the spar of chiral structures can be seen in Figure \ref{fig:bucklingWing2}.
+
+      \begin{figure}[!htpb]
+        \centering
+        \includegraphics[width=0.95 \textwidth]{figures/wing-model/twist_perIter_s3_V30}
+        \caption[Wing twist adaptation at each step]{Wing twist adaptation at each step. Results show}
+        \label{fig:twist_perIter_s3_V30}
+      \end{figure}
+
+      \begin{figure}[!htpb]
+        \centering
+        \includegraphics[width=0.8 \textwidth]{figures/wing-model/twist_perV_s3_V30}
+        \caption[Wing twist as a function of the air velocity]{Wing twist as a function of the air velocity that corresponds to each pressure load applied at each step. The filled dots represent the response in twist for the nonlinear simulation while the }
+        \label{fig:twist_perV_s3_V30}
+      \end{figure}
+
+      \begin{figure}[!htpb]
+        \centering
+        \includegraphics[width=0.8 \textwidth]{figures/wing-model/bucklingWing3}
+        \caption[Deformed wing model displaying the wing twist deformation]{Deformed wing model displaying the wing twist deformation. At the stage shown in the figure, all the prescribed load for the considered flight condition has been applied.}
+        \label{fig:bucklingWing3}
+      \end{figure}
+
+      \begin{figure}[!htpb]
+        \centering
+        \includegraphics[width=0.8 \textwidth]{figures/wing-model/bucklingWing2}
+        \caption[Spanwise cut view of the wing showing the deformed state of the lattice of chiral elements]{Spanwise cut view of the wing showing the deformed state of .the lattice of chiral elements.}
+        \label{fig:bucklingWing2}
+      \end{figure}

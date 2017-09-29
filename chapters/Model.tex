@@ -1,4 +1,4 @@
-\chapter{Wing-box model} \label{chap:Model}
+\chapter{Wing-box model description} \label{chap:Model}
   
   %Intro
   A model of the whole wing-box including the variable-stiffness spar is developed to study the buckling characteristics of the chiral lattice, the response in twist of wing-box and the tailorability possibilities of that response. In the present chapter the model is presented, which in fact consists in two models one analytical and another one computational. 
@@ -350,7 +350,7 @@
 
     The computational model allowed different possibilities in terms of the load introduction. Among all of them, it was decided to locate the load introduction points on the upper flange of the ribs. The reason for this is the replicate how the load will be introduced in a future manufactured demonstrator of the wing-box.
 
-    Therefore, the number of load introduction points had an upper bound equal to the number of ribs available. For the baseline configuration, this number equals to three, one close rib at the tip of the wing-box and two open ribs in the inner part of the wing-box. Another possibility is to vary the position in the chordwise direction of load introduction point or points. In Figure \ref{fig:loadIntroductionPoints} it can be seen the location of the load introduction points when they are distributed among the three available ribs and their position in the chordwise direction is equal to $z / = 0.8 $.
+    Therefore, the number of load introduction points had an upper bound equal to the number of ribs available. For the baseline configuration, this number equals to three, one close rib at the tip of the wing-box and two open ribs in the inner part of the wing-box. Another possibility is to vary the position in the chordwise direction of load introduction point or points. In Figure \ref{fig:loadIntroductionPoints} it can be seen the location of the load introduction points when they are distributed among the three available ribs and their position in the chordwise direction is equal to $z/W_{\mathrm{rib,close}}  = 0.8 $.
 
     In Subsection \ref{subsec:load_results_model}, the differences in the response of the structure depending on the number of load introduction points that their position in the chordwise direction are discussed.
 
@@ -505,25 +505,23 @@
   \clearpage
   \subsection{Post-processing operations} \label{subsec:postProc_computationalModel} %To be extended, maybe
 
-    The results obtained from the ABAQUS$^{\textregistered}$ simulations were analysed in two different ways. Firstly, qualitatively by means of the deformation plots that shown the corresponding ABAQUS$^{\textregistered}$ visualization module. And, secondly, extracting values of different magnitudes directly from the mesh nodes or elements located at certain positions of interest on the solution model.
+    The results obtained from the ABAQUS$^{\textregistered}$ simulations were analysed in two different ways. Firstly, qualitatively by means of the deformation plots that are shown in the corresponding ABAQUS$^{\textregistered}$ visualization module. And, secondly, extracting values of different magnitudes directly from the mesh nodes or elements located at certain positions of interest on the solution model.
     % PATHS, not important
     % Through the definition of paths in ABAQUS$^{\textregistered}$, it is possible to obtain the value of a determined magnitude for all the mesh elements located along the path. In Figure \ref{fig:pathUpper}, an example of a path located on the upper skin of the wing-box is shown.
-
+    %
     % \begin{figure}[!htpb]
     %   \centering
     %   \includegraphics[width=0.8 \textwidth]{figures/result-model/pathUpper}
     %   \caption[Path of mesh elements on the solution model]{Path of mesh elements on the solution model.}\label{fig:pathUpper}
     % \end{figure}
 
-    As part of the execution of the parametric analysis program written using Python scripting, an additional module is used to perform the post-processing operations. The obtained values of the selected variables are written to an external files. 
+    As part of the execution of the parametric analysis program written using Python scripting, an additional module is used to perform the post-processing operations. The obtained values of the selected variables are written to external files. 
 
-    The calculation of the wing-box twist is done through the evaluation of the rotational displacement $u$ around the $x$ direction at a number of mesh elements located in different parts of the tip rib, as shown in Figure \ref{fig:pointsToEvaluateTwist}.
-
-    Due to deformations occurring at the tip rib, the value of $u$ extracted from each of the mesh nodes is going to differ. A magnitude of this discrepancy between the mean value and the single values of $u$ is shown through the evaluation of the deviation from the mean. The calculated mean value and the maximum deviation are included in the tables that contain results from the simulations.
+    The calculation of the wing-box twist is done through the evaluation of the rotational displacement $u$ around the $x$ direction at a number of mesh elements located in different parts of the tip rib, as shown in Figure \ref{fig:pointsToEvaluateTwist}. Due to deformations occurring at the tip rib, the value of $u$ extracted from each of the mesh nodes may differ. A magnitude of this discrepancy between the mean value and the single values of $u$ is shown through the evaluation of the deviation from the mean. The calculated mean value and the maximum deviation are included in the tables that contain results from the simulations.
 
     \begin{figure}[!htpb]
       \centering
-      \includegraphics[width=0.6 \textwidth]{figures/model/pointsToEvaluateTwist}
+      \includegraphics[width=0.5 \textwidth]{figures/model/pointsToEvaluateTwist}
       \caption[Location of the mesh nodes from which valued of the rotational displacement $u$ is extracted]{Location of the mesh nodes from which valued of the rotational displacement $u$ is extracted. The final value for the twist is calculated from the mean value of $u$ at the mesh nodes shown.}
       \label{fig:pointsToEvaluateTwist}
     \end{figure}
@@ -531,7 +529,7 @@
   % \clearpage
   \subsection{Parametric study method} \label{subsec:parametricStudy_computationalModel}
 
-    The model described in the previous subsections is implemented in a Python program that is read by the FEM software, ABAQUS$^{\textregistered}$ CAE. The program is fully parametrized, enabling the possibility of executing simulations for different values of the parameters introduced previously. This procedure consists on a parametric study procedure that is initiated when executing the python file \texttt{mainAbaqusParametricStudy.py}. This piece of code reads the parameters that belong to the parametric study by executing the file \texttt{setUpParametricStudy.py}. As part of the parametric study process, a computational model is built in ABAQUS$^{\textregistered}$, submitted for analysis using ABAQUS$^{\textregistered}$ Standard and post-processed by the complementary program \texttt{mainBuildAndExecuteWingBox.py}. The convergence of the simulation is controlled within the program \texttt{mainAbaqusParametricStudy.py} and it is able to re-run a simulation with slight variations in the mesh size and/or in artificial dissipation definition if convergence was not achieved. 
+    The model described in the previous subsections is implemented in a Python program that is read by the FEM software, ABAQUS$^{\textregistered}$ CAE. The program is fully parametrized, enabling the possibility of executing simulations for different values of the parameters introduced previously. This procedure consists on a parametric study procedure that is initiated when executing the python file \texttt{main\-Abaqus\-Parametric\-Study.py}. This piece of code reads the parameters that belong to the parametric study by executing the file \texttt{set\-Up\-Parametric\-Study.py}. As part of the parametric study process, a computational model is built in ABAQUS$^{\textregistered}$, submitted for analysis using ABAQUS$^{\textregistered}$ Standard and post-processed by the complementary program \texttt{main\-Build\-And\-Execute\-Wing\-Box.py}. The convergence of the simulation is controlled within the program \texttt{main\-Abaqus\-Parametric\-Study.py} and it is able to re-run a simulation with slight variations in the mesh size and/or in artificial dissipation definition if convergence was not achieved. 
 
     An schematic characterization of the program execution is shown the flow chart represented in Figure \ref{fig:flowChart}. The code written for this program can be found in Appendix \ref{appen:code}. 
 

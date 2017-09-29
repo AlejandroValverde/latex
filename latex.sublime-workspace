@@ -523,7 +523,7 @@
 			"file": "chapters/Aeroelastic.tex",
 			"settings":
 			{
-				"buffer_size": 9123,
+				"buffer_size": 11164,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -541,7 +541,7 @@
 			"file": "chapters/Introduction.tex",
 			"settings":
 			{
-				"buffer_size": 6452,
+				"buffer_size": 6543,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -550,7 +550,25 @@
 			"file": "chapters/Model.tex",
 			"settings":
 			{
-				"buffer_size": 52978,
+				"buffer_size": 53036,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "chapters/Results-model.tex",
+			"settings":
+			{
+				"buffer_size": 47313,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "chapters/Results-sim.tex",
+			"settings":
+			{
+				"buffer_size": 57423,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -559,7 +577,7 @@
 			"file": "chapters/Abstract_ETH.tex",
 			"settings":
 			{
-				"buffer_size": 2824,
+				"buffer_size": 2810,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -568,7 +586,7 @@
 			"file": "ETH_project.tex",
 			"settings":
 			{
-				"buffer_size": 4999,
+				"buffer_size": 4997,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -580,6 +598,23 @@
 				"buffer_size": 2108,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "settings/settingsProject_CMAS.tex",
+			"settings":
+			{
+				"buffer_size": 3147,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/H/private/code/test/project_Fanis.tex",
+			"settings":
+			{
+				"buffer_size": 5521,
+				"line_ending": "Unix"
 			}
 		},
 		{
@@ -654,6 +689,7 @@
 	],
 	"file_history":
 	[
+		"/D/ETH/code/latex/settings/cmasthesis_1.sty",
 		"/D/ETH/code/latex/chapters/Results-sim.tex",
 		"/D/ETH/code/latex/chapters/Results-model.tex",
 		"/D/ETH/code/latex/chapters/Model.tex",
@@ -780,8 +816,7 @@
 		"/C/Users/Alejandro/OneDrive/Documentos/Aprender/Python/learning 6.00.1/exam.py",
 		"/D/ETH/Python/abacus/workfolder/mainParametricStudy.py",
 		"/D/ETH/Python/abacus/workfolder/mainPostProc.py",
-		"/E/Salvado Seguridad Ubuntu 2/python/FunctionsCompareOutput.py",
-		"/E/Salvado Seguridad Ubuntu 2/python/MainCompareOutput.py"
+		"/E/Salvado Seguridad Ubuntu 2/python/FunctionsCompareOutput.py"
 	],
 	"find":
 	{
@@ -797,9 +832,18 @@
 	},
 	"find_state":
 	{
-		"case_sensitive": true,
+		"case_sensitive": false,
 		"find_history":
 		[
+			"Iter",
+			"Deformed wing model displaying the wing twist deformation",
+			"3",
+			"adaptation at each step",
+			"model",
+			"adaptation",
+			"Zürich",
+			"\\\"",
+			"Zürich",
 			"i",
 			"{i = 1}",
 			"box",
@@ -854,15 +898,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9123,
+						"buffer_size": 11164,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1109,
-								1109
+								10290,
+								10290
 							]
 						],
 						"settings":
@@ -872,10 +916,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1101.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -905,7 +949,7 @@
 						"translation.y": 1989.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 11,
 					"type": "text"
 				}
 			]
@@ -920,15 +964,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6452,
+						"buffer_size": 6543,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5952,
-								5952
+								5440,
+								5440
 							]
 						],
 						"settings":
@@ -936,10 +980,10 @@
 							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1079.0,
+						"translation.y": 689.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
@@ -948,15 +992,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 52978,
+						"buffer_size": 53036,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								23599,
-								23331
+								35,
+								35
 							]
 						],
 						"settings":
@@ -966,27 +1010,87 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2692.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
 					"buffer": 4,
-					"file": "chapters/Abstract_ETH.tex",
+					"file": "chapters/Results-model.tex",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2824,
+						"buffer_size": 47313,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2303,
-								2303
+								2851,
+								2979
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 988.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "chapters/Results-sim.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 57423,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								46,
+								46
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "chapters/Abstract_ETH.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2810,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2609,
+								21
 							]
 						],
 						"settings":
@@ -994,10 +1098,10 @@
 							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 168.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 5,
 					"type": "text"
 				}
 			]
@@ -1007,20 +1111,20 @@
 			"sheets":
 			[
 				{
-					"buffer": 5,
+					"buffer": 7,
 					"file": "ETH_project.tex",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4999,
+						"buffer_size": 4997,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1076,
-								1076
+								1020,
+								1020
 							]
 						],
 						"settings":
@@ -1029,10 +1133,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 312.0,
+						"translation.y": 325.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 4,
 					"type": "text"
 				}
 			]
@@ -1042,7 +1146,7 @@
 			"sheets":
 			[
 				{
-					"buffer": 6,
+					"buffer": 8,
 					"file": "settings/settingsProject_CMAS_custom.tex",
 					"semi_transient": false,
 					"settings":
@@ -1054,14 +1158,50 @@
 						"selection":
 						[
 							[
-								418,
-								418
+								1468,
+								1468
+							],
+							[
+								1749,
+								1749
+							],
+							[
+								1905,
+								1905
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage",
 							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 665.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "settings/settingsProject_CMAS.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3147,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								378,
+								343
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1071,7 +1211,35 @@
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 10,
+					"file": "/H/private/code/test/project_Fanis.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5521,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								268,
+								268
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
 					"file": "chapters/0.Nomenclature.tex",
 					"semi_transient": false,
 					"settings":
@@ -1095,7 +1263,7 @@
 						"translation.y": 1427.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 10,
 					"type": "text"
 				}
 			]
@@ -1141,13 +1309,13 @@
 		"cols":
 		[
 			0.0,
-			0.476792247849,
+			0.570114165657,
 			1.0
 		],
 		"rows":
 		[
 			0.0,
-			0.539274924472,
+			0.673682012027,
 			1.0
 		]
 	},
@@ -1202,7 +1370,7 @@
 		],
 		"width": 613.0
 	},
-	"selected_group": 1,
+	"selected_group": 0,
 	"settings":
 	{
 	},
